@@ -18,3 +18,8 @@ Issue [#19](https://github.com/edithatogo/Iatonoesis/issues/19). Stable task IDs
   - Depends on: T14.004, T00.006, T11.001.
   - Accept: Hold out environments, use PhysioNet only if site metadata verified; WILDS/FluSight alternative; estimate target performance vs statistical baseline.
   - Evidence: pending; record exact revision, commands, fixtures and outcomes.
+
+## Exploratory pilot evidence (not accepted)
+
+- [PR #26](https://github.com/edithatogo/Iatonoesis/pull/26), [protocol](../../../research/protocols/T18.001-counterexample-pilot.v0.1.0.md), [result and reproducibility receipt](../../../research/results/T18.001-exploratory-v0.1.0.md). Source/test blob identity verified against local execution. Eight-case budget; 36 held-out instances; boundary 83.93%, learned 80.09%, random 76.14%. Negative finding retained. T18.001 remains planned pending T00.002/003, T11.001 and hosted exact-head qualification. No clinical claim.
+- [PR #28](https://github.com/edithatogo/Iatonoesis/pull/28) advances CQL and other source metadata; T18.002 requires compatible translator/runtime, actual byte and reference qualification.
