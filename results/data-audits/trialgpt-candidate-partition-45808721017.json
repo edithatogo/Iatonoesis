@@ -1,0 +1,48 @@
+{
+  "algorithm": "component-size-descending, digest tie-break, largest remaining absolute target deficit; 60/20/20",
+  "assignment_sha256": "c5ed22e5ec003fd4259d58cc0eb11cbaa666373c8ab0bfe31559254090ebb8ad",
+  "components": 51,
+  "evaluation_admitted": false,
+  "group_disjoint_verified": true,
+  "limitations": [
+    "training flag semantics unresolved",
+    "model-assisted expert labels not blinded",
+    "component grouping only; near-duplicate audit and component-level rights pending",
+    "no row identifiers, labels, notes or model outputs published"
+  ],
+  "partitions": {
+    "calibration": {
+      "components": 13,
+      "criterion_missing": 1,
+      "rows": 203,
+      "training_false_only_components": 0,
+      "training_false_only_rows": 0,
+      "training_true": 165
+    },
+    "development": {
+      "components": 25,
+      "criterion_missing": 0,
+      "rows": 609,
+      "training_false_only_components": 0,
+      "training_false_only_rows": 0,
+      "training_true": 553
+    },
+    "test": {
+      "components": 13,
+      "criterion_missing": 0,
+      "rows": 203,
+      "training_false_only_components": 0,
+      "training_false_only_rows": 0,
+      "training_true": 163
+    }
+  },
+  "qualification": "not_qualified",
+  "rows": 1015,
+  "schema_version": "0.1.0",
+  "source_integrity": {
+    "bytes": 176088,
+    "sha256": "14c547184fac9b013cd17441fd028845b40150c76b022e58334f5494077e5234"
+  },
+  "source_revision": "7fca07b80914df31e0ab69f9f8fd4d3c6a06d020",
+  "status": "candidate_metadata_frozen"
+}
