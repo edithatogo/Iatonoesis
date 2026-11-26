@@ -1,0 +1,101 @@
+{
+  "schema_version": "0.2.0",
+  "task": "T18.001",
+  "status": "exploratory_executed_local",
+  "claim_boundary": "synthetic_only",
+  "source_revision": "013da8c6266c80abc599280c8433071d8d2ed37a",
+  "source_blob": "d0f01d2f79552bb8512886d6188202dc83e8928c",
+  "test_blob": "0d4bd610f2f31e8df400271038a0cbc3de9d090e",
+  "protocol_blob": "0c07cdfc17f7a6d62fbf83e1203f7d3d4b8db9fc",
+  "seed": 2401,
+  "test_instances": 54,
+  "test_rule_families": 6,
+  "distinct_within_instance_signatures": 369,
+  "training_label_rows": 10368,
+  "metric": "macro distinct non-equivalent signature detection fraction; random replicates averaged within instance",
+  "budgets": [
+    1,
+    2,
+    4,
+    8
+  ],
+  "arms": {
+    "random": [
+      0.338349,
+      0.541057,
+      0.753657,
+      0.899753
+    ],
+    "stratified_random": [
+      0.275689,
+      0.524545,
+      0.797984,
+      0.926101
+    ],
+    "boundary": [
+      0.307407,
+      0.58287,
+      0.7375,
+      0.979167
+    ],
+    "old_linear": [
+      0.307407,
+      0.58287,
+      0.7375,
+      0.921811
+    ],
+    "pairwise": [
+      0.307407,
+      0.509259,
+      0.860648,
+      0.979167
+    ],
+    "adaptive_coverage": [
+      0.307407,
+      0.509259,
+      0.860648,
+      0.979167
+    ],
+    "learned_no_feedback": [
+      0.449074,
+      0.606019,
+      0.812809,
+      0.925
+    ],
+    "learned_feedback": [
+      0.449074,
+      0.606019,
+      0.816049,
+      0.925
+    ],
+    "oracle_ceiling": [
+      0.603704,
+      0.912037,
+      1,
+      1
+    ]
+  },
+  "raw": {
+    "sha256": "66fcdda638df1f0955c771561160a53966cca43d4683450d52dc2306e9bfa3fb",
+    "bytes": 816100,
+    "command": "PYTHONPATH=src python -m iatonoesis.counterexample_followup --output followup-result.json",
+    "same_seed_byte_identical": true,
+    "retention": "raw generated locally; hosted replay artifact pending"
+  },
+  "environment": {
+    "python": "3.13.5",
+    "pytest": "9.0.2",
+    "isolated": true,
+    "local_tests_passed": 10,
+    "elapsed_seconds": 3.73
+  },
+  "primary_finding": "learned feedback inferior to deterministic pairwise and boundary at eight tests; no gain from feedback over learned no-feedback at eight; favourable low-budget exploratory signal",
+  "limitations": [
+    "not independent human labels",
+    "new families authored after first pilot",
+    "operator names and transformations held out, possible semantic overlap",
+    "matched test budgets, not total compute",
+    "feedback counts supplied by synthetic mutation harness",
+    "not hosted full suite or task acceptance"
+  ]
+}

@@ -1,0 +1,56 @@
+# Research-only synthetic replay. No external model or patient data.
+name: Synthetic counterexample replay
+on:
+  pull_request:
+    paths:
+      - 'src/iatonoesis/counterexample*.py'
+      - 'tests/test_counterexample*.py'
+      - 'research/protocols/T18.001*'
+      - 'research/results/T18.001*'
+      - 'results/exploratory/T18.001*'
+      - '.github/workflows/counterexample-replay.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'src/iatonoesis/counterexample*.py'
+      - 'tests/test_counterexample*.py'
+      - '.github/workflows/counterexample-replay.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: counterexample-replay-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  replay:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: "3.15.2"
+      - name: Regenerate both exploratory results twice
+        shell: bash
+        env:
+          PYTHONPATH: src
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts/counterexample
+          python --version > artifacts/counterexample/environment.txt
+          git rev-parse HEAD >> artifacts/counterexample/environment.txt
+          python -m iatonoesis.counterexample_pilot --output artifacts/counterexample/v0.1.0.json
+          python -m iatonoesis.counterexample_pilot --output /tmp/counterexample-v1-repeat.json
+          cmp artifacts/counterexample/v0.1.0.json /tmp/counterexample-v1-repeat.json
+          python -m iatonoesis.counterexample_followup --output artifacts/counterexample/v0.2.0.json
+          python -m iatonoesis.counterexample_followup --output /tmp/counterexample-v2-repeat.json
+          cmp artifacts/counterexample/v0.2.0.json /tmp/counterexample-v2-repeat.json
+          sha256sum artifacts/counterexample/*.json > artifacts/counterexample/SHA256SUMS
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: synthetic-counterexample-${{ github.sha }}
+          path: artifacts/counterexample/
+          if-no-files-found: error
+          retention-days: 30
