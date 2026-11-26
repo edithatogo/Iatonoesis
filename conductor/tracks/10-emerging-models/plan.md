@@ -26,3 +26,7 @@ Issue [#11](https://github.com/edithatogo/Iatonoesis/issues/11). Stable task IDs
   - Depends on: T10.003.
   - Accept: Verify citations and author proposals, learned prototypes, prompted/deterministic implementations; role boundaries and no first-ever claim.
   - Evidence: pending; record exact revision, commands, fixtures and outcomes.
+
+## 26 November measured-value and integration addendum (not accepted)
+
+[Evidence ledger and next gates](../../research-evidence-20261126-measured.md). T10.003/.004/.005: registry #43, neural/hybrid findings #44, SciFact #50 and still-pending six-frame independent comparisons. Canonical task acceptance unchanged.

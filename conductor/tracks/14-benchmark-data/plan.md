@@ -25,3 +25,7 @@ Issue [#15](https://github.com/edithatogo/Iatonoesis/issues/15). Stable task IDs
 - T14.002: group and freeze case/trial splits before testing; verify references and contamination.
 - T14.003: paired conventional and learned comparisons across two placements per core family; baseline first, no presumption that learned improves performance.
 - T14.004: retain exact run receipts, failed arms and release gates. [Design](../../../research/comparative-study.md); publication T13.003/T13.007 (#14). No acceptance yet.
+
+## 26 November measured-value and integration addendum (not accepted)
+
+[Evidence ledger and next gates](../../research-evidence-20261126-measured.md). T14.001–.004: #45 candidate freeze, #49 measured-value source/reference/metric receipts, PubTables image/word and independent admission still open. Canonical task acceptance unchanged.
