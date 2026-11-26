@@ -1,0 +1,39 @@
+name: Synthetic transportability replay
+on:
+  pull_request:
+    paths:
+      - 'src/iatonoesis/transportability_pilot.py'
+      - 'tests/test_transportability_pilot.py'
+      - '.github/workflows/transportability-replay.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  replay:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: "3.15.2"
+      - name: Reproduce synthetic results
+        env:
+          PYTHONPATH: src
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts/transportability
+          python --version > artifacts/transportability/environment.txt
+          git rev-parse HEAD >> artifacts/transportability/environment.txt
+          python -m iatonoesis.transportability_pilot --output artifacts/transportability/result.json
+          python -m iatonoesis.transportability_pilot --output /tmp/transportability-repeat.json
+          cmp artifacts/transportability/result.json /tmp/transportability-repeat.json
+          sha256sum artifacts/transportability/result.json > artifacts/transportability/SHA256SUMS
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: synthetic-transportability-${{ github.sha }}
+          path: artifacts/transportability/
+          if-no-files-found: error
+          retention-days: 30
