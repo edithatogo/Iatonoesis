@@ -1,0 +1,38 @@
+name: Synthetic neural core replay
+on:
+  pull_request:
+    paths:
+      - 'src/iatonoesis/neural_core.py'
+      - 'tests/test_neural_core.py'
+      - 'contracts/model-framing-candidates.v0.1.0.json'
+      - '.github/workflows/neural-core-replay.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  replay:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: "3.15.2"
+      - name: Run paired feature ablation
+        env:
+          PYTHONPATH: src
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts/neural
+          python --version > artifacts/neural/environment.txt
+          git rev-parse HEAD >> artifacts/neural/environment.txt
+          python -m iatonoesis.neural_core --revision "$(git rev-parse HEAD)" --receipt results/exploratory/core-family-suite-seed17.json --output artifacts/neural/result.json
+          sha256sum artifacts/neural/result.json > artifacts/neural/SHA256SUMS
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: synthetic-neural-core-${{ github.sha }}
+          path: artifacts/neural/
+          if-no-files-found: error
+          retention-days: 30

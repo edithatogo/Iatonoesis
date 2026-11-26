@@ -1,0 +1,303 @@
+{
+  "schema_version": "0.1.0",
+  "status": "candidate_unqualified",
+  "owners": {
+    "model_qualification": "T00.006 #1",
+    "framing": "T10.003 #11",
+    "benchmark": "T14.003 #15",
+    "publication": "T13 #14"
+  },
+  "design": {
+    "axes": [
+      "functional role",
+      "task formulation",
+      "architecture",
+      "training objective",
+      "prompt framing",
+      "dataset family",
+      "modality",
+      "resource budget",
+      "setting shift"
+    ],
+    "rules": [
+      "Preserve E01–E38 and B01–B16 IDs. Compare matched candidate pools, inputs and labels. New candidates do not create accepted experiments.",
+      "Hold out whole document/patient/rule/environment families; fit model and prompts only on development, choose thresholds on calibration, freeze before test. Do not select prompt variants by test outcomes.",
+      "Report exact revisions, data and reference hashes, weights and prompt hashes, inference parameters, train/inference costs, invalid schema/abstentions and failed arms. Distinguish task-trained specialist, domain-pretrained generalist, prompted role and formal method.",
+      "No weights or public clinical records uploaded without rights and governance review. No clinical use. Existing test reuse is exploratory."
+    ]
+  },
+  "models": [
+    {
+      "id": "M01",
+      "role": "layout",
+      "model": "microsoft/table-transformer-structure-recognition-v1.1-all",
+      "source": "https://huggingface.co/microsoft/table-transformer-structure-recognition-v1.1-all",
+      "reported_licence": "MIT; verify upstream weights and corpus terms",
+      "comparison": "table structure recognition; separate OCR and qualifier linkage; training overlap with PubTables/FinTabNet"
+    },
+    {
+      "id": "M02",
+      "role": "layout",
+      "model": "microsoft/layoutlmv3-base",
+      "source": "https://huggingface.co/microsoft/layoutlmv3-base",
+      "reported_licence": "CC-BY-NC-SA-4.0; verify allowed use",
+      "comparison": "word/region classifier, OCR-aligned bounding boxes; not a complete reader"
+    },
+    {
+      "id": "M03",
+      "role": "extractive",
+      "model": "urchade/gliner_small-v2.1",
+      "source": "https://huggingface.co/urchade/gliner_small-v2.1",
+      "reported_licence": "Apache-2.0 model card; verify revision",
+      "comparison": "typed entity spans vs token/span classifier; tuple relation linking separate"
+    },
+    {
+      "id": "M04",
+      "role": "retrieval",
+      "model": "Qwen/Qwen3-Embedding-0.6B",
+      "source": "https://huggingface.co/Qwen/Qwen3-Embedding-0.6B",
+      "reported_licence": "Apache-2.0 model card; verify revision",
+      "comparison": "uninstructed/instructed retrieval, fixed candidate budgets"
+    },
+    {
+      "id": "M05",
+      "role": "reranking",
+      "model": "Qwen/Qwen3-Reranker-0.6B",
+      "source": "https://huggingface.co/Qwen/Qwen3-Reranker-0.6B",
+      "reported_licence": "Apache-2.0 model card; verify revision",
+      "comparison": "query–candidate cross-encoder; fixed-pool recall/nDCG"
+    },
+    {
+      "id": "M06",
+      "role": "prompted_generalist",
+      "model": "Qwen/Qwen3-1.7B",
+      "source": "https://huggingface.co/Qwen/Qwen3-1.7B",
+      "reported_licence": "Apache-2.0 model card; verify revision",
+      "comparison": "same model crossed with F01–F06; thinking mode and generation budget fixed"
+    },
+    {
+      "id": "M07",
+      "role": "medical_domain_generalist",
+      "model": "google/medgemma-4b-it",
+      "source": "https://huggingface.co/google/medgemma-4b-it",
+      "reported_licence": "Health AI Developer Foundations terms; gated; not approved",
+      "comparison": "domain pretraining vs generalist, separate architecture/scale confounding"
+    },
+    {
+      "id": "M08",
+      "role": "graph",
+      "model": "relational graph neural network / graph attention",
+      "source": "https://arxiv.org/abs/1703.06103",
+      "reported_licence": "architecture only; qualify implementation",
+      "comparison": "message passing vs BFS and symbolic reachability; edge-type ablations"
+    },
+    {
+      "id": "M09",
+      "role": "decision_router_evidence",
+      "model": "regularised logistic/gradient boosting, compact NLI cross-encoder",
+      "source": "https://arxiv.org/abs/1603.02754",
+      "reported_licence": "architecture only; qualify dependencies",
+      "comparison": "calibrated scores, abstention and cost-sensitive routing"
+    },
+    {
+      "id": "M10",
+      "role": "state_reconstruction",
+      "model": "fitted AR/Kalman, GRU-D, masked temporal encoder",
+      "source": "https://doi.org/10.1038/s41598-018-24271-9",
+      "reported_licence": "methods only; qualify artifacts",
+      "comparison": "withheld observed measurement only; missingness, cohort shift"
+    },
+    {
+      "id": "M11",
+      "role": "information_acquisition",
+      "model": "Bayesian expected gain, learned marginal-gain and contextual bandit",
+      "source": "https://proceedings.mlr.press/v139/foster21a.html",
+      "reported_licence": "methods only; qualify artifacts",
+      "comparison": "same reconstruction model and sequential reveal; cost matching"
+    },
+    {
+      "id": "M12",
+      "role": "verification_counterexamples",
+      "model": "formal constraint solver, typed CQL/ELM, process reward/error localisation, symbolic-neural search",
+      "source": "https://github.com/cqframework/cql-execution",
+      "reported_licence": "qualify compatible runtime and all source rights",
+      "comparison": "independent executable reference; semantic deduplication; unknown is not false"
+    },
+    {
+      "id": "M13",
+      "role": "transportability",
+      "model": "source mean, kNN, covariate density-ratio and learned error estimators; conformal",
+      "source": "https://arxiv.org/abs/2201.04234",
+      "reported_licence": "methods only; verify exact precedent",
+      "comparison": "label-free performance estimation vs target-labelled validation; concept-shift negative controls"
+    },
+    {
+      "id": "M14",
+      "role": "core_feature_ablation",
+      "model": "repository CPU softmax linear and 16-unit tanh MLP",
+      "source": "src/iatonoesis/neural_core.py",
+      "reported_licence": "MIT repository code",
+      "comparison": "same prior features and labels, architecture effect only; post-hoc synthetic replay"
+    }
+  ],
+  "framings": [
+    {
+      "id": "F01",
+      "name": "direct typed judgment",
+      "instruction": "Using only the supplied case and allowed candidates, return the task's required typed result. If information is missing or contradictory, use the designated unknown/abstention value. Do not add unsupported facts."
+    },
+    {
+      "id": "F02",
+      "name": "evidence anchored",
+      "instruction": "First select exact source evidence IDs or span offsets that bear on the requested output. Then return the required typed result and those evidence IDs. Do not invent or paraphrase evidence as a quotation."
+    },
+    {
+      "id": "F03",
+      "name": "atomic condition decomposition",
+      "instruction": "Represent each required condition, exception and time/owner qualifier separately using the permitted schema. Mark each as supported, contradicted, or unknown. Aggregate by the provided task rule; do not replace unknown with false."
+    },
+    {
+      "id": "F04",
+      "name": "contrast and disconfirmation",
+      "instruction": "Compare each allowed candidate with its closest competing interpretation. Identify source-supported disqualifiers and missing prerequisites. Return the typed result plus only the allowed evidence IDs and short disconfirmation codes."
+    },
+    {
+      "id": "F05",
+      "name": "counterexample and boundary",
+      "instruction": "Find the minimal valid example that would distinguish the candidate from the reference rule within the supplied budget. Respect the allowed domain; return structured inputs and expected comparison, not fabricated execution feedback."
+    },
+    {
+      "id": "F06",
+      "name": "selective decision",
+      "instruction": "Return the typed result only if the supplied evidence meets the specified decision gate. Otherwise return the designated abstention code and missing evidence type. Give a probability only if the schema requires it; do not claim calibration."
+    }
+  ],
+  "datasets": [
+    {
+      "id": "D01",
+      "source": "https://github.com/microsoft/table-transformer",
+      "name": "PubTables-1M and FinTabNet.c",
+      "status": "PubTables annotations/filelists byte-audited #36; images/words and independent family holdout pending",
+      "roles": [
+        "layout"
+      ],
+      "limits": "Table Transformer training overlap; separate relation/footnote gold and external document family"
+    },
+    {
+      "id": "D02",
+      "source": "https://github.com/ncbi-nlp/TrialGPT",
+      "name": "TrialGPT criterion labels and ranking cohorts",
+      "status": "criterion Parquet verified #36; component rights/reference/split freeze pending",
+      "roles": [
+        "extractive",
+        "decision",
+        "reranking",
+        "evidence"
+      ],
+      "limits": "No GPT labels as predictor input; group patient/trial connected components; ranking corpus separately qualify"
+    },
+    {
+      "id": "D03",
+      "source": "https://github.com/chanzuckerberg/MedMentions",
+      "name": "MedMentions",
+      "status": "new candidate only",
+      "roles": [
+        "extractive",
+        "graph"
+      ],
+      "limits": "Reported CC0 annotations; separately verify abstract/UMLS component rights; document split and entity linking distinct"
+    },
+    {
+      "id": "D04",
+      "source": "https://github.com/allenai/scifact",
+      "name": "SciFact",
+      "status": "existing candidate, broaden task",
+      "roles": [
+        "evidence",
+        "reranking"
+      ],
+      "limits": "Public test gold not provided; freeze development-derived evaluation or official evaluation separately"
+    },
+    {
+      "id": "D05",
+      "source": "https://physionet.org/content/challenge-2019/1.0.0/",
+      "name": "PhysioNet 2019",
+      "status": "bounded source bytes audited #41, not full cohort qualified",
+      "roles": [
+        "state",
+        "information",
+        "transportability"
+      ],
+      "limits": "A/B cohort, not verified hospital/site; observed masked value, not latent truth"
+    },
+    {
+      "id": "D06",
+      "source": "https://physionet.org/content/challenge-2012/1.0.0/",
+      "name": "PhysioNet 2012",
+      "status": "new candidate only",
+      "roles": [
+        "state",
+        "transportability"
+      ],
+      "limits": "ODC Attribution; different sampling and variables, harmonise units/time; audit overlap with other ICU sources"
+    },
+    {
+      "id": "D07",
+      "source": "https://physionet.org/content/eicu-crd-demo/2.0.1/",
+      "name": "eICU demo",
+      "status": "new candidate only",
+      "roles": [
+        "state",
+        "transportability"
+      ],
+      "limits": "ODbL, demo not necessarily representative; actual hospital grouping and rights verify"
+    },
+    {
+      "id": "D08",
+      "source": "https://physionet.org/content/mimic-iv-ed-demo/2.2/",
+      "name": "MIMIC-IV-ED demo",
+      "status": "new candidate integration smoke",
+      "roles": [
+        "state",
+        "process"
+      ],
+      "limits": "100 subjects; ODbL and actual component rights; not powered external validation; full restricted datasets excluded"
+    },
+    {
+      "id": "D09",
+      "source": "https://github.com/cdcepi/FluSight-forecast-hub",
+      "name": "FluSight forecast vintages",
+      "status": "existing candidate, transportability expansion",
+      "roles": [
+        "world",
+        "ascertainment",
+        "transportability"
+      ],
+      "limits": "Freeze vintage/season/geographic groups; attribution; forecast targets not underlying incidence"
+    },
+    {
+      "id": "D10",
+      "source": "https://github.com/cqframework/cql-execution",
+      "name": "CQL upstream conformance and independently authored mutations",
+      "status": "48 scalar cases frozen #33 and restricted replay #37; compatible engine pending",
+      "roles": [
+        "verification",
+        "counterexample"
+      ],
+      "limits": "Do not train on test-only fixtures; full translator/runtime and held-out mutation families separate"
+    },
+    {
+      "id": "D11",
+      "source": "https://www.equator-network.org/",
+      "name": "EQUATOR directory census",
+      "status": "separate #40 lane",
+      "roles": [
+        "layout",
+        "extractive",
+        "evidence",
+        "verification"
+      ],
+      "limits": "Directory census distinct from permitted full-text analysis; rights gate; guideline-family grouping"
+    }
+  ]
+}
