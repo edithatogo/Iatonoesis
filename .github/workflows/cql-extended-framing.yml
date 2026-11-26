@@ -5,6 +5,7 @@ on:
       - 'src/iatonoesis/cql_extended.py'
       - 'tests/test_cql_extended.py'
       - 'research/tools/cql-extended-runtime.cjs'
+      - 'research/tools/cql-extended-runtime.test.cjs'
       - 'research/protocols/cql-extended-six-framing-v0.1.0.md'
       - '.github/workflows/cql-extended-framing.yml'
   workflow_dispatch:
@@ -44,6 +45,7 @@ jobs:
           test "$(git -C upstream-cql rev-parse HEAD)" = 1991335e7ad490a8db88a05dd7f03dc3eecbda6d
           python -m iatonoesis.cql_extended freeze upstream-cql/test/spec-tests/xml artifacts/extended
           cp upstream-cql/LICENSE artifacts/extended/LICENSE-upstream
+          printf '%s\n' '920843bd12efb3e51c0ecd8b0bcccd55f59c8d0dea950e9c6e9c1c515a0765a6  artifacts/extended/freeze.json' '3186c15cc60556f184b2d33805467dd9ff611f95c9665a65fbb05c976ac1f776  artifacts/extended/IatonoesisExtendedCases.cql' | sha256sum -c -
           sha256sum artifacts/extended/freeze.json artifacts/extended/IatonoesisExtendedCases.cql > artifacts/extended/FROZEN-SHA256SUMS
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020
         if: matrix.mode == 'runtime'
@@ -54,6 +56,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          node --test research/tools/cql-extended-runtime.test.cjs
           test "$(git hash-object upstream-cql/package-lock.json)" = aafe981ccaefddf7c4a32b727cd5bf7735ccd295
           work="$RUNNER_TEMP/cql-extended"
           mkdir -p "$work/spec-tests/cql"
@@ -80,8 +83,18 @@ jobs:
             sleep "$((20 * attempt))"
           done
           test "$translated" = true
-          (cd upstream-cql && npm ci --ignore-scripts && npm run build)
-          node research/tools/cql-extended-runtime.cjs "$GITHUB_WORKSPACE/upstream-cql" "$work/spec-tests/cql/IatonoesisExtendedCases.json" artifacts/extended/freeze.json artifacts/extended/runtime.json
+          cp "$work/spec-tests/cql/IatonoesisExtendedCases.json" artifacts/extended/compiled-elm.json
+          sha256sum artifacts/extended/compiled-elm.json > artifacts/extended/ELM-SHA256SUMS
+          (cd upstream-cql && npm ci --ignore-scripts && npm run build) 2>&1 | tee artifacts/extended/npm-install-build.log
+          node research/tools/cql-extended-runtime.cjs "$GITHUB_WORKSPACE/upstream-cql" artifacts/extended/compiled-elm.json artifacts/extended/freeze.json artifacts/extended/runtime.json
+      - name: Record and gate dependency security independently
+        if: always() && matrix.mode == 'runtime'
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts/extended
+          # Do not mutate the pinned lock or suppress high/critical audit failures.
+          (cd upstream-cql && npm audit --audit-level=high --json) > artifacts/extended/npm-audit.json
       - name: Execute pinned local compact model cross
         if: matrix.mode == 'framing'
         run: |
