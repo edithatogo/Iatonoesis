@@ -1,0 +1,39 @@
+name: MONDO temporal graph replay
+on:
+  pull_request:
+    paths:
+      - 'src/iatonoesis/mondo_temporal.py'
+      - 'tests/test_mondo_temporal.py'
+      - 'research/protocols/mondo-temporal-graph-ranking-v0.1.0.md'
+      - '.github/workflows/mondo-temporal-replay.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  temporal-graph:
+    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    env:
+      PYTHONPATH: src
+      PYTHONHASHSEED: '0'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.13.5'
+      - name: Execute pinned external snapshots
+        run: |
+          set -euo pipefail
+          python -m iatonoesis.mondo_temporal --output mondo-temporal.json
+          sha256sum mondo-temporal.json
+          cat mondo-temporal.json
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        if: always()
+        with:
+          name: mondo-temporal-aggregate
+          path: mondo-temporal.json
+          if-no-files-found: error
+          retention-days: 30
