@@ -1,0 +1,174 @@
+{
+  "scope": "independent_author_release_assertion_prediction_not_clinical_truth",
+  "schema_version": "0.1.0",
+  "source_commit": "7cfb052a402fde688190d6304abf923fd9a39ee6",
+  "source": "MONDO Disease Ontology, Monarch Initiative, CC BY 4.0",
+  "source_reference": "https://doi.org/10.1093/genetics/iyaf215",
+  "workflow_run": 45831877769,
+  "artifact_id": 15122179337,
+  "artifact_zip_sha256": "b938ed5935a53cfe6532c43b6a8980a03f0a8247017dd445d920e8c6981e4f13",
+  "aggregate_json_sha256": "0151a91a5f276c5b74c86a6b8f131c01f19fba003a936ae4e56e75307bc04a3b",
+  "artifact_blob_sha1": "bf62797d383ba35fa53beb498f7f31e0a399a448",
+  "local_tests": 7,
+  "hosted_initial_patch_coverage": 98.39,
+  "partitions": {
+    "development": {
+      "queries": 69,
+      "eligible_edges": 78,
+      "excluded_new_endpoint_edges": 2614,
+      "new_assertions": 2692,
+      "manifest_sha256": "880323f615848b79f12bba45e601f860fa54adf9625889fc8107e770b985d271"
+    },
+    "calibration": {
+      "queries": 67,
+      "eligible_edges": 70,
+      "excluded_new_endpoint_edges": 4751,
+      "new_assertions": 4821,
+      "manifest_sha256": "739cf7a392dd5506863b846d729c2b3b76969eb3d71270bf06b0ed218e665d15"
+    },
+    "test": {
+      "queries": 383,
+      "eligible_edges": 475,
+      "excluded_new_endpoint_edges": 194,
+      "new_assertions": 669,
+      "manifest_sha256": "f84399bdc14da0b904997998a0b00320eb175a2b66e05d74c625333364fa7be5"
+    }
+  },
+  "test_seen_development_children": 1,
+  "test_seen_calibration_children": 1,
+  "pool_candidates": 12256,
+  "pool_hits": 162,
+  "pool_recall": 0.3410526315789474,
+  "candidate_generation_seconds": 17.06742554699997,
+  "arms": [
+    [
+      "lexical",
+      0.11899927091623695,
+      31,
+      57,
+      75,
+      [
+        13,
+        27,
+        30,
+        31
+      ],
+      0.0032804819999796564,
+      null
+    ],
+    [
+      "topology",
+      0.08937718898073684,
+      9,
+      60,
+      110,
+      [
+        5,
+        6,
+        9,
+        9
+      ],
+      0.003200892999984717,
+      null
+    ],
+    [
+      "hybrid_rule",
+      0.11972844539786136,
+      26,
+      69,
+      97,
+      [
+        12,
+        19,
+        26,
+        26
+      ],
+      0.005066787999965072,
+      null
+    ],
+    [
+      "linear",
+      0.1733850236063275,
+      45,
+      96,
+      119,
+      [
+        12,
+        24,
+        40,
+        45
+      ],
+      0.015982682000014847,
+      0.0413262179999947
+    ],
+    [
+      "neural",
+      0.18041596455684988,
+      47,
+      101,
+      129,
+      [
+        12,
+        23,
+        38,
+        47
+      ],
+      0.11891132099998458,
+      0.34140534599998773
+    ],
+    [
+      "no_graph",
+      0.12472833149279,
+      33,
+      56,
+      81,
+      [
+        15,
+        25,
+        32,
+        33
+      ],
+      0.12443235800003549,
+      0.3513352219999888
+    ]
+  ],
+  "arm_columns": [
+    "arm",
+    "mrr",
+    "hits_at_1",
+    "hits_at_5",
+    "hits_at_10",
+    "confirmed_at_95_191_287_383_reviews",
+    "calibration_plus_test_scoring_seconds",
+    "training_seconds"
+  ],
+  "paired_mrr": {
+    "linear_minus_hybrid_rule": [
+      0.05365657820846614,
+      0.035104048490033235,
+      0.07640744753663758
+    ],
+    "neural_minus_hybrid_rule": [
+      0.060687519158988526,
+      0.03956028641902867,
+      0.08410376326801076
+    ],
+    "neural_minus_no_graph": [
+      0.05568763306405987,
+      0.03377869496281622,
+      0.08252417135581264
+    ]
+  },
+  "calibration": {
+    "all_thresholds": null,
+    "reason": "No arm satisfied exploratory Wilson-bound calibration criterion"
+  },
+  "limitations": [
+    "Conditional retrospective ranking on changed children only; no discovery of all change/no-change queries",
+    "Only existing endpoints; new-endpoint cases excluded; temporal identities can recur",
+    "Published later assertion absence is not proven clinical error; no clinical or independent model/pretraining claim",
+    "Graph-enhanced listwise scorer, not a GNN or pretrained architecture; same candidate and review budgets, not matched compute",
+    "Small early development/calibration sets, historical source shift, query bootstrap ignores shared ontology dependencies",
+    "Training and evaluation source licenses are not equivalent to clinical authorization"
+  ]
+}

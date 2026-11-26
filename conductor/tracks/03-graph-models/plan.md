@@ -54,3 +54,7 @@ Issue [#4](https://github.com/edithatogo/Iatonoesis/issues/4). Stable task IDs; 
   - Depends on: T03.012, T11.001.
   - Accept: double-counted cohort; data custodian verifies; paired uncertainty, calibration/abstentions, viable questions and acquisition effort; retain negative findings.
   - Evidence: pending; record exact revision, commands, fixtures and outcomes.
+
+## External temporal assertion replay (not task acceptance)
+
+[Protocol](../../../research/protocols/mondo-temporal-graph-ranking-v0.1.0.md) and [executed results](../../../research/results/T03-mondo-temporal-graph-v0.1.0.md) (#64): four hash-verified MONDO releases, 383 test children and 475 new assertions between existing nodes, pool recall 162/475. Learned listwise graph-feature MLP MRR .1804 versus hybrid rules .1197 and graph-feature ablation .1247. No calibration threshold qualified. Conditional ontology curation analogue, not GNN, pretrained model or clinical reference admission; canonical tasks remain open.
