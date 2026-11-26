@@ -1,0 +1,58 @@
+{
+  "scope": "duplicate_quarantined_public_recording_process_benchmark",
+  "pr": 63,
+  "run": 45835050732,
+  "artifact": 15124447542,
+  "execution_commit": "2bd8bec8785c8e6af17fdcd27271e47e8b12d637",
+  "merge": "7cc8e210e26375f8e6827cd049db36f1d902ee4e",
+  "archive_sha256": "7c31a03ba3cbaaf36682c37565c018bd91bd06d47c74be164b1d5746ccf96167",
+  "result_sha256": "9f5b05f0774ef4dbece141d344710a4493937a53b98d1801b64fad6cbce2f7c3",
+  "manifest_sha256": "7b145302046c277d4d814e2ad7187d10fc377c2ec2ac844e74cb62c53286c7da",
+  "source_counts": {
+    "A": 4000,
+    "B": 4000,
+    "identity_duplicate_groups": 0,
+    "content_duplicate_groups": 1,
+    "quarantined": 2,
+    "development": 3212,
+    "calibration": 787,
+    "test": 3999
+  },
+  "archive_pins": {
+    "A": "8cb250f179cd0952b4b9ebcf8954b63d70383131670fac1cfee13deaa13ca920",
+    "B": "b1637a2a423a8e76f8f087896cfc5fdf28f88519e1f4e874fbda69b2a64dac30"
+  },
+  "eligible_observed_test": {
+    "1": 3665,
+    "3": 3661,
+    "6": 3643
+  },
+  "metrics": {
+    "columns": [
+      "brier_180",
+      "hour_bin_log_loss"
+    ],
+    "constant_exponential": [
+      0.02973082767815355,
+      0.44434727533489266
+    ],
+    "empirical_bucket": [
+      0.01713997527684153,
+      0.2582516877871119
+    ],
+    "marked_exponential": [
+      0.019680103099305728,
+      0.30067073270806377
+    ],
+    "timing_exponential": [
+      0.020635060355251682,
+      0.3080473946467768
+    ]
+  },
+  "limitations": [
+    "not full marked recurrent point process",
+    "quarantine exact source identity/content only, no patient-level linkage or site independence",
+    "observational recording not clinical need",
+    "no institutional determination or canonical acceptance"
+  ]
+}

@@ -22,3 +22,7 @@ Contracted, implemented, executed, scientifically validated and externally autho
 ## Frontier replication extension (not accepted)
 
 [Role and dataset extension](../research/frontier-replication-extension.v0.1.0.md). Frontier role and independent replication extension, preserving canonical task IDs and separate evidence states.
+
+## Observation and simulation evidence (not accepted)
+
+[Observation, source qualification and simulation evidence](research-evidence-20261126-observation-simulation.md) — T00/T10/T14–T18; verified real-data and finite simulation evidence, failed sources and next gates.
