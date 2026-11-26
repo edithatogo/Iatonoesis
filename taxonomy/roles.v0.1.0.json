@@ -11,7 +11,12 @@
       "outputs": "structured layout and qualifier links",
       "classification": "established baseline role",
       "precedent": null,
-      "empirical_status": "planned"
+      "empirical_status": "planned",
+      "applications": [
+        "E01",
+        "E02",
+        "E03"
+      ]
     },
     {
       "role_id": "R02",
@@ -22,7 +27,12 @@
       "outputs": "provenanced spans",
       "classification": "established baseline role",
       "precedent": null,
-      "empirical_status": "planned"
+      "empirical_status": "planned",
+      "applications": [
+        "E04",
+        "E05",
+        "E06"
+      ]
     },
     {
       "role_id": "R03",
@@ -33,7 +43,12 @@
       "outputs": "relation scores or graph candidates",
       "classification": "established baseline role",
       "precedent": null,
-      "empirical_status": "planned"
+      "empirical_status": "planned",
+      "applications": [
+        "E07",
+        "E08",
+        "E09"
+      ]
     },
     {
       "role_id": "R04",
@@ -44,7 +59,12 @@
       "outputs": "judgement or action/abstention",
       "classification": "established baseline role",
       "precedent": null,
-      "empirical_status": "planned"
+      "empirical_status": "planned",
+      "applications": [
+        "E10",
+        "E11",
+        "E12"
+      ]
     },
     {
       "role_id": "R05",
@@ -55,7 +75,12 @@
       "outputs": "ordered candidates",
       "classification": "established baseline role",
       "precedent": null,
-      "empirical_status": "planned"
+      "empirical_status": "planned",
+      "applications": [
+        "E13",
+        "E14",
+        "E15"
+      ]
     },
     {
       "role_id": "R06",
@@ -66,7 +91,12 @@
       "outputs": "component allocation",
       "classification": "established baseline role",
       "precedent": null,
-      "empirical_status": "planned"
+      "empirical_status": "planned",
+      "applications": [
+        "E16",
+        "E17",
+        "E18"
+      ]
     },
     {
       "role_id": "R07",
@@ -77,7 +107,12 @@
       "outputs": "support/quality assessment",
       "classification": "established baseline role",
       "precedent": null,
-      "empirical_status": "planned"
+      "empirical_status": "planned",
+      "applications": [
+        "E19",
+        "E20",
+        "E21"
+      ]
     },
     {
       "role_id": "R08",
@@ -88,7 +123,12 @@
       "outputs": "validity assessment",
       "classification": "established baseline role",
       "precedent": null,
-      "empirical_status": "planned"
+      "empirical_status": "planned",
+      "applications": [
+        "E22",
+        "E23",
+        "E24"
+      ]
     },
     {
       "role_id": "R09",
@@ -99,7 +139,10 @@
       "outputs": "state estimate with uncertainty",
       "classification": "healthcare formulation; state estimation precedent",
       "precedent": "LeCun 2022; EDDI, Ma et al. 2019",
-      "empirical_status": "planned"
+      "empirical_status": "planned",
+      "applications": [
+        "E25"
+      ]
     },
     {
       "role_id": "R10",
@@ -110,7 +153,10 @@
       "outputs": "distribution of future states",
       "classification": "author-proposed general role; learned prototypes",
       "precedent": "LeCun 2022; V-JEPA 2, Assran et al. 2025",
-      "empirical_status": "planned"
+      "empirical_status": "planned",
+      "applications": [
+        "E26"
+      ]
     },
     {
       "role_id": "R11",
@@ -121,7 +167,10 @@
       "outputs": "expected incremental value and cost",
       "classification": "learned/hybrid precedent",
       "precedent": "EDDI, Ma et al. 2019",
-      "empirical_status": "planned"
+      "empirical_status": "planned",
+      "applications": [
+        "E27"
+      ]
     },
     {
       "role_id": "R12",
@@ -132,7 +181,10 @@
       "outputs": "feasibility, missing prerequisites and uncertainty",
       "classification": "healthcare hypothesis; learned robotics precedent",
       "precedent": "SayCan, Ahn et al. 2022",
-      "empirical_status": "planned"
+      "empirical_status": "planned",
+      "applications": [
+        "E28"
+      ]
     },
     {
       "role_id": "R13",
@@ -143,7 +195,10 @@
       "outputs": "time-dependent probability of successful recovery",
       "classification": "original formulation; adjacent process prediction",
       "precedent": "Tax et al. 2017; Fox et al. 2007",
-      "empirical_status": "planned"
+      "empirical_status": "planned",
+      "applications": [
+        "E29"
+      ]
     },
     {
       "role_id": "R14",
@@ -154,7 +209,10 @@
       "outputs": "next experimental design",
       "classification": "learned prototype precedent",
       "precedent": "Foster et al. 2021, Deep Adaptive Design",
-      "empirical_status": "planned"
+      "empirical_status": "planned",
+      "applications": [
+        "E30"
+      ]
     },
     {
       "role_id": "R15",
@@ -165,7 +223,10 @@
       "outputs": "detection/reporting process and uncertainty",
       "classification": "statistical precedent; specialist hypothesis",
       "precedent": "McGough et al. 2020, NobBS",
-      "empirical_status": "planned"
+      "empirical_status": "planned",
+      "applications": [
+        "E31"
+      ]
     },
     {
       "role_id": "R16",
@@ -176,7 +237,10 @@
       "outputs": "branching/warm start proposal",
       "classification": "learned prototype precedent",
       "precedent": "Gasse et al. 2019",
-      "empirical_status": "planned"
+      "empirical_status": "planned",
+      "applications": [
+        "E32"
+      ]
     },
     {
       "role_id": "R17",
@@ -187,7 +251,10 @@
       "outputs": "candidate constraints for ratification",
       "classification": "established hybrid precedent",
       "precedent": "Tsouros et al., ML-guided interactive constraint acquisition",
-      "empirical_status": "planned"
+      "empirical_status": "planned",
+      "applications": [
+        "E33"
+      ]
     },
     {
       "role_id": "R18",
@@ -198,7 +265,10 @@
       "outputs": "candidate contributory pathways",
       "classification": "research task; healthcare hypothesis",
       "precedent": "Zhang et al. 2025, Which Agent Causes Task Failures and When?",
-      "empirical_status": "planned"
+      "empirical_status": "planned",
+      "applications": [
+        "E34"
+      ]
     },
     {
       "role_id": "R19",
@@ -209,7 +279,10 @@
       "outputs": "valid inputs exposing defects",
       "classification": "learned and prompted precedent",
       "precedent": "Perez et al. 2022, Red Teaming Language Models with Language Models",
-      "empirical_status": "planned"
+      "empirical_status": "planned",
+      "applications": [
+        "E35"
+      ]
     },
     {
       "role_id": "R20",
@@ -220,7 +293,10 @@
       "outputs": "target performance estimate and abstention",
       "classification": "statistical precedent; integrated hypothesis",
       "precedent": "Garg et al. 2022; Subbaswamy et al. 2021",
-      "empirical_status": "planned"
+      "empirical_status": "planned",
+      "applications": [
+        "E36"
+      ]
     },
     {
       "role_id": "R21",
@@ -231,7 +307,10 @@
       "outputs": "proposed update/closure with provenance",
       "classification": "healthcare hypothesis; learned memory precedent",
       "precedent": "Memory-R1, Yan et al. 2025",
-      "empirical_status": "planned"
+      "empirical_status": "planned",
+      "applications": [
+        "E37"
+      ]
     },
     {
       "role_id": "R22",
@@ -242,7 +321,10 @@
       "outputs": "marginal scientific value",
       "classification": "learned precedent; portfolio adaptation",
       "precedent": "Yoon et al. 2020, DVRL",
-      "empirical_status": "planned"
+      "empirical_status": "planned",
+      "applications": [
+        "E38"
+      ]
     }
   ]
 }

@@ -16,7 +16,8 @@ def programme():
 def test_initial_programme():
     data = programme()
     validate(data)
-    assert len(data["applications"]) == 24
+    assert [a["id"] for a in data["applications"]] == [f"E{i:02}" for i in range(1, 39)]
+    assert len(data["tracks"]) == 20
     assert [x["id"] for x in ready(data)] == ["T00.001"]
 
 
@@ -54,3 +55,18 @@ def test_next_task_requires_accepted_prerequisite():
     first["status"] = "accepted"
     first["evidence"] = [{"commit": "a" * 40, "command": "fixture", "outcome": "pass"}]
     assert [x["id"] for x in ready(data)] == ["T00.002"]
+
+
+def test_taxonomy_and_issue_registry_cover_programme():
+    data = programme()
+    registry = json.loads((ROOT / "contracts/project/conductor-issues.v1.json").read_text())
+    taxonomy = json.loads((ROOT / "taxonomy/roles.v0.1.0.json").read_text())
+    assert len(taxonomy["roles"]) == 22
+    assert {app for role in taxonomy["roles"] for app in role["applications"]} == {a["id"] for a in data["applications"]}
+    assert registry["issues"] == [{"issue": t["issue"], "track": t["slug"], "task_ids": [x["id"] for x in t["tasks"]]} for t in data["tracks"]]
+    for t in data["tracks"]:
+        folder = ROOT / "conductor" / "tracks" / t["slug"]
+        meta = json.loads((folder / "metadata.json").read_text())
+        assert meta["issue"] == t["issue"]
+        assert all(task["id"] in (folder / "plan.md").read_text() for task in t["tasks"])
+        assert (folder / "spec.md").is_file()
