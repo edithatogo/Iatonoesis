@@ -1,0 +1,140 @@
+{
+  "schema_version": "0.1.0",
+  "review_date": "2026-11-26",
+  "track_task": "T14.001",
+  "issue": 15,
+  "scope": "Primary-source metadata and expected integrity only. No downloaded data bytes, authorized ingestion, split qualification or clinical evidence. Do not automatically promote any record to approved.",
+  "sources": [
+    {
+      "key": "physionet-sepsis-2019",
+      "tasks": [
+        "T15.001",
+        "T16.001",
+        "T18.004"
+      ],
+      "source": "https://physionet.org/content/challenge-2019/1.0.0/",
+      "revision": "1.0.0",
+      "doi": "10.13026/v64v-d857",
+      "source_licence": "CC-BY-4.0",
+      "licence_evidence": "https://physionet.org/content/challenge-2019/view-license/1.0.0/",
+      "access": "open subject to licence",
+      "expected_units": {
+        "training_setA": 20336,
+        "training_setB": 20000,
+        "total_subject_files": 40336,
+        "columns": 41
+      },
+      "expected_sha256": null,
+      "actual_sha256": null,
+      "source_status": "version_and_licence_confirmed",
+      "acquisition_status": "not_acquired",
+      "qualification_status": "not_qualified",
+      "limitations": [
+        "one PSV per subject; rows represent hours, NaN denotes unrecorded measurement",
+        "SepsisLabel is shifted six hours relative to defined onset; not an observed diagnosis timestamp",
+        "Unit1/Unit2 are ICU type not verified hospital site; treat A/B as cohort partitions unless independently confirmed",
+        "mask observed values only; do not assume latent disease states or intervention outcomes; no future measurements in input"
+      ]
+    },
+    {
+      "key": "trialgpt-criterion",
+      "tasks": [
+        "T14.001",
+        "T14.002"
+      ],
+      "benchmarks": [
+        "B09",
+        "B14"
+      ],
+      "source": "https://huggingface.co/datasets/ncbi/TrialGPT-Criterion-Annotations/commit/7fca07b80914df31e0ab69f9f8fd4d3c6a06d020",
+      "revision": "7fca07b80914df31e0ab69f9f8fd4d3c6a06d020",
+      "file": "data/train-00000-of-00001.parquet",
+      "download": "https://huggingface.co/datasets/ncbi/TrialGPT-Criterion-Annotations/resolve/7fca07b80914df31e0ab69f9f8fd4d3c6a06d020/data/train-00000-of-00001.parquet",
+      "expected_sha256": "14c547184fac9b013cd17441fd028845b40150c76b022e58334f5494077e5234",
+      "expected_bytes": 176088,
+      "expected_rows": 1015,
+      "expected_columns": 14,
+      "actual_sha256": null,
+      "source_licence": "Dataset card names public-domain, generic Hub licence tag other",
+      "licence_evidence": "https://huggingface.co/datasets/ncbi/TrialGPT-Criterion-Annotations/blob/main/LICENSE",
+      "source_status": "historical_immutable_revision_and_lfs_digest_confirmed",
+      "acquisition_status": "download_inaccessible_in_chat_environment",
+      "qualification_status": "not_qualified",
+      "limitations": [
+        "Hub commit is an observed historical immutable snapshot; no assertion current main still points to it",
+        "published LFS oid is an expected digest not local verification",
+        "underlying vignette and source component rights require resolution",
+        "exclude model outputs and gold labels from input; independently assess patient/trial overlap, exact label vocabulary, provenance and anchoring bias"
+      ]
+    },
+    {
+      "key": "hl7-cql-specification",
+      "tasks": [
+        "T18.002"
+      ],
+      "source": "https://cql.hl7.org/",
+      "revision": "2.0.0 R2 STU 1, published 2026-07-29",
+      "repository": "https://github.com/HL7/cql/tree/2e191f8f2f96892c1c33fdcdf2f1d210f9df201f",
+      "observed_repository_head": "2e191f8f2f96892c1c33fdcdf2f1d210f9df201f",
+      "source_status": "specification_version_confirmed",
+      "qualification_status": "not_qualified",
+      "limitations": [
+        "published standard version and observed source head not assumed equivalent",
+        "verify rights per copied example or test; do not redistribute protected standard text or third-party clinical content"
+      ]
+    },
+    {
+      "key": "cql-execution",
+      "tasks": [
+        "T18.002",
+        "T17.002"
+      ],
+      "source": "https://github.com/cqframework/cql-execution/tree/e87e3fa8a3802c69a760b2583d2306d7c66d9899",
+      "revision": "e87e3fa8a3802c69a760b2583d2306d7c66d9899",
+      "package_version": "4.0.0-beta.1",
+      "source_licence": "Apache-2.0",
+      "licence_blob": "23ecd91aff12f9c991b07fff3c41f7940417aa9c",
+      "fixture_candidates": [
+        {
+          "path": "test/spec-tests/cql/CqlLogicalOperatorsTest.cql",
+          "git_blob": "d67d11d5a0acc65420dae233cb2580f87aed1651"
+        },
+        {
+          "path": "test/spec-tests/cql/CqlConditionalOperatorsTest.cql",
+          "git_blob": "277a1d8e53e44c82626c74495d24d71d14b9ef8b"
+        },
+        {
+          "path": "test/spec-tests/cql/CqlComparisonOperatorsTest.cql",
+          "git_blob": "d19c842f28eecfcd94c1a889b246e13972971c0c"
+        },
+        {
+          "path": "test/spec-tests/cql/CqlNullologicalOperatorsTest.cql",
+          "git_blob": "a42895999931cdcb6699125824717946963e70af"
+        }
+      ],
+      "source_status": "repository_head_licence_and_fixture_git_objects_observed",
+      "qualification_status": "not_qualified",
+      "limitations": [
+        "observed source head is beta, not qualified runtime selection",
+        "fixtures reflect CQL 1.4.0 or other declared library versions; validate exact compatibility",
+        "verify per-fixture rights, exact bytes and translator/runtime conformance; don't equate implementation output with independent ground truth"
+      ]
+    },
+    {
+      "key": "cql-compiler",
+      "tasks": [
+        "T18.002"
+      ],
+      "source": "https://github.com/cqframework/clinical_quality_language/tree/e31ffe807f4cf074f067eef031727e282b8677c8",
+      "revision": "e31ffe807f4cf074f067eef031727e282b8677c8",
+      "source_licence": "Apache-2.0 code; documentation CC-BY-4.0 per upstream README",
+      "licence_blob": "5c304d1a4a7b439f767990bf1360d3283e45d0ee",
+      "source_status": "repository_head_and_licence_observed",
+      "qualification_status": "not_qualified",
+      "limitations": [
+        "pin compatible released translator/runtime and dependencies after conformance check; source head only a candidate",
+        "clinical measure examples may contain separate terminology/content rights; prefer authored synthetic fixtures and conformance cases"
+      ]
+    }
+  ]
+}
