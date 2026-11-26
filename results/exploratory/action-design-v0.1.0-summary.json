@@ -1,0 +1,81 @@
+{
+  "design": {
+    "arms": {
+      "amortized": {
+        "expected_error": 0.3057184080740917,
+        "expected_spend": 1.5819987896107834,
+        "objective": 0.3531783717624152,
+        "regret": 0.009277819407229168
+      },
+      "exact": {
+        "expected_error": 0.3033271093880019,
+        "expected_spend": 1.3524480989061367,
+        "objective": 0.343900552355186,
+        "regret": 0
+      },
+      "fixed": {
+        "expected_error": 0.31074005200385374,
+        "expected_spend": 2.8333333333333335,
+        "objective": 0.3957400520038537,
+        "regret": 0.05183949964866772
+      },
+      "greedy": {
+        "expected_error": 0.30843346439678604,
+        "expected_spend": 1.1857814322394702,
+        "objective": 0.3440069073639701,
+        "regret": 0.000106355008784124
+      },
+      "stop": {
+        "expected_error": 0.4050036493581211,
+        "expected_spend": 0,
+        "objective": 0.4050036493581211,
+        "regret": 0.061103097002935126
+      }
+    },
+    "development_environments": 12,
+    "test_environments": 6,
+    "training_states_actions": 380,
+    "weights_sha256": "86ac6f506d5bd21be12ca5259c9d991bc455a8cee81841a65ec51c85ee79bfa7"
+  },
+  "queue": {
+    "arms": {
+      "action_linear": {
+        "action_effect_mae": 0.6099393023423834,
+        "mae": 0.49312131962963957,
+        "n": 468,
+        "negative_predictions": 29
+      },
+      "distribution_oracle": {
+        "action_effect_mae": 0,
+        "mae": 0,
+        "n": 468,
+        "negative_predictions": 0
+      },
+      "mean_demand_plugin": {
+        "action_effect_mae": 0.2060235703721552,
+        "mae": 0.16543866568955035,
+        "n": 468,
+        "negative_predictions": 0
+      },
+      "passive_linear": {
+        "action_effect_mae": 2.5485855676949782,
+        "mae": 1.2653203391774779,
+        "n": 468,
+        "negative_predictions": 18
+      }
+    },
+    "development_cases": 936,
+    "development_environments": 12,
+    "test_environments": 6,
+    "weights_sha256": "c22f566377033f8d9159ed11e52c98af3ebe3dc1ef8166fd708ad47557ea8acb"
+  },
+  "scope": "finite_simulation_only",
+  "status": "local_executed",
+  "raw_sha256": "2efd3be25b443b442e9a88150197c34e909e8ad1e49c9a038a2ab5fb24cd9203",
+  "limitations": [
+    "separately authored simulator and enumerated oracle, not independent human adjudication",
+    "distribution oracle has richer information",
+    "no hospital causal effects or actual economic costs",
+    "six held-out authored parameter draws per task, no clinical validity"
+  ]
+}

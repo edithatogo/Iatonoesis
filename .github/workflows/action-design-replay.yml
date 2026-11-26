@@ -1,0 +1,40 @@
+name: Finite action and design simulation replay
+on:
+  pull_request:
+    paths:
+      - 'src/iatonoesis/action_design.py'
+      - 'tests/test_action_design.py'
+      - 'research/protocols/action-design-simulation-v0.1.0.md'
+      - '.github/workflows/action-design-replay.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  replay:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.15.2'
+      - name: Reproduce simulation twice
+        env:
+          PYTHONPATH: src
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts/sim
+          python --version > artifacts/sim/environment.txt
+          git rev-parse HEAD >> artifacts/sim/environment.txt
+          python -m iatonoesis.action_design --output artifacts/sim/result.json
+          python -m iatonoesis.action_design --output /tmp/action-design-repeat.json
+          cmp artifacts/sim/result.json /tmp/action-design-repeat.json
+          sha256sum artifacts/sim/result.json > artifacts/sim/SHA256SUMS
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: action-design-${{ github.sha }}
+          path: artifacts/sim/
+          if-no-files-found: error
+          retention-days: 30
