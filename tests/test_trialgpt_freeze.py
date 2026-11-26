@@ -42,3 +42,47 @@ def test_label_or_model_output_does_not_affect_partition():
     rows = fixture()
     altered = [dict(r, expert_eligibility='changed', gpt4_eligibility='changed') for r in rows]
     assert candidate_freeze(rows) == candidate_freeze(altered)
+
+
+def test_cli_retains_aggregate_only_and_rejects_wrong_row_count(monkeypatch, tmp_path):
+    import sys
+    from types import ModuleType, SimpleNamespace
+    import iatonoesis
+    from iatonoesis.trialgpt_freeze import main
+
+    rows = [dict(annotation_id=i, patient_id=f'private-p{i//5}', trial_id=f'private-t{i//5}',
+                 training=i % 3 == 0, criterion_text='private text' if i else None) for i in range(1015)]
+    audit = ModuleType('iatonoesis.dataset_audit')
+    audit.TRIAL_REV, audit.TRIAL_FILE, audit.TRIAL_SHA = 'a'*40, 'data/source.parquet', 'b'*64
+    def download(url, path, cap):
+        assert audit.TRIAL_REV in url and cap == 176088
+        path.write_bytes(b'fixture')
+    audit._download = download
+    audit.verify_bytes = lambda path, size, sha: {'bytes': size, 'sha256': sha}
+    monkeypatch.setitem(sys.modules, 'iatonoesis.dataset_audit', audit)
+    monkeypatch.setattr(iatonoesis, 'dataset_audit', audit, raising=False)
+    arrow, parquet = ModuleType('pyarrow'), ModuleType('pyarrow.parquet')
+    table = SimpleNamespace(num_rows=1015, to_pylist=lambda: rows)
+    def read_table(path, columns):
+        assert columns == ['annotation_id', 'patient_id', 'trial_id', 'training', 'criterion_text']
+        return table
+    parquet.read_table = read_table
+    arrow.parquet = parquet
+    monkeypatch.setitem(sys.modules, 'pyarrow', arrow)
+    monkeypatch.setitem(sys.modules, 'pyarrow.parquet', parquet)
+    dest = tmp_path/'aggregate.json'
+    monkeypatch.setattr(sys, 'argv', ['trialgpt_freeze', '--output', str(dest)])
+    main()
+    result = json.loads(dest.read_text())
+    assert result['rows'] == 1015 and result['source_revision'] == audit.TRIAL_REV
+    assert 'private-' not in dest.read_text() and 'private text' not in dest.read_text()
+    table.num_rows = 1014
+    with pytest.raises(ValueError, match='row count'):
+        main()
+
+
+def test_fixed_allocator_rejects_empty_partition():
+    rows = [dict(annotation_id=i, patient_id=str(i), trial_id=str(i), training=False,
+                 criterion_missing=False) for i in range(3)]
+    with pytest.raises(ValueError, match='three-way'):
+        candidate_freeze(rows)

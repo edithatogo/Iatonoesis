@@ -5,3 +5,11 @@ T14/#15, B14 and B09 criterion-task analogue only. Depends on merged bounded sou
 The upstream training flag remains undocumented and expert annotations were model-assisted; the partition is not an authorised or independent confirmatory benchmark. Keep all evaluation inadmissible until source terms, training exposure, independent source-only labels/near-duplicates and actual use are adjudicated. Report entirely training-false components descriptively, not as proven unseen cases. Original TREC/SIGIR candidate pools and graded qrels still separate. This work is a metadata freeze, not clinical data admission, no task acceptance. The independent external CQL scalar case freeze is separate.
 
 Local RED missing module; four tests passed with synthetic metadata on Python 3.13.5, exact source/test blobs to be verified. Hosted pinned Parquet acquisition and actual assignment receipt required. No changes to #36 audit or qualification status.
+
+## Executed receipt
+
+Hosted run [45808721017](https://github.com/edithatogo/Iatonoesis/actions/runs/45808721017) at 89f4ed73d813a23a183bd863cc2ca5fedea7c451 succeeded; two acquisitions and aggregate runs identical. Downloaded [aggregate-only artifact 15110008812](https://github.com/edithatogo/Iatonoesis/actions/runs/45808721017/artifacts/15110008812), ZIP SHA-256 26979713f255e478ff1a1d688f819b1e4dd0bed5fde16b0469aa33e79d39f240 matches the API; exact JSON SHA-256 49e544789dc13178cab718b1f9bdcb4a99429782d0516c6cfaba5d4212da8a48. Versioned [receipt](../../results/data-audits/trialgpt-candidate-partition-45808721017.json).
+
+609/203/203 rows, 25/13/13 components respectively, patient/trial disjoint; training=true 553/165/163. Every component contains at least one training=true row; there is no wholly training-false component. This rules out treating the training-false rows alone as a group-independent unseen test set. The calibration partition contains the one missing criterion. Preserve it as unavailable if subsequently admitted. No inference or source release. The component freeze is structural, not an adjudication or evidence of pretraining independence. Independent reannotation/novel external source and rights remain gates.
+
+Added two local CLI/empty-partition tests; six tests pass, 97% module coverage on isolated Python 3.13.5, source unchanged. Exact new test blob and actual new-head checks required.
