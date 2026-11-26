@@ -148,13 +148,34 @@ def acquire(cohort):
     return blob
 
 
+FAILURE_REASONS=frozenset((
+    'invalid header','invalid row/time','time outside 48-hour window','non-admission identity',
+    'invalid observed value','record identity mismatch','invalid archive','too many archive members',
+    'invalid archive member','expanded archive limit','duplicate archive identity','unreadable archive member',
+    'archive member size mismatch','archive record count mismatch','missing cohort',
+    'cross-partition identity or content overlap','development only','missing split',
+    'published archive length mismatch','invalid revision',
+))
+
+
+def failure_reason(exc):
+    # Only static known diagnostics; never publish arbitrary parser errors or source values.
+    return str(exc) if isinstance(exc,ValueError) and str(exc) in FAILURE_REASONS else 'unclassified'
+
+
 def main():
     parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--output',type=Path,required=True);parser.add_argument('--revision',required=True);args=parser.parse_args()
+    stage='configuration'
     try:
         if not re.fullmatch(r'[0-9a-f]{40}',args.revision): raise ValueError('invalid revision')
-        frozen=freeze({c:acquire(c) for c in SIZES});result=dict(scope='public_observation_process_technical_benchmark',source=BASE,licence='ODC-By-1.0',source_commit=args.revision,source_manifest_sha256=frozen['manifest_sha256'],counts=frozen['counts'],observation=observation_benchmark(frozen['rows']),limits=['actual recording not clinical need','no mortality labels','source identities not verified cross-dataset patient independence','A/B random split, not hospitals','archive hash observed, no independent publisher checksum verified'])
+        stage='acquisition'
+        archives={c:acquire(c) for c in SIZES}
+        stage='source_freeze'
+        frozen=freeze(archives)
+        stage='observation_benchmark'
+        result=dict(scope='public_observation_process_technical_benchmark',source=BASE,licence='ODC-By-1.0',source_commit=args.revision,source_manifest_sha256=frozen['manifest_sha256'],counts=frozen['counts'],observation=observation_benchmark(frozen['rows']),limits=['actual recording not clinical need','no mortality labels','source identities not verified cross-dataset patient independence','A/B random split, not hospitals','archive hash observed, no independent publisher checksum verified'])
     except Exception as exc:
-        args.output.write_text(json.dumps(dict(status='failed',error_type=type(exc).__name__,scope='aggregate_only'))+'\n');raise SystemExit(1) from None
+        args.output.write_text(json.dumps(dict(status='failed',error_type=type(exc).__name__,stage=stage,reason=failure_reason(exc),scope='aggregate_only'))+'\n');raise SystemExit(1) from None
     args.output.write_text(json.dumps(result,sort_keys=True,indent=2,allow_nan=False)+'\n')
 
 

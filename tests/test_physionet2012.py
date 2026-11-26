@@ -76,4 +76,10 @@ def test_acquire_size_and_cli_receipts(monkeypatch,tmp_path):
     def fail(_):raise ValueError('sensitive record identity')
     monkeypatch.setattr(p,'freeze',fail)
     with pytest.raises(SystemExit):p.main()
-    assert json.loads(out.read_text())=={'status':'failed','error_type':'ValueError','scope':'aggregate_only'}
+    assert json.loads(out.read_text())=={'status':'failed','error_type':'ValueError','stage':'source_freeze','reason':'unclassified','scope':'aggregate_only'}
+
+
+def test_diagnostic_reasons_are_allowlisted_not_arbitrary_exception_messages():
+    assert p.failure_reason(ValueError('archive record count mismatch'))=='archive record count mismatch'
+    assert p.failure_reason(ValueError('record identity 100001'))=='unclassified'
+    assert p.failure_reason(RuntimeError('invalid header'))=='unclassified'
