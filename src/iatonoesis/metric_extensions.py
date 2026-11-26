@@ -98,7 +98,7 @@ def paired_mean_difference(baseline_losses, challenger_losses, *, seed, draws=10
     n = len(baseline_losses)
     if n < 2 or type(draws) is not int or not 1 <= draws <= 100000:
         raise ValueError('invalid paired bootstrap size')
-    differences = [b-a for a,b in zip(baseline_losses, challenger_losses)]
+    differences = [b-a for a,b in zip(baseline_losses,challenger_losses)]
     rng = random.Random(seed)
     values = sorted(sum(rng.choice(differences) for _ in range(n))/n for _ in range(draws))
     return dict(n=n, draws=draws, seed=seed, difference=sum(differences)/n,

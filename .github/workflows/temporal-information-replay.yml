@@ -1,0 +1,49 @@
+# Synthetic-only replay: no network data or external inference.
+name: Synthetic temporal information replay
+on:
+  pull_request:
+    paths:
+      - 'src/iatonoesis/temporal_information.py'
+      - 'src/iatonoesis/metric_extensions.py'
+      - 'tests/test_temporal_information.py'
+      - 'tests/test_metric_extensions.py'
+      - '.github/workflows/temporal-information-replay.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'src/iatonoesis/temporal_information.py'
+      - 'src/iatonoesis/metric_extensions.py'
+      - '.github/workflows/temporal-information-replay.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  replay:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: "3.15.2"
+      - name: Reproduce synthetic run twice
+        env:
+          PYTHONPATH: src
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts/temporal
+          python --version > artifacts/temporal/environment.txt
+          git rev-parse HEAD >> artifacts/temporal/environment.txt
+          python -m iatonoesis.temporal_information --output artifacts/temporal/result.json
+          python -m iatonoesis.temporal_information --output /tmp/temporal-repeat.json
+          cmp artifacts/temporal/result.json /tmp/temporal-repeat.json
+          sha256sum artifacts/temporal/result.json > artifacts/temporal/SHA256SUMS
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: synthetic-temporal-${{ github.sha }}
+          path: artifacts/temporal/
+          if-no-files-found: error
+          retention-days: 30
