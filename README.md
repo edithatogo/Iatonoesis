@@ -33,3 +33,5 @@ python3.15 -m venv .venv
 Tasks and research outcomes remain planned until a specific result is recorded.
 No claim of clinical efficacy, scientific novelty, data approval or provider
 activation follows from the initial setup.
+
+For the core public/synthetic comparison see [benchmark candidates](contracts/benchmark-candidates.v1.json) and [comparative protocol](research/comparative-study.md). Dataset metadata review is not scientific or acquisition qualification.

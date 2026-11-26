@@ -30,3 +30,5 @@ Issue [#14](https://github.com/edithatogo/Iatonoesis/issues/14). Stable task IDs
   - Depends on: T13.003, T10.006, T14.004, T09.007, T11.007, T12.005.
   - Accept: 38 applications; claim registry, negative/unavailable arms, exact revision, primary sources and rights.
   - Evidence: pending; record exact revision, commands, fixtures and outcomes.
+
+T13.003 and T13.007 use the [comparative protocol](../../../research/comparative-study.md) and [benchmark candidates](../../../contracts/benchmark-candidates.v1.json) under T14/#15. B01–B16 are methodological placements, not replacements for the 38 canonical applications. Report actual executed arms and uncertainty; no efficacy or novelty claim from a planned experiment.

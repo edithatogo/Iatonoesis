@@ -12,3 +12,5 @@ Measure each component with reference upstream inputs, then actual upstream outp
 ## Extension
 
 The [functional-specialisation supplement](functional-specialisation.v0.1.0.md) defines five comparison arms, matched budgets, literature extraction and public/synthetic dataset qualification. T14 owns shared benchmark contracts; T15–T19 own additional roles. T18.001 is exploratory toy mutation testing, not clinical CQL evidence. Human references and public release require separate authorization. Do not pool incomparable endpoints into a universal score.
+
+The [comparative study supplement](comparative-study.md) specifies benchmark placements B01–B16, preserving the 38 canonical applications. Its initial rights/provenance review is [TrialGPT](../datasets/qualification/trialgpt.v0.1.0.md).

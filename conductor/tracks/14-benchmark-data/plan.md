@@ -18,3 +18,10 @@ Issue [#15](https://github.com/edithatogo/Iatonoesis/issues/15). Stable task IDs
   - Depends on: T14.003, T00.003.
   - Accept: Record exact revision, dataset/model hashes, configuration, seeds, costs, raw outputs, failed/unavailable arms and claim boundary.
   - Evidence: pending; record exact revision, commands, fixtures and outcomes.
+
+## Comparative benchmark crosswalk
+
+- T14.001: [B01–B16 register](../../../contracts/benchmark-candidates.v1.json) and [TrialGPT qualification](../../../datasets/qualification/trialgpt.v0.1.0.md); preserve separate R-role candidates in [dataset register](../../../datasets/registry.md).
+- T14.002: group and freeze case/trial splits before testing; verify references and contamination.
+- T14.003: paired conventional and learned comparisons across two placements per core family; baseline first, no presumption that learned improves performance.
+- T14.004: retain exact run receipts, failed arms and release gates. [Design](../../../research/comparative-study.md); publication T13.003/T13.007 (#14). No acceptance yet.
