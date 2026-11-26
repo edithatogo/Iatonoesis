@@ -1,0 +1,131 @@
+{
+  "schema_version": "0.1.0",
+  "scope": "retrospective diagnostic on exposed test predictions; no threshold qualification",
+  "source_artifact": 15112698149,
+  "zip_sha256": "b0c15678940e3c43c76922ff9fc2e172b45fb8e61cbdb64297e34bd92c8f8d61",
+  "raw_result_sha256": "40eb749415cb065e26a4d6ea3613d8222b76a79766d469d4a71cef5a73624924",
+  "predictions_sha256": "76126dacae5ee20ac1d97346f22baa11e9d19d6986fd36ec6565461d5ba82549",
+  "audit_result_sha256": "a01218ba3016f142bca419b4caac59475d82d856af4513b71d1af1f77bc0fc2b",
+  "source_blob": "d0a498af382c1690e21da36f30830c735e60f629",
+  "test_blob": "158d076ac3de52bf89ac78fb4a4010c46d6a5382",
+  "local_tests": 3,
+  "minimum_retained": 30,
+  "minimum_non_support": 20,
+  "maximum_false_support_rate": 0.05,
+  "total": 339,
+  "columns": [
+    "retained",
+    "correct",
+    "false_support",
+    "non_support"
+  ],
+  "frontiers": {
+    "0.1": {
+      "rules": null,
+      "linear": null,
+      "small_mlp": null,
+      "nli": null
+    },
+    "0.2": {
+      "rules": null,
+      "linear": null,
+      "small_mlp": [
+        47,
+        38,
+        1,
+        36
+      ],
+      "nli": null
+    },
+    "0.3": {
+      "rules": [
+        88,
+        63,
+        0,
+        72
+      ],
+      "linear": [
+        38,
+        30,
+        1,
+        23
+      ],
+      "small_mlp": [
+        57,
+        43,
+        2,
+        42
+      ],
+      "nli": null
+    },
+    "0.4": {
+      "rules": [
+        178,
+        108,
+        0,
+        137
+      ],
+      "linear": [
+        38,
+        30,
+        1,
+        23
+      ],
+      "small_mlp": [
+        57,
+        43,
+        2,
+        42
+      ],
+      "nli": [
+        30,
+        18,
+        0,
+        20
+      ]
+    },
+    "0.5": {
+      "rules": [
+        253,
+        128,
+        0,
+        174
+      ],
+      "linear": [
+        38,
+        30,
+        1,
+        23
+      ],
+      "small_mlp": [
+        57,
+        43,
+        2,
+        42
+      ],
+      "nli": [
+        58,
+        29,
+        0,
+        37
+      ]
+    }
+  },
+  "ranker_substitution_correct_claims": {
+    "rules": 0,
+    "linear": -1,
+    "small_mlp": -2,
+    "nli": 0
+  },
+  "interaction_vs_rules": {
+    "rules": 0,
+    "linear": -1,
+    "small_mlp": -2,
+    "nli": 0
+  },
+  "notes": [
+    "null indicates no feasible complete confidence prefix; not zero model accuracy",
+    "same pair and review budget; observed elapsed times retained in original and replay output, not equal compute",
+    "reproduced all eight crossed cells without new inference"
+  ]
+}
