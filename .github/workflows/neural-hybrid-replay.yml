@@ -38,7 +38,7 @@ jobs:
           mkdir -p artifacts/neural-hybrid
           python -m pip freeze > artifacts/neural-hybrid/environment.txt
           git rev-parse HEAD >> artifacts/neural-hybrid/environment.txt
-          python -m pytest -q tests/test_neural_suite.py --cov=iatonoesis.neural_suite --cov-report=xml:artifacts/neural-hybrid/coverage.xml --cov-fail-under=90
+          python -m pytest -q tests/test_neural_suite.py --cov=iatonoesis.neural_suite --cov=test_neural_suite --cov-report=xml:artifacts/neural-hybrid/coverage.xml --cov-fail-under=90
       - name: Replay fixed synthetic cases twice
         run: |
           set -euo pipefail
