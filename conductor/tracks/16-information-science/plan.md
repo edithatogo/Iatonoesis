@@ -30,3 +30,7 @@ Issue [#17](https://github.com/edithatogo/Iatonoesis/issues/17). Stable task IDs
 ## Frontier replication extension (not accepted)
 
 [Role and dataset extension](../../../research/frontier-replication-extension.v0.1.0.md). T16.001/.002: measurement recording versus value acquisition, amortised experiment design and explicit stop; no actual economic cost inference.
+
+## Observation and simulation evidence (not accepted)
+
+[Evidence addendum](../../research-evidence-20261126-observation-simulation.md). T16.002: finite adaptive Bayesian design #71 executed and merged; greedy nearly oracle-optimal; complexity/compute replication remains. Canonical task states unchanged.

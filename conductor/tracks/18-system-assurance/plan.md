@@ -37,3 +37,7 @@ Issue [#19](https://github.com/edithatogo/Iatonoesis/issues/19). Stable task IDs
 ## Frontier replication extension (not accepted)
 
 [Role and dataset extension](../../../research/frontier-replication-extension.v0.1.0.md). T18.004: 2012 source replication candidate, A/B not sites and cross-source person overlap unknown; T18.002 #61 failure retained.
+
+## Observation and simulation evidence (not accepted)
+
+[Evidence addendum](../../research-evidence-20261126-observation-simulation.md). T18: CQL semantic failures and dependency retry, 2012 source overlap limitations, no verified independent hospital sites. Canonical task states unchanged.

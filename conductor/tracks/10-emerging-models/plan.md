@@ -38,3 +38,7 @@ Issue [#11](https://github.com/edithatogo/Iatonoesis/issues/11). Stable task IDs
 ## Frontier replication extension (not accepted)
 
 [Role and dataset extension](../../../research/frontier-replication-extension.v0.1.0.md). T10.003–.006: structured new method variants X01–X05 and primary precedents; existing roles preserved; actual frontier inference remains gated.
+
+## Observation and simulation evidence (not accepted)
+
+[Evidence addendum](../../research-evidence-20261126-observation-simulation.md). T10: six framing results preserved, independently admitted biomedical cross still held; source qualification #66 and concurrent ontology #67. Canonical task states unchanged.

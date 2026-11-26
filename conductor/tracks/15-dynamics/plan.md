@@ -34,3 +34,7 @@ Issue [#16](https://github.com/edithatogo/Iatonoesis/issues/16). Stable task IDs
 ## Frontier replication extension (not accepted)
 
 [Role and dataset extension](../../../research/frontier-replication-extension.v0.1.0.md). T15.004: observation recording propensity baseline and later marked temporal point process; T15.001 2012 measured-target eligibility for replication; T15.002 latent operational world model candidate.
+
+## Observation and simulation evidence (not accepted)
+
+[Evidence addendum](../../research-evidence-20261126-observation-simulation.md). T15.002/.004: real 2012 marked-history hazard comparison; NHS passive #69 join held; #71 separately specified action simulator executed and merged. Canonical task states unchanged.

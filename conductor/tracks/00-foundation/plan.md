@@ -38,3 +38,7 @@ Issue [#1](https://github.com/edithatogo/Iatonoesis/issues/1). Stable task IDs; 
 ## External validation and replication addendum (not accepted)
 
 [Evidence ledger](../../research-evidence-20261126-external.md). T00.001/.007: #40/#52 qualified and merged, #54/#56/#57 actual hosted gates passed; main protection still administratively blocked. Canonical states unchanged.
+
+## Observation and simulation evidence (not accepted)
+
+[Evidence addendum](../../research-evidence-20261126-observation-simulation.md). T00: exact-head #63/#71 and receiving-main checks, administrative protection still unconfigured. Canonical task states unchanged.

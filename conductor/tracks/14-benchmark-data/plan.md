@@ -37,3 +37,7 @@ Issue [#15](https://github.com/edithatogo/Iatonoesis/issues/15). Stable task IDs
 ## Frontier replication extension (not accepted)
 
 [Role and dataset extension](../../../research/frontier-replication-extension.v0.1.0.md). T14.001–.004: six additional/extended candidate sources XD01–XD06; PhysioNet 2012 bounded full A/B acquisition and partition receipt, no clinical admission.
+
+## Observation and simulation evidence (not accepted)
+
+[Evidence addendum](../../research-evidence-20261126-observation-simulation.md). T14: 2012 duplicate-component quarantine and pinned aggregate result; PubMedQA/BioRED source audit, EBM expansion and biomedical admission unresolved. Canonical task states unchanged.
