@@ -1,0 +1,60 @@
+name: SciFact external pretrained replay
+on:
+  pull_request:
+    paths:
+      - 'src/iatonoesis/scifact_pipeline.py'
+      - 'tests/test_scifact_pipeline.py'
+      - '.github/workflows/scifact-external-replay.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  id-token: write
+concurrency:
+  group: scifact-replay-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+jobs:
+  scifact-external-replay:
+    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      PYTHONPATH: src
+      HF_HUB_DISABLE_TELEMETRY: '1'
+      PYTHONHASHSEED: '0'
+      TOKENIZERS_PARALLELISM: 'false'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.13.5'
+      - name: Install isolated bounded CPU runtime
+        run: |
+          set -euo pipefail
+          python -m pip install --only-binary=:all: 'pytest==9.0.2' 'pytest-cov==7.0.0' 'transformers==4.57.1' 'huggingface-hub==0.36.0' 'safetensors==0.6.2'
+          python -m pip install --only-binary=:all: --index-url https://download.pytorch.org/whl/cpu 'torch==2.10.0+cpu'
+      - name: Run contract tests and source-frozen external pipeline
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts/scifact
+          python -m pip freeze > artifacts/scifact/environment.txt
+          git rev-parse HEAD >> artifacts/scifact/environment.txt
+          python -m pytest -q tests/test_scifact_pipeline.py --cov=iatonoesis.scifact_pipeline --cov=test_scifact_pipeline --cov-report=
+          python -m coverage run --append --source=iatonoesis.scifact_pipeline -m iatonoesis.scifact_pipeline --output-dir artifacts/scifact
+          python -m coverage xml -o artifacts/scifact/coverage.xml
+          sha256sum artifacts/scifact/freeze.json artifacts/scifact/result.json > artifacts/scifact/SHA256SUMS
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        if: always()
+        with:
+          name: scifact-external-replay-${{ github.sha }}
+          path: artifacts/scifact/
+          if-no-files-found: error
+          retention-days: 30
+      - uses: codecov/codecov-action@fb8b3582c8e4def4969c97caa2f19720cb33a72f
+        with:
+          files: artifacts/scifact/coverage.xml
+          disable_search: true
+          flags: external_scifact
+          use_oidc: true
+          fail_ci_if_error: true
