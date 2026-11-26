@@ -1,0 +1,470 @@
+{
+  "schema_version": "0.1.0",
+  "status": "exploratory_simulation",
+  "claim_boundary": "synthetic_only",
+  "canonical_acceptance": false,
+  "source_commit": "3bf0c5ea9edd60aedca98696ce356aeb2f77e10a",
+  "freeze_commit": "cb69c6b443eb8f02fa6a3dafc52a33eddb242a3b",
+  "seed": 27183,
+  "environment": {
+    "python": "3.13.5",
+    "pytest": "9.0.2",
+    "poppler": "25.06.0",
+    "tesseract": "5.5.0",
+    "pillow": "12.3.0",
+    "dpi": 200,
+    "psm": 6,
+    "workers": 4
+  },
+  "fixture_sha256": "c5b6a7249268b1525f813be9f36ec5058eb270dd0c917f1a320963677565beb5",
+  "reference_sha256": "733bc491db63b482622582d0a38a0dd2f7da76ecfde722d11d7c5ce9a97a21d6",
+  "raw_json_sha256": "c227c2485d9e27cff221393884ecd1ad609673b15d5be5ed53cf33093f2bc018",
+  "raw_json_bytes": 359665,
+  "compact_raw_gzip_sha256": "a2d46a4b10d7b62fa7543d1fcf8fd8ef54d4296d1cbca3f672d4e0a6dde9a1e1",
+  "prediction_encoding": "Rows in frozen fixture test order; each space-delimited token is requirement letter + zero-based gold note index or =literal note; empty string = empty set; null = case abstention; preserve order. Reconstruct id, groups, gold from fixture to recover exact runner prediction hashes.",
+  "encoded_predictions_sha256": "2f901a0a204249f00eaead5de2cce1bc4dd4728fa3aa902e494d921364b3f0ce",
+  "splits": {
+    "development": 8,
+    "calibration": 8,
+    "test": 40
+  },
+  "target_links": 240,
+  "extraction_time_sum_seconds": {
+    "text": 1.1200234429993543,
+    "ocr": 76.4985624539986
+  },
+  "modalities": {
+    "ocr": {
+      "dataset_sha256": "aeb0f7566aa60790e6db6cbcca5ad7b5e2ba1f119684b004c9ef23ad62457761",
+      "config_sha256": "4a3aab10a11a186322c20df7fcc81129378e406bf0a451e08a5ab1dd572cbdff",
+      "dataset_manifest_sha256": "da71444486ed22ec88fe852d2b664f436a073e10015a96a54972386dbf9b35e8",
+      "evidence_counts": {
+        "total": 240,
+        "all_components_available": 132,
+        "marker_missing_or_duplicate": 85,
+        "note_missing_or_conflicting": 40,
+        "requirement_missing_or_duplicate": 15
+      },
+      "arms": [
+        {
+          "id": "flat",
+          "status": "executed",
+          "elapsed_seconds": 0.004949443999976211,
+          "predictions_sha256": "d10a1f87970e358c1353325def37150ab8617e1a2c3ffaa24fb48dc548b57f1e",
+          "metrics": {
+            "total": 40,
+            "scored": 40,
+            "abstained": 0,
+            "errors": 40,
+            "exact": 0,
+            "tp": 78,
+            "fp": 59,
+            "fn": 162,
+            "precision": 0.5693430656934306,
+            "recall": 0.325,
+            "f1": 0.41379310344827586,
+            "accuracy": 0,
+            "selective_accuracy": 0,
+            "coverage": 1
+          },
+          "by_family": {
+            "alternating_sides": {
+              "tp": 18,
+              "fp": 18,
+              "fn": 30,
+              "exact": 0,
+              "total": 8
+            },
+            "ambiguous_midpoint": {
+              "tp": 31,
+              "fp": 7,
+              "fn": 17,
+              "exact": 0,
+              "total": 8
+            },
+            "missing_conflicting": {
+              "tp": 10,
+              "fp": 10,
+              "fn": 38,
+              "exact": 0,
+              "total": 8
+            },
+            "offset_small_markers": {
+              "tp": 0,
+              "fp": 7,
+              "fn": 48,
+              "exact": 0,
+              "total": 8
+            },
+            "uneven_columns": {
+              "tp": 19,
+              "fp": 17,
+              "fn": 29,
+              "exact": 0,
+              "total": 8
+            }
+          }
+        },
+        {
+          "id": "right_only",
+          "status": "executed",
+          "elapsed_seconds": 0.003972100999817485,
+          "predictions_sha256": "3be9d532364711b5f7eb33bebde445b40e63afc15d9ee6b91f8c82d4d5fd3853",
+          "metrics": {
+            "total": 40,
+            "scored": 40,
+            "abstained": 0,
+            "errors": 40,
+            "exact": 0,
+            "tp": 80,
+            "fp": 5,
+            "fn": 160,
+            "precision": 0.9411764705882353,
+            "recall": 0.3333333333333333,
+            "f1": 0.49230769230769234,
+            "accuracy": 0,
+            "selective_accuracy": 0,
+            "coverage": 1
+          },
+          "by_family": {
+            "alternating_sides": {
+              "tp": 18,
+              "fp": 2,
+              "fn": 30,
+              "exact": 0,
+              "total": 8
+            },
+            "ambiguous_midpoint": {
+              "tp": 31,
+              "fp": 3,
+              "fn": 17,
+              "exact": 0,
+              "total": 8
+            },
+            "missing_conflicting": {
+              "tp": 10,
+              "fp": 0,
+              "fn": 38,
+              "exact": 0,
+              "total": 8
+            },
+            "offset_small_markers": {
+              "tp": 2,
+              "fp": 0,
+              "fn": 46,
+              "exact": 0,
+              "total": 8
+            },
+            "uneven_columns": {
+              "tp": 19,
+              "fp": 0,
+              "fn": 29,
+              "exact": 0,
+              "total": 8
+            }
+          }
+        },
+        {
+          "id": "bidirectional",
+          "status": "executed",
+          "elapsed_seconds": 0.00509681699986686,
+          "predictions_sha256": "cc4b0e0a1431dd0434542920fd41147ef88cd049aef37f5cd35d7b86baec7b2f",
+          "metrics": {
+            "total": 40,
+            "scored": 40,
+            "abstained": 0,
+            "errors": 38,
+            "exact": 2,
+            "tp": 121,
+            "fp": 9,
+            "fn": 119,
+            "precision": 0.9307692307692308,
+            "recall": 0.5041666666666667,
+            "f1": 0.654054054054054,
+            "accuracy": 0.05,
+            "selective_accuracy": 0.05,
+            "coverage": 1
+          },
+          "by_family": {
+            "alternating_sides": {
+              "tp": 33,
+              "fp": 6,
+              "fn": 15,
+              "exact": 1,
+              "total": 8
+            },
+            "ambiguous_midpoint": {
+              "tp": 20,
+              "fp": 2,
+              "fn": 28,
+              "exact": 0,
+              "total": 8
+            },
+            "missing_conflicting": {
+              "tp": 20,
+              "fp": 0,
+              "fn": 28,
+              "exact": 0,
+              "total": 8
+            },
+            "offset_small_markers": {
+              "tp": 10,
+              "fp": 0,
+              "fn": 38,
+              "exact": 0,
+              "total": 8
+            },
+            "uneven_columns": {
+              "tp": 38,
+              "fp": 1,
+              "fn": 10,
+              "exact": 1,
+              "total": 8
+            }
+          }
+        },
+        {
+          "id": "learned",
+          "status": "unavailable",
+          "reason": "adapter unavailable"
+        }
+      ],
+      "paired_f1": {
+        "flat": {
+          "difference": 0.24026095060577818,
+          "lower": 0.028934179752756473,
+          "upper": 0.38685271317829456,
+          "clusters": 5,
+          "draws": 500,
+          "valid_draws": 500,
+          "seed": 27183
+        },
+        "right_only": {
+          "difference": 0.1617463617463617,
+          "lower": -0.031359552216821296,
+          "upper": 0.29188030917578633,
+          "clusters": 5,
+          "draws": 500,
+          "valid_draws": 500,
+          "seed": 27183
+        }
+      }
+    },
+    "text": {
+      "dataset_sha256": "03190024f6d72cd5a13b1827ed1b896396dd33c35565d64109bca1dda882d707",
+      "config_sha256": "06d61788bd746162d2f688dafc556dbe55d7d9dd843f78181e537745f9fbfa46",
+      "dataset_manifest_sha256": "ca739342a3c6d03e19fc2d2f2c8705a57af660aefb1d51acca0e7774ef194ff6",
+      "evidence_counts": {
+        "total": 240,
+        "all_components_available": 224,
+        "marker_missing_or_duplicate": 8,
+        "note_missing_or_conflicting": 8,
+        "requirement_missing_or_duplicate": 0
+      },
+      "arms": [
+        {
+          "id": "flat",
+          "status": "executed",
+          "elapsed_seconds": 0.005086868000034883,
+          "predictions_sha256": "e9e2831bbe913c0ac15a6604948e8b2962bb2f173883ecf30ec83ccc6fa3421e",
+          "metrics": {
+            "total": 40,
+            "scored": 40,
+            "abstained": 0,
+            "errors": 32,
+            "exact": 8,
+            "tp": 108,
+            "fp": 95,
+            "fn": 132,
+            "precision": 0.5320197044334976,
+            "recall": 0.45,
+            "f1": 0.48758465011286684,
+            "accuracy": 0.2,
+            "selective_accuracy": 0.2,
+            "coverage": 1
+          },
+          "by_family": {
+            "alternating_sides": {
+              "tp": 19,
+              "fp": 22,
+              "fn": 29,
+              "exact": 0,
+              "total": 8
+            },
+            "ambiguous_midpoint": {
+              "tp": 48,
+              "fp": 0,
+              "fn": 0,
+              "exact": 8,
+              "total": 8
+            },
+            "missing_conflicting": {
+              "tp": 14,
+              "fp": 18,
+              "fn": 34,
+              "exact": 0,
+              "total": 8
+            },
+            "offset_small_markers": {
+              "tp": 14,
+              "fp": 28,
+              "fn": 34,
+              "exact": 0,
+              "total": 8
+            },
+            "uneven_columns": {
+              "tp": 13,
+              "fp": 27,
+              "fn": 35,
+              "exact": 0,
+              "total": 8
+            }
+          }
+        },
+        {
+          "id": "right_only",
+          "status": "executed",
+          "elapsed_seconds": 0.0045507309996537515,
+          "predictions_sha256": "9980f606a0e0fc6048e635cf98f5231d27986a0aae9da2328aef933b5698bee9",
+          "metrics": {
+            "total": 40,
+            "scored": 40,
+            "abstained": 0,
+            "errors": 32,
+            "exact": 8,
+            "tp": 136,
+            "fp": 0,
+            "fn": 104,
+            "precision": 1,
+            "recall": 0.5666666666666667,
+            "f1": 0.723404255319149,
+            "accuracy": 0.2,
+            "selective_accuracy": 0.2,
+            "coverage": 1
+          },
+          "by_family": {
+            "alternating_sides": {
+              "tp": 24,
+              "fp": 0,
+              "fn": 24,
+              "exact": 0,
+              "total": 8
+            },
+            "ambiguous_midpoint": {
+              "tp": 48,
+              "fp": 0,
+              "fn": 0,
+              "exact": 8,
+              "total": 8
+            },
+            "missing_conflicting": {
+              "tp": 16,
+              "fp": 0,
+              "fn": 32,
+              "exact": 0,
+              "total": 8
+            },
+            "offset_small_markers": {
+              "tp": 24,
+              "fp": 0,
+              "fn": 24,
+              "exact": 0,
+              "total": 8
+            },
+            "uneven_columns": {
+              "tp": 24,
+              "fp": 0,
+              "fn": 24,
+              "exact": 0,
+              "total": 8
+            }
+          }
+        },
+        {
+          "id": "bidirectional",
+          "status": "executed",
+          "elapsed_seconds": 0.007763978000184579,
+          "predictions_sha256": "e32105d070d76fb65b1c387c25620a98a5a045e44049f314f862d43b3a57f9cc",
+          "metrics": {
+            "total": 40,
+            "scored": 40,
+            "abstained": 0,
+            "errors": 16,
+            "exact": 24,
+            "tp": 200,
+            "fp": 0,
+            "fn": 40,
+            "precision": 1,
+            "recall": 0.8333333333333334,
+            "f1": 0.9090909090909091,
+            "accuracy": 0.6,
+            "selective_accuracy": 0.6,
+            "coverage": 1
+          },
+          "by_family": {
+            "alternating_sides": {
+              "tp": 48,
+              "fp": 0,
+              "fn": 0,
+              "exact": 8,
+              "total": 8
+            },
+            "ambiguous_midpoint": {
+              "tp": 24,
+              "fp": 0,
+              "fn": 24,
+              "exact": 0,
+              "total": 8
+            },
+            "missing_conflicting": {
+              "tp": 32,
+              "fp": 0,
+              "fn": 16,
+              "exact": 0,
+              "total": 8
+            },
+            "offset_small_markers": {
+              "tp": 48,
+              "fp": 0,
+              "fn": 0,
+              "exact": 8,
+              "total": 8
+            },
+            "uneven_columns": {
+              "tp": 48,
+              "fp": 0,
+              "fn": 0,
+              "exact": 8,
+              "total": 8
+            }
+          }
+        },
+        {
+          "id": "learned",
+          "status": "unavailable",
+          "reason": "adapter unavailable"
+        }
+      ],
+      "paired_f1": {
+        "flat": {
+          "difference": 0.4215062589780422,
+          "lower": 0.025510204081632626,
+          "upper": 0.668903803131991,
+          "clusters": 5,
+          "draws": 500,
+          "valid_draws": 500,
+          "seed": 27183
+        },
+        "right_only": {
+          "difference": 0.18568665377176008,
+          "lower": -0.0924143242202542,
+          "upper": 0.33333333333333337,
+          "clusters": 5,
+          "draws": 500,
+          "valid_draws": 500,
+          "seed": 27183
+        }
+      }
+    }
+  }
+}
