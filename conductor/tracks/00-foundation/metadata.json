@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "track_id": "00",
+  "slug": "00-foundation",
+  "title": "Research infrastructure",
+  "status": "planned",
+  "implementation_state": "not_started",
+  "evidence_level": "contracted",
+  "dependencies": [],
+  "issue": 1,
+  "updated": "2026-11-26",
+  "evidence": []
+}

@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "track_id": "08",
+  "slug": "08-step-verifiers",
+  "title": "Step verifiers",
+  "status": "planned",
+  "implementation_state": "not_started",
+  "evidence_level": "contracted",
+  "dependencies": [
+    "00"
+  ],
+  "issue": 9,
+  "updated": "2026-11-26",
+  "evidence": []
+}

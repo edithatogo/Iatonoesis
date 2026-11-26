@@ -1,0 +1,56 @@
+# T07 — Evidence evaluators
+
+Issue [#8](https://github.com/edithatogo/Iatonoesis/issues/8). Stable task IDs; canonical machine-readable source is contracts/programme.v1.json. `python -m iatonoesis ready` lists dependency-ready work; individual experiments are not yet implemented. Acceptance commands and result paths must be added before marking implementation complete.
+
+- [ ] **T07.001** — Verify primary-source claims, rights and model candidates (#8)
+  - Depends on: T00.002.
+  - Accept: Record source links, capability/setting distinction, licence, exact revisions, no novelty claim.
+  - Evidence: pending; record exact source commit, commands, fixtures and outcomes.
+- [ ] **T07.002** — E19: freeze protocol, dataset and reference (#8)
+  - Depends on: T07.001, T00.004.
+  - Accept: 80 examples; label domain appraisal, supporting span and uncertainty; provenance, independent reference, frozen split and error taxonomy.
+  - Evidence: pending; record exact source commit, commands, fixtures and outcomes.
+- [ ] **T07.003** — E19: implement and run conventional baseline (#8)
+  - Depends on: T07.002, T00.003, T00.005.
+  - Accept: checklist and keyword guidance; weighted kappa and evidence precision; retain predictions, denominators, runtime and negative fixtures.
+  - Evidence: pending; record exact source commit, commands, fixtures and outcomes.
+- [ ] **T07.004** — E19: qualify and run learned challenger (#8)
+  - Depends on: T07.003, T00.006.
+  - Accept: Exact-pinned task-specific model; same fixed test cases; report actual error or unavailable runtime; no prompted role mislabelled as trained model.
+  - Evidence: pending; record exact source commit, commands, fixtures and outcomes.
+- [ ] **T07.005** — E19: evaluate incremental value and failure modes (#8)
+  - Depends on: T07.004, T11.001.
+  - Accept: randomisation assertion accepted without method; reviewer corrects; paired uncertainty, calibration/abstentions, review time; retain negative findings.
+  - Evidence: pending; record exact source commit, commands, fixtures and outcomes.
+- [ ] **T07.006** — E20: freeze protocol, dataset and reference (#8)
+  - Depends on: T07.001, T00.004.
+  - Accept: 40 synthetic proposals; label indirectness, missing capability and unresolved risks; provenance, independent reference, frozen split and error taxonomy.
+  - Evidence: pending; record exact source commit, commands, fixtures and outcomes.
+- [ ] **T07.007** — E20: implement and run conventional baseline (#8)
+  - Depends on: T07.006, T00.003, T00.005.
+  - Accept: standard checklist; limitation recall and unsupported recommendation; retain predictions, denominators, runtime and negative fixtures.
+  - Evidence: pending; record exact source commit, commands, fixtures and outcomes.
+- [ ] **T07.008** — E20: qualify and run learned challenger (#8)
+  - Depends on: T07.007, T00.006.
+  - Accept: Exact-pinned task-specific model; same fixed test cases; report actual error or unavailable runtime; no prompted role mislabelled as trained model.
+  - Evidence: pending; record exact source commit, commands, fixtures and outcomes.
+- [ ] **T07.009** — E20: evaluate incremental value and failure modes (#8)
+  - Depends on: T07.008, T11.001.
+  - Accept: overlooked rescue capability; local expert reviews; paired uncertainty, calibration/abstentions, preparation and rework; retain negative findings.
+  - Evidence: pending; record exact source commit, commands, fixtures and outcomes.
+- [ ] **T07.010** — E21: freeze protocol, dataset and reference (#8)
+  - Depends on: T07.001, T00.004.
+  - Accept: 100 simulated evaluations; label claim appraisal and missing assumptions; provenance, independent reference, frozen split and error taxonomy.
+  - Evidence: pending; record exact source commit, commands, fixtures and outcomes.
+- [ ] **T07.011** — E21: implement and run conventional baseline (#8)
+  - Depends on: T07.010, T00.003, T00.005.
+  - Accept: dashboard and design checklist; false causal endorsement and calibration; retain predictions, denominators, runtime and negative fixtures.
+  - Evidence: pending; record exact source commit, commands, fixtures and outcomes.
+- [ ] **T07.012** — E21: qualify and run learned challenger (#8)
+  - Depends on: T07.011, T00.006.
+  - Accept: Exact-pinned task-specific model; same fixed test cases; report actual error or unavailable runtime; no prompted role mislabelled as trained model.
+  - Evidence: pending; record exact source commit, commands, fixtures and outcomes.
+- [ ] **T07.013** — E21: evaluate incremental value and failure modes (#8)
+  - Depends on: T07.012, T11.001.
+  - Accept: regression to mean ignored; epidemiologist checks; paired uncertainty, calibration/abstentions, review time and unsupported claims; retain negative findings.
+  - Evidence: pending; record exact source commit, commands, fixtures and outcomes.

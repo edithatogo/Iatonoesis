@@ -1,0 +1,2548 @@
+{
+  "schema_version": 1,
+  "programme": "Iatonoesis",
+  "scope": "Research only; synthetic or separately authorised and rights-cleared public input; no clinical use",
+  "tracks": [
+    {
+      "id": "00",
+      "slug": "00-foundation",
+      "title": "Research infrastructure",
+      "depends_on": [],
+      "issue": 1,
+      "status": "planned",
+      "implementation_state": "not_started",
+      "evidence_level": "contracted",
+      "tasks": [
+        {
+          "id": "T00.001",
+          "key": "adopt",
+          "title": "Reconcile starter, gitlink, community policy and solo-maintainer settings",
+          "acceptance": "Verify exact gitlink, provider status, actual protected checks, audit receipt; record unobserved settings.",
+          "depends_on": [],
+          "issue": 1,
+          "status": "planned",
+          "application": null,
+          "evidence": []
+        },
+        {
+          "id": "T00.002",
+          "key": "contracts",
+          "title": "Define experiment/data/result contracts and validation",
+          "acceptance": "Schema rejects missing provenance, unknown state, inconsistent metric denominator and leakage.",
+          "depends_on": [
+            "T00.001"
+          ],
+          "issue": 1,
+          "status": "planned",
+          "application": null,
+          "evidence": []
+        },
+        {
+          "id": "T00.003",
+          "key": "runner",
+          "title": "Build deterministic run harness and synthetic dataset manifest",
+          "acceptance": "Two same-seed runs produce identical canonical outputs; record hash, runtime, failures.",
+          "depends_on": [
+            "T00.002"
+          ],
+          "issue": 1,
+          "status": "planned",
+          "application": null,
+          "evidence": []
+        },
+        {
+          "id": "T00.004",
+          "key": "reference",
+          "title": "Freeze calibration/development/test partitions and rights ledger",
+          "acceptance": "Independent holdouts, site/temporal split where appropriate; no protected data in Git.",
+          "depends_on": [
+            "T00.003"
+          ],
+          "issue": 1,
+          "status": "planned",
+          "application": null,
+          "evidence": []
+        },
+        {
+          "id": "T00.005",
+          "key": "baseline",
+          "title": "Implement common metrics and confidence intervals",
+          "acceptance": "Known analytic fixtures, denominator/abstention tests and seeded bootstrap; differential reference.",
+          "depends_on": [
+            "T00.004"
+          ],
+          "issue": 1,
+          "status": "planned",
+          "application": null,
+          "evidence": []
+        },
+        {
+          "id": "T00.006",
+          "key": "adapters",
+          "title": "Qualify CPU-first model adapter and optional HF runtime",
+          "acceptance": "Exact model revision, licence, memory/latency budget, offline fail-closed; no default network.",
+          "depends_on": [
+            "T00.005"
+          ],
+          "issue": 1,
+          "status": "planned",
+          "application": null,
+          "evidence": []
+        },
+        {
+          "id": "T00.007",
+          "key": "receipts",
+          "title": "Enable CI, one-command assurance, results storage and issue reconciliation",
+          "acceptance": "Required hosted checks, exact-head receipt and bidirectional plan/issue check; no false success on skip.",
+          "depends_on": [
+            "T00.006"
+          ],
+          "issue": 1,
+          "status": "planned",
+          "application": null,
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "01",
+      "slug": "01-layout-readers",
+      "title": "Layout-aware document readers",
+      "depends_on": [
+        "00"
+      ],
+      "issue": 2,
+      "status": "planned",
+      "implementation_state": "not_started",
+      "evidence_level": "contracted",
+      "tasks": [
+        {
+          "id": "T01.001",
+          "key": "intake",
+          "title": "Verify primary-source claims, rights and model candidates",
+          "acceptance": "Record source links, capability/setting distinction, licence, exact revisions, no novelty claim.",
+          "depends_on": [
+            "T00.002"
+          ],
+          "issue": 2,
+          "status": "planned",
+          "application": null,
+          "evidence": []
+        },
+        {
+          "id": "T01.002",
+          "key": "E01-protocol",
+          "title": "E01: freeze protocol, dataset and reference",
+          "acceptance": "150 varied referrals; label source-linked fields, dates and missingness; provenance, independent reference, frozen split and error taxonomy.",
+          "depends_on": [
+            "T01.001",
+            "T00.004"
+          ],
+          "issue": 2,
+          "status": "planned",
+          "application": "E01",
+          "evidence": []
+        },
+        {
+          "id": "T01.003",
+          "key": "E01-baseline",
+          "title": "E01: implement and run conventional baseline",
+          "acceptance": "OCR and fixed templates; field linkage F1 and critical omission; retain predictions, denominators, runtime and negative fixtures.",
+          "depends_on": [
+            "T01.002",
+            "T00.003",
+            "T00.005"
+          ],
+          "issue": 2,
+          "status": "planned",
+          "application": "E01",
+          "evidence": []
+        },
+        {
+          "id": "T01.004",
+          "key": "E01-challenger",
+          "title": "E01: qualify and run learned challenger",
+          "acceptance": "Exact-pinned task-specific model; same fixed test cases; report actual error or unavailable runtime; no prompted role mislabelled as trained model.",
+          "depends_on": [
+            "T01.003",
+            "T00.006"
+          ],
+          "issue": 2,
+          "status": "planned",
+          "application": "E01",
+          "evidence": []
+        },
+        {
+          "id": "T01.005",
+          "key": "E01-evaluate",
+          "title": "E01: evaluate incremental value and failure modes",
+          "acceptance": "result linked to wrong date; receiving clinician reviews region; paired uncertainty, calibration/abstentions, processing time and rework; retain negative findings.",
+          "depends_on": [
+            "T01.004",
+            "T11.001"
+          ],
+          "issue": 2,
+          "status": "planned",
+          "application": "E01",
+          "evidence": []
+        },
+        {
+          "id": "T01.006",
+          "key": "E02-protocol",
+          "title": "E02: freeze protocol, dataset and reference",
+          "acceptance": "100 annotated pages; label hierarchy, rows, qualifiers and source boxes; provenance, independent reference, frozen split and error taxonomy.",
+          "depends_on": [
+            "T01.001",
+            "T00.004"
+          ],
+          "issue": 2,
+          "status": "planned",
+          "application": "E02",
+          "evidence": []
+        },
+        {
+          "id": "T01.007",
+          "key": "E02-baseline",
+          "title": "E02: implement and run conventional baseline",
+          "acceptance": "text extraction and conventional table parser; qualifier-link F1; retain predictions, denominators, runtime and negative fixtures.",
+          "depends_on": [
+            "T01.006",
+            "T00.003",
+            "T00.005"
+          ],
+          "issue": 2,
+          "status": "planned",
+          "application": "E02",
+          "evidence": []
+        },
+        {
+          "id": "T01.008",
+          "key": "E02-challenger",
+          "title": "E02: qualify and run learned challenger",
+          "acceptance": "Exact-pinned task-specific model; same fixed test cases; report actual error or unavailable runtime; no prompted role mislabelled as trained model.",
+          "depends_on": [
+            "T01.007",
+            "T00.006"
+          ],
+          "issue": 2,
+          "status": "planned",
+          "application": "E02",
+          "evidence": []
+        },
+        {
+          "id": "T01.009",
+          "key": "E02-evaluate",
+          "title": "E02: evaluate incremental value and failure modes",
+          "acceptance": "exception overgeneralised; policy owner adjudicates; paired uncertainty, calibration/abstentions, policy review hours; retain negative findings.",
+          "depends_on": [
+            "T01.008",
+            "T11.001"
+          ],
+          "issue": 2,
+          "status": "planned",
+          "application": "E02",
+          "evidence": []
+        },
+        {
+          "id": "T01.010",
+          "key": "E03-protocol",
+          "title": "E03: freeze protocol, dataset and reference",
+          "acceptance": "40 synthetic records; label time-linked observations and relationships; provenance, independent reference, frozen split and error taxonomy.",
+          "depends_on": [
+            "T01.001",
+            "T00.004"
+          ],
+          "issue": 2,
+          "status": "planned",
+          "application": "E03",
+          "evidence": []
+        },
+        {
+          "id": "T01.011",
+          "key": "E03-baseline",
+          "title": "E03: implement and run conventional baseline",
+          "acceptance": "OCR plus manual abstraction; relationship and temporal-link accuracy; retain predictions, denominators, runtime and negative fixtures.",
+          "depends_on": [
+            "T01.010",
+            "T00.003",
+            "T00.005"
+          ],
+          "issue": 2,
+          "status": "planned",
+          "application": "E03",
+          "evidence": []
+        },
+        {
+          "id": "T01.012",
+          "key": "E03-challenger",
+          "title": "E03: qualify and run learned challenger",
+          "acceptance": "Exact-pinned task-specific model; same fixed test cases; report actual error or unavailable runtime; no prompted role mislabelled as trained model.",
+          "depends_on": [
+            "T01.011",
+            "T00.006"
+          ],
+          "issue": 2,
+          "status": "planned",
+          "application": "E03",
+          "evidence": []
+        },
+        {
+          "id": "T01.013",
+          "key": "E03-evaluate",
+          "title": "E03: evaluate incremental value and failure modes",
+          "acceptance": "wrong pedigree edge; genetics reviewer checks original; paired uncertainty, calibration/abstentions, abstraction time and completeness; retain negative findings.",
+          "depends_on": [
+            "T01.012",
+            "T11.001"
+          ],
+          "issue": 2,
+          "status": "planned",
+          "application": "E03",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "02",
+      "slug": "02-extractive-taggers",
+      "title": "Extractive taggers",
+      "depends_on": [
+        "00"
+      ],
+      "issue": 3,
+      "status": "planned",
+      "implementation_state": "not_started",
+      "evidence_level": "contracted",
+      "tasks": [
+        {
+          "id": "T02.001",
+          "key": "intake",
+          "title": "Verify primary-source claims, rights and model candidates",
+          "acceptance": "Record source links, capability/setting distinction, licence, exact revisions, no novelty claim.",
+          "depends_on": [
+            "T00.002"
+          ],
+          "issue": 3,
+          "status": "planned",
+          "application": null,
+          "evidence": []
+        },
+        {
+          "id": "T02.002",
+          "key": "E04-protocol",
+          "title": "E04: freeze protocol, dataset and reference",
+          "acceptance": "200 synthetic summaries; label exact action-owner-deadline-condition spans; provenance, independent reference, frozen split and error taxonomy.",
+          "depends_on": [
+            "T02.001",
+            "T00.004"
+          ],
+          "issue": 3,
+          "status": "planned",
+          "application": "E04",
+          "evidence": []
+        },
+        {
+          "id": "T02.003",
+          "key": "E04-baseline",
+          "title": "E04: implement and run conventional baseline",
+          "acceptance": "keyword and negation rules; tuple F1 and missed obligations; retain predictions, denominators, runtime and negative fixtures.",
+          "depends_on": [
+            "T02.002",
+            "T00.003",
+            "T00.005"
+          ],
+          "issue": 3,
+          "status": "planned",
+          "application": "E04",
+          "evidence": []
+        },
+        {
+          "id": "T02.004",
+          "key": "E04-challenger",
+          "title": "E04: qualify and run learned challenger",
+          "acceptance": "Exact-pinned task-specific model; same fixed test cases; report actual error or unavailable runtime; no prompted role mislabelled as trained model.",
+          "depends_on": [
+            "T02.003",
+            "T00.006"
+          ],
+          "issue": 3,
+          "status": "planned",
+          "application": "E04",
+          "evidence": []
+        },
+        {
+          "id": "T02.005",
+          "key": "E04-evaluate",
+          "title": "E04: evaluate incremental value and failure modes",
+          "acceptance": "completed action marked outstanding; discharging team reviews; paired uncertainty, calibration/abstentions, reconciliation minutes and overdue tasks; retain negative findings.",
+          "depends_on": [
+            "T02.004",
+            "T11.001"
+          ],
+          "issue": 3,
+          "status": "planned",
+          "application": "E04",
+          "evidence": []
+        },
+        {
+          "id": "T02.006",
+          "key": "E05-protocol",
+          "title": "E05: freeze protocol, dataset and reference",
+          "acceptance": "150 synthetic records; label source spans, assertion, experiencer and temporality; provenance, independent reference, frozen split and error taxonomy.",
+          "depends_on": [
+            "T02.001",
+            "T00.004"
+          ],
+          "issue": 3,
+          "status": "planned",
+          "application": "E05",
+          "evidence": []
+        },
+        {
+          "id": "T02.007",
+          "key": "E05-baseline",
+          "title": "E05: implement and run conventional baseline",
+          "acceptance": "terminology and negation rules; span and assertion F1; retain predictions, denominators, runtime and negative fixtures.",
+          "depends_on": [
+            "T02.006",
+            "T00.003",
+            "T00.005"
+          ],
+          "issue": 3,
+          "status": "planned",
+          "application": "E05",
+          "evidence": []
+        },
+        {
+          "id": "T02.008",
+          "key": "E05-challenger",
+          "title": "E05: qualify and run learned challenger",
+          "acceptance": "Exact-pinned task-specific model; same fixed test cases; report actual error or unavailable runtime; no prompted role mislabelled as trained model.",
+          "depends_on": [
+            "T02.007",
+            "T00.006"
+          ],
+          "issue": 3,
+          "status": "planned",
+          "application": "E05",
+          "evidence": []
+        },
+        {
+          "id": "T02.009",
+          "key": "E05-evaluate",
+          "title": "E05: evaluate incremental value and failure modes",
+          "acceptance": "family phenotype attributed to patient; abstractor reviews; paired uncertainty, calibration/abstentions, abstraction time and completeness; retain negative findings.",
+          "depends_on": [
+            "T02.008",
+            "T11.001"
+          ],
+          "issue": 3,
+          "status": "planned",
+          "application": "E05",
+          "evidence": []
+        },
+        {
+          "id": "T02.010",
+          "key": "E06-protocol",
+          "title": "E06: freeze protocol, dataset and reference",
+          "acceptance": "150 synthetic narratives; label context spans and reported/verified status; provenance, independent reference, frozen split and error taxonomy.",
+          "depends_on": [
+            "T02.001",
+            "T00.004"
+          ],
+          "issue": 3,
+          "status": "planned",
+          "application": "E06",
+          "evidence": []
+        },
+        {
+          "id": "T02.011",
+          "key": "E06-baseline",
+          "title": "E06: implement and run conventional baseline",
+          "acceptance": "incident categories and keyword matching; span F1 and factor recall; retain predictions, denominators, runtime and negative fixtures.",
+          "depends_on": [
+            "T02.010",
+            "T00.003",
+            "T00.005"
+          ],
+          "issue": 3,
+          "status": "planned",
+          "application": "E06",
+          "evidence": []
+        },
+        {
+          "id": "T02.012",
+          "key": "E06-challenger",
+          "title": "E06: qualify and run learned challenger",
+          "acceptance": "Exact-pinned task-specific model; same fixed test cases; report actual error or unavailable runtime; no prompted role mislabelled as trained model.",
+          "depends_on": [
+            "T02.011",
+            "T00.006"
+          ],
+          "issue": 3,
+          "status": "planned",
+          "application": "E06",
+          "evidence": []
+        },
+        {
+          "id": "T02.013",
+          "key": "E06-evaluate",
+          "title": "E06: evaluate incremental value and failure modes",
+          "acceptance": "criticism treated as fact; quality reviewer checks; paired uncertainty, calibration/abstentions, actionable hazards and review time; retain negative findings.",
+          "depends_on": [
+            "T02.012",
+            "T11.001"
+          ],
+          "issue": 3,
+          "status": "planned",
+          "application": "E06",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "03",
+      "slug": "03-graph-models",
+      "title": "Graph models",
+      "depends_on": [
+        "00"
+      ],
+      "issue": 4,
+      "status": "planned",
+      "implementation_state": "not_started",
+      "evidence_level": "contracted",
+      "tasks": [
+        {
+          "id": "T03.001",
+          "key": "intake",
+          "title": "Verify primary-source claims, rights and model candidates",
+          "acceptance": "Record source links, capability/setting distinction, licence, exact revisions, no novelty claim.",
+          "depends_on": [
+            "T00.002"
+          ],
+          "issue": 4,
+          "status": "planned",
+          "application": null,
+          "evidence": []
+        },
+        {
+          "id": "T03.002",
+          "key": "E07-protocol",
+          "title": "E07: freeze protocol, dataset and reference",
+          "acceptance": "five sites and 30 disruptions; label dependencies and cascade predictions; provenance, independent reference, frozen split and error taxonomy.",
+          "depends_on": [
+            "T03.001",
+            "T00.004"
+          ],
+          "issue": 4,
+          "status": "planned",
+          "application": "E07",
+          "evidence": []
+        },
+        {
+          "id": "T03.003",
+          "key": "E07-baseline",
+          "title": "E07: implement and run conventional baseline",
+          "acceptance": "capacity table and deterministic graph traversal; dependency recall and disruption accuracy; retain predictions, denominators, runtime and negative fixtures.",
+          "depends_on": [
+            "T03.002",
+            "T00.003",
+            "T00.005"
+          ],
+          "issue": 4,
+          "status": "planned",
+          "application": "E07",
+          "evidence": []
+        },
+        {
+          "id": "T03.004",
+          "key": "E07-challenger",
+          "title": "E07: qualify and run learned challenger",
+          "acceptance": "Exact-pinned task-specific model; same fixed test cases; report actual error or unavailable runtime; no prompted role mislabelled as trained model.",
+          "depends_on": [
+            "T03.003",
+            "T00.006"
+          ],
+          "issue": 4,
+          "status": "planned",
+          "application": "E07",
+          "evidence": []
+        },
+        {
+          "id": "T03.005",
+          "key": "E07-evaluate",
+          "title": "E07: evaluate incremental value and failure modes",
+          "acceptance": "double-booked specialist; site managers reconcile; paired uncertainty, calibration/abstentions, simulated cancellation/transfer counts; retain negative findings.",
+          "depends_on": [
+            "T03.004",
+            "T11.001"
+          ],
+          "issue": 4,
+          "status": "planned",
+          "application": "E07",
+          "evidence": []
+        },
+        {
+          "id": "T03.006",
+          "key": "E08-protocol",
+          "title": "E08: freeze protocol, dataset and reference",
+          "acceptance": "temporal held-out associations; label ranked associations and supporting paths; provenance, independent reference, frozen split and error taxonomy.",
+          "depends_on": [
+            "T03.001",
+            "T00.004"
+          ],
+          "issue": 4,
+          "status": "planned",
+          "application": "E08",
+          "evidence": []
+        },
+        {
+          "id": "T03.007",
+          "key": "E08-baseline",
+          "title": "E08: implement and run conventional baseline",
+          "acceptance": "interaction rules and disproportionality/link scores; PR-AUC and later signal recall; retain predictions, denominators, runtime and negative fixtures.",
+          "depends_on": [
+            "T03.006",
+            "T00.003",
+            "T00.005"
+          ],
+          "issue": 4,
+          "status": "planned",
+          "application": "E08",
+          "evidence": []
+        },
+        {
+          "id": "T03.008",
+          "key": "E08-challenger",
+          "title": "E08: qualify and run learned challenger",
+          "acceptance": "Exact-pinned task-specific model; same fixed test cases; report actual error or unavailable runtime; no prompted role mislabelled as trained model.",
+          "depends_on": [
+            "T03.007",
+            "T00.006"
+          ],
+          "issue": 4,
+          "status": "planned",
+          "application": "E08",
+          "evidence": []
+        },
+        {
+          "id": "T03.009",
+          "key": "E08-evaluate",
+          "title": "E08: evaluate incremental value and failure modes",
+          "acceptance": "confounding by indication; epidemiologist checks; paired uncertainty, calibration/abstentions, investigation time per credible signal; retain negative findings.",
+          "depends_on": [
+            "T03.008",
+            "T11.001"
+          ],
+          "issue": 4,
+          "status": "planned",
+          "application": "E08",
+          "evidence": []
+        },
+        {
+          "id": "T03.010",
+          "key": "E09-protocol",
+          "title": "E09: freeze protocol, dataset and reference",
+          "acceptance": "50–100 studies or synthetic analogues; label ranked cohort links and opportunities; provenance, independent reference, frozen split and error taxonomy.",
+          "depends_on": [
+            "T03.001",
+            "T00.004"
+          ],
+          "issue": 4,
+          "status": "planned",
+          "application": "E09",
+          "evidence": []
+        },
+        {
+          "id": "T03.011",
+          "key": "E09-baseline",
+          "title": "E09: implement and run conventional baseline",
+          "acceptance": "keyword and deterministic traversal; recall@10 and false independence; retain predictions, denominators, runtime and negative fixtures.",
+          "depends_on": [
+            "T03.010",
+            "T00.003",
+            "T00.005"
+          ],
+          "issue": 4,
+          "status": "planned",
+          "application": "E09",
+          "evidence": []
+        },
+        {
+          "id": "T03.012",
+          "key": "E09-challenger",
+          "title": "E09: qualify and run learned challenger",
+          "acceptance": "Exact-pinned task-specific model; same fixed test cases; report actual error or unavailable runtime; no prompted role mislabelled as trained model.",
+          "depends_on": [
+            "T03.011",
+            "T00.006"
+          ],
+          "issue": 4,
+          "status": "planned",
+          "application": "E09",
+          "evidence": []
+        },
+        {
+          "id": "T03.013",
+          "key": "E09-evaluate",
+          "title": "E09: evaluate incremental value and failure modes",
+          "acceptance": "double-counted cohort; data custodian verifies; paired uncertainty, calibration/abstentions, viable questions and acquisition effort; retain negative findings.",
+          "depends_on": [
+            "T03.012",
+            "T11.001"
+          ],
+          "issue": 4,
+          "status": "planned",
+          "application": "E09",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "04",
+      "slug": "04-decision-models",
+      "title": "Decision models",
+      "depends_on": [
+        "00"
+      ],
+      "issue": 5,
+      "status": "planned",
+      "implementation_state": "not_started",
+      "evidence_level": "contracted",
+      "tasks": [
+        {
+          "id": "T04.001",
+          "key": "intake",
+          "title": "Verify primary-source claims, rights and model candidates",
+          "acceptance": "Record source links, capability/setting distinction, licence, exact revisions, no novelty claim.",
+          "depends_on": [
+            "T00.002"
+          ],
+          "issue": 5,
+          "status": "planned",
+          "application": null,
+          "evidence": []
+        },
+        {
+          "id": "T04.002",
+          "key": "E10-protocol",
+          "title": "E10: freeze protocol, dataset and reference",
+          "acceptance": "300 scenarios; label urgency, supporting criteria and abstention; provenance, independent reference, frozen split and error taxonomy.",
+          "depends_on": [
+            "T04.001",
+            "T00.004"
+          ],
+          "issue": 5,
+          "status": "planned",
+          "application": "E10",
+          "evidence": []
+        },
+        {
+          "id": "T04.003",
+          "key": "E10-baseline",
+          "title": "E10: implement and run conventional baseline",
+          "acceptance": "deterministic criteria and clinician comparator; weighted kappa and serious under-triage; retain predictions, denominators, runtime and negative fixtures.",
+          "depends_on": [
+            "T04.002",
+            "T00.003",
+            "T00.005"
+          ],
+          "issue": 5,
+          "status": "planned",
+          "application": "E10",
+          "evidence": []
+        },
+        {
+          "id": "T04.004",
+          "key": "E10-challenger",
+          "title": "E10: qualify and run learned challenger",
+          "acceptance": "Exact-pinned task-specific model; same fixed test cases; report actual error or unavailable runtime; no prompted role mislabelled as trained model.",
+          "depends_on": [
+            "T04.003",
+            "T00.006"
+          ],
+          "issue": 5,
+          "status": "planned",
+          "application": "E10",
+          "evidence": []
+        },
+        {
+          "id": "T04.005",
+          "key": "E10-evaluate",
+          "title": "E10: evaluate incremental value and failure modes",
+          "acceptance": "serious under-triage; clinician retains decision; paired uncertainty, calibration/abstentions, triage minutes and appropriate timing; retain negative findings.",
+          "depends_on": [
+            "T04.004",
+            "T11.001"
+          ],
+          "issue": 5,
+          "status": "planned",
+          "application": "E10",
+          "evidence": []
+        },
+        {
+          "id": "T04.006",
+          "key": "E11-protocol",
+          "title": "E11: freeze protocol, dataset and reference",
+          "acceptance": "80 synthetic portfolios; label supported/unsupported/conditional/insufficient; provenance, independent reference, frozen split and error taxonomy.",
+          "depends_on": [
+            "T04.001",
+            "T00.004"
+          ],
+          "issue": 5,
+          "status": "planned",
+          "application": "E11",
+          "evidence": []
+        },
+        {
+          "id": "T04.007",
+          "key": "E11-baseline",
+          "title": "E11: implement and run conventional baseline",
+          "acceptance": "mandatory-field and explicit rules; false equivalence and selective accuracy; retain predictions, denominators, runtime and negative fixtures.",
+          "depends_on": [
+            "T04.006",
+            "T00.003",
+            "T00.005"
+          ],
+          "issue": 5,
+          "status": "planned",
+          "application": "E11",
+          "evidence": []
+        },
+        {
+          "id": "T04.008",
+          "key": "E11-challenger",
+          "title": "E11: qualify and run learned challenger",
+          "acceptance": "Exact-pinned task-specific model; same fixed test cases; report actual error or unavailable runtime; no prompted role mislabelled as trained model.",
+          "depends_on": [
+            "T04.007",
+            "T00.006"
+          ],
+          "issue": 5,
+          "status": "planned",
+          "application": "E11",
+          "evidence": []
+        },
+        {
+          "id": "T04.009",
+          "key": "E11-evaluate",
+          "title": "E11: evaluate incremental value and failure modes",
+          "acceptance": "false competency equivalence; specialty reviewer checks; paired uncertainty, calibration/abstentions, review time and rework; retain negative findings.",
+          "depends_on": [
+            "T04.008",
+            "T11.001"
+          ],
+          "issue": 5,
+          "status": "planned",
+          "application": "E11",
+          "evidence": []
+        },
+        {
+          "id": "T04.010",
+          "key": "E12-protocol",
+          "title": "E12: freeze protocol, dataset and reference",
+          "acceptance": "100 counterfactual pairs; label appropriate variation/potential deficiency/unresolved; provenance, independent reference, frozen split and error taxonomy.",
+          "depends_on": [
+            "T04.001",
+            "T00.004"
+          ],
+          "issue": 5,
+          "status": "planned",
+          "application": "E12",
+          "evidence": []
+        },
+        {
+          "id": "T04.011",
+          "key": "E12-baseline",
+          "title": "E12: implement and run conventional baseline",
+          "acceptance": "binary compliance rules; false exoneration and exception F1; retain predictions, denominators, runtime and negative fixtures.",
+          "depends_on": [
+            "T04.010",
+            "T00.003",
+            "T00.005"
+          ],
+          "issue": 5,
+          "status": "planned",
+          "application": "E12",
+          "evidence": []
+        },
+        {
+          "id": "T04.012",
+          "key": "E12-challenger",
+          "title": "E12: qualify and run learned challenger",
+          "acceptance": "Exact-pinned task-specific model; same fixed test cases; report actual error or unavailable runtime; no prompted role mislabelled as trained model.",
+          "depends_on": [
+            "T04.011",
+            "T00.006"
+          ],
+          "issue": 5,
+          "status": "planned",
+          "application": "E12",
+          "evidence": []
+        },
+        {
+          "id": "T04.013",
+          "key": "E12-evaluate",
+          "title": "E12: evaluate incremental value and failure modes",
+          "acceptance": "unsupported exoneration; clinical reviewer checks contemporaneous evidence; paired uncertainty, calibration/abstentions, review effort and actionable findings; retain negative findings.",
+          "depends_on": [
+            "T04.012",
+            "T11.001"
+          ],
+          "issue": 5,
+          "status": "planned",
+          "application": "E12",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "05",
+      "slug": "05-rerankers",
+      "title": "Rerankers",
+      "depends_on": [
+        "00"
+      ],
+      "issue": 6,
+      "status": "planned",
+      "implementation_state": "not_started",
+      "evidence_level": "contracted",
+      "tasks": [
+        {
+          "id": "T05.001",
+          "key": "intake",
+          "title": "Verify primary-source claims, rights and model candidates",
+          "acceptance": "Record source links, capability/setting distinction, licence, exact revisions, no novelty claim.",
+          "depends_on": [
+            "T00.002"
+          ],
+          "issue": 6,
+          "status": "planned",
+          "application": null,
+          "evidence": []
+        },
+        {
+          "id": "T05.002",
+          "key": "E13-protocol",
+          "title": "E13: freeze protocol, dataset and reference",
+          "acceptance": "150 questions; label reordered applicable passages; provenance, independent reference, frozen split and error taxonomy.",
+          "depends_on": [
+            "T05.001",
+            "T00.004"
+          ],
+          "issue": 6,
+          "status": "planned",
+          "application": "E13",
+          "evidence": []
+        },
+        {
+          "id": "T05.003",
+          "key": "E13-baseline",
+          "title": "E13: implement and run conventional baseline",
+          "acceptance": "lexical/dense initial ranking; nDCG@5 and applicable recall; retain predictions, denominators, runtime and negative fixtures.",
+          "depends_on": [
+            "T05.002",
+            "T00.003",
+            "T00.005"
+          ],
+          "issue": 6,
+          "status": "planned",
+          "application": "E13",
+          "evidence": []
+        },
+        {
+          "id": "T05.004",
+          "key": "E13-challenger",
+          "title": "E13: qualify and run learned challenger",
+          "acceptance": "Exact-pinned task-specific model; same fixed test cases; report actual error or unavailable runtime; no prompted role mislabelled as trained model.",
+          "depends_on": [
+            "T05.003",
+            "T00.006"
+          ],
+          "issue": 6,
+          "status": "planned",
+          "application": "E13",
+          "evidence": []
+        },
+        {
+          "id": "T05.005",
+          "key": "E13-evaluate",
+          "title": "E13: evaluate incremental value and failure modes",
+          "acceptance": "inapplicable high-ranked passage; clinician checks metadata; paired uncertainty, calibration/abstentions, time to correct source; retain negative findings.",
+          "depends_on": [
+            "T05.004",
+            "T11.001"
+          ],
+          "issue": 6,
+          "status": "planned",
+          "application": "E13",
+          "evidence": []
+        },
+        {
+          "id": "T05.006",
+          "key": "E14-protocol",
+          "title": "E14: freeze protocol, dataset and reference",
+          "acceptance": "100 profiles; label ranked trials and unresolved criteria; provenance, independent reference, frozen split and error taxonomy.",
+          "depends_on": [
+            "T05.001",
+            "T00.004"
+          ],
+          "issue": 6,
+          "status": "planned",
+          "application": "E14",
+          "evidence": []
+        },
+        {
+          "id": "T05.007",
+          "key": "E14-baseline",
+          "title": "E14: implement and run conventional baseline",
+          "acceptance": "lexical/dense ranking; eligible recall@10 and nDCG; retain predictions, denominators, runtime and negative fixtures.",
+          "depends_on": [
+            "T05.006",
+            "T00.003",
+            "T00.005"
+          ],
+          "issue": 6,
+          "status": "planned",
+          "application": "E14",
+          "evidence": []
+        },
+        {
+          "id": "T05.008",
+          "key": "E14-challenger",
+          "title": "E14: qualify and run learned challenger",
+          "acceptance": "Exact-pinned task-specific model; same fixed test cases; report actual error or unavailable runtime; no prompted role mislabelled as trained model.",
+          "depends_on": [
+            "T05.007",
+            "T00.006"
+          ],
+          "issue": 6,
+          "status": "planned",
+          "application": "E14",
+          "evidence": []
+        },
+        {
+          "id": "T05.009",
+          "key": "E14-evaluate",
+          "title": "E14: evaluate incremental value and failure modes",
+          "acceptance": "missing value suppresses eligible trial; coordinator checks; paired uncertainty, calibration/abstentions, screening time and opportunity; retain negative findings.",
+          "depends_on": [
+            "T05.008",
+            "T11.001"
+          ],
+          "issue": 6,
+          "status": "planned",
+          "application": "E14",
+          "evidence": []
+        },
+        {
+          "id": "T05.010",
+          "key": "E15-protocol",
+          "title": "E15: freeze protocol, dataset and reference",
+          "acceptance": "100 queries; label ranked mechanism analogues; provenance, independent reference, frozen split and error taxonomy.",
+          "depends_on": [
+            "T05.001",
+            "T00.004"
+          ],
+          "issue": 6,
+          "status": "planned",
+          "application": "E15",
+          "evidence": []
+        },
+        {
+          "id": "T05.011",
+          "key": "E15-baseline",
+          "title": "E15: implement and run conventional baseline",
+          "acceptance": "category and embedding ranking; precision@5 and nDCG; retain predictions, denominators, runtime and negative fixtures.",
+          "depends_on": [
+            "T05.010",
+            "T00.003",
+            "T00.005"
+          ],
+          "issue": 6,
+          "status": "planned",
+          "application": "E15",
+          "evidence": []
+        },
+        {
+          "id": "T05.012",
+          "key": "E15-challenger",
+          "title": "E15: qualify and run learned challenger",
+          "acceptance": "Exact-pinned task-specific model; same fixed test cases; report actual error or unavailable runtime; no prompted role mislabelled as trained model.",
+          "depends_on": [
+            "T05.011",
+            "T00.006"
+          ],
+          "issue": 6,
+          "status": "planned",
+          "application": "E15",
+          "evidence": []
+        },
+        {
+          "id": "T05.013",
+          "key": "E15-evaluate",
+          "title": "E15: evaluate incremental value and failure modes",
+          "acceptance": "surface similarity mistaken for mechanism; investigator checks; paired uncertainty, calibration/abstentions, controls rediscovered and investigation time; retain negative findings.",
+          "depends_on": [
+            "T05.012",
+            "T11.001"
+          ],
+          "issue": 6,
+          "status": "planned",
+          "application": "E15",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "06",
+      "slug": "06-routers",
+      "title": "Routers",
+      "depends_on": [
+        "00"
+      ],
+      "issue": 7,
+      "status": "planned",
+      "implementation_state": "not_started",
+      "evidence_level": "contracted",
+      "tasks": [
+        {
+          "id": "T06.001",
+          "key": "intake",
+          "title": "Verify primary-source claims, rights and model candidates",
+          "acceptance": "Record source links, capability/setting distinction, licence, exact revisions, no novelty claim.",
+          "depends_on": [
+            "T00.002"
+          ],
+          "issue": 7,
+          "status": "planned",
+          "application": null,
+          "evidence": []
+        },
+        {
+          "id": "T06.002",
+          "key": "E16-protocol",
+          "title": "E16: freeze protocol, dataset and reference",
+          "acceptance": "300 scenarios; label candidate destination, confidence and reasons; provenance, independent reference, frozen split and error taxonomy.",
+          "depends_on": [
+            "T06.001",
+            "T00.004"
+          ],
+          "issue": 7,
+          "status": "planned",
+          "application": "E16",
+          "evidence": []
+        },
+        {
+          "id": "T06.003",
+          "key": "E16-baseline",
+          "title": "E16: implement and run conventional baseline",
+          "acceptance": "fixed specialty map; destination accuracy and unsafe routing; retain predictions, denominators, runtime and negative fixtures.",
+          "depends_on": [
+            "T06.002",
+            "T00.003",
+            "T00.005"
+          ],
+          "issue": 7,
+          "status": "planned",
+          "application": "E16",
+          "evidence": []
+        },
+        {
+          "id": "T06.004",
+          "key": "E16-challenger",
+          "title": "E16: qualify and run learned challenger",
+          "acceptance": "Exact-pinned task-specific model; same fixed test cases; report actual error or unavailable runtime; no prompted role mislabelled as trained model.",
+          "depends_on": [
+            "T06.003",
+            "T00.006"
+          ],
+          "issue": 7,
+          "status": "planned",
+          "application": "E16",
+          "evidence": []
+        },
+        {
+          "id": "T06.005",
+          "key": "E16-evaluate",
+          "title": "E16: evaluate incremental value and failure modes",
+          "acceptance": "service lacks capability; capability rule and clinician override; paired uncertainty, calibration/abstentions, redirects and time to acceptance; retain negative findings.",
+          "depends_on": [
+            "T06.004",
+            "T11.001"
+          ],
+          "issue": 7,
+          "status": "planned",
+          "application": "E16",
+          "evidence": []
+        },
+        {
+          "id": "T06.006",
+          "key": "E17-protocol",
+          "title": "E17: freeze protocol, dataset and reference",
+          "acceptance": "200 requests; label owner, consultation and approval route; provenance, independent reference, frozen split and error taxonomy.",
+          "depends_on": [
+            "T06.001",
+            "T00.004"
+          ],
+          "issue": 7,
+          "status": "planned",
+          "application": "E17",
+          "evidence": []
+        },
+        {
+          "id": "T06.007",
+          "key": "E17-baseline",
+          "title": "E17: implement and run conventional baseline",
+          "acceptance": "decision tree; owner accuracy and missed consultation; retain predictions, denominators, runtime and negative fixtures.",
+          "depends_on": [
+            "T06.006",
+            "T00.003",
+            "T00.005"
+          ],
+          "issue": 7,
+          "status": "planned",
+          "application": "E17",
+          "evidence": []
+        },
+        {
+          "id": "T06.008",
+          "key": "E17-challenger",
+          "title": "E17: qualify and run learned challenger",
+          "acceptance": "Exact-pinned task-specific model; same fixed test cases; report actual error or unavailable runtime; no prompted role mislabelled as trained model.",
+          "depends_on": [
+            "T06.007",
+            "T00.006"
+          ],
+          "issue": 7,
+          "status": "planned",
+          "application": "E17",
+          "evidence": []
+        },
+        {
+          "id": "T06.009",
+          "key": "E17-evaluate",
+          "title": "E17: evaluate incremental value and failure modes",
+          "acceptance": "wrong delegation; governance officer checks register; paired uncertainty, calibration/abstentions, touches and turnaround; retain negative findings.",
+          "depends_on": [
+            "T06.008",
+            "T11.001"
+          ],
+          "issue": 7,
+          "status": "planned",
+          "application": "E17",
+          "evidence": []
+        },
+        {
+          "id": "T06.010",
+          "key": "E18-protocol",
+          "title": "E18: freeze protocol, dataset and reference",
+          "acceptance": "500 simulated tasks; label eligible destination or human escalation; provenance, independent reference, frozen split and error taxonomy.",
+          "depends_on": [
+            "T06.001",
+            "T00.004"
+          ],
+          "issue": 7,
+          "status": "planned",
+          "application": "E18",
+          "evidence": []
+        },
+        {
+          "id": "T06.011",
+          "key": "E18-baseline",
+          "title": "E18: implement and run conventional baseline",
+          "acceptance": "static router and largest-model policy; unsafe routing and risk–coverage; retain predictions, denominators, runtime and negative fixtures.",
+          "depends_on": [
+            "T06.010",
+            "T00.003",
+            "T00.005"
+          ],
+          "issue": 7,
+          "status": "planned",
+          "application": "E18",
+          "evidence": []
+        },
+        {
+          "id": "T06.012",
+          "key": "E18-challenger",
+          "title": "E18: qualify and run learned challenger",
+          "acceptance": "Exact-pinned task-specific model; same fixed test cases; report actual error or unavailable runtime; no prompted role mislabelled as trained model.",
+          "depends_on": [
+            "T06.011",
+            "T00.006"
+          ],
+          "issue": 7,
+          "status": "planned",
+          "application": "E18",
+          "evidence": []
+        },
+        {
+          "id": "T06.013",
+          "key": "E18-evaluate",
+          "title": "E18: evaluate incremental value and failure modes",
+          "acceptance": "unsafe cheap route; hard constraint and human escalation; paired uncertainty, calibration/abstentions, latency, workload and compute cost; retain negative findings.",
+          "depends_on": [
+            "T06.012",
+            "T11.001"
+          ],
+          "issue": 7,
+          "status": "planned",
+          "application": "E18",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "07",
+      "slug": "07-evidence-evaluators",
+      "title": "Evidence evaluators",
+      "depends_on": [
+        "00"
+      ],
+      "issue": 8,
+      "status": "planned",
+      "implementation_state": "not_started",
+      "evidence_level": "contracted",
+      "tasks": [
+        {
+          "id": "T07.001",
+          "key": "intake",
+          "title": "Verify primary-source claims, rights and model candidates",
+          "acceptance": "Record source links, capability/setting distinction, licence, exact revisions, no novelty claim.",
+          "depends_on": [
+            "T00.002"
+          ],
+          "issue": 8,
+          "status": "planned",
+          "application": null,
+          "evidence": []
+        },
+        {
+          "id": "T07.002",
+          "key": "E19-protocol",
+          "title": "E19: freeze protocol, dataset and reference",
+          "acceptance": "80 examples; label domain appraisal, supporting span and uncertainty; provenance, independent reference, frozen split and error taxonomy.",
+          "depends_on": [
+            "T07.001",
+            "T00.004"
+          ],
+          "issue": 8,
+          "status": "planned",
+          "application": "E19",
+          "evidence": []
+        },
+        {
+          "id": "T07.003",
+          "key": "E19-baseline",
+          "title": "E19: implement and run conventional baseline",
+          "acceptance": "checklist and keyword guidance; weighted kappa and evidence precision; retain predictions, denominators, runtime and negative fixtures.",
+          "depends_on": [
+            "T07.002",
+            "T00.003",
+            "T00.005"
+          ],
+          "issue": 8,
+          "status": "planned",
+          "application": "E19",
+          "evidence": []
+        },
+        {
+          "id": "T07.004",
+          "key": "E19-challenger",
+          "title": "E19: qualify and run learned challenger",
+          "acceptance": "Exact-pinned task-specific model; same fixed test cases; report actual error or unavailable runtime; no prompted role mislabelled as trained model.",
+          "depends_on": [
+            "T07.003",
+            "T00.006"
+          ],
+          "issue": 8,
+          "status": "planned",
+          "application": "E19",
+          "evidence": []
+        },
+        {
+          "id": "T07.005",
+          "key": "E19-evaluate",
+          "title": "E19: evaluate incremental value and failure modes",
+          "acceptance": "randomisation assertion accepted without method; reviewer corrects; paired uncertainty, calibration/abstentions, review time; retain negative findings.",
+          "depends_on": [
+            "T07.004",
+            "T11.001"
+          ],
+          "issue": 8,
+          "status": "planned",
+          "application": "E19",
+          "evidence": []
+        },
+        {
+          "id": "T07.006",
+          "key": "E20-protocol",
+          "title": "E20: freeze protocol, dataset and reference",
+          "acceptance": "40 synthetic proposals; label indirectness, missing capability and unresolved risks; provenance, independent reference, frozen split and error taxonomy.",
+          "depends_on": [
+            "T07.001",
+            "T00.004"
+          ],
+          "issue": 8,
+          "status": "planned",
+          "application": "E20",
+          "evidence": []
+        },
+        {
+          "id": "T07.007",
+          "key": "E20-baseline",
+          "title": "E20: implement and run conventional baseline",
+          "acceptance": "standard checklist; limitation recall and unsupported recommendation; retain predictions, denominators, runtime and negative fixtures.",
+          "depends_on": [
+            "T07.006",
+            "T00.003",
+            "T00.005"
+          ],
+          "issue": 8,
+          "status": "planned",
+          "application": "E20",
+          "evidence": []
+        },
+        {
+          "id": "T07.008",
+          "key": "E20-challenger",
+          "title": "E20: qualify and run learned challenger",
+          "acceptance": "Exact-pinned task-specific model; same fixed test cases; report actual error or unavailable runtime; no prompted role mislabelled as trained model.",
+          "depends_on": [
+            "T07.007",
+            "T00.006"
+          ],
+          "issue": 8,
+          "status": "planned",
+          "application": "E20",
+          "evidence": []
+        },
+        {
+          "id": "T07.009",
+          "key": "E20-evaluate",
+          "title": "E20: evaluate incremental value and failure modes",
+          "acceptance": "overlooked rescue capability; local expert reviews; paired uncertainty, calibration/abstentions, preparation and rework; retain negative findings.",
+          "depends_on": [
+            "T07.008",
+            "T11.001"
+          ],
+          "issue": 8,
+          "status": "planned",
+          "application": "E20",
+          "evidence": []
+        },
+        {
+          "id": "T07.010",
+          "key": "E21-protocol",
+          "title": "E21: freeze protocol, dataset and reference",
+          "acceptance": "100 simulated evaluations; label claim appraisal and missing assumptions; provenance, independent reference, frozen split and error taxonomy.",
+          "depends_on": [
+            "T07.001",
+            "T00.004"
+          ],
+          "issue": 8,
+          "status": "planned",
+          "application": "E21",
+          "evidence": []
+        },
+        {
+          "id": "T07.011",
+          "key": "E21-baseline",
+          "title": "E21: implement and run conventional baseline",
+          "acceptance": "dashboard and design checklist; false causal endorsement and calibration; retain predictions, denominators, runtime and negative fixtures.",
+          "depends_on": [
+            "T07.010",
+            "T00.003",
+            "T00.005"
+          ],
+          "issue": 8,
+          "status": "planned",
+          "application": "E21",
+          "evidence": []
+        },
+        {
+          "id": "T07.012",
+          "key": "E21-challenger",
+          "title": "E21: qualify and run learned challenger",
+          "acceptance": "Exact-pinned task-specific model; same fixed test cases; report actual error or unavailable runtime; no prompted role mislabelled as trained model.",
+          "depends_on": [
+            "T07.011",
+            "T00.006"
+          ],
+          "issue": 8,
+          "status": "planned",
+          "application": "E21",
+          "evidence": []
+        },
+        {
+          "id": "T07.013",
+          "key": "E21-evaluate",
+          "title": "E21: evaluate incremental value and failure modes",
+          "acceptance": "regression to mean ignored; epidemiologist checks; paired uncertainty, calibration/abstentions, review time and unsupported claims; retain negative findings.",
+          "depends_on": [
+            "T07.012",
+            "T11.001"
+          ],
+          "issue": 8,
+          "status": "planned",
+          "application": "E21",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "08",
+      "slug": "08-step-verifiers",
+      "title": "Step verifiers",
+      "depends_on": [
+        "00"
+      ],
+      "issue": 9,
+      "status": "planned",
+      "implementation_state": "not_started",
+      "evidence_level": "contracted",
+      "tasks": [
+        {
+          "id": "T08.001",
+          "key": "intake",
+          "title": "Verify primary-source claims, rights and model candidates",
+          "acceptance": "Record source links, capability/setting distinction, licence, exact revisions, no novelty claim.",
+          "depends_on": [
+            "T00.002"
+          ],
+          "issue": 9,
+          "status": "planned",
+          "application": null,
+          "evidence": []
+        },
+        {
+          "id": "T08.002",
+          "key": "E22-protocol",
+          "title": "E22: freeze protocol, dataset and reference",
+          "acceptance": "150 simulated episodes; label completed/late/missing/inapplicable/unverifiable; provenance, independent reference, frozen split and error taxonomy.",
+          "depends_on": [
+            "T08.001",
+            "T00.004"
+          ],
+          "issue": 9,
+          "status": "planned",
+          "application": "E22",
+          "evidence": []
+        },
+        {
+          "id": "T08.003",
+          "key": "E22-baseline",
+          "title": "E22: implement and run conventional baseline",
+          "acceptance": "event-log rules; false completion and missed-step recall; retain predictions, denominators, runtime and negative fixtures.",
+          "depends_on": [
+            "T08.002",
+            "T00.003",
+            "T00.005"
+          ],
+          "issue": 9,
+          "status": "planned",
+          "application": "E22",
+          "evidence": []
+        },
+        {
+          "id": "T08.004",
+          "key": "E22-challenger",
+          "title": "E22: qualify and run learned challenger",
+          "acceptance": "Exact-pinned task-specific model; same fixed test cases; report actual error or unavailable runtime; no prompted role mislabelled as trained model.",
+          "depends_on": [
+            "T08.003",
+            "T00.006"
+          ],
+          "issue": 9,
+          "status": "planned",
+          "application": "E22",
+          "evidence": []
+        },
+        {
+          "id": "T08.005",
+          "key": "E22-evaluate",
+          "title": "E22: evaluate incremental value and failure modes",
+          "acceptance": "order mistaken for completion; auditor verifies; paired uncertainty, calibration/abstentions, audit time and verified timely care; retain negative findings.",
+          "depends_on": [
+            "T08.004",
+            "T11.001"
+          ],
+          "issue": 9,
+          "status": "planned",
+          "application": "E22",
+          "evidence": []
+        },
+        {
+          "id": "T08.006",
+          "key": "E23-protocol",
+          "title": "E23: freeze protocol, dataset and reference",
+          "acceptance": "100 injected defects; label step-level failures with evidence; provenance, independent reference, frozen split and error taxonomy.",
+          "depends_on": [
+            "T08.001",
+            "T00.004"
+          ],
+          "issue": 9,
+          "status": "planned",
+          "application": "E23",
+          "evidence": []
+        },
+        {
+          "id": "T08.007",
+          "key": "E23-baseline",
+          "title": "E23: implement and run conventional baseline",
+          "acceptance": "executable checks and code review; defect recall and false pass; retain predictions, denominators, runtime and negative fixtures.",
+          "depends_on": [
+            "T08.006",
+            "T00.003",
+            "T00.005"
+          ],
+          "issue": 9,
+          "status": "planned",
+          "application": "E23",
+          "evidence": []
+        },
+        {
+          "id": "T08.008",
+          "key": "E23-challenger",
+          "title": "E23: qualify and run learned challenger",
+          "acceptance": "Exact-pinned task-specific model; same fixed test cases; report actual error or unavailable runtime; no prompted role mislabelled as trained model.",
+          "depends_on": [
+            "T08.007",
+            "T00.006"
+          ],
+          "issue": 9,
+          "status": "planned",
+          "application": "E23",
+          "evidence": []
+        },
+        {
+          "id": "T08.009",
+          "key": "E23-evaluate",
+          "title": "E23: evaluate incremental value and failure modes",
+          "acceptance": "successful run mistaken for sound design; statistician reviews; paired uncertainty, calibration/abstentions, review effort and errors prevented; retain negative findings.",
+          "depends_on": [
+            "T08.008",
+            "T11.001"
+          ],
+          "issue": 9,
+          "status": "planned",
+          "application": "E23",
+          "evidence": []
+        },
+        {
+          "id": "T08.010",
+          "key": "E24-protocol",
+          "title": "E24: freeze protocol, dataset and reference",
+          "acceptance": "100 transfers; label obligation verification and provenance; provenance, independent reference, frozen split and error taxonomy.",
+          "depends_on": [
+            "T08.001",
+            "T00.004"
+          ],
+          "issue": 9,
+          "status": "planned",
+          "application": "E24",
+          "evidence": []
+        },
+        {
+          "id": "T08.011",
+          "key": "E24-baseline",
+          "title": "E24: implement and run conventional baseline",
+          "acceptance": "checklist and deterministic event matching; false closure and incomplete handover recall; retain predictions, denominators, runtime and negative fixtures.",
+          "depends_on": [
+            "T08.010",
+            "T00.003",
+            "T00.005"
+          ],
+          "issue": 9,
+          "status": "planned",
+          "application": "E24",
+          "evidence": []
+        },
+        {
+          "id": "T08.012",
+          "key": "E24-challenger",
+          "title": "E24: qualify and run learned challenger",
+          "acceptance": "Exact-pinned task-specific model; same fixed test cases; report actual error or unavailable runtime; no prompted role mislabelled as trained model.",
+          "depends_on": [
+            "T08.011",
+            "T00.006"
+          ],
+          "issue": 9,
+          "status": "planned",
+          "application": "E24",
+          "evidence": []
+        },
+        {
+          "id": "T08.013",
+          "key": "E24-evaluate",
+          "title": "E24: evaluate incremental value and failure modes",
+          "acceptance": "delivered mistaken for accepted; coordinator checks; paired uncertainty, calibration/abstentions, unresolved obligations and workload; retain negative findings.",
+          "depends_on": [
+            "T08.012",
+            "T11.001"
+          ],
+          "issue": 9,
+          "status": "planned",
+          "application": "E24",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "09",
+      "slug": "09-orchestration",
+      "title": "Integrated multi-model workflows",
+      "depends_on": [
+        "00"
+      ],
+      "issue": 10,
+      "status": "planned",
+      "implementation_state": "not_started",
+      "evidence_level": "contracted",
+      "tasks": [
+        {
+          "id": "T09.001",
+          "key": "contracts",
+          "title": "Specify component interfaces and abstention propagation",
+          "acceptance": "Versioned input/output schemas and rejected incompatible versions.",
+          "depends_on": [
+            "T00.002"
+          ],
+          "issue": 10,
+          "status": "planned",
+          "application": null,
+          "evidence": []
+        },
+        {
+          "id": "T09.002",
+          "key": "referral",
+          "title": "Replay regional referral and transfer workflow (A)",
+          "acceptance": "Reference and corrupted upstream inputs, per-component replacements, appropriate destination, time and unresolved obligations.",
+          "depends_on": [
+            "T09.001",
+            "T01.005",
+            "T02.005",
+            "T03.005",
+            "T04.005",
+            "T05.005",
+            "T06.005",
+            "T08.005"
+          ],
+          "issue": 10,
+          "status": "planned",
+          "application": null,
+          "evidence": []
+        },
+        {
+          "id": "T09.003",
+          "key": "governance",
+          "title": "Replay clinical governance and learning workflow (B)",
+          "acceptance": "Conventional audit/process mining versus hybrid; actionable findings per reviewer hour, false alerts.",
+          "depends_on": [
+            "T09.002",
+            "T07.005"
+          ],
+          "issue": 10,
+          "status": "planned",
+          "application": null,
+          "evidence": []
+        },
+        {
+          "id": "T09.004",
+          "key": "ablation",
+          "title": "Run fixed-pool and factorial ablations across both workflows",
+          "acceptance": "Report standalone versus pipeline performance, interactions, paired uncertainty and costs.",
+          "depends_on": [
+            "T09.003"
+          ],
+          "issue": 10,
+          "status": "planned",
+          "application": null,
+          "evidence": []
+        },
+        {
+          "id": "T09.005",
+          "key": "stress",
+          "title": "Simulate rural disruption, missing data and connectivity failure",
+          "acceptance": "Unsafe route, false closure and recovery tests; no live action.",
+          "depends_on": [
+            "T09.004"
+          ],
+          "issue": 10,
+          "status": "planned",
+          "application": null,
+          "evidence": []
+        },
+        {
+          "id": "T09.006",
+          "key": "integration",
+          "title": "Qualify external adapters to standards_check and CareOps",
+          "acceptance": "Exact pinned consumer fixtures, ownership, rollback and no copied business logic.",
+          "depends_on": [
+            "T09.005"
+          ],
+          "issue": 10,
+          "status": "planned",
+          "application": null,
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "slug": "10-emerging-models",
+      "title": "Emerging models and literature discovery",
+      "depends_on": [
+        "00"
+      ],
+      "issue": 11,
+      "status": "planned",
+      "implementation_state": "not_started",
+      "evidence_level": "contracted",
+      "tasks": [
+        {
+          "id": "T10.001",
+          "key": "protocol",
+          "title": "Freeze systematic search protocol and taxonomy",
+          "acceptance": "Record databases, dates, search strings, inclusion/exclusion, PRISMA-style counts and deduplication.",
+          "depends_on": [
+            "T00.002"
+          ],
+          "issue": 11,
+          "status": "planned",
+          "application": null,
+          "evidence": []
+        },
+        {
+          "id": "T10.002",
+          "key": "starting-points",
+          "title": "Extract author-proposed roles from LeCun and COLING review",
+          "acceptance": "Verify primary source, exact inputs/outputs, built versus proposed and model versus prompted role.",
+          "depends_on": [
+            "T10.001"
+          ],
+          "issue": 11,
+          "status": "planned",
+          "application": null,
+          "evidence": []
+        },
+        {
+          "id": "T10.003",
+          "key": "watch",
+          "title": "Map new model families (world models, planners, simulators, uncertainty, causal)",
+          "acceptance": "Record revision, licence, architecture, model artifact and evidence; no claimed exhaustiveness.",
+          "depends_on": [
+            "T10.002"
+          ],
+          "issue": 11,
+          "status": "planned",
+          "application": null,
+          "evidence": []
+        },
+        {
+          "id": "T10.004",
+          "key": "qualify",
+          "title": "Select one meaningfully distinct role for small experiment",
+          "acceptance": "Define labelled output, comparator, error, bounded task and falsifiable outcome before inference.",
+          "depends_on": [
+            "T10.003"
+          ],
+          "issue": 11,
+          "status": "planned",
+          "application": null,
+          "evidence": []
+        },
+        {
+          "id": "T10.005",
+          "key": "triangulate",
+          "title": "Maintain documented uses and exactly labelled original hypotheses",
+          "acceptance": "Primary-source claim links, contradictory and negative results, missing coverage.",
+          "depends_on": [
+            "T10.004"
+          ],
+          "issue": 11,
+          "status": "planned",
+          "application": null,
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "11",
+      "slug": "11-assurance",
+      "title": "Safety, equity and model assurance",
+      "depends_on": [
+        "00"
+      ],
+      "issue": 12,
+      "status": "planned",
+      "implementation_state": "not_started",
+      "evidence_level": "contracted",
+      "tasks": [
+        {
+          "id": "T11.001",
+          "key": "hazards",
+          "title": "Create hazard register and intended-use boundaries",
+          "acceptance": "Explicit clinical responsibility, no live decisions, unsafe completion/under-triage controls.",
+          "depends_on": [
+            "T00.002"
+          ],
+          "issue": 12,
+          "status": "planned",
+          "application": null,
+          "evidence": []
+        },
+        {
+          "id": "T11.002",
+          "key": "calibration",
+          "title": "Implement selective prediction and calibration protocol",
+          "acceptance": "Reliability curves, risk–coverage, group/site error, confidence intervals; frozen calibration.",
+          "depends_on": [
+            "T11.001"
+          ],
+          "issue": 12,
+          "status": "planned",
+          "application": null,
+          "evidence": []
+        },
+        {
+          "id": "T11.003",
+          "key": "robustness",
+          "title": "Test counterfactuals, missingness, OOD, prompt injection and leakage",
+          "acceptance": "Source-bound outputs, explicit abstentions; holdout invariance and adversarial fixtures.",
+          "depends_on": [
+            "T11.002"
+          ],
+          "issue": 12,
+          "status": "planned",
+          "application": null,
+          "evidence": []
+        },
+        {
+          "id": "T11.004",
+          "key": "equity",
+          "title": "Assess rural, regional and underserved setting performance",
+          "acceptance": "Predefined subgroup denominators and uncertainty; no invented demographic identity.",
+          "depends_on": [
+            "T11.003"
+          ],
+          "issue": 12,
+          "status": "planned",
+          "application": null,
+          "evidence": []
+        },
+        {
+          "id": "T11.005",
+          "key": "privacy",
+          "title": "Verify privacy, supply chain, licensing and model/dataset provenance",
+          "acceptance": "Hosted scans and actual receipts, rights ledger, no secrets or real records.",
+          "depends_on": [
+            "T11.004"
+          ],
+          "issue": 12,
+          "status": "planned",
+          "application": null,
+          "evidence": []
+        },
+        {
+          "id": "T11.006",
+          "key": "release",
+          "title": "Define separate deployment and publication gates",
+          "acceptance": "Scientific evidence, ethics, independent reference and institutional permissions remain unfulfilled until observed.",
+          "depends_on": [
+            "T11.005"
+          ],
+          "issue": 12,
+          "status": "planned",
+          "application": null,
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "12",
+      "slug": "12-economics",
+      "title": "Health economics and implementation science",
+      "depends_on": [
+        "00"
+      ],
+      "issue": 13,
+      "status": "planned",
+      "implementation_state": "not_started",
+      "evidence_level": "contracted",
+      "tasks": [
+        {
+          "id": "T12.001",
+          "key": "resources",
+          "title": "Create resource-use instrument",
+          "acceptance": "Measure clinician/administrator time, cost, compute, verification burden and transport separately.",
+          "depends_on": [
+            "T00.002"
+          ],
+          "issue": 13,
+          "status": "planned",
+          "application": null,
+          "evidence": []
+        },
+        {
+          "id": "T12.002",
+          "key": "comparators",
+          "title": "Specify cost-consequence and workload scenarios",
+          "acceptance": "Conventional vs assisted workflow, uncertainty and sensitivity; simulated effects labelled.",
+          "depends_on": [
+            "T12.001"
+          ],
+          "issue": 13,
+          "status": "planned",
+          "application": null,
+          "evidence": []
+        },
+        {
+          "id": "T12.003",
+          "key": "rural",
+          "title": "Model rural workload, connectivity and capability constraints",
+          "acceptance": "Scenario sensitivity, patient travel and staffing dependencies; no real service claims.",
+          "depends_on": [
+            "T12.002"
+          ],
+          "issue": 13,
+          "status": "planned",
+          "application": null,
+          "evidence": []
+        },
+        {
+          "id": "T12.004",
+          "key": "evaluation",
+          "title": "Develop prospective implementation and health-economic protocol",
+          "acceptance": "Define perspective, horizon, equity, workflow acceptance and external governance gates.",
+          "depends_on": [
+            "T12.003"
+          ],
+          "issue": 13,
+          "status": "planned",
+          "application": null,
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "13",
+      "slug": "13-publication",
+      "title": "Publication and dissemination",
+      "depends_on": [
+        "00"
+      ],
+      "issue": 14,
+      "status": "planned",
+      "implementation_state": "not_started",
+      "evidence_level": "contracted",
+      "tasks": [
+        {
+          "id": "T13.001",
+          "key": "claims",
+          "title": "Create source and claim registry",
+          "acceptance": "Each claim typed as documented/adaptation/hypothesis and tied to source or exact run.",
+          "depends_on": [
+            "T00.002"
+          ],
+          "issue": 14,
+          "status": "planned",
+          "application": null,
+          "evidence": []
+        },
+        {
+          "id": "T13.002",
+          "key": "agenda",
+          "title": "Develop taxonomy and research-agenda paper protocol",
+          "acceptance": "Primary-source extraction and independent novelty checks; no fabricated citations.",
+          "depends_on": [
+            "T13.001"
+          ],
+          "issue": 14,
+          "status": "planned",
+          "application": null,
+          "evidence": []
+        },
+        {
+          "id": "T13.003",
+          "key": "benchmark",
+          "title": "Develop comparative benchmarking manuscript protocol",
+          "acceptance": "Frozen endpoints, negative findings, replication and uncertainty retained.",
+          "depends_on": [
+            "T13.002"
+          ],
+          "issue": 14,
+          "status": "planned",
+          "application": null,
+          "evidence": []
+        },
+        {
+          "id": "T13.004",
+          "key": "hybrid",
+          "title": "Develop symbolic/learned assurance and orchestration paper plans",
+          "acceptance": "Component contribution and failure analysis mapped to actual experiments.",
+          "depends_on": [
+            "T13.003"
+          ],
+          "issue": 14,
+          "status": "planned",
+          "application": null,
+          "evidence": []
+        },
+        {
+          "id": "T13.005",
+          "key": "regional",
+          "title": "Develop rural implementation and economics paper plans",
+          "acceptance": "Service-context, equity, resource evidence and required approvals explicit.",
+          "depends_on": [
+            "T13.004"
+          ],
+          "issue": 14,
+          "status": "planned",
+          "application": null,
+          "evidence": []
+        },
+        {
+          "id": "T13.006",
+          "key": "release",
+          "title": "Prepare rights-cleared datasets, model cards and demonstrations",
+          "acceptance": "Release approval separate; exact versions and privacy evidence; no automatic external writes.",
+          "depends_on": [
+            "T13.005"
+          ],
+          "issue": 14,
+          "status": "planned",
+          "application": null,
+          "evidence": []
+        }
+      ]
+    }
+  ],
+  "applications": [
+    {
+      "id": "E01",
+      "track": "01",
+      "title": "Rural clinical referral reading",
+      "classification": "adaptation",
+      "setting": "rural patient access",
+      "workflow": "Referral staff validate fields before import",
+      "input": "synthetic scans and reports",
+      "output": "source-linked fields, dates and missingness",
+      "baseline": "OCR and fixed templates",
+      "failure_and_reviewer": "result linked to wrong date; receiving clinician reviews region",
+      "fixture": "150 varied referrals",
+      "model_metric": "field linkage F1 and critical omission",
+      "workflow_outcome": "processing time and rework",
+      "status": "planned",
+      "source_gate": "Primary sources for documented capabilities must be independently retrieved and claim-matched before publication; hypotheses are not novelty claims."
+    },
+    {
+      "id": "E02",
+      "track": "01",
+      "title": "Machine-readable clinical policies",
+      "classification": "adaptation",
+      "setting": "governance",
+      "workflow": "Policy owner approves structured requirements",
+      "input": "rights-clear or synthetic standards pages",
+      "output": "hierarchy, rows, qualifiers and source boxes",
+      "baseline": "text extraction and conventional table parser",
+      "failure_and_reviewer": "exception overgeneralised; policy owner adjudicates",
+      "fixture": "100 annotated pages",
+      "model_metric": "qualifier-link F1",
+      "workflow_outcome": "policy review hours",
+      "status": "planned",
+      "source_gate": "Primary sources for documented capabilities must be independently retrieved and claim-matched before publication; hypotheses are not novelty claims."
+    },
+    {
+      "id": "E03",
+      "track": "01",
+      "title": "Longitudinal historical records",
+      "classification": "hypothesis",
+      "setting": "research and continuity",
+      "workflow": "Abstractor checks chart and pedigree candidates",
+      "input": "synthetic historical records",
+      "output": "time-linked observations and relationships",
+      "baseline": "OCR plus manual abstraction",
+      "failure_and_reviewer": "wrong pedigree edge; genetics reviewer checks original",
+      "fixture": "40 synthetic records",
+      "model_metric": "relationship and temporal-link accuracy",
+      "workflow_outcome": "abstraction time and completeness",
+      "status": "planned",
+      "source_gate": "Primary sources for documented capabilities must be independently retrieved and claim-matched before publication; hypotheses are not novelty claims."
+    },
+    {
+      "id": "E04",
+      "track": "02",
+      "title": "Discharge obligations",
+      "classification": "adaptation",
+      "setting": "patient care",
+      "workflow": "Discharging clinician confirms outstanding actions",
+      "input": "synthetic discharge notes",
+      "output": "exact action-owner-deadline-condition spans",
+      "baseline": "keyword and negation rules",
+      "failure_and_reviewer": "completed action marked outstanding; discharging team reviews",
+      "fixture": "200 synthetic summaries",
+      "model_metric": "tuple F1 and missed obligations",
+      "workflow_outcome": "reconciliation minutes and overdue tasks",
+      "status": "planned",
+      "source_gate": "Primary sources for documented capabilities must be independently retrieved and claim-matched before publication; hypotheses are not novelty claims."
+    },
+    {
+      "id": "E05",
+      "track": "02",
+      "title": "Registry abstraction",
+      "classification": "documented underlying capability",
+      "setting": "research",
+      "workflow": "Registry abstractor validates tags",
+      "input": "synthetic phenotype and intervention notes",
+      "output": "source spans, assertion, experiencer and temporality",
+      "baseline": "terminology and negation rules",
+      "failure_and_reviewer": "family phenotype attributed to patient; abstractor reviews",
+      "fixture": "150 synthetic records",
+      "model_metric": "span and assertion F1",
+      "workflow_outcome": "abstraction time and completeness",
+      "status": "planned",
+      "source_gate": "Primary sources for documented capabilities must be independently retrieved and claim-matched before publication; hypotheses are not novelty claims."
+    },
+    {
+      "id": "E06",
+      "track": "02",
+      "title": "Operational constraint tagging",
+      "classification": "hypothesis",
+      "setting": "governance",
+      "workflow": "Quality team examines reported barriers, not individuals",
+      "input": "synthetic incidents and complaints",
+      "output": "context spans and reported/verified status",
+      "baseline": "incident categories and keyword matching",
+      "failure_and_reviewer": "criticism treated as fact; quality reviewer checks",
+      "fixture": "150 synthetic narratives",
+      "model_metric": "span F1 and factor recall",
+      "workflow_outcome": "actionable hazards and review time",
+      "status": "planned",
+      "source_gate": "Primary sources for documented capabilities must be independently retrieved and claim-matched before publication; hypotheses are not novelty claims."
+    },
+    {
+      "id": "E07",
+      "track": "03",
+      "title": "Rural dependency resilience",
+      "classification": "adaptation",
+      "setting": "rural operations",
+      "workflow": "Managers test contingency options",
+      "input": "synthetic sites, rosters, credentials and equipment",
+      "output": "dependencies and cascade predictions",
+      "baseline": "capacity table and deterministic graph traversal",
+      "failure_and_reviewer": "double-booked specialist; site managers reconcile",
+      "fixture": "five sites and 30 disruptions",
+      "model_metric": "dependency recall and disruption accuracy",
+      "workflow_outcome": "simulated cancellation/transfer counts",
+      "status": "planned",
+      "source_gate": "Primary sources for documented capabilities must be independently retrieved and claim-matched before publication; hypotheses are not novelty claims."
+    },
+    {
+      "id": "E08",
+      "track": "03",
+      "title": "Polypharmacy signals",
+      "classification": "documented underlying capability",
+      "setting": "patient safety research",
+      "workflow": "Pharmacologist investigates signal, not prescribing decisions",
+      "input": "public rights-clear or synthetic drug/event graph",
+      "output": "ranked associations and supporting paths",
+      "baseline": "interaction rules and disproportionality/link scores",
+      "failure_and_reviewer": "confounding by indication; epidemiologist checks",
+      "fixture": "temporal held-out associations",
+      "model_metric": "PR-AUC and later signal recall",
+      "workflow_outcome": "investigation time per credible signal",
+      "status": "planned",
+      "source_gate": "Primary sources for documented capabilities must be independently retrieved and claim-matched before publication; hypotheses are not novelty claims."
+    },
+    {
+      "id": "E09",
+      "track": "03",
+      "title": "Complementary cohort discovery",
+      "classification": "hypothesis",
+      "setting": "research",
+      "workflow": "Investigators evaluate reuse before recruitment",
+      "input": "public study metadata and synthetic linkage",
+      "output": "ranked cohort links and opportunities",
+      "baseline": "keyword and deterministic traversal",
+      "failure_and_reviewer": "double-counted cohort; data custodian verifies",
+      "fixture": "50–100 studies or synthetic analogues",
+      "model_metric": "recall@10 and false independence",
+      "workflow_outcome": "viable questions and acquisition effort",
+      "status": "planned",
+      "source_gate": "Primary sources for documented capabilities must be independently retrieved and claim-matched before publication; hypotheses are not novelty claims."
+    },
+    {
+      "id": "E10",
+      "track": "04",
+      "title": "Referral prioritisation",
+      "classification": "documented underlying capability",
+      "setting": "patient care",
+      "workflow": "Clinician reviews urgency; no autonomous decision",
+      "input": "synthetic referrals and prioritisation criteria",
+      "output": "urgency, supporting criteria and abstention",
+      "baseline": "deterministic criteria and clinician comparator",
+      "failure_and_reviewer": "serious under-triage; clinician retains decision",
+      "fixture": "300 scenarios",
+      "model_metric": "weighted kappa and serious under-triage",
+      "workflow_outcome": "triage minutes and appropriate timing",
+      "status": "planned",
+      "source_gate": "Primary sources for documented capabilities must be independently retrieved and claim-matched before publication; hypotheses are not novelty claims."
+    },
+    {
+      "id": "E11",
+      "track": "04",
+      "title": "Credentialing evidence",
+      "classification": "adaptation",
+      "setting": "governance",
+      "workflow": "Committee reviews criterion support",
+      "input": "synthetic portfolios and scope requirements",
+      "output": "supported/unsupported/conditional/insufficient",
+      "baseline": "mandatory-field and explicit rules",
+      "failure_and_reviewer": "false competency equivalence; specialty reviewer checks",
+      "fixture": "80 synthetic portfolios",
+      "model_metric": "false equivalence and selective accuracy",
+      "workflow_outcome": "review time and rework",
+      "status": "planned",
+      "source_gate": "Primary sources for documented capabilities must be independently retrieved and claim-matched before publication; hypotheses are not novelty claims."
+    },
+    {
+      "id": "E12",
+      "track": "04",
+      "title": "Justified clinical variation",
+      "classification": "hypothesis",
+      "setting": "governance",
+      "workflow": "M&M reviewers investigate unresolved deviations",
+      "input": "synthetic pathway cases and context",
+      "output": "appropriate variation/potential deficiency/unresolved",
+      "baseline": "binary compliance rules",
+      "failure_and_reviewer": "unsupported exoneration; clinical reviewer checks contemporaneous evidence",
+      "fixture": "100 counterfactual pairs",
+      "model_metric": "false exoneration and exception F1",
+      "workflow_outcome": "review effort and actionable findings",
+      "status": "planned",
+      "source_gate": "Primary sources for documented capabilities must be independently retrieved and claim-matched before publication; hypotheses are not novelty claims."
+    },
+    {
+      "id": "E13",
+      "track": "05",
+      "title": "Context-sensitive policy ranking",
+      "classification": "adaptation",
+      "setting": "patient care and governance",
+      "workflow": "Clinician reviews approved source passage",
+      "input": "questions, metadata and fixed candidate sets",
+      "output": "reordered applicable passages",
+      "baseline": "lexical/dense initial ranking",
+      "failure_and_reviewer": "inapplicable high-ranked passage; clinician checks metadata",
+      "fixture": "150 questions",
+      "model_metric": "nDCG@5 and applicable recall",
+      "workflow_outcome": "time to correct source",
+      "status": "planned",
+      "source_gate": "Primary sources for documented capabilities must be independently retrieved and claim-matched before publication; hypotheses are not novelty claims."
+    },
+    {
+      "id": "E14",
+      "track": "05",
+      "title": "Trial matching",
+      "classification": "documented underlying capability",
+      "setting": "research access",
+      "workflow": "Coordinator reviews uncertain candidates",
+      "input": "synthetic profiles and public eligible trials",
+      "output": "ranked trials and unresolved criteria",
+      "baseline": "lexical/dense ranking",
+      "failure_and_reviewer": "missing value suppresses eligible trial; coordinator checks",
+      "fixture": "100 profiles",
+      "model_metric": "eligible recall@10 and nDCG",
+      "workflow_outcome": "screening time and opportunity",
+      "status": "planned",
+      "source_gate": "Primary sources for documented capabilities must be independently retrieved and claim-matched before publication; hypotheses are not novelty claims."
+    },
+    {
+      "id": "E15",
+      "track": "05",
+      "title": "Analogous incident mechanisms",
+      "classification": "hypothesis",
+      "setting": "governance",
+      "workflow": "Reviewers investigate previous controls",
+      "input": "synthetic incidents and fixed historical shortlist",
+      "output": "ranked mechanism analogues",
+      "baseline": "category and embedding ranking",
+      "failure_and_reviewer": "surface similarity mistaken for mechanism; investigator checks",
+      "fixture": "100 queries",
+      "model_metric": "precision@5 and nDCG",
+      "workflow_outcome": "controls rediscovered and investigation time",
+      "status": "planned",
+      "source_gate": "Primary sources for documented capabilities must be independently retrieved and claim-matched before publication; hypotheses are not novelty claims."
+    },
+    {
+      "id": "E16",
+      "track": "06",
+      "title": "Specialist referral routing",
+      "classification": "documented underlying capability",
+      "setting": "patient access",
+      "workflow": "Referral officer approves feasible service",
+      "input": "synthetic referral, capabilities and roster",
+      "output": "candidate destination, confidence and reasons",
+      "baseline": "fixed specialty map",
+      "failure_and_reviewer": "service lacks capability; capability rule and clinician override",
+      "fixture": "300 scenarios",
+      "model_metric": "destination accuracy and unsafe routing",
+      "workflow_outcome": "redirects and time to acceptance",
+      "status": "planned",
+      "source_gate": "Primary sources for documented capabilities must be independently retrieved and claim-matched before publication; hypotheses are not novelty claims."
+    },
+    {
+      "id": "E17",
+      "track": "06",
+      "title": "Governance request routing",
+      "classification": "adaptation",
+      "setting": "administration",
+      "workflow": "Owner confirms responsibility and consultation",
+      "input": "synthetic requests and delegations",
+      "output": "owner, consultation and approval route",
+      "baseline": "decision tree",
+      "failure_and_reviewer": "wrong delegation; governance officer checks register",
+      "fixture": "200 requests",
+      "model_metric": "owner accuracy and missed consultation",
+      "workflow_outcome": "touches and turnaround",
+      "status": "planned",
+      "source_gate": "Primary sources for documented capabilities must be independently retrieved and claim-matched before publication; hypotheses are not novelty claims."
+    },
+    {
+      "id": "E18",
+      "track": "06",
+      "title": "Adaptive human/rule/model routing",
+      "classification": "hypothesis",
+      "setting": "rural operations",
+      "workflow": "Constrained router suggests safe processing pathway",
+      "input": "simulated workload, connectivity, uncertainty and risk",
+      "output": "eligible destination or human escalation",
+      "baseline": "static router and largest-model policy",
+      "failure_and_reviewer": "unsafe cheap route; hard constraint and human escalation",
+      "fixture": "500 simulated tasks",
+      "model_metric": "unsafe routing and risk–coverage",
+      "workflow_outcome": "latency, workload and compute cost",
+      "status": "planned",
+      "source_gate": "Primary sources for documented capabilities must be independently retrieved and claim-matched before publication; hypotheses are not novelty claims."
+    },
+    {
+      "id": "E19",
+      "track": "07",
+      "title": "Risk-of-bias appraisal",
+      "classification": "documented underlying capability",
+      "setting": "research",
+      "workflow": "Methodologist verifies judgment and passage",
+      "input": "rights-clear trial reports or synthetic excerpts",
+      "output": "domain appraisal, supporting span and uncertainty",
+      "baseline": "checklist and keyword guidance",
+      "failure_and_reviewer": "randomisation assertion accepted without method; reviewer corrects",
+      "fixture": "80 examples",
+      "model_metric": "weighted kappa and evidence precision",
+      "workflow_outcome": "review time",
+      "status": "planned",
+      "source_gate": "Primary sources for documented capabilities must be independently retrieved and claim-matched before publication; hypotheses are not novelty claims."
+    },
+    {
+      "id": "E20",
+      "track": "07",
+      "title": "Rural evidence transferability",
+      "classification": "adaptation",
+      "setting": "rural service planning",
+      "workflow": "Committee reviews implementation prerequisites",
+      "input": "public evidence and synthetic site profile",
+      "output": "indirectness, missing capability and unresolved risks",
+      "baseline": "standard checklist",
+      "failure_and_reviewer": "overlooked rescue capability; local expert reviews",
+      "fixture": "40 synthetic proposals",
+      "model_metric": "limitation recall and unsupported recommendation",
+      "workflow_outcome": "preparation and rework",
+      "status": "planned",
+      "source_gate": "Primary sources for documented capabilities must be independently retrieved and claim-matched before publication; hypotheses are not novelty claims."
+    },
+    {
+      "id": "E21",
+      "track": "07",
+      "title": "Organisational causal claims",
+      "classification": "hypothesis",
+      "setting": "health economics",
+      "workflow": "Analyst investigates insufficient causal evidence",
+      "input": "simulated interventions, trends, designs and confounders",
+      "output": "claim appraisal and missing assumptions",
+      "baseline": "dashboard and design checklist",
+      "failure_and_reviewer": "regression to mean ignored; epidemiologist checks",
+      "fixture": "100 simulated evaluations",
+      "model_metric": "false causal endorsement and calibration",
+      "workflow_outcome": "review time and unsupported claims",
+      "status": "planned",
+      "source_gate": "Primary sources for documented capabilities must be independently retrieved and claim-matched before publication; hypotheses are not novelty claims."
+    },
+    {
+      "id": "E22",
+      "track": "08",
+      "title": "Stroke pathway conformance",
+      "classification": "adaptation from documented process mining",
+      "setting": "patient safety",
+      "workflow": "Auditor checks delayed or unverified steps",
+      "input": "synthetic events, orders and notes",
+      "output": "completed/late/missing/inapplicable/unverifiable",
+      "baseline": "event-log rules",
+      "failure_and_reviewer": "order mistaken for completion; auditor verifies",
+      "fixture": "150 simulated episodes",
+      "model_metric": "false completion and missed-step recall",
+      "workflow_outcome": "audit time and verified timely care",
+      "status": "planned",
+      "source_gate": "Primary sources for documented capabilities must be independently retrieved and claim-matched before publication; hypotheses are not novelty claims."
+    },
+    {
+      "id": "E23",
+      "track": "08",
+      "title": "Analytical workflow verification",
+      "classification": "adaptation",
+      "setting": "research",
+      "workflow": "Analyst resolves discrepancies before release",
+      "input": "synthetic protocol, code, logs and outputs",
+      "output": "step-level failures with evidence",
+      "baseline": "executable checks and code review",
+      "failure_and_reviewer": "successful run mistaken for sound design; statistician reviews",
+      "fixture": "100 injected defects",
+      "model_metric": "defect recall and false pass",
+      "workflow_outcome": "review effort and errors prevented",
+      "status": "planned",
+      "source_gate": "Primary sources for documented capabilities must be independently retrieved and claim-matched before publication; hypotheses are not novelty claims."
+    },
+    {
+      "id": "E24",
+      "track": "08",
+      "title": "Transfer handover verification",
+      "classification": "hypothesis",
+      "setting": "rural patient care",
+      "workflow": "Coordinator checks explicit acceptance, never delays urgent transfer",
+      "input": "synthetic transfer and acknowledgment logs",
+      "output": "obligation verification and provenance",
+      "baseline": "checklist and deterministic event matching",
+      "failure_and_reviewer": "delivered mistaken for accepted; coordinator checks",
+      "fixture": "100 transfers",
+      "model_metric": "false closure and incomplete handover recall",
+      "workflow_outcome": "unresolved obligations and workload",
+      "status": "planned",
+      "source_gate": "Primary sources for documented capabilities must be independently retrieved and claim-matched before publication; hypotheses are not novelty claims."
+    }
+  ],
+  "priorities": [
+    "E02",
+    "E04",
+    "E22"
+  ],
+  "evidence_states": [
+    "contracted",
+    "source_verified",
+    "local_executed",
+    "hosted_executed",
+    "independently_validated",
+    "externally_authorised"
+  ],
+  "integrated_workflows": [
+    "A: regional referral and transfer",
+    "B: continuous clinical governance and organisational learning"
+  ]
+}
