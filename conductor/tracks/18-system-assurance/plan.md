@@ -29,3 +29,7 @@ Issue [#19](https://github.com/edithatogo/Iatonoesis/issues/19). Stable task IDs
 ## 26 November measured-value and integration addendum (not accepted)
 
 [Evidence ledger and next gates](../../research-evidence-20261126-measured.md). T18.002/.004: actual CQL runtime qualification #51 pending; #49 A/B not independently verified sites; separate external environment gate open. Canonical task acceptance unchanged.
+
+## External validation and replication addendum (not accepted)
+
+[Evidence ledger](../../research-evidence-20261126-external.md). T18.002 #61 two failed expanded compiler/runtime cases, 72/72 authored, qualification held. T18.004 #54 real state-disjoint later-season FluSight negative transfer result; no hospital or clinical acceptance. Canonical states unchanged.

@@ -29,3 +29,7 @@ Issue [#15](https://github.com/edithatogo/Iatonoesis/issues/15). Stable task IDs
 ## 26 November measured-value and integration addendum (not accepted)
 
 [Evidence ledger and next gates](../../research-evidence-20261126-measured.md). T14.001–.004: #45 candidate freeze, #49 measured-value source/reference/metric receipts, PubTables image/word and independent admission still open. Canonical task acceptance unchanged.
+
+## External validation and replication addendum (not accepted)
+
+[Evidence ledger](../../research-evidence-20261126-external.md). #56 actual PubTables pairing acquired and replayed; #45 TrialGPT author model-assisted references and training flag still block independent admission; #54/#57 aggregate external/replication receipts; #61 explicit unsupported states. Canonical states unchanged.

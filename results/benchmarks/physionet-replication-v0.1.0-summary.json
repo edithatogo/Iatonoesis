@@ -1,0 +1,83 @@
+{
+  "scope": "bounded_fresh_subject_replication",
+  "run": 45815419126,
+  "artifact": 15116315352,
+  "archive_sha256": "1b6c878fc72422543c3800d59b8d50273b784c75a6238fa82b76efa048ffb926",
+  "aggregate_sha256": "c5df78bb351ea395eb112fcccddbab16b1cb95094f07863ddcd752bf8f1b2774",
+  "source_manifest_sha256": "5b6073d8241353b1f56e431b05c68fc544b15b9da2cb9c9ce5ac41686dc7426f",
+  "state": [
+    {
+      "horizon": 1,
+      "dev": 209,
+      "cal": 46,
+      "test": 256,
+      "last": 5.1,
+      "ar1": 5.53,
+      "kalman": 5.56,
+      "ridge": 6.39,
+      "mlp": 6.58,
+      "ridge_minus_last": 1.29,
+      "descriptive_ci": [
+        0.58,
+        2
+      ]
+    },
+    {
+      "horizon": 3,
+      "dev": 208,
+      "cal": 46,
+      "test": 255,
+      "last": 6.21,
+      "ar1": 7.35,
+      "kalman": 7.4,
+      "ridge": 7.53,
+      "mlp": 7.35,
+      "ridge_minus_last": 1.33,
+      "descriptive_ci": [
+        0.51,
+        2.17
+      ]
+    },
+    {
+      "horizon": 6,
+      "dev": 205,
+      "cal": 46,
+      "test": 250,
+      "last": 8.07,
+      "ar1": 9.8,
+      "kalman": 9.84,
+      "ridge": 8.46,
+      "mlp": 8.64,
+      "ridge_minus_last": 0.39,
+      "descriptive_ci": [
+        -0.33,
+        1.11
+      ]
+    }
+  ],
+  "acquisition": {
+    "dev": 208,
+    "cal": 46,
+    "test": 252,
+    "full_equal_cost": {
+      "none": {
+        "mse": 76,
+        "cost": 0
+      },
+      "forced": {
+        "mse": 76.98,
+        "cost": 3
+      },
+      "context_stop": {
+        "mse": 75.95,
+        "cost": 1.57
+      }
+    }
+  },
+  "limitations": [
+    "rounded descriptive metrics; full artifact authoritative",
+    "source identities disjoint, old/new duplicate bytes not verified",
+    "hypothetical relative observation costs",
+    "no clinical or economic acceptance"
+  ]
+}

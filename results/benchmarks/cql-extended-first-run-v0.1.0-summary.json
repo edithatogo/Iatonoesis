@@ -1,0 +1,85 @@
+{
+  "scope": "public_formal_reference_only",
+  "run": 45816678305,
+  "first_head": "482ade4a1e4a6680bed53a076d8fa83210f30294",
+  "freeze_sha256": "920843bd12efb3e51c0ecd8b0bcccd55f59c8d0dea950e9c6e9c1c515a0765a6",
+  "runtime_artifact": 15115887392,
+  "runtime_archive_sha256": "630a3a5cd4e8f92f403efdd49682578d978d6f541820d9214ee31e7f589d4e15",
+  "framing_artifact": 15115827420,
+  "framing_archive_sha256": "c54028e67a0a8c7ad6c7579b09e83232edf6a18bb5f54892b997232e028d1be0",
+  "framing_json_sha256": "a4b21262f14a2607528cfea93e47cc5cc31372732a663e6fd05235b528171e7a",
+  "statuses": {
+    "eligible": 291,
+    "unsupported_reference_type": 103,
+    "unsupported_long": 22,
+    "declared_invalid": 10,
+    "clock_dependent": 6
+  },
+  "external_matched": 289,
+  "authored_total": 72,
+  "authored_matched": 72,
+  "runtime_qualified": false,
+  "failures": [
+    {
+      "expression": "DateTime(null) = DateTime(null)",
+      "expected": null,
+      "actual": true,
+      "status": "executed"
+    },
+    {
+      "expression": "Precision(1.58700)",
+      "expected": 5,
+      "actual": null,
+      "status": "failed"
+    }
+  ],
+  "smollm2": {
+    "total_per_frame": 24,
+    "correct": [
+      8,
+      6,
+      9,
+      8,
+      7,
+      10
+    ],
+    "decided": [
+      22,
+      10,
+      21,
+      23,
+      24,
+      24
+    ],
+    "false_true": [
+      12,
+      0,
+      8,
+      0,
+      1,
+      13
+    ],
+    "invalid": [
+      2,
+      14,
+      3,
+      1,
+      0,
+      0
+    ],
+    "abstentions": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "qwen": {
+    "status": "initial_admission_failed_before_inference",
+    "corrected_head": "51360fcdb2c538c0af3929ef3df13520d2372fd7",
+    "corrected_revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+    "weight_sha256": "fdf756fa7fcbe7404d5c60e26bff1a0c8b8aa1f72ced49e7dd0210fe288fb7fe"
+  }
+}
