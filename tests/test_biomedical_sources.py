@@ -91,3 +91,10 @@ def test_biored_pubtator_document_and_relation_audit():
 def test_allowlisted_failure_does_not_leak_values():
     assert b.reason(ValueError('invalid archive member'))=='invalid archive member'
     assert b.reason(ValueError('secret member x'))=='unclassified'
+
+
+def test_archive_inventory_has_source_specific_limits():
+    raw=tarbytes(['a.txt','b.txt'])
+    with pytest.raises(ValueError,match='expansion limit'):b.inventory(raw,'tar',max_members=1)
+    assert b.inventory(raw,'tar',max_members=2)['files']==2
+    with pytest.raises(ValueError,match='expansion limit'):b.inventory(raw,'tar',max_expanded=13)

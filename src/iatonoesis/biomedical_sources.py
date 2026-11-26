@@ -48,14 +48,14 @@ def pubmedqa(raw,gold,expected=1000,test_expected=500):
     return dict(expert_rows=len(rows),test=len(ref),development_pool=len(rows)-len(ref),labels=dict(labels),test_labels=dict(test_labels),cross_partition_exact_context_groups=sum(len(v)>1 for v in groups.values()),long_answer_fields_to_withhold=withheld,evaluation_admitted=False,limits=['author test labels publicly available; unknown pretraining exposure','MIT repository licence does not settle underlying abstract rights','exact normalized context only, near-duplicate and expert reference review outstanding'])
 
 
-def inventory(raw,mode):
+def inventory(raw,mode,*,max_members=200_000,max_expanded=500_000_000):
     seen=set();ext=Counter();splits=Counter();expanded=0
     def add(name,size,is_file):
         nonlocal expanded
         name=name.removeprefix('./');p=PurePosixPath(name)
         if p.is_absolute() or '..' in p.parts or '\\' in name or not is_file or name in seen or not 0<=size<=50_000_000:raise ValueError('invalid archive member')
         seen.add(name);expanded+=size
-        if len(seen)>200_000 or expanded>500_000_000:raise ValueError('archive expansion limit')
+        if len(seen)>max_members or expanded>max_expanded:raise ValueError('archive expansion limit')
         ext[p.suffix.lower() or '(none)']+=1
         for s in ('train','training','dev','development','test','testing'):
             if s in {x.lower() for x in p.parts} or re.search(r'(^|[_-])'+s+r'([_.-]|$)',p.name.lower()):splits[s]+=1
@@ -139,7 +139,9 @@ def run():
     def archive(url,mode,blob=None):
         raw=get(url,40_000_000)
         if blob:verify_blob(raw,blob)
-        result=dict(status='archive_inventory_only',bytes=len(raw),sha256=sha(raw),**inventory(raw,mode))
+        # Larger inventory budget only for the verified immutable EBM-NLP archive.
+        limits=dict(max_members=1_000_000,max_expanded=2_000_000_000) if url==EBM and blob=='152a6348e6a29d19c3727658d269fd3a8a8c6327' else {}
+        result=dict(status='archive_inventory_only',bytes=len(raw),sha256=sha(raw),**inventory(raw,mode,**limits))
         if url==BIORED:result['pubtator_audit']=audit_biored(raw)
         return result
     def nhs(name):
