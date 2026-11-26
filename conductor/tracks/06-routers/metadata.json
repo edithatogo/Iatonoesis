@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "track_id": "06",
+  "slug": "06-routers",
+  "title": "Routers",
+  "status": "planned",
+  "implementation_state": "not_started",
+  "evidence_level": "contracted",
+  "dependencies": [
+    "00"
+  ],
+  "issue": 7,
+  "updated": "2026-11-26",
+  "evidence": []
+}

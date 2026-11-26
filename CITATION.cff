@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "If you use this software, cite the corresponding repository release."
+title: "Iatonoesis"
+type: software
+authors:
+  - family-names: "Mordaunt"
+    given-names: "Dylan"
+repository-code: "https://github.com/edithatogo/Iatonoesis"
+license: MIT

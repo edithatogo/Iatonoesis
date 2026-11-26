@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "track_id": "01",
+  "slug": "01-layout-readers",
+  "title": "Layout-aware document readers",
+  "status": "planned",
+  "implementation_state": "not_started",
+  "evidence_level": "contracted",
+  "dependencies": [
+    "00"
+  ],
+  "issue": 2,
+  "updated": "2026-11-26",
+  "evidence": []
+}

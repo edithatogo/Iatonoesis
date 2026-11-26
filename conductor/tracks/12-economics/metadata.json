@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "track_id": "12",
+  "slug": "12-economics",
+  "title": "Health economics and implementation science",
+  "status": "planned",
+  "implementation_state": "not_started",
+  "evidence_level": "contracted",
+  "dependencies": [
+    "00"
+  ],
+  "issue": 13,
+  "updated": "2026-11-26",
+  "evidence": []
+}

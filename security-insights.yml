@@ -1,0 +1,31 @@
+header:
+  schema-version: 2.2.0
+  last-updated: '2026-11-26'
+  last-reviewed: '2026-11-26'
+  url: https://github.com/edithatogo/Iatonoesis/blob/main/security-insights.yml
+  comment: |
+    Research-only security posture; configuration is not evidence of execution.
+
+project:
+  name: Iatonoesis
+  administrators:
+    - name: Dylan Mordaunt
+      primary: true
+  repositories:
+    - name: Iatonoesis
+      url: https://github.com/edithatogo/Iatonoesis
+      comment: Experimental specialist computational models.
+  vulnerability-reporting:
+    reports-accepted: true
+    bug-bounty-available: false
+
+repository:
+  url: https://github.com/edithatogo/Iatonoesis
+  status: active
+  accepts-change-request: true
+  accepts-automated-change-request: true
+  security:
+    assessments:
+      self:
+        comment: |
+          Privacy, CI and Scorecard are configured; hosted and release evidence remains pending.
