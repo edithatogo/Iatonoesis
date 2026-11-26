@@ -54,3 +54,7 @@ Issue [#9](https://github.com/edithatogo/Iatonoesis/issues/9). Stable task IDs; 
   - Depends on: T08.012, T11.001.
   - Accept: delivered mistaken for accepted; coordinator checks; paired uncertainty, calibration/abstentions, unresolved obligations and workload; retain negative findings.
   - Evidence: pending; record exact revision, commands, fixtures and outcomes.
+
+## External validation and replication addendum (not accepted)
+
+[Evidence ledger](../../research-evidence-20261126-external.md). #61 extends compiler/runtime and independent author scalar references; 289/291 eligible and 72/72 authored; two failures and dependency security hold retained. Canonical states unchanged.

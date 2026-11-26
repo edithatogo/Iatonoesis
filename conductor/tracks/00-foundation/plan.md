@@ -34,3 +34,7 @@ Issue [#1](https://github.com/edithatogo/Iatonoesis/issues/1). Stable task IDs; 
 ## 26 November measured-value and integration addendum (not accepted)
 
 [Evidence ledger and next gates](../../research-evidence-20261126-measured.md). T00.001/.002/.005/.006/.007: central registration, coverage remediation, typed envelope #47, exact-head and protection gates. Canonical task acceptance unchanged.
+
+## External validation and replication addendum (not accepted)
+
+[Evidence ledger](../../research-evidence-20261126-external.md). T00.001/.007: #40/#52 qualified and merged, #54/#56/#57 actual hosted gates passed; main protection still administratively blocked. Canonical states unchanged.

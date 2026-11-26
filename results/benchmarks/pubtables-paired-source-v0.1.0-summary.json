@@ -1,0 +1,31 @@
+{
+  "scope": "source_pairing_only",
+  "evaluation_admitted": false,
+  "revision": "35b1c097807e0b07ec5313879b85956b7b3890db",
+  "run": 45816062074,
+  "artifact": 15115857221,
+  "archive_sha256": "7f257a1858ebe9d396fcbcb834fe95fce32c74e206fea4f3eb8379cf96257fc8",
+  "aggregate_sha256": "ff0c7e2c6b67e7c0564326bbe5c173ef4ba68146c6e2b305088536133da16a3b",
+  "archives": {
+    "annotations": {
+      "bytes": 29925736,
+      "sha256": "be13440e09f9ecc2b502dc87898420080bf572986a2ae74e0b8713d5cebaa384"
+    },
+    "images": {
+      "bytes": 2690139551,
+      "sha256": "6f711dc11d7198169f35184a103b1f34efab5cb41c4acc90501845a01e23f568"
+    },
+    "words": {
+      "bytes": 4174842415,
+      "sha256": "dbab74fa5fe5354cca229533efe7e374b58dfb3b352c07efcd84bb69169232f9"
+    }
+  },
+  "test_matches": 93834,
+  "word_archive_tables": 947642,
+  "sample_document_count": 128,
+  "sample_table_count": 128,
+  "sample_word_count": 18608,
+  "sample_outside_frame_words": 671,
+  "sample_empty_word_tables": 0,
+  "sample_manifest_sha256": "7ec3957f69c8fd9144b866bbc10d7e9774a4f77db1a23d4adb25c72d0e9cefc7"
+}

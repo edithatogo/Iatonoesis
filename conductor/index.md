@@ -16,3 +16,5 @@ Contracted, implemented, executed, scientifically validated and externally autho
 - [26 November research evidence and independent-admission gates](research-evidence-20261126.md) — T00, T01–T09, T11, T14; actual merge/experiment receipts, non-acceptance and next steps.
 
 - [Measured-value execution and integration addendum](research-evidence-20261126-measured.md) — T00, T10, T14–T16, T18; aggregate receipt and outstanding acceptance gates.
+
+- [External validation and fresh replication ledger](research-evidence-20261126-external.md) — T00, T01, T08, T10, T14–T16, T18; verified artifacts, negative findings and explicit outstanding gates.

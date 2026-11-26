@@ -26,3 +26,7 @@ Issue [#16](https://github.com/edithatogo/Iatonoesis/issues/16). Stable task IDs
 ## 26 November measured-value and integration addendum (not accepted)
 
 [Evidence ledger and next gates](../../research-evidence-20261126-measured.md). T15.001: real bounded measured HR benchmark #49 executed; last observation wins; wider qualification and prespecified stratified replication pending. Canonical task acceptance unchanged.
+
+## External validation and replication addendum (not accepted)
+
+[Evidence ledger](../../research-evidence-20261126-external.md). T15.001 #57 512 fresh identities, 1/3/6-hour horizons; last observation best all three. Prespecified strata and paired uncertainty retained; no canonical acceptance. Canonical states unchanged.

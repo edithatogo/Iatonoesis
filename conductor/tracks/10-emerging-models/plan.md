@@ -30,3 +30,7 @@ Issue [#11](https://github.com/edithatogo/Iatonoesis/issues/11). Stable task IDs
 ## 26 November measured-value and integration addendum (not accepted)
 
 [Evidence ledger and next gates](../../research-evidence-20261126-measured.md). T10.003/.004/.005: registry #43, neural/hybrid findings #44, SciFact #50 and still-pending six-frame independent comparisons. Canonical task acceptance unchanged.
+
+## External validation and replication addendum (not accepted)
+
+[Evidence ledger](../../research-evidence-20261126-external.md). #61 actual SmolLM2 six-frame cross on 24 external formal cases; second model initially blocked, licence-bearing pin corrected before inference; no clinical admission. Canonical states unchanged.

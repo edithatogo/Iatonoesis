@@ -22,3 +22,7 @@ Issue [#17](https://github.com/edithatogo/Iatonoesis/issues/17). Stable task IDs
 ## 26 November measured-value and integration addendum (not accepted)
 
 [Evidence ledger and next gates](../../research-evidence-20261126-measured.md). T16.001: real equal-cost acquisition #49 executed; negative primary result; no clinical or economic acceptance. Canonical task acceptance unchanged.
+
+## External validation and replication addendum (not accepted)
+
+[Evidence ledger](../../research-evidence-20261126-external.md). T16.001 #57 matched-cost policy and three hypothetical relative-cost profiles; stopping expenditure reduction, no economic/clinical claim. Canonical states unchanged.
