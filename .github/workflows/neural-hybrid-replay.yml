@@ -1,0 +1,80 @@
+name: CPU neural hybrid replay
+on:
+  pull_request:
+    paths:
+      - 'src/iatonoesis/neural_suite.py'
+      - 'tests/test_neural_suite.py'
+      - 'results/exploratory/core-neural-hybrid-seed17.json'
+      - '.github/workflows/neural-hybrid-replay.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  id-token: write
+concurrency:
+  group: neural-hybrid-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+jobs:
+  neural-hybrid-replay:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      PYTHONPATH: src
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.13.5'
+      - name: Install optional isolated CPU runtime
+        run: |
+          set -euo pipefail
+          python -m pip install --only-binary=:all: 'pytest==9.0.2' 'pytest-cov==7.0.0'
+          python -m pip install --only-binary=:all: --index-url https://download.pytorch.org/whl/cpu 'torch==2.10.0+cpu'
+          python -c 'import torch; assert torch.__version__ == "2.10.0+cpu"'
+      - name: Verify tests and produce isolated coverage
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts/neural-hybrid
+          python -m pip freeze > artifacts/neural-hybrid/environment.txt
+          git rev-parse HEAD >> artifacts/neural-hybrid/environment.txt
+          python -m pytest -q tests/test_neural_suite.py --cov=iatonoesis.neural_suite --cov-report=xml:artifacts/neural-hybrid/coverage.xml --cov-fail-under=90
+      - name: Replay fixed synthetic cases twice
+        run: |
+          set -euo pipefail
+          python -m iatonoesis.core_suite --seed 17 --revision fc2d308a6055b1e689cb031ba3732256fe342690 --freeze /tmp/core-freeze.json
+          echo 'a58671945b5b23f9cb09cf5b0d949cd89fc85166952087ecf2a3351a4693c081  /tmp/core-freeze.json' | sha256sum -c
+          python -m iatonoesis.neural_suite --freeze /tmp/core-freeze.json --revision "$(git rev-parse HEAD)" --output artifacts/neural-hybrid/result.json --epochs 60
+          python -m iatonoesis.neural_suite --freeze /tmp/core-freeze.json --revision "$(git rev-parse HEAD)" --output /tmp/repeat.json --epochs 60
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          a = json.loads(Path('artifacts/neural-hybrid/result.json').read_text())
+          b = json.loads(Path('/tmp/repeat.json').read_text())
+          expected = json.loads(Path('results/exploratory/core-neural-hybrid-seed17.json').read_text())
+          assert set(a) == set(b) == set(expected['tasks'])
+          assert sum(len(v['manifest']['arms']) for v in a.values()) == 49
+          for key in a:
+              assert a[key]['predictions'] == b[key]['predictions']
+              assert a[key]['contrasts'] == b[key]['contrasts']
+              for x, y, e in zip(a[key]['manifest']['arms'], b[key]['manifest']['arms'], expected['tasks'][key]['arms'], strict=True):
+                  assert x['id'] == y['id'] == e[0] and x['status'] == y['status'] == 'executed'
+                  assert x['metrics'] == y['metrics']
+                  assert x.get('model', {}).get('weights_sha256') == y.get('model', {}).get('weights_sha256')
+                  assert x['predictions_sha256'] == e[8], f'cross-environment predictions differ: {key}/{x["id"]}'
+          print('49 prediction digests matched; same-environment weights and metrics reproduced.')
+          PY
+          sha256sum artifacts/neural-hybrid/result.json > artifacts/neural-hybrid/SHA256SUMS
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: cpu-neural-hybrid-${{ github.sha }}
+          path: artifacts/neural-hybrid/
+          if-no-files-found: error
+          retention-days: 30
+      - uses: codecov/codecov-action@fb8b3582c8e4def4969c97caa2f19720cb33a72f
+        with:
+          files: artifacts/neural-hybrid/coverage.xml
+          disable_search: true
+          flags: neural_cpu
+          use_oidc: true
+          fail_ci_if_error: true
