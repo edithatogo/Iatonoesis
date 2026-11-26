@@ -54,3 +54,8 @@ Issue [#2](https://github.com/edithatogo/Iatonoesis/issues/2). Stable task IDs; 
   - Depends on: T01.012, T11.001.
   - Accept: wrong pedigree edge; genetics reviewer checks original; paired uncertainty, calibration/abstentions, abstraction time and completeness; retain negative findings.
   - Evidence: pending; record exact revision, commands, fixtures and outcomes.
+
+## Exploratory receipts (not task acceptance)
+
+- [Token-only baseline](../../../research/experiments/E02-layout-pilot.md) (#24, merged).
+- [Rendered PDF feasibility pilot](../../../research/experiments/E02-pdf-pilot.md) (T01.006/007): Poppler reading-order reconstruction explains much of the initial effect; spatial rules reduce false binding but do not improve recall. Independent annotations, qualified source inputs, OCR, common runner/metrics and model comparison remain outstanding. All canonical task states unchanged.
