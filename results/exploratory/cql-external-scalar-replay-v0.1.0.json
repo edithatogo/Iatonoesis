@@ -1,0 +1,40 @@
+{
+  "status": "exploratory_external_test_only",
+  "claim_boundary": "scalar_fixture_replay_only",
+  "upstream_revision": "e87e3fa8a3802c69a760b2583d2306d7c66d9899",
+  "holdout_source_commit": "cb1ed31fb771a270812bf83e547de06f6a2515ef",
+  "dataset_sha256": {
+    "CqlLogicalOperatorsTest.json": "48fd944a1c006e96655796499edc60c5f822573ad659ee1a255ec4b4aa7e1310",
+    "CqlConditionalOperatorsTest.json": "280d3ddef3e79afd17f10fadcd52ea09b319c05548b153b5862c7ec91e64405c"
+  },
+  "suites": {
+    "CqlLogicalOperatorsTest": {
+      "total": 39,
+      "correct": 39,
+      "incorrect": 0,
+      "unavailable": 0
+    },
+    "CqlConditionalOperatorsTest": {
+      "total": 9,
+      "correct": 9,
+      "incorrect": 0,
+      "unavailable": 0
+    }
+  },
+  "raw_output_sha256": "807e292ca7079e976a1c5d1137e66e15f3650e6781417d8d58c49b79826e3373",
+  "source_blob_sha1": "27a665bee231884657cab8b4d650e880614eddfa",
+  "test_blob_sha1": "b97de3b01fa2b925ea73d910fd518036bb9f4660",
+  "local_execution": {
+    "python": "3.13.5",
+    "test_first": "collection failed, missing module",
+    "test_result": "5 passed",
+    "scope": "isolated package; exact derived fixture bytes confirmed by SHA-256; full checkout unavailable"
+  },
+  "limitations": [
+    "restricted scalar grammar only; not a versioned CQL engine",
+    "published cases and expected outputs were visible before development; not a blinded or confirmatory test",
+    "no learned model, patient data or clinical adjudication",
+    "external test-only adapter; no fabricated development/calibration partitions",
+    "full hosted and receiving-main qualification pending"
+  ]
+}
