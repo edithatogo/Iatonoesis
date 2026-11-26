@@ -109,3 +109,31 @@ def test_cross_ontology_run_preserves_transfer(monkeypatch,tmp_path):
     assert set(out['results'])=={'MONDO','HP'} and 'development' not in out['results']['HP']['partitions']
     assert len(out['model_hashes'])==5
     assert all(a['fallback']['threshold'] is None for r in out['results'].values() for a in r['arms'].values())
+
+
+def test_source_timeout_retries_are_bounded(tmp_path,monkeypatch):
+    import hashlib,io,urllib.error
+    from iatonoesis import ontology_factorial as m
+    raw=b'data-version: releases/2026-01-01\n\n[Term]\nid: HP:0000001\nname: root\n'
+    monkeypatch.setattr(m,'SOURCES',{'HP':('publisher/source','hp.obo',{'2026-01-01':(len(raw),hashlib.sha256(raw).hexdigest())})})
+    monkeypatch.setattr(m.time,'sleep',lambda _:None)
+    calls=[]
+    def flaky(url,timeout):
+        calls.append(url)
+        if len(calls)<3: raise urllib.error.URLError(TimeoutError('temporary'))
+        return io.BytesIO(raw)
+    monkeypatch.setattr(m.urllib.request,'urlopen',flaky)
+    assert m.acquire('HP',tmp_path)[1]['2026-01-01']['bytes']==len(raw)
+    assert len(calls)==3
+    calls.clear()
+    def offline(url,timeout):
+        calls.append(url);raise TimeoutError('unavailable')
+    monkeypatch.setattr(m.urllib.request,'urlopen',offline)
+    with pytest.raises(TimeoutError): m.acquire('HP',tmp_path)
+    assert len(calls)==3
+    calls.clear()
+    def corrupt(url,timeout):
+        calls.append(url);return io.BytesIO(b'x'*len(raw))
+    monkeypatch.setattr(m.urllib.request,'urlopen',corrupt)
+    with pytest.raises(ValueError): m.acquire('HP',tmp_path)
+    assert len(calls)==1

@@ -42,7 +42,8 @@ jobs:
       - name: Replay historical published releases and SapBERT
         run: |
           set -euo pipefail
-          python -m iatonoesis.ontology_factorial --output artifacts/ontology/result.json
+          python -m coverage run --append --source=iatonoesis.ontology_factorial -m iatonoesis.ontology_factorial --output artifacts/ontology/result.json
+          python -m coverage xml -o artifacts/ontology/coverage.xml --fail-under=90
           sha256sum artifacts/ontology/result.json > artifacts/ontology/SHA256SUMS
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         if: always()

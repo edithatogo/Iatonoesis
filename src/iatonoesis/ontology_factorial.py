@@ -7,6 +7,7 @@ import random
 import re
 import tempfile
 import time
+import urllib.error
 import urllib.request
 from pathlib import Path
 from . import mondo_temporal as mt
@@ -241,12 +242,21 @@ def acquire(prefix,root):
     repo,name,pins=SOURCES[prefix]; snapshots=[]; receipts={}
     for date,(size,sha) in pins.items():
         p=root/name; url=f'https://github.com/{repo}/releases/download/v{date}/{name}'
-        with urllib.request.urlopen(url,timeout=90) as src,p.open('wb') as dest:
-            remaining=size
-            while data:=src.read(min(1048576,remaining+1)):
-                remaining-=len(data)
-                if remaining<0: raise ValueError('oversized source')
-                dest.write(data)
+        for attempt in range(3):
+            try:
+                with urllib.request.urlopen(url,timeout=90) as src,p.open('wb') as dest:
+                    remaining=size
+                    while data:=src.read(min(1048576,remaining+1)):
+                        remaining-=len(data)
+                        if remaining<0: raise ValueError('oversized source')
+                        dest.write(data)
+                break
+            except (TimeoutError,urllib.error.URLError) as exc:
+                p.unlink(missing_ok=True)
+                transient=(isinstance(exc,TimeoutError) or isinstance(getattr(exc,'reason',None),TimeoutError) or getattr(exc,'code',None) in (429,500,502,503,504))
+                if not transient or attempt==2: raise
+                print(f'retry {prefix} {date} after {type(exc).__name__}',flush=True)
+                time.sleep(2**attempt)
         receipts[date]=mt.verify_source(p,size,sha); snapshots.append(parse(p,date,prefix)); p.unlink()
     return snapshots,receipts
 
