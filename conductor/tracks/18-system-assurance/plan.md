@@ -25,3 +25,7 @@ Issue [#19](https://github.com/edithatogo/Iatonoesis/issues/19). Stable task IDs
 - [PR #28](https://github.com/edithatogo/Iatonoesis/pull/28) advances CQL and other source metadata; T18.002 requires compatible translator/runtime, actual byte and reference qualification.
 
 - Follow-up [protocol](../../../research/protocols/T18.001-counterexample-followup.v0.2.0.md), [result receipt](../../../research/results/T18.001-exploratory-v0.2.0.md) and [summary](../../../results/exploratory/T18.001-followup-summary.v0.2.0.json). Six fresh held-out rule families, nine new transformations, 54 instances. Boundary/pairwise 97.92%, learned feedback/no-feedback 92.50% at eight tests; oracle ceiling 100%. Learned advantage at one/two tests is exploratory. No acceptance; preserve original result. Next independently freeze new families and compare under low test budgets with compute/resource accounting; CQL runtime and reference qualification separate. Hosted replay artifacts pending.
+
+## 26 November measured-value and integration addendum (not accepted)
+
+[Evidence ledger and next gates](../../research-evidence-20261126-measured.md). T18.002/.004: actual CQL runtime qualification #51 pending; #49 A/B not independently verified sites; separate external environment gate open. Canonical task acceptance unchanged.

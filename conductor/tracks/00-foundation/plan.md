@@ -30,3 +30,7 @@ Issue [#1](https://github.com/edithatogo/Iatonoesis/issues/1). Stable task IDs; 
   - Depends on: T00.006.
   - Accept: Required hosted checks, exact-head receipt and bidirectional plan/issue check; no false success on skip.
   - Evidence: pending; record exact revision, commands, fixtures and outcomes.
+
+## 26 November measured-value and integration addendum (not accepted)
+
+[Evidence ledger and next gates](../../research-evidence-20261126-measured.md). T00.001/.002/.005/.006/.007: central registration, coverage remediation, typed envelope #47, exact-head and protection gates. Canonical task acceptance unchanged.
