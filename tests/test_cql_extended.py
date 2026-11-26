@@ -44,3 +44,20 @@ def test_score_separates_wrong_abstention_and_null():
     assert out['abstentions']==1 and out['invalid']==1
     with pytest.raises(ValueError,match='membership'):
         c.score(refs,{'a':'TRUE'})
+
+
+def test_additional_reference_gate_states_and_integer_oracle():
+    raw=xml('<test name="a"><expression>Today() = Today()</expression><output>true</output></test>'
+            '<test name="b"><expression>1</expression></test>'
+            '<test name="c"><expression>1</expression><output>9007199254740992</output></test>'
+            '<test name="d"><expression>1+2</expression><output>3</output></test>')
+    rows=c.parse_suite(raw,'additional')
+    assert [r['status'] for r in rows]==['clock_dependent','missing_reference','unsupported_reference_type','eligible']
+    assert type(rows[-1]['expected']) is int and rows[-1]['expected']==3
+    with pytest.raises(ValueError,match='XML declaration'):
+        c.parse_suite(b'<!DOCTYPE x><x/>','invalid')
+    with pytest.raises(ValueError,match='empty'):
+        c.parse_suite(xml(''),'empty')
+    with pytest.raises(ValueError,match='non-Boolean'):
+        c.label(1)
+    assert c.git_blob(b'hello\\n')!=c.git_blob(b'hello')

@@ -18,7 +18,7 @@ SOURCES = {
 }
 MODELS = {
     'HuggingFaceTB/SmolLM2-360M-Instruct': ('c15f933c73438218a2bc078446c513173cc4f06a', 'e6bffe7435d7ddc10fd3b9a9efd429dafbacb1cb17015fb5562664e7532bf86e'),
-    'Qwen/Qwen2.5-0.5B-Instruct': ('eaa56b503cc0a8a4d15de1dd8bd2a7e95a716be2', 'fdf756fa7fcbe7404d5c60e26bff1a0c8b8aa1f72ced49e7dd0210fe288fb7fe'),
+    'Qwen/Qwen2.5-0.5B-Instruct': ('7ae557604adf67be50417f59c2c2f167def9a775', 'fdf756fa7fcbe7404d5c60e26bff1a0c8b8aa1f72ced49e7dd0210fe288fb7fe'),
 }
 FRAMES = {
     'F01': 'Evaluate the given CQL expression directly.',
@@ -191,11 +191,11 @@ def run_models(frozen, output):
         weights = next((s for s in info.siblings if s.rfilename == 'model.safetensors'), None)
         if (info.sha != revision or info.card_data is None or info.card_data.license != 'apache-2.0'
                 or weights is None or weights.size is None or weights.size > 1_200_000_000):
-            raise ValueError('model admission gate')
+            raise ValueError(f'model admission gate: {repo}; revision={info.sha}; licence={getattr(info.card_data, "license", None)}; weights_size={getattr(weights, "size", None)}')
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(snapshot_download(repo, revision=revision, local_dir=tmp, allow_patterns=[
                 'model.safetensors', 'config.json', 'generation_config.json', 'tokenizer.json',
-                'tokenizer_config.json', 'special_tokens_map.json', 'vocab.json', 'merges.txt', 'added_tokens.json']))
+                'tokenizer_config.json', 'special_tokens_map.json', 'vocab.json', 'merges.txt', 'added_tokens.json', 'LICENSE', 'README.md']))
             with (root/'model.safetensors').open('rb') as fh:
                 actual = hashlib.file_digest(fh, 'sha256').hexdigest()
             if actual != digest:
