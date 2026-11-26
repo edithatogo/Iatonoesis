@@ -36,3 +36,17 @@ def test_comparator_replay_and_review_accounting():
     assert result['arms']['legacy']['exact'] < 19
     with pytest.raises(ValueError, match='duplicate'):
         run(data | {'cases': data['cases'] + data['cases'][:1]})
+
+
+def test_additional_input_guards_and_cli(tmp_path, monkeypatch):
+    import sys
+    from iatonoesis.rule_feedback import main
+
+    data = json.loads(FIXTURE.read_text())['defaults']
+    for overrides in ({'note': None}, {'events': [{'kind': 'unknown', 'minute': 1}]},
+                      {'note': 'Performance attested at minute 31.', 'note_verified': True}):
+        assert refined(data | overrides) == ['unverifiable']
+    output = tmp_path / 'output.json'
+    monkeypatch.setattr(sys, 'argv', ['rule_feedback', '--fixtures', str(FIXTURE), '--output', str(output)])
+    main()
+    assert json.loads(output.read_text()) == run(json.loads(FIXTURE.read_text()))
