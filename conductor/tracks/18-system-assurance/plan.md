@@ -33,3 +33,7 @@ Issue [#19](https://github.com/edithatogo/Iatonoesis/issues/19). Stable task IDs
 ## External validation and replication addendum (not accepted)
 
 [Evidence ledger](../../research-evidence-20261126-external.md). T18.002 #61 two failed expanded compiler/runtime cases, 72/72 authored, qualification held. T18.004 #54 real state-disjoint later-season FluSight negative transfer result; no hospital or clinical acceptance. Canonical states unchanged.
+
+## Frontier replication extension (not accepted)
+
+[Role and dataset extension](../../../research/frontier-replication-extension.v0.1.0.md). T18.004: 2012 source replication candidate, A/B not sites and cross-source person overlap unknown; T18.002 #61 failure retained.

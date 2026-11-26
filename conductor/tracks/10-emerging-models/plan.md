@@ -34,3 +34,7 @@ Issue [#11](https://github.com/edithatogo/Iatonoesis/issues/11). Stable task IDs
 ## External validation and replication addendum (not accepted)
 
 [Evidence ledger](../../research-evidence-20261126-external.md). #61 actual SmolLM2 six-frame cross on 24 external formal cases; second model initially blocked, licence-bearing pin corrected before inference; no clinical admission. Canonical states unchanged.
+
+## Frontier replication extension (not accepted)
+
+[Role and dataset extension](../../../research/frontier-replication-extension.v0.1.0.md). T10.003–.006: structured new method variants X01–X05 and primary precedents; existing roles preserved; actual frontier inference remains gated.

@@ -33,3 +33,7 @@ Issue [#15](https://github.com/edithatogo/Iatonoesis/issues/15). Stable task IDs
 ## External validation and replication addendum (not accepted)
 
 [Evidence ledger](../../research-evidence-20261126-external.md). #56 actual PubTables pairing acquired and replayed; #45 TrialGPT author model-assisted references and training flag still block independent admission; #54/#57 aggregate external/replication receipts; #61 explicit unsupported states. Canonical states unchanged.
+
+## Frontier replication extension (not accepted)
+
+[Role and dataset extension](../../../research/frontier-replication-extension.v0.1.0.md). T14.001–.004: six additional/extended candidate sources XD01–XD06; PhysioNet 2012 bounded full A/B acquisition and partition receipt, no clinical admission.

@@ -1,0 +1,126 @@
+{
+  "schema_version": "0.1.0",
+  "status": "candidate_extension_not_qualified",
+  "scope": "new role hypotheses and replication resources; preserve R01–R22 and E01–E38, no new task acceptance",
+  "models": [
+    {
+      "id": "X01",
+      "role": "R15 observation-process estimator",
+      "owner": "T15.004 #16; T16.001 #17; T18.004 #19",
+      "nearest_primary": "Foster et al. 2021, Deep Adaptive Design https://proceedings.mlr.press/v139/foster21a.html (adjacent acquisition policy, not a recording-process model); Che et al. 2018 GRU-D https://doi.org/10.1038/s41598-018-24271-9 (missingness-aware prediction, not identical task)",
+      "classification": "original task separation, established logistic baseline; marked temporal point process is a proposed challenger",
+      "inputs": "past observation timestamps/masks, no withheld values",
+      "output": "calibrated recording-event probability/time distribution, uncertainty",
+      "workflow": "rural transfer: flag that sparse observations are not evidence of physiologic stability; do not infer actual capability",
+      "training_signal": "future recorded measurement events, not latent disease",
+      "baseline": "prevalence, recency/count bucket, time-only logistic",
+      "failure": "documentation policy shift or informative missingness; no causal interpretation",
+      "experiment": "PhysioNet 2012 full A/B observation propensity pilot; then marked temporal point process versus discrete-time hazard, and joint model versus independent observation/value components at matched compute"
+    },
+    {
+      "id": "X02",
+      "role": "R10 latent operational world model",
+      "owner": "T15.002 #16; T17 #18; T09 #10",
+      "nearest_primary": "Assran et al. 2025 V-JEPA 2 https://arxiv.org/abs/2506.09985 (action-free pretraining and robot trajectory planning); Hafner et al. 2023 DreamerV3 https://arxiv.org/abs/2301.04104 (learned latent environment dynamics and imagined control)",
+      "classification": "working non-healthcare prototypes; healthcare latent representation/operations hypothesis",
+      "inputs": "past multivariate service trajectories, observed operational constraints; candidate actions only in validated simulator",
+      "output": "latent future trajectory distribution and decoded observable uncertainty",
+      "workflow": "regional capacity and retrieval planning; evaluate demand uncertainty and service discontinuities",
+      "training_signal": "held-out observed future service states for passive prediction; simulator transitions for action-conditioned modelling",
+      "baseline": "seasonal naive, VAR/state-space, calibrated discrete-event simulation",
+      "failure": "good representation loss but incorrect occupancy/constraints; observational associations mistaken for effects",
+      "experiment": "NHS quarterly KH03 and daily UEC separately; train latent predictor with fixed dimension, contrast masked reconstruction vs embedding prediction, hold out trusts/eras; action effects only in frozen synthetic simulator"
+    },
+    {
+      "id": "X03",
+      "role": "R11/R14 amortized experimental design policy",
+      "owner": "T16.001/.002 #17; T12 #13",
+      "nearest_primary": "Foster et al. 2021 https://proceedings.mlr.press/v139/foster21a.html",
+      "classification": "working learned design-network precedent; healthcare cost-sensitive adaptation",
+      "inputs": "current available observations, remaining feasible experiments/measurement costs",
+      "output": "next design or explicit stop; uncertainty and expected gain",
+      "workflow": "regional diagnostic pathway or rare-disease research; distinguish observation selection from decisions about clinical treatment",
+      "training_signal": "development-only simulated posterior information gain, observed masked-value loss where available",
+      "baseline": "no acquisition, fixed panel, greedy conditional gain, exact small-domain Bayesian design",
+      "failure": "high predicted gain at target shift; acquisition delay or access not represented",
+      "experiment": "simulation with known outcomes and hypothetical costs, external temporal benchmark; full budget curve and net benefit; no causal real-care claim"
+    },
+    {
+      "id": "X04",
+      "role": "R17/R16 constraint-aware optimiser with learned search assistance",
+      "owner": "T17.002/.003 #18; T11 #12",
+      "nearest_primary": "Gasse et al. 2019 Exact Combinatorial Optimization with Graph Convolutional Neural Networks https://arxiv.org/abs/1906.01629",
+      "classification": "working learned branching precedent; rural scheduling adaptation",
+      "inputs": "typed constraint graph and solver state",
+      "output": "branching or warm-start proposal, not authoritative feasibility",
+      "workflow": "rural specialist coverage and theatre allocation under hard staffing/credential rules",
+      "training_signal": "solver-generated branching/feasible search traces",
+      "baseline": "unmodified exact solver with identical time limit",
+      "failure": "invalid solution or systematic exclusion; solver must independently certify constraints",
+      "experiment": "held-out shortage regimes in authored simulator, optimality gap and feasible rate at equal wall time; hard constraints never overridden"
+    },
+    {
+      "id": "X05",
+      "role": "R18/R21 evidence-preserving system failure and commitment hypothesis",
+      "owner": "T18.003 #19; T19 #20; T03 #4",
+      "nearest_primary": "Bennett et al. MIMIC-IV on FHIR https://doi.org/10.1093/jamia/ocad002 (interoperability data, not learned failure attribution)",
+      "classification": "original proposed typed evidence/pathway task; no demonstrated specialist or novelty claim",
+      "inputs": "FHIR resource/event history plus versioned obligation definitions",
+      "output": "candidate unmet or superseded commitments, temporal evidence IDs and abstention",
+      "workflow": "regional cross-facility handover; accountable clinician ratifies any closure",
+      "training_signal": "independent authored lifecycle constraints; synthetic event mutations; real FHIR demo only schema/provenance smoke",
+      "baseline": "state machine and graph traversal",
+      "failure": "missing records treated as evidence of closure; retrospective blame",
+      "experiment": "synthetic lifecycle families then rights-cleared demo structure verification; separate evidence completeness from task fulfilment"
+    }
+  ],
+  "datasets": [
+    {
+      "id": "XD01",
+      "source": "https://physionet.org/content/challenge-2012/1.0.0/",
+      "citation": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3965265/",
+      "version": "1.0.0",
+      "role": "T15.001/.004; T16; T18.004",
+      "state": "acquisition_and_observation_workflow_implemented_not_hosted_qualified",
+      "licence": "ODC-By-1.0",
+      "limits": "8,000 publicly available A/B measurement records, MIMIC-II first stays; no site independence between A/B, no outcomes, no cross-source person overlap verification"
+    },
+    {
+      "id": "XD02",
+      "source": "https://aclanthology.org/D19-1259/",
+      "locator": "https://github.com/pubmedqa/pubmedqa",
+      "role": "T07 evidence judgment; T04; six frames T10",
+      "state": "candidate_only",
+      "limits": "1,000 expert-annotated questions; exclude artificial and unlabeled sets as gold, withhold conclusion/long answer, article and duplicate grouping, underlying abstract rights and pretraining exposure"
+    },
+    {
+      "id": "XD03",
+      "source": "https://aclanthology.org/P18-1019/",
+      "role": "T02 extraction, T03 evidence relations",
+      "state": "candidate_only",
+      "limits": "about 5,000 RCT abstracts, PICO span and nested annotations; annotation tier/rights/grouping and reference agreement review"
+    },
+    {
+      "id": "XD04",
+      "source": "https://github.com/ncbi/BioRED",
+      "role": "T02/T03/T07",
+      "state": "candidate_only",
+      "limits": "600 annotated abstracts, entity and relation/novelty tasks, underlying PubMed text rights, document-disjoint official partitions, pretrained overlap"
+    },
+    {
+      "id": "XD05",
+      "source": "https://physionet.org/content/mimic-iv-fhir-demo/2.1.0/",
+      "version": "2.1.0",
+      "role": "T03/T08/T19 interoperability smoke",
+      "state": "candidate_only",
+      "limits": "demo resources not commitment gold, underlying rights and demo licence verify, no raw records released, no independent external-site claim"
+    },
+    {
+      "id": "XD06",
+      "source": "https://www.england.nhs.uk/statistics/statistical-work-areas/bed-availability-and-occupancy/bed-availability-and-occupancy-kh03/",
+      "role": "T15.002 operational world model and T18.004",
+      "state": "candidate_only",
+      "limits": "quarterly available/occupied bed days, quarterly frequency not daily UEC; pandemic/definition changes, trust identifiers and revisions, rights before ingestion"
+    }
+  ]
+}
