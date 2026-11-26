@@ -1,0 +1,25 @@
+{
+  "scope": "co-authored synthetic stress fixtures, no clinical guidance or independent gold",
+  "defaults": {"deadline": 20, "observed_until": 30, "events": [{"kind": "ordered", "minute": 1}], "note": "", "note_verified": false, "exception": false, "exception_verified": false, "complete_log": true},
+  "cases": [
+    {"id": "structured-timely", "overrides": {"events": [{"kind": "performed", "minute": 18}]}, "gold": "completed"},
+    {"id": "structured-late", "overrides": {"events": [{"kind": "performed", "minute": 23}]}, "gold": "late"},
+    {"id": "attested-timely", "overrides": {"note": "Performance attested at minute 18.", "note_verified": true}, "gold": "completed"},
+    {"id": "attested-late", "overrides": {"note": "Performance attested at minute 23.", "note_verified": true}, "gold": "late"},
+    {"id": "unverified-legacy-note", "overrides": {"note": "Completion recorded at minute 18."}, "gold": "unverifiable"},
+    {"id": "unverified-new-note", "overrides": {"note": "Performance attested at minute 18."}, "gold": "unverifiable"},
+    {"id": "scheduled-not-done", "overrides": {"note": "Scheduled for minute 18.", "note_verified": true}, "gold": "unverifiable"},
+    {"id": "explicit-negation", "overrides": {"note": "Not performed at minute 18.", "note_verified": true}, "gold": "unverifiable"},
+    {"id": "conflicting-sources", "overrides": {"events": [{"kind": "performed", "minute": 18}], "note": "Performance attested at minute 23.", "note_verified": true}, "gold": "unverifiable"},
+    {"id": "verified-exception", "overrides": {"exception": true, "exception_verified": true}, "gold": "inapplicable"},
+    {"id": "unverified-exception", "overrides": {"exception": true}, "gold": "unverifiable"},
+    {"id": "missing-after-deadline", "overrides": {}, "gold": "missing"},
+    {"id": "deadline-not-elapsed", "overrides": {"observed_until": 15}, "gold": "unverifiable"},
+    {"id": "future-event", "overrides": {"events": [{"kind": "performed", "minute": 31}]}, "gold": "unverifiable"},
+    {"id": "incomplete-log", "overrides": {"complete_log": false}, "gold": "unverifiable"},
+    {"id": "exact-deadline", "overrides": {"note": "Completion recorded at minute 20.", "note_verified": true}, "gold": "completed"},
+    {"id": "exception-conflict", "overrides": {"exception": true, "exception_verified": true, "events": [{"kind": "performed", "minute": 18}]}, "gold": "unverifiable"},
+    {"id": "negative-timestamp", "overrides": {"events": [{"kind": "performed", "minute": -1}]}, "gold": "unverifiable"},
+    {"id": "consistent-sources", "overrides": {"events": [{"kind": "performed", "minute": 18}], "note": "Performance attested at minute 18.", "note_verified": true}, "gold": "completed"}
+  ]
+}
