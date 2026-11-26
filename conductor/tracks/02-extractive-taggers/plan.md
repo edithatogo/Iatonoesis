@@ -54,3 +54,7 @@ Issue [#3](https://github.com/edithatogo/Iatonoesis/issues/3). Stable task IDs; 
   - Depends on: T02.012, T11.001.
   - Accept: criticism treated as fact; quality reviewer checks; paired uncertainty, calibration/abstentions, actionable hazards and review time; retain negative findings.
   - Evidence: pending; record exact revision, commands, fixtures and outcomes.
+
+## External benchmark evidence (not canonical acceptance)
+
+- [External disease spans, executed receipt](../../../research/results/T02-external-disease-spans-v0.1.0.md), #55 merged; T02.006–009. Independent author annotation benchmark only; actual second corpus unavailable, pretrained transfer negative, no calibrated fallback. Clinical action/owner and assertion/temporality references remain open.
