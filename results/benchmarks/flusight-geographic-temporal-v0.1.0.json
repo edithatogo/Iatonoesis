@@ -1,0 +1,254 @@
+{
+  "version": "0.1.0",
+  "scope": "retrospective_geographic_temporal_transportability",
+  "source_revision": "ff8f3b287029e3352ca5fc278d1184103e354455",
+  "rate_blob": "288572a3bc0da7ba707dfab310f3e66db19426e7",
+  "location_blob": "4533f7b5427b62aebc6ebcd34e0d0941e8324d35",
+  "target": "12-week mean absolute one-step persistence error, hospital admissions per 100000",
+  "partitions": {
+    "development": {
+      "states": [
+        "01",
+        "02",
+        "04",
+        "08",
+        "09",
+        "10",
+        "15",
+        "16",
+        "17",
+        "20",
+        "21",
+        "22",
+        "25",
+        "26",
+        "27",
+        "30",
+        "31",
+        "32",
+        "35",
+        "36",
+        "37",
+        "40",
+        "41",
+        "42",
+        "46",
+        "47",
+        "48",
+        "51",
+        "53",
+        "54"
+      ],
+      "planned": 60,
+      "eligible": 60,
+      "missing_history": 0,
+      "missing_target": 0,
+      "excluded": []
+    },
+    "calibration": {
+      "states": [
+        "05",
+        "12",
+        "18",
+        "23",
+        "28",
+        "33",
+        "38",
+        "44",
+        "49",
+        "55"
+      ],
+      "planned": 20,
+      "eligible": 20,
+      "missing_history": 0,
+      "missing_target": 0,
+      "excluded": []
+    },
+    "test": {
+      "states": [
+        "06",
+        "13",
+        "19",
+        "24",
+        "29",
+        "34",
+        "39",
+        "45",
+        "50",
+        "56"
+      ],
+      "planned": 10,
+      "eligible": 10,
+      "missing_history": 0,
+      "missing_target": 0,
+      "excluded": []
+    }
+  },
+  "metrics": {
+    "source_constant": {
+      "n": 10,
+      "calibration_state_clusters": 10,
+      "mae": 1.2307432185784175,
+      "interval_radius": 1.1361872848625865,
+      "interval_coverage": 0.5,
+      "mean_interval_width": 2.272374569725173,
+      "mean_paired_delta_vs_constant": 0
+    },
+    "history_change": {
+      "n": 10,
+      "calibration_state_clusters": 10,
+      "mae": 2.1941338941997914,
+      "interval_radius": 1.950688638295487,
+      "interval_coverage": 0.5,
+      "mean_interval_width": 2.14980148682173,
+      "mean_paired_delta_vs_constant": 0.9633906756213738
+    },
+    "knn": {
+      "n": 10,
+      "calibration_state_clusters": 10,
+      "mae": 1.5942793025064084,
+      "interval_radius": 1.2114911245608466,
+      "interval_coverage": 0.3,
+      "mean_interval_width": 2.003194300961865,
+      "mean_paired_delta_vs_constant": 0.36353608392799047
+    },
+    "ridge": {
+      "n": 10,
+      "calibration_state_clusters": 10,
+      "mae": 1.5148458599365031,
+      "interval_radius": 1.1736340838321935,
+      "interval_coverage": 0.4,
+      "mean_interval_width": 2.052034966621725,
+      "mean_paired_delta_vs_constant": 0.28410264135808516
+    }
+  },
+  "test": [
+    {
+      "state": "06",
+      "name": "California",
+      "start": "2024-10-05",
+      "actual": 1.5237958657102073,
+      "estimate": {
+        "source_constant": 1.162503524147617,
+        "history_change": 0.18294716077940198,
+        "knn": 1.2431721448687114,
+        "ridge": 0.9727472080913327
+      }
+    },
+    {
+      "state": "13",
+      "name": "Georgia",
+      "start": "2024-10-05",
+      "actual": 1.9697663308589093,
+      "estimate": {
+        "source_constant": 1.162503524147617,
+        "history_change": 0.06217247008464744,
+        "knn": 0.6191540243911985,
+        "ridge": 0.9203058632755388
+      }
+    },
+    {
+      "state": "19",
+      "name": "Iowa",
+      "start": "2024-10-05",
+      "actual": 1.933268558442709,
+      "estimate": {
+        "source_constant": 1.162503524147617,
+        "history_change": 0.040090822640517325,
+        "knn": 0.5299710445329925,
+        "ridge": 0.8703629579792667
+      }
+    },
+    {
+      "state": "24",
+      "name": "Maryland",
+      "start": "2024-10-05",
+      "actual": 1.6787338641314633,
+      "estimate": {
+        "source_constant": 1.162503524147617,
+        "history_change": 0.04854170209536731,
+        "knn": 0.5299710445329925,
+        "ridge": 0.8913129357324889
+      }
+    },
+    {
+      "state": "29",
+      "name": "Missouri",
+      "start": "2024-10-05",
+      "actual": 2.5634172757001816,
+      "estimate": {
+        "source_constant": 1.162503524147617,
+        "history_change": 0.09683423077146544,
+        "knn": 0.6628493188071314,
+        "ridge": 0.937202467025377
+      }
+    },
+    {
+      "state": "34",
+      "name": "New Jersey",
+      "start": "2024-10-05",
+      "actual": 2.4360909129037216,
+      "estimate": {
+        "source_constant": 1.162503524147617,
+        "history_change": 0.098407207085528,
+        "knn": 0.6191540243911985,
+        "ridge": 0.9072943169398944
+      }
+    },
+    {
+      "state": "39",
+      "name": "Ohio",
+      "start": "2024-10-05",
+      "actual": 2.8331792655115344,
+      "estimate": {
+        "source_constant": 1.162503524147617,
+        "history_change": 0.5672621040005978,
+        "knn": 1.060795420762567,
+        "ridge": 0.7967210267482552
+      }
+    },
+    {
+      "state": "45",
+      "name": "South Carolina",
+      "start": "2024-10-05",
+      "actual": 3.0954058036687653,
+      "estimate": {
+        "source_constant": 1.162503524147617,
+        "history_change": 0.0824141825769239,
+        "knn": 0.41135921670784076,
+        "ridge": 0.8704415179877751
+      }
+    },
+    {
+      "state": "50",
+      "name": "Vermont",
+      "start": "2024-10-05",
+      "actual": 2.04644582555941,
+      "estimate": {
+        "source_constant": 1.162503524147617,
+        "history_change": 0.17651284748760457,
+        "knn": 1.252452742439066,
+        "ridge": 0.8290156291489468
+      }
+    },
+    {
+      "state": "56",
+      "name": "Wyoming",
+      "start": "2024-10-05",
+      "actual": 3.8523637247734457,
+      "estimate": {
+        "source_constant": 1.162503524147617,
+        "history_change": 0.6359457577403763,
+        "knn": 1.0607954207625667,
+        "ridge": 0.7886049049664413
+      }
+    }
+  ],
+  "limitations": [
+    "Retrospectively revised snapshot; not real-time forecasts",
+    "Geographical state units, not hospital sites",
+    "Missing complete windows excluded; possible selection bias",
+    "Small held-out state count; descriptive only",
+    "No clinical validation or canonical task acceptance"
+  ]
+}
