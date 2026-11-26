@@ -1,0 +1,40 @@
+name: NHS KH03 passive trajectories
+on:
+  pull_request:
+    paths:
+      - 'src/iatonoesis/nhs_passive.py'
+      - 'tests/test_nhs_passive.py'
+      - 'research/protocols/nhs-kh03-passive-v0.1.0.md'
+      - '.github/workflows/nhs-kh03-passive.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  benchmark:
+    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.15.2'
+      - name: Run passive benchmark on pinned quarterly source pair
+        env:
+          PYTHONPATH: src
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts/nhs
+          python --version > artifacts/nhs/environment.txt
+          git rev-parse HEAD >> artifacts/nhs/environment.txt
+          python -m iatonoesis.nhs_passive --revision "$(git rev-parse HEAD)" --output artifacts/nhs/aggregate.json
+          sha256sum artifacts/nhs/aggregate.json > artifacts/nhs/SHA256SUMS
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        if: always()
+        with:
+          name: nhs-kh03-passive-${{ github.sha }}
+          path: artifacts/nhs/
+          if-no-files-found: error
+          retention-days: 30
