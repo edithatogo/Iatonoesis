@@ -1,0 +1,248 @@
+{
+  "version": "0.1.0",
+  "status": "candidate_taxonomy_not_novelty_qualified",
+  "roles": [
+    {
+      "role_id": "R01",
+      "name": "layout-aware reader",
+      "track": "T01",
+      "issue": 2,
+      "inputs": "document page/regions",
+      "outputs": "structured layout and qualifier links",
+      "classification": "established baseline role",
+      "precedent": null,
+      "empirical_status": "planned"
+    },
+    {
+      "role_id": "R02",
+      "name": "extractive tagger",
+      "track": "T02",
+      "issue": 3,
+      "inputs": "source text",
+      "outputs": "provenanced spans",
+      "classification": "established baseline role",
+      "precedent": null,
+      "empirical_status": "planned"
+    },
+    {
+      "role_id": "R03",
+      "name": "graph model",
+      "track": "T03",
+      "issue": 4,
+      "inputs": "typed entities/relations",
+      "outputs": "relation scores or graph candidates",
+      "classification": "established baseline role",
+      "precedent": null,
+      "empirical_status": "planned"
+    },
+    {
+      "role_id": "R04",
+      "name": "decision model",
+      "track": "T04",
+      "issue": 5,
+      "inputs": "state and objective",
+      "outputs": "judgement or action/abstention",
+      "classification": "established baseline role",
+      "precedent": null,
+      "empirical_status": "planned"
+    },
+    {
+      "role_id": "R05",
+      "name": "reranker",
+      "track": "T05",
+      "issue": 6,
+      "inputs": "query and fixed candidates",
+      "outputs": "ordered candidates",
+      "classification": "established baseline role",
+      "precedent": null,
+      "empirical_status": "planned"
+    },
+    {
+      "role_id": "R06",
+      "name": "router",
+      "track": "T06",
+      "issue": 7,
+      "inputs": "task and component capabilities",
+      "outputs": "component allocation",
+      "classification": "established baseline role",
+      "precedent": null,
+      "empirical_status": "planned"
+    },
+    {
+      "role_id": "R07",
+      "name": "evidence evaluator",
+      "track": "T07",
+      "issue": 8,
+      "inputs": "claim and evidence",
+      "outputs": "support/quality assessment",
+      "classification": "established baseline role",
+      "precedent": null,
+      "empirical_status": "planned"
+    },
+    {
+      "role_id": "R08",
+      "name": "step verifier",
+      "track": "T08",
+      "issue": 9,
+      "inputs": "proposed step and context",
+      "outputs": "validity assessment",
+      "classification": "established baseline role",
+      "precedent": null,
+      "empirical_status": "planned"
+    },
+    {
+      "role_id": "R09",
+      "name": "state reconstructor",
+      "track": "T15",
+      "issue": 16,
+      "inputs": "partial asynchronous observations",
+      "outputs": "state estimate with uncertainty",
+      "classification": "healthcare formulation; state estimation precedent",
+      "precedent": "LeCun 2022; EDDI, Ma et al. 2019",
+      "empirical_status": "planned"
+    },
+    {
+      "role_id": "R10",
+      "name": "world model",
+      "track": "T15",
+      "issue": 16,
+      "inputs": "state and candidate action",
+      "outputs": "distribution of future states",
+      "classification": "author-proposed general role; learned prototypes",
+      "precedent": "LeCun 2022; V-JEPA 2, Assran et al. 2025",
+      "empirical_status": "planned"
+    },
+    {
+      "role_id": "R11",
+      "name": "value of information",
+      "track": "T16",
+      "issue": 17,
+      "inputs": "partial state and candidate measurements",
+      "outputs": "expected incremental value and cost",
+      "classification": "learned/hybrid precedent",
+      "precedent": "EDDI, Ma et al. 2019",
+      "empirical_status": "planned"
+    },
+    {
+      "role_id": "R12",
+      "name": "clinical affordance",
+      "track": "T17",
+      "issue": 18,
+      "inputs": "action and local resources",
+      "outputs": "feasibility, missing prerequisites and uncertainty",
+      "classification": "healthcare hypothesis; learned robotics precedent",
+      "precedent": "SayCan, Ahn et al. 2022",
+      "empirical_status": "planned"
+    },
+    {
+      "role_id": "R13",
+      "name": "recoverability horizon",
+      "track": "T15",
+      "issue": 16,
+      "inputs": "process history and possible rescue actions",
+      "outputs": "time-dependent probability of successful recovery",
+      "classification": "original formulation; adjacent process prediction",
+      "precedent": "Tax et al. 2017; Fox et al. 2007",
+      "empirical_status": "planned"
+    },
+    {
+      "role_id": "R14",
+      "name": "adaptive experimental designer",
+      "track": "T16",
+      "issue": 17,
+      "inputs": "prior designs and observations",
+      "outputs": "next experimental design",
+      "classification": "learned prototype precedent",
+      "precedent": "Foster et al. 2021, Deep Adaptive Design",
+      "empirical_status": "planned"
+    },
+    {
+      "role_id": "R15",
+      "name": "ascertainment model",
+      "track": "T15",
+      "issue": 16,
+      "inputs": "notifications, testing and reporting context",
+      "outputs": "detection/reporting process and uncertainty",
+      "classification": "statistical precedent; specialist hypothesis",
+      "precedent": "McGough et al. 2020, NobBS",
+      "empirical_status": "planned"
+    },
+    {
+      "role_id": "R16",
+      "name": "learned optimisation assistant",
+      "track": "T17",
+      "issue": 18,
+      "inputs": "solver instance and search state",
+      "outputs": "branching/warm start proposal",
+      "classification": "learned prototype precedent",
+      "precedent": "Gasse et al. 2019",
+      "empirical_status": "planned"
+    },
+    {
+      "role_id": "R17",
+      "name": "constraint acquisition",
+      "track": "T17",
+      "issue": 18,
+      "inputs": "accepted/rejected solutions and explanations",
+      "outputs": "candidate constraints for ratification",
+      "classification": "established hybrid precedent",
+      "precedent": "Tsouros et al., ML-guided interactive constraint acquisition",
+      "empirical_status": "planned"
+    },
+    {
+      "role_id": "R18",
+      "name": "system failure attribution",
+      "track": "T18",
+      "issue": 19,
+      "inputs": "execution traces and contextual factors",
+      "outputs": "candidate contributory pathways",
+      "classification": "research task; healthcare hypothesis",
+      "precedent": "Zhang et al. 2025, Which Agent Causes Task Failures and When?",
+      "empirical_status": "planned"
+    },
+    {
+      "role_id": "R19",
+      "name": "counterexample generator",
+      "track": "T18",
+      "issue": 19,
+      "inputs": "target rules and feedback",
+      "outputs": "valid inputs exposing defects",
+      "classification": "learned and prompted precedent",
+      "precedent": "Perez et al. 2022, Red Teaming Language Models with Language Models",
+      "empirical_status": "planned"
+    },
+    {
+      "role_id": "R20",
+      "name": "transportability assessor",
+      "track": "T18",
+      "issue": 19,
+      "inputs": "source validation and target context",
+      "outputs": "target performance estimate and abstention",
+      "classification": "statistical precedent; integrated hypothesis",
+      "precedent": "Garg et al. 2022; Subbaswamy et al. 2021",
+      "empirical_status": "planned"
+    },
+    {
+      "role_id": "R21",
+      "name": "commitment steward",
+      "track": "T19",
+      "issue": 20,
+      "inputs": "plans and lifecycle events",
+      "outputs": "proposed update/closure with provenance",
+      "classification": "healthcare hypothesis; learned memory precedent",
+      "precedent": "Memory-R1, Yan et al. 2025",
+      "empirical_status": "planned"
+    },
+    {
+      "role_id": "R22",
+      "name": "scientific data value estimator",
+      "track": "T16",
+      "issue": 17,
+      "inputs": "existing evidence and candidate datasets",
+      "outputs": "marginal scientific value",
+      "classification": "learned precedent; portfolio adaptation",
+      "precedent": "Yoon et al. 2020, DVRL",
+      "empirical_status": "planned"
+    }
+  ]
+}
