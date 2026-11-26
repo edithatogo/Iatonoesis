@@ -1,0 +1,40 @@
+name: FluSight geographic temporal replay
+on:
+  pull_request:
+    paths:
+      - 'research/tools/flusight-transport*'
+      - 'research/protocols/T18.004-flusight-geographic-temporal-v0.1.0.md'
+      - 'results/benchmarks/flusight-geographic-temporal-v0.1.0.json'
+      - '.github/workflows/flusight-transport-replay.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  replay:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020
+        with:
+          node-version: '24'
+      - name: Test frozen split and retrieve pinned CDC aggregate data
+        shell: bash
+        run: |
+          set -euo pipefail
+          node --test research/tools/flusight-transport.test.cjs
+          mkdir -p artifacts/flusight
+          base=https://raw.githubusercontent.com/cdcepi/FluSight-forecast-hub/ff8f3b287029e3352ca5fc278d1184103e354455/auxiliary-data
+          curl --fail --location --proto '=https' --max-time 90 "$base/locations_202425.csv" -o "$RUNNER_TEMP/locations.csv"
+          curl --fail --location --proto '=https' --max-time 90 "$base/target-data-archive/target-hospital-admissions_2025-07-19.csv" -o "$RUNNER_TEMP/rates.csv"
+          node research/tools/flusight-transport.cjs "$RUNNER_TEMP/locations.csv" "$RUNNER_TEMP/rates.csv" artifacts/flusight/result.json
+          cmp results/benchmarks/flusight-geographic-temporal-v0.1.0.json artifacts/flusight/result.json
+          sha256sum artifacts/flusight/result.json > artifacts/flusight/SHA256SUMS
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: flusight-transport-replay-${{ github.sha }}
+          path: artifacts/flusight/
+          if-no-files-found: error
+          retention-days: 30
