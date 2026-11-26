@@ -117,13 +117,18 @@ def acquire(name):
     return raw
 
 
+def reason(e):
+    allowed={'unrecognized snapshot date','unexpected source header','malformed CSV row','missing organisation or sector','duplicate organisation-sector-quarter','invalid bed quantity','source snapshot changed','invalid revision','development and valid width required'}
+    return str(e) if isinstance(e,ValueError) and str(e) in allowed else 'unclassified'
+
+
 def main():
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--output',type=Path,required=True);p.add_argument('--revision',required=True);args=p.parse_args();stage='acquisition'
     try:
         if not re.fullmatch(r'[0-9a-f]{40}',args.revision):raise ValueError('invalid revision')
         a,o=acquire('Available'),acquire('Occupied');stage='join';series,audit=join(a,o);stage='benchmark';rows=examples(series);result=dict(scope='passive_source_trajectory_forecast_only',source_commit=args.revision,pins=PINS,audit=audit,partition_sha256=digest(rows),results=evaluate(rows),limitations=['reported quarterly quantities not causal effect or real-time data','administrative organisation codes, not verified stable sites','revised retrospective source, no vintage validation','scale normalized by preceding four quarters only','missing/anomalous pairs excluded with counts','no clinical or institutional acceptance'])
     except Exception as e:
-        args.output.write_text(json.dumps(dict(status='failed',stage=stage,error_type=type(e).__name__))+'\n');raise SystemExit(1) from None
+        args.output.write_text(json.dumps(dict(status='failed',stage=stage,error_type=type(e).__name__,reason=reason(e)))+'\n');raise SystemExit(1) from None
     args.output.write_text(json.dumps(result,sort_keys=True,indent=2,allow_nan=False)+'\n')
 
 

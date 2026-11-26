@@ -53,4 +53,9 @@ def test_source_pins_and_cli(monkeypatch,tmp_path):
     def fail(_):raise ValueError('private row')
     monkeypatch.setattr(n,'acquire',fail)
     with pytest.raises(SystemExit):n.main()
-    assert json.loads(target.read_text())=={'status':'failed','stage':'acquisition','error_type':'ValueError'}
+    assert json.loads(target.read_text())=={'status':'failed','stage':'acquisition','error_type':'ValueError','reason':'unclassified'}
+
+
+def test_safe_failure_reason():
+    assert n.reason(ValueError('duplicate organisation-sector-quarter'))=='duplicate organisation-sector-quarter'
+    assert n.reason(ValueError('private source value'))=='unclassified'
