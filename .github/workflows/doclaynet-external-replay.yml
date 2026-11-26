@@ -1,0 +1,60 @@
+name: DocLayNet external layout replay
+on:
+  pull_request:
+    paths:
+      - 'src/iatonoesis/doclaynet_external.py'
+      - 'tests/test_doclaynet_external.py'
+      - '.github/workflows/doclaynet-external-replay.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  id-token: write
+jobs:
+  doclaynet-replay:
+    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    env:
+      PYTHONPATH: src
+      PYTHONHASHSEED: '0'
+      HF_HUB_DISABLE_TELEMETRY: '1'
+      TOKENIZERS_PARALLELISM: 'false'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.13.5'
+      - name: Isolated CPU runtime
+        run: |
+          python -m pip install --only-binary=:all: 'pytest==9.0.2' 'pytest-cov==7.0.0' 'numpy==2.2.6' 'scipy==1.15.3' 'Pillow==11.3.0' 'pyarrow==20.0.0' 'transformers==4.57.6' 'huggingface-hub==0.36.0' 'safetensors==0.6.2'
+          python -m pip install --only-binary=:all: --index-url https://download.pytorch.org/whl/cpu 'torch==2.10.0+cpu' 'torchvision==0.25.0+cpu'
+      - name: Verify synthetic and source-boundary tests
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts/layout
+          python -m pip freeze > artifacts/layout/environment.txt
+          git rev-parse HEAD >> artifacts/layout/environment.txt
+          python -m pytest -q tests/test_doclaynet_external.py --cov=iatonoesis.doclaynet_external --cov=test_doclaynet_external --cov-report=term
+      - name: Replay actual official external image sources under coverage
+        run: |
+          set -euo pipefail
+          python -m coverage run --append --source=iatonoesis.doclaynet_external -m iatonoesis.doclaynet_external --output artifacts/layout/result.json
+          sha256sum artifacts/layout/result.json > artifacts/layout/SHA256SUMS
+          python -m coverage xml -o artifacts/layout/coverage.xml --fail-under=90
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        if: always()
+        with:
+          name: doclaynet-external-aggregate
+          path: artifacts/layout/
+          if-no-files-found: error
+          retention-days: 30
+      - uses: codecov/codecov-action@fb8b3582c8e4def4969c97caa2f19720cb33a72f
+        if: success()
+        with:
+          files: artifacts/layout/coverage.xml
+          disable_search: true
+          flags: neural_cpu
+          use_oidc: true
+          fail_ci_if_error: true
