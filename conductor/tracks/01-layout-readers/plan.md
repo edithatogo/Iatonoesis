@@ -65,3 +65,7 @@ Issue [#2](https://github.com/edithatogo/Iatonoesis/issues/2). Stable task IDs; 
 ## External validation and replication addendum (not accepted)
 
 [Evidence ledger](../../research-evidence-20261126-external.md). #56 verified 93,834 test image/word/annotation triples and decoded 128 document-disjoint sample; 671 outside-frame words. Independent evaluation admission remains false. Canonical states unchanged.
+
+## DocLayNet/Heron executed receipt (semantic qualification blocked)
+
+[#68 hosted replay 45836597031](https://github.com/edithatogo/Iatonoesis/actions/runs/45836597031): [verified receipt](../../../research/results/T01-doclaynet-heron-v0.1.0.md), [aggregate archive](../../../results/benchmarks/doclaynet-heron-v0.1.0-aggregate.zip). Full 6,489/4,999 validation/test metadata census with zero cross-split filename/page hash overlap; bounded 130/151 labelled pages, 1,943/2,252 regions, zero fatal selected-row failures. Seven tests, 100% patch and execution line coverage, but exact pinned model label formatting differs from canonical gold strings: zero typed Heron matches is an evaluator defect, not model failure. Agnostic F1 .762652 at IoU .50/cap 60 is descriptive at the affected validation cutoff. Preserve original artifact, review mapping/threshold and replay before semantic qualification; independent review and repository protection missing, draft hold. T01.006–009 remain open; not independent clinical/qualifier evidence.
