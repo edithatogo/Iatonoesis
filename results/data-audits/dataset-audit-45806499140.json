@@ -1,0 +1,165 @@
+{
+  "qualification": "not_qualified",
+  "schema_version": "0.1.0",
+  "scope": "public source integrity and aggregate metadata only",
+  "sources": {
+    "pubtables_structure": {
+      "archives": {
+        "annotations": {
+          "expanded_bytes": 760535258,
+          "filename": "PubTables-1M-Structure_Annotations_Test.tar.gz",
+          "integrity": {
+            "bytes": 29925736,
+            "sha256": "be13440e09f9ecc2b502dc87898420080bf572986a2ae74e0b8713d5cebaa384"
+          },
+          "object_labels": {
+            "table": 93834,
+            "table column": 514253,
+            "table column header": 86917,
+            "table projected row header": 66439,
+            "table row": 1255017,
+            "table spanning cell": 204428
+          },
+          "regular_members": 93834,
+          "unclassified_members": 0,
+          "xml_files": 93834
+        },
+        "filelists": {
+          "document_counts": {
+            "test": 39822,
+            "train": 321553,
+            "val": 40286
+          },
+          "document_disjoint_verified": true,
+          "duplicate_file_ids": {
+            "test": 0,
+            "train": 0,
+            "val": 0
+          },
+          "expanded_bytes": 55634102,
+          "file_counts": {
+            "test": 93834,
+            "train": 758849,
+            "val": 94959
+          },
+          "filename": "PubTables-1M-Structure_Filelists.tar.gz",
+          "integrity": {
+            "bytes": 9665473,
+            "sha256": "7d9d609b063c080209bc7c12625ccacb8e038b297cf02bdee83b89c1b5596273"
+          },
+          "regular_members": 4,
+          "train_test_document_overlap": 0,
+          "train_val_document_overlap": 0,
+          "unclassified_members": 1,
+          "unmapped_file_ids": {
+            "test": 0,
+            "train": 0,
+            "val": 0
+          },
+          "val_test_document_overlap": 0
+        }
+      },
+      "images_or_words_acquired": false,
+      "qualification": "not_qualified",
+      "revision": "35b1c097807e0b07ec5313879b85956b7b3890db",
+      "status": "annotation_metadata_only"
+    },
+    "trialgpt_criterion": {
+      "columns": 14,
+      "component_row_counts": [
+        44,
+        43,
+        42,
+        39,
+        34,
+        31,
+        30,
+        29,
+        29,
+        29,
+        29,
+        28,
+        26,
+        25,
+        25,
+        23,
+        23,
+        23,
+        22,
+        22,
+        22,
+        21,
+        21,
+        21,
+        20,
+        20,
+        18,
+        18,
+        17,
+        17,
+        16,
+        16,
+        15,
+        15,
+        15,
+        15,
+        14,
+        12,
+        12,
+        11,
+        11,
+        10,
+        9,
+        9,
+        9,
+        7,
+        6,
+        6,
+        6,
+        5,
+        5
+      ],
+      "components": 51,
+      "duplicate_note_across_patient_groups": 0,
+      "expert_label_counts": {
+        "excluded": 10,
+        "included": 150,
+        "not applicable": 55,
+        "not enough information": 293,
+        "not excluded": 484,
+        "not included": 23
+      },
+      "expert_model_agreement": 886,
+      "integrity": {
+        "bytes": 176088,
+        "sha256": "14c547184fac9b013cd17441fd028845b40150c76b022e58334f5494077e5234"
+      },
+      "largest_component_exceeds_60pct": false,
+      "largest_component_fraction": 0.04334975369458128,
+      "missing": {
+        "annotation_id": 0,
+        "criterion_text": 1,
+        "criterion_type": 0,
+        "expert_eligibility": 0,
+        "expert_sentences": 0,
+        "explanation_correctness": 0,
+        "gpt4_eligibility": 0,
+        "gpt4_explanation": 0,
+        "gpt4_sentences": 0,
+        "note": 0,
+        "patient_id": 0,
+        "training": 0,
+        "trial_id": 0,
+        "trial_title": 0
+      },
+      "patients": 53,
+      "qualification": "not_qualified",
+      "revision": "7fca07b80914df31e0ab69f9f8fd4d3c6a06d020",
+      "rows": 1015,
+      "status": "structural_audit_only",
+      "three_way_group_split_possible": true,
+      "training_true": 881,
+      "trials": 103
+    }
+  }
+}
