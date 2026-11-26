@@ -64,7 +64,22 @@ jobs:
           curl --fail --location --proto '=https' --max-time 180 https://services.gradle.org/distributions/gradle-9.3.0-bin.zip -o "$work/gradle.zip"
           echo "0d585f69da091fc5b2beced877feab55a3064d43b8a1d46aeb07996b0915e0e0  $work/gradle.zip" | sha256sum -c -
           unzip -q "$work/gradle.zip" -d "$work"
-          "$work/gradle-9.3.0/bin/gradle" -p "$work/generator" --no-daemon generateSpecTestData
+          # Retry transport rate-limiting only; compiler and semantic failures remain fatal.
+          translated=false
+          for attempt in 1 2 3; do
+            log="artifacts/extended/translator-attempt-$attempt.log"
+            if "$work/gradle-9.3.0/bin/gradle" -p "$work/generator" --no-daemon generateSpecTestData > "$log" 2>&1; then
+              translated=true
+              cat "$log"
+              break
+            fi
+            cat "$log"
+            if ! grep -Eq 'Received status code 429|HTTP[^[:digit:]]*429' "$log" || [ "$attempt" -eq 3 ]; then
+              exit 1
+            fi
+            sleep "$((20 * attempt))"
+          done
+          test "$translated" = true
           (cd upstream-cql && npm ci --ignore-scripts && npm run build)
           node research/tools/cql-extended-runtime.cjs "$GITHUB_WORKSPACE/upstream-cql" "$work/spec-tests/cql/IatonoesisExtendedCases.json" artifacts/extended/freeze.json artifacts/extended/runtime.json
       - name: Execute pinned local compact model cross
