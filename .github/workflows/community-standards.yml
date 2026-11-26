@@ -1,0 +1,14 @@
+name: Community Standards
+on:
+  pull_request:
+  push:
+  merge_group:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  community-standards:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: edithatogo/repository-standards/.github/actions/community-standards@7e4dcadc02130c79aa974927fd672b52c34e3aeb
