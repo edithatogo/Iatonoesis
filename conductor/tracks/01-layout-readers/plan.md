@@ -59,3 +59,5 @@ Issue [#2](https://github.com/edithatogo/Iatonoesis/issues/2). Stable task IDs; 
 
 - [Token-only baseline](../../../research/experiments/E02-layout-pilot.md) (#24, merged).
 - [Rendered PDF feasibility pilot](../../../research/experiments/E02-pdf-pilot.md) (T01.006/007): Poppler reading-order reconstruction explains much of the initial effect; spatial rules reduce false binding but do not improve recall. Independent annotations, qualified source inputs, OCR, common runner/metrics and model comparison remain outstanding. All canonical task states unchanged.
+
+- [Frozen bidirectional/OCR follow-up protocol](../../../research/experiments/E02-bidirectional-ocr-protocol.md) and [executed results](../../../research/experiments/E02-bidirectional-ocr-results.md): shared #29 runner, new families, exact evidence availability audit and negative midpoint result. All canonical acceptance gates remain pending.
