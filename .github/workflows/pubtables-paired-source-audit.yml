@@ -1,0 +1,54 @@
+name: PubTables paired source audit
+on:
+  pull_request:
+    paths:
+      - 'src/iatonoesis/pubtables_pairs.py'
+      - 'tests/test_pubtables_pairs.py'
+      - '.github/workflows/pubtables-paired-source-audit.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  id-token: write
+concurrency:
+  group: pubtables-pair-audit-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+jobs:
+  pairing-audit:
+    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      PYTHONPATH: src
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.13.5'
+      - name: Run source audit in temporary storage
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install --only-binary=:all: 'Pillow==12.3.0' 'pytest==9.0.2' 'pytest-cov==7.0.0'
+          mkdir -p artifacts/pubtables
+          python -m pip freeze > artifacts/pubtables/environment.txt
+          git rev-parse HEAD >> artifacts/pubtables/environment.txt
+          python -m pytest -q tests/test_pubtables_pairs.py --cov=iatonoesis.pubtables_pairs --cov-report=
+          python -m coverage run --append --source=iatonoesis.pubtables_pairs -m iatonoesis.pubtables_pairs --output artifacts/pubtables/aggregate.json
+          python -m coverage xml -o artifacts/pubtables/coverage.xml
+          sha256sum artifacts/pubtables/aggregate.json > artifacts/pubtables/SHA256SUMS
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        if: always()
+        with:
+          name: pubtables-pair-audit-${{ github.sha }}
+          path: artifacts/pubtables/
+          if-no-files-found: error
+          retention-days: 30
+      - uses: codecov/codecov-action@fb8b3582c8e4def4969c97caa2f19720cb33a72f
+        with:
+          files: artifacts/pubtables/coverage.xml
+          disable_search: true
+          flags: external_pubtables
+          use_oidc: true
+          fail_ci_if_error: true
