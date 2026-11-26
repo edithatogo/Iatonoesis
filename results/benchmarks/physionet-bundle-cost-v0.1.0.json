@@ -1,0 +1,125 @@
+{
+  "baseline_mse": 76.00345397098053,
+  "context_only_geometric_means": [
+    {
+      "ci": [
+        177,
+        262
+      ],
+      "mode": "paper",
+      "seconds": 215
+    },
+    {
+      "ci": [
+        130,
+        172
+      ],
+      "mode": "electronic",
+      "seconds": 150
+    }
+  ],
+  "context_source": "https://pubmed.ncbi.nlm.nih.gov/28339626/",
+  "full": {
+    "delta_mse": 0.9721911109530055,
+    "dominated_on_point_estimates": true,
+    "mse": 76.97564508193354
+  },
+  "limitations": [
+    "one extra whole bundle whenever any masked observation is requested is a scenario, not an observed clinical action",
+    "whole vital-sign bundles may include the withheld HR target itself; this is not an actual collection workflow",
+    "no measured marginal component, record-access, local staffing or rural travel costs",
+    "bundle-incidence bounds are identification bounds at fixed published means, not confidence intervals",
+    "published mean CIs are separate; geometric means not substituted for expected total time",
+    "descriptive loss only; no paired uncertainty versus no acquisition and no clinical utility or economic adoption decision"
+  ],
+  "paired_stop_vs_full": {
+    "difference": -1.0296115028568056,
+    "draws": 1000,
+    "lower": -2.5427743109077188,
+    "n": 252,
+    "seed": 7139,
+    "upper": 0.322080608139136
+  },
+  "paired_stop_vs_none": null,
+  "population": 252,
+  "scenarios": [
+    {
+      "full_mean_seconds": 225,
+      "id": "bedside",
+      "published_mean_ci": [
+        212,
+        238
+      ],
+      "published_mean_seconds": 225,
+      "stop_break_even_loss_per_staff_minute_bounds": [
+        0.015312104507677305,
+        0.029232199514656672
+      ],
+      "stop_mean_seconds_bounds": [
+        117.85714285714286,
+        225.0
+      ],
+      "stop_staff_hours_per_100_bounds": [
+        3.273809523809524,
+        6.25
+      ]
+    },
+    {
+      "full_mean_seconds": 301,
+      "id": "round",
+      "published_mean_ci": [
+        279,
+        324
+      ],
+      "published_mean_seconds": 301,
+      "stop_break_even_loss_per_staff_minute_bounds": [
+        0.011445925296436524,
+        0.021851311929560635
+      ],
+      "stop_mean_seconds_bounds": [
+        157.66666666666666,
+        301.0
+      ],
+      "stop_staff_hours_per_100_bounds": [
+        4.37962962962963,
+        8.36111111111111
+      ]
+    },
+    {
+      "full_mean_seconds": 386,
+      "id": "round_with_interruptions",
+      "published_mean_ci": [
+        361,
+        410
+      ],
+      "published_mean_seconds": 386,
+      "stop_break_even_loss_per_staff_minute_bounds": [
+        0.008925449518723818,
+        0.017039494535745468
+      ],
+      "stop_mean_seconds_bounds": [
+        202.1904761904762,
+        386.0
+      ],
+      "stop_staff_hours_per_100_bounds": [
+        5.616402116402117,
+        10.722222222222221
+      ]
+    }
+  ],
+  "scope": "posthoc_counterfactual_bundle_time_sensitivity_not_clinical_cost",
+  "source_artifact": 15116315352,
+  "source_manifest_sha256": "5b6073d8241353b1f56e431b05c68fc544b15b9da2cb9c9ce5ac41686dc7426f",
+  "source_run": 45815419126,
+  "source_sha256": "c5df78bb351ea395eb112fcccddbab16b1cb95094f07863ddcd752bf8f1b2774",
+  "stop": {
+    "bundle_count_bounds": [
+      132,
+      252
+    ],
+    "mse": 75.94603357907674,
+    "mse_reduction": 0.05742039190378989,
+    "observations": 396
+  },
+  "timing_source": "https://doi.org/10.1016/j.ijnurstu.2021.103921"
+}
