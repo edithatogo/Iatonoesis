@@ -1,0 +1,3 @@
+# Dataset audit coverage remediation
+
+T00/#1, T14/#15. Historical #36 Codecov patch 62.10% against 90%. No source integrity or qualification behavior changed. Source blob da68a678d2243940b210b54575cac99765770324 verified against local isolated checkout. Six new network-free tests exercise actual download constraints, archive path/type/size, schema and aggregation, hash/metadata and CLI failure redaction. Local Python 3.13.5: six passed, 168/175 statements covered (96%). Existing hosted data acquisition and raw aggregate receipt remain separate. Hosted full-suite/Codecov and receiving-main checks required. Do not reinterpret old failed patch as passed or mark scientific admission complete.
