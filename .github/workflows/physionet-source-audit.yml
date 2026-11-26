@@ -1,0 +1,37 @@
+name: Bounded PhysioNet source audit
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'src/iatonoesis/physionet_audit.py'
+      - 'tests/test_physionet_audit.py'
+      - '.github/workflows/physionet-source-audit.yml'
+permissions:
+  contents: read
+jobs:
+  audit:
+    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: "3.15.2"
+      - name: Audit official public source in memory
+        env:
+          PYTHONPATH: src
+        run: |
+          mkdir -p artifacts/physionet
+          python --version > artifacts/physionet/environment.txt
+          git rev-parse HEAD >> artifacts/physionet/environment.txt
+          python -m iatonoesis.physionet_audit --output artifacts/physionet/aggregate.json --count 128
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        if: always()
+        with:
+          name: physionet-aggregate-audit-${{ github.sha }}
+          path: artifacts/physionet/
+          if-no-files-found: error
+          retention-days: 30
