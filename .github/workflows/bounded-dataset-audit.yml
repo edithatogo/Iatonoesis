@@ -1,6 +1,12 @@
 name: Bounded dataset source audit
 on:
   workflow_dispatch:
+  push:
+    branches: ['research/bounded-trialgpt-pubtables-audit']
+    paths:
+      - 'src/iatonoesis/dataset_audit.py'
+      - 'tests/test_dataset_audit.py'
+      - '.github/workflows/bounded-dataset-audit.yml'
   pull_request:
     paths:
       - 'src/iatonoesis/dataset_audit.py'
@@ -10,7 +16,7 @@ permissions:
   contents: read
 jobs:
   audit:
-    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
+    if: github.event_name == 'workflow_dispatch' || github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-24.04
     timeout-minutes: 15
     steps:
@@ -21,7 +27,8 @@ jobs:
         with:
           python-version: '3.13.5'
       - name: Install pinned Parquet reader for this isolated audit
-        run: python -m pip install --only-binary=:all: pyarrow==20.0.0
+        run: |
+          python -m pip install --only-binary=:all: pyarrow==20.0.0
       - name: Verify public source bytes and aggregate metadata
         env:
           PYTHONPATH: src

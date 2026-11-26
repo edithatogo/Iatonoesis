@@ -1,0 +1,120 @@
+{
+  "version": "0.1.0",
+  "tasks": [
+    "T15.001",
+    "T16.001"
+  ],
+  "status": "exploratory_executed_local",
+  "scope": "synthetic_only",
+  "seed": 7139,
+  "counts": {
+    "development": 480,
+    "calibration": 160,
+    "test": 240,
+    "test_matched": 120,
+    "test_shifted": 120
+  },
+  "training_labels": 5760,
+  "local_runtime": {
+    "python": "3.13.5",
+    "tests_passed": 10,
+    "elapsed_seconds": 2.13,
+    "state_fit_seconds": 0.0608,
+    "policy_fit_seconds": 0.412,
+    "state_eval_seconds": 0.00124,
+    "acquisition_eval_seconds": 0.0272
+  },
+  "state_mae": {
+    "mean": 1.87401,
+    "last": 0.83842,
+    "trend": 0.84344,
+    "ridge": 0.74643
+  },
+  "state_rmse": {
+    "mean": 2.31392,
+    "last": 1.20633,
+    "trend": 1.24981,
+    "ridge": 1.05958
+  },
+  "ridge_interval": {
+    "nominal": 0.9,
+    "all": 0.81667,
+    "matched": 0.93333,
+    "shifted": 0.7,
+    "width": 2.43678
+  },
+  "last_interval": {
+    "all": 0.81667,
+    "matched": 0.95833,
+    "shifted": 0.675,
+    "width": 2.83132
+  },
+  "acquisition_mse": {
+    "fixed": [
+      1.12271,
+      0.47624,
+      0.39816,
+      0.33207
+    ],
+    "regime_greedy": [
+      1.12271,
+      0.59369,
+      0.34819,
+      0.33207
+    ],
+    "context_learned": [
+      1.12271,
+      0.47232,
+      0.3493,
+      0.33207
+    ]
+  },
+  "descriptive_paired_intervals": {
+    "ridge_vs_last_mae": {
+      "delta": -0.0919976154300373,
+      "lower": -0.13385248638421374,
+      "upper": -0.04571111584421938
+    },
+    "context_vs_fixed_mse_at_1": {
+      "delta": -0.003918622994061461,
+      "lower": -0.03885645916500189,
+      "upper": 0.03453938237067182
+    },
+    "context_vs_regime_greedy_mse_at_1": {
+      "delta": -0.12137225244600373,
+      "lower": -0.24143111830775288,
+      "upper": -0.03066068726327749
+    },
+    "context_vs_fixed_mse_at_2": {
+      "delta": -0.04886673143142247,
+      "lower": -0.09829533962044816,
+      "upper": -0.003301985989035711
+    },
+    "context_vs_regime_greedy_mse_at_2": {
+      "delta": 0.0011053148487982422,
+      "lower": -0.013076168433433897,
+      "upper": 0.01829077552065114
+    }
+  },
+  "raw": {
+    "sha256": "79b4fbb3ab8d6afce678f6c9ef8eb0a7dfc04aa8f60929a12374c565cc8adcdb",
+    "bytes": 244529,
+    "byte_identical_same_seed": true
+  },
+  "blobs": {
+    "upstream_contract": "1dcaccddaeceec89330460f5b67f1bc64803f510",
+    "metrics": "0e94270b2a73d2f2dfb2d2acf91b749b3b506c28",
+    "pilot": "2ba7d0ac7bd0025fb3bc6ecbed042036a9d472c9",
+    "metrics_tests": "e58b59d51aebaf1e2b55badd8614c86f118502d0",
+    "pilot_tests": "2b12d6fa1d4149fc45e3e33e73b312ed148dea4a",
+    "protocol": "e20dfe97b2c93873d4a82ecde88be4ca7f98a59b"
+  },
+  "limitations": [
+    "synthetic generator, not PhysioNet",
+    "one cutoff per subject and only two authored settings",
+    "equal acquisition unit cost, not real clinical costs",
+    "paired intervals exploratory and conditional on synthetic generator; no multiplicity correction or clinical inference",
+    "structural contracts validate dataset and experiment; numeric result contract/runner integration still partial",
+    "local runtime below declared requirement, hosted replay required"
+  ]
+}

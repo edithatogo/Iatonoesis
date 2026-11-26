@@ -1,0 +1,47 @@
+[
+  {
+    "id": "IfTrue1",
+    "expression": "if 10 > 5 then 5 else 10",
+    "expected": 5
+  },
+  {
+    "id": "IfFalse1",
+    "expression": "if 10 = 5 then 10 + 5 else 10 - 5",
+    "expected": 5
+  },
+  {
+    "id": "IfNull1",
+    "expression": "if 10 = null then 5 else 10",
+    "expected": 10
+  },
+  {
+    "id": "StandardCase1",
+    "expression": "case when 10 > 5 then 5 when 5 > 10 then 10 else null end",
+    "expected": 5
+  },
+  {
+    "id": "StandardCase2",
+    "expression": "case when 5 > 10 then 5 + 10 when 5 = 10 then 10 else 10 - 5 end",
+    "expected": 5
+  },
+  {
+    "id": "StandardCase3",
+    "expression": "case when null ~ 10 then null + 10 when null ~ 5 then 5 else 5 + 10 end",
+    "expected": 15
+  },
+  {
+    "id": "SelectedCase1",
+    "expression": "case 5 when 5 then 12 when 10 then 10 + 5 else 10 - 5 end",
+    "expected": 12
+  },
+  {
+    "id": "SelectedCase2",
+    "expression": "case 10 when 5 then 12 when 10 then 10 + 5 else 10 - 5 end",
+    "expected": 15
+  },
+  {
+    "id": "SelectedCase3",
+    "expression": "case 10 + 5 when 5 then 12 when 10 then 10 + 5 else 10 - 5 end",
+    "expected": 5
+  }
+]

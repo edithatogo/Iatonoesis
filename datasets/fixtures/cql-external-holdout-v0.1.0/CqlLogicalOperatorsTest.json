@@ -1,0 +1,197 @@
+[
+  {
+    "id": "TrueAndTrue",
+    "expression": "true and true",
+    "expected": true
+  },
+  {
+    "id": "TrueAndFalse",
+    "expression": "true and false",
+    "expected": false
+  },
+  {
+    "id": "TrueAndNull",
+    "expression": "true and null",
+    "expected": null
+  },
+  {
+    "id": "FalseAndTrue",
+    "expression": "false and true",
+    "expected": false
+  },
+  {
+    "id": "FalseAndFalse",
+    "expression": "false and false",
+    "expected": false
+  },
+  {
+    "id": "FalseAndNull",
+    "expression": "false and null",
+    "expected": false
+  },
+  {
+    "id": "NullAndTrue",
+    "expression": "null and true",
+    "expected": null
+  },
+  {
+    "id": "NullAndFalse",
+    "expression": "null and false",
+    "expected": false
+  },
+  {
+    "id": "NullAndNull",
+    "expression": "null and null",
+    "expected": null
+  },
+  {
+    "id": "TrueImpliesTrue",
+    "expression": "true implies true",
+    "expected": true
+  },
+  {
+    "id": "TrueImpliesFalse",
+    "expression": "true implies false",
+    "expected": false
+  },
+  {
+    "id": "TrueImpliesNull",
+    "expression": "true implies null",
+    "expected": null
+  },
+  {
+    "id": "FalseImpliesTrue",
+    "expression": "false implies true",
+    "expected": true
+  },
+  {
+    "id": "FalseImpliesFalse",
+    "expression": "false implies false",
+    "expected": true
+  },
+  {
+    "id": "FalseImpliesNull",
+    "expression": "false implies null",
+    "expected": true
+  },
+  {
+    "id": "NullImpliesTrue",
+    "expression": "null implies true",
+    "expected": true
+  },
+  {
+    "id": "NullImpliesFalse",
+    "expression": "null implies false",
+    "expected": null
+  },
+  {
+    "id": "NullImpliesNull",
+    "expression": "null implies null",
+    "expected": null
+  },
+  {
+    "id": "NotTrue",
+    "expression": "not true",
+    "expected": false
+  },
+  {
+    "id": "NotFalse",
+    "expression": "not false",
+    "expected": true
+  },
+  {
+    "id": "NotNull",
+    "expression": "not null",
+    "expected": null
+  },
+  {
+    "id": "TrueOrTrue",
+    "expression": "true or true",
+    "expected": true
+  },
+  {
+    "id": "TrueOrFalse",
+    "expression": "true or false",
+    "expected": true
+  },
+  {
+    "id": "TrueOrNull",
+    "expression": "true or null",
+    "expected": true
+  },
+  {
+    "id": "FalseOrTrue",
+    "expression": "false or true",
+    "expected": true
+  },
+  {
+    "id": "FalseOrFalse",
+    "expression": "false or false",
+    "expected": false
+  },
+  {
+    "id": "FalseOrNull",
+    "expression": "false or null",
+    "expected": null
+  },
+  {
+    "id": "NullOrTrue",
+    "expression": "null or true",
+    "expected": true
+  },
+  {
+    "id": "NullOrFalse",
+    "expression": "null or false",
+    "expected": null
+  },
+  {
+    "id": "NullOrNull",
+    "expression": "null or null",
+    "expected": null
+  },
+  {
+    "id": "TrueXorTrue",
+    "expression": "true xor true",
+    "expected": false
+  },
+  {
+    "id": "TrueXorFalse",
+    "expression": "true xor false",
+    "expected": true
+  },
+  {
+    "id": "TrueXorNull",
+    "expression": "true xor null",
+    "expected": null
+  },
+  {
+    "id": "FalseXorTrue",
+    "expression": "false xor true",
+    "expected": true
+  },
+  {
+    "id": "FalseXorFalse",
+    "expression": "false xor false",
+    "expected": false
+  },
+  {
+    "id": "FalseXorNull",
+    "expression": "false xor null",
+    "expected": null
+  },
+  {
+    "id": "NullXorTrue",
+    "expression": "null xor true",
+    "expected": null
+  },
+  {
+    "id": "NullXorFalse",
+    "expression": "null xor false",
+    "expected": null
+  },
+  {
+    "id": "NullXorNull",
+    "expression": "null xor null",
+    "expected": null
+  }
+]
