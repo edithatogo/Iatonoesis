@@ -30,3 +30,7 @@ Issue [#16](https://github.com/edithatogo/Iatonoesis/issues/16). Stable task IDs
 ## External validation and replication addendum (not accepted)
 
 [Evidence ledger](../../research-evidence-20261126-external.md). T15.001 #57 512 fresh identities, 1/3/6-hour horizons; last observation best all three. Prespecified strata and paired uncertainty retained; no canonical acceptance. Canonical states unchanged.
+
+## Frontier replication extension (not accepted)
+
+[Role and dataset extension](../../../research/frontier-replication-extension.v0.1.0.md). T15.004: observation recording propensity baseline and later marked temporal point process; T15.001 2012 measured-target eligibility for replication; T15.002 latent operational world model candidate.

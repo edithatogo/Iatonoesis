@@ -28,3 +28,7 @@ For original eight tasks use rights-cleared synthetic document/graph/decision/ev
 ## Core comparative candidates
 
 See [machine-readable B01–B16](../contracts/benchmark-candidates.v1.json), [study design](../research/comparative-study.md), and [TrialGPT qualification receipt](qualification/trialgpt.v0.1.0.md). TrialGPT source and schema reviewed, but byte hash, row integrity, rights for underlying source components and frozen split remain open; the candidate is not qualified for ingestion or redistribution.
+
+## Frontier replication extension (not accepted)
+
+[Role and dataset extension](../research/frontier-replication-extension.v0.1.0.md). Historical candidate statuses above are not current qualification claims; see dated evidence ledgers. New candidates and 2012 source adapter are registered separately.

@@ -18,3 +18,7 @@ Contracted, implemented, executed, scientifically validated and externally autho
 - [Measured-value execution and integration addendum](research-evidence-20261126-measured.md) — T00, T10, T14–T16, T18; aggregate receipt and outstanding acceptance gates.
 
 - [External validation and fresh replication ledger](research-evidence-20261126-external.md) — T00, T01, T08, T10, T14–T16, T18; verified artifacts, negative findings and explicit outstanding gates.
+
+## Frontier replication extension (not accepted)
+
+[Role and dataset extension](../research/frontier-replication-extension.v0.1.0.md). Frontier role and independent replication extension, preserving canonical task IDs and separate evidence states.

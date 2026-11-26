@@ -26,3 +26,7 @@ Issue [#17](https://github.com/edithatogo/Iatonoesis/issues/17). Stable task IDs
 ## External validation and replication addendum (not accepted)
 
 [Evidence ledger](../../research-evidence-20261126-external.md). T16.001 #57 matched-cost policy and three hypothetical relative-cost profiles; stopping expenditure reduction, no economic/clinical claim. Canonical states unchanged.
+
+## Frontier replication extension (not accepted)
+
+[Role and dataset extension](../../../research/frontier-replication-extension.v0.1.0.md). T16.001/.002: measurement recording versus value acquisition, amortised experiment design and explicit stop; no actual economic cost inference.
