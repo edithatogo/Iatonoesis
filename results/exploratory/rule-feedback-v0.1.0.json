@@ -1,0 +1,62 @@
+{
+  "schema_version": "0.1.0",
+  "scope": "Synthetic co-authored stress fixtures; analyst-derived rules from exposed model disagreements; no AI inference in evaluated arms, no independent clinical reference",
+  "discovery": {
+    "experiment": "#44 E22",
+    "source_freeze_sha256": "a58671945b5b23f9cb09cf5b0d949cd89fc85166952087ecf2a3351a4693c081",
+    "source_results_sha256": "73623fdfcfc5fb820e52bdde86ff144e7e27731826f16757dc8cef01651735d0",
+    "disagreements": 6,
+    "rule_unverifiable": 6,
+    "neural_completed": 6,
+    "reference_timely": 3,
+    "reference_late": 3
+  },
+  "fixture_commit": "444cfc79088357c72466886b5f22d0cd7431cf5b",
+  "fixture_file_sha256": "af8a0ed33683e49b2fb624d432e076b309afecdad987be25b357da63245ead1a",
+  "fixture_canonical_sha256": "1a25a3cfc51231a0ff462c63b0f10b21a036dc2bc6858078dbb0aa671f3906d6",
+  "source_blob": "d26deeb9c69c87d47dca818a7c538791c298377e",
+  "test_blob": "b6a987fec4398abddbeb703843311b3f94e70dc0",
+  "legacy_blob": "9f161c0835094d796a212bf2d99d784b4b29a9a9",
+  "runner_blob": "1acc20e5ef0d2b6638a420c356d8630d0e2ad6e2",
+  "python": "3.13.5",
+  "local_tests": 4,
+  "local_coverage": {
+    "covered": 75,
+    "statements": 76
+  },
+  "raw_result_sha256": "de983ebc3b83cb638d8becda0be6496fe819766015c97a1e5d0422dc7f0f77c5",
+  "total": 19,
+  "gold_review": 11,
+  "arms": {
+    "legacy": {
+      "exact": 10,
+      "false_timely": 3,
+      "missed_required_review": 7,
+      "unnecessary_review": 2,
+      "review": 6,
+      "predictions_sha256": "01ad0a8c79afc6370f946a229dc739e624d63b18adc299b7fce5978b50c8e5ce"
+    },
+    "alias_only": {
+      "exact": 11,
+      "false_timely": 4,
+      "missed_required_review": 8,
+      "unnecessary_review": 0,
+      "review": 3,
+      "predictions_sha256": "ee9d60977859cbe4e6af4eb2d6f39f40c4c7afc7f5bf60fd68615e299b4ee363"
+    },
+    "refined": {
+      "exact": 19,
+      "false_timely": 0,
+      "missed_required_review": 0,
+      "unnecessary_review": 0,
+      "review": 11,
+      "predictions_sha256": "6a3896dc33824fba512c2eec8b87f85660cfa49420a1ab53cc37b519954edfa2"
+    }
+  },
+  "limitations": [
+    "Analyst manually interpreted model disagreements; not automated rule induction or proof of incremental benefit of AI versus expert discovery.",
+    "Co-authored targeted synthetic cases, not independent or representative.",
+    "Refined input needs verified provenance and observation horizon; supplied synthetic fields, not inferred or validated clinical facts.",
+    "No runtime/review cost measurement, real implementation authority or canonical task acceptance."
+  ]
+}
