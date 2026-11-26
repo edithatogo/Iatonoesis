@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "track_id": "18",
+  "slug": "18-system-assurance",
+  "title": "Counterexamples, failure attribution and transportability",
+  "status": "planned",
+  "implementation_state": "not_started",
+  "evidence_level": "contracted",
+  "dependencies": [
+    "00",
+    "14"
+  ],
+  "issue": 19,
+  "updated": "2026-11-26",
+  "evidence": []
+}

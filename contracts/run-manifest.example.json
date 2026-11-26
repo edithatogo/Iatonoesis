@@ -1,0 +1,19 @@
+{
+  "schema_version": "0.1.0",
+  "experiment_id": "example-not-a-run",
+  "status": "not_executed",
+  "track_task": "T18.001",
+  "source_commit": null,
+  "config_sha256": null,
+  "data": [],
+  "models": [],
+  "seed": null,
+  "environment": null,
+  "comparison_budget": null,
+  "split_manifest": null,
+  "reference_oracle": null,
+  "metrics": null,
+  "raw_artifacts": [],
+  "failures": [],
+  "claim_boundary": "Example only; not empirical evidence"
+}

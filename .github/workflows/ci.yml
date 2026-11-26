@@ -1,0 +1,12 @@
+# Adopted from the pinned solo Python starter. Provider activation is independently verified.
+name: CI
+on: [push, pull_request]
+permissions:
+  contents: read
+  id-token: write
+jobs:
+  ci:
+    uses: edithatogo/repository-standards/.github/workflows/python-ci.yml@e6425228dea09637eb0a45a3787421e7bce42b3b
+    with:
+      python-version: "3.15.2"
+      test-command: 'python -m pytest --cov --cov-report=xml && python -m iatonoesis validate && python -m iatonoesis ready'

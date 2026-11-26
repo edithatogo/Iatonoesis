@@ -1,0 +1,56 @@
+# T04 — Decision models
+
+Issue [#5](https://github.com/edithatogo/Iatonoesis/issues/5). Stable task IDs; canonical [programme](../../../contracts/programme.v1.json). Cross-track prerequisites: T00 (#1), T11 (#12), T14 (#15). Downstream consumers: T09 (#10). [Roadmap](../../roadmap.md).
+
+- [ ] **T04.001** — Verify primary-source claims, rights and model candidates (#5)
+  - Depends on: T00.002.
+  - Accept: Record source links, capability/setting distinction, licence, exact revisions, no novelty claim.
+  - Evidence: pending; record exact revision, commands, fixtures and outcomes.
+- [ ] **T04.002** — E10: freeze protocol, dataset and reference (#5)
+  - Depends on: T04.001, T00.004, T14.002.
+  - Accept: 300 scenarios; label urgency, supporting criteria and abstention; provenance, independent reference, frozen split and error taxonomy.
+  - Evidence: pending; record exact revision, commands, fixtures and outcomes.
+- [ ] **T04.003** — E10: implement and run conventional baseline (#5)
+  - Depends on: T04.002, T00.003, T00.005, T14.004.
+  - Accept: deterministic criteria and clinician comparator; weighted kappa and serious under-triage; retain predictions, denominators, runtime and negative fixtures.
+  - Evidence: pending; record exact revision, commands, fixtures and outcomes.
+- [ ] **T04.004** — E10: qualify and run learned challenger (#5)
+  - Depends on: T04.003, T00.006.
+  - Accept: Exact-pinned task-specific model; same fixed test cases; report actual error or unavailable runtime; no prompted role mislabelled as trained model.
+  - Evidence: pending; record exact revision, commands, fixtures and outcomes.
+- [ ] **T04.005** — E10: evaluate incremental value and failure modes (#5)
+  - Depends on: T04.004, T11.001.
+  - Accept: serious under-triage; clinician retains decision; paired uncertainty, calibration/abstentions, triage minutes and appropriate timing; retain negative findings.
+  - Evidence: pending; record exact revision, commands, fixtures and outcomes.
+- [ ] **T04.006** — E11: freeze protocol, dataset and reference (#5)
+  - Depends on: T04.001, T00.004, T14.002.
+  - Accept: 80 synthetic portfolios; label supported/unsupported/conditional/insufficient; provenance, independent reference, frozen split and error taxonomy.
+  - Evidence: pending; record exact revision, commands, fixtures and outcomes.
+- [ ] **T04.007** — E11: implement and run conventional baseline (#5)
+  - Depends on: T04.006, T00.003, T00.005, T14.004.
+  - Accept: mandatory-field and explicit rules; false equivalence and selective accuracy; retain predictions, denominators, runtime and negative fixtures.
+  - Evidence: pending; record exact revision, commands, fixtures and outcomes.
+- [ ] **T04.008** — E11: qualify and run learned challenger (#5)
+  - Depends on: T04.007, T00.006.
+  - Accept: Exact-pinned task-specific model; same fixed test cases; report actual error or unavailable runtime; no prompted role mislabelled as trained model.
+  - Evidence: pending; record exact revision, commands, fixtures and outcomes.
+- [ ] **T04.009** — E11: evaluate incremental value and failure modes (#5)
+  - Depends on: T04.008, T11.001.
+  - Accept: false competency equivalence; specialty reviewer checks; paired uncertainty, calibration/abstentions, review time and rework; retain negative findings.
+  - Evidence: pending; record exact revision, commands, fixtures and outcomes.
+- [ ] **T04.010** — E12: freeze protocol, dataset and reference (#5)
+  - Depends on: T04.001, T00.004, T14.002.
+  - Accept: 100 counterfactual pairs; label appropriate variation/potential deficiency/unresolved; provenance, independent reference, frozen split and error taxonomy.
+  - Evidence: pending; record exact revision, commands, fixtures and outcomes.
+- [ ] **T04.011** — E12: implement and run conventional baseline (#5)
+  - Depends on: T04.010, T00.003, T00.005, T14.004.
+  - Accept: binary compliance rules; false exoneration and exception F1; retain predictions, denominators, runtime and negative fixtures.
+  - Evidence: pending; record exact revision, commands, fixtures and outcomes.
+- [ ] **T04.012** — E12: qualify and run learned challenger (#5)
+  - Depends on: T04.011, T00.006.
+  - Accept: Exact-pinned task-specific model; same fixed test cases; report actual error or unavailable runtime; no prompted role mislabelled as trained model.
+  - Evidence: pending; record exact revision, commands, fixtures and outcomes.
+- [ ] **T04.013** — E12: evaluate incremental value and failure modes (#5)
+  - Depends on: T04.012, T11.001.
+  - Accept: unsupported exoneration; clinical reviewer checks contemporaneous evidence; paired uncertainty, calibration/abstentions, review effort and actionable findings; retain negative findings.
+  - Evidence: pending; record exact revision, commands, fixtures and outcomes.

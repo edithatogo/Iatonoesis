@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "track_id": "05",
+  "slug": "05-rerankers",
+  "title": "Rerankers",
+  "status": "planned",
+  "implementation_state": "not_started",
+  "evidence_level": "contracted",
+  "dependencies": [
+    "00"
+  ],
+  "issue": 6,
+  "updated": "2026-11-26",
+  "evidence": []
+}

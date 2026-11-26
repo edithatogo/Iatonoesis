@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "track_id": "15",
+  "slug": "15-dynamics",
+  "title": "State reconstruction, world models, recoverability and ascertainment",
+  "status": "planned",
+  "implementation_state": "not_started",
+  "evidence_level": "contracted",
+  "dependencies": [
+    "00",
+    "14"
+  ],
+  "issue": 16,
+  "updated": "2026-11-26",
+  "evidence": []
+}

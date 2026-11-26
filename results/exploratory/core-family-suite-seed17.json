@@ -1,0 +1,683 @@
+{
+  "schema_version": "0.1.0",
+  "scope": "Exploratory synthetic only; group-ID-disjoint development and test are not independently authored or externally validated. No clinical efficacy or neural model claim.",
+  "seed": 17,
+  "source_commit": "fc2d308a6055b1e689cb031ba3732256fe342690",
+  "source_blob": "c75204793b5e53bd406026b978b337e2525a229a",
+  "test_blob": "7b8fbae91be7a0f15db8476cb7b0b9939dab4898",
+  "python": "3.13.5",
+  "local_tests": 12,
+  "freeze_file_sha256": "a58671945b5b23f9cb09cf5b0d949cd89fc85166952087ecf2a3351a4693c081",
+  "observed_result_file_sha256": "649f689133c10785438b6b1be22b37f667802d765fcc6b85a3957b0968bd1933",
+  "reproduction": "Full raw result contains elapsed times and is not expected to be byte-identical on replay; compare canonical per-arm predictions and model weight hashes.",
+  "tasks": {
+    "E02": {
+      "task": "T01.008",
+      "partition_counts": {
+        "development": 24,
+        "calibration": 24,
+        "test": 48
+      },
+      "dataset_sha256": "81fd104cd994237218d4ca85340f2701e45ae6bcccee5c3431d875a0a534b564",
+      "reference_sha256": "9b7896e4256b5760e7417f9007f35e0ef72e81128016a82dca4a2ebebde4b35d",
+      "config_sha256": "58dee997345e303ebd5fdb6a28ffabcc601e845e649876b52b3a6320947e558a",
+      "manifest_sha256": "2ad24ae22ca00d163510ff60fbc817764068654e308f1ef03dd1e376574f2bd4",
+      "arms": [
+        {
+          "id": "rules",
+          "status": "executed",
+          "role": "deterministic",
+          "predictions_sha256": "6ab9e5004b31a400af98e40dbef2182250f02a65a054a9300a852815cc2ffb44",
+          "metrics": {
+            "tp": 188,
+            "fp": 0,
+            "fn": 4,
+            "exact": 44,
+            "abstained": 0,
+            "total": 48,
+            "scored": 48,
+            "errors": 4,
+            "f1": 0.9894736842105263,
+            "coverage": 1,
+            "accuracy": 0.9166666666666666,
+            "selective_accuracy": 0.9166666666666666
+          }
+        },
+        {
+          "id": "learned",
+          "status": "executed",
+          "role": "classical",
+          "predictions_sha256": "0eb590e4bd07f8209e22a0e9f3ca62f57d13cb9ab3dcfef3baddebebbe3fd6d0",
+          "metrics": {
+            "tp": 188,
+            "fp": 0,
+            "fn": 4,
+            "exact": 44,
+            "abstained": 0,
+            "total": 48,
+            "scored": 48,
+            "errors": 4,
+            "f1": 0.9894736842105263,
+            "coverage": 1,
+            "accuracy": 0.9166666666666666,
+            "selective_accuracy": 0.9166666666666666
+          },
+          "model": {
+            "id": "task-specific-laplace-nb",
+            "licence": "MIT",
+            "revision": "fc2d308a6055b1e689cb031ba3732256fe342690",
+            "training_cases": 24,
+            "training_split": "development",
+            "weights_sha256": "61d4a4eb57ddaedd4d1e87e9f675bf08662fd77a45ba75adbd934b7046ae30c7"
+          }
+        },
+        {
+          "id": "naive",
+          "status": "executed",
+          "role": "deterministic",
+          "predictions_sha256": "770832ea81db8dbb5358624f45e658296810a4e2b88fc0a4b0dc3d0f3f29bde4",
+          "metrics": {
+            "tp": 116,
+            "fp": 72,
+            "fn": 76,
+            "exact": 24,
+            "abstained": 0,
+            "total": 48,
+            "scored": 48,
+            "errors": 24,
+            "f1": 0.6105263157894737,
+            "coverage": 1,
+            "accuracy": 0.5,
+            "selective_accuracy": 0.5
+          }
+        }
+      ],
+      "paired_f1": {
+        "difference": 0,
+        "lower": 0,
+        "upper": 0,
+        "clusters": 4,
+        "seed": 17,
+        "draws": 200,
+        "valid_draws": 200
+      },
+      "safety": {}
+    },
+    "E04": {
+      "task": "T02.004",
+      "partition_counts": {
+        "development": 60,
+        "calibration": 40,
+        "test": 100
+      },
+      "dataset_sha256": "90ac0dac9b3af790c614a7727ab3ff3f69a83aef0252841f2e3810303395113c",
+      "reference_sha256": "e4e4c85ea56f1170e0a9f184a0604e820cef23ebf5c6700a5d0e1cde20933c6c",
+      "config_sha256": "f0e9ac4c7cf02a9a39f0baffe4beea2b569574589aef73052c2ca911e049f80f",
+      "manifest_sha256": "4024b3615c6115f1525c684458e4935d1a5a68e0e7731a6e60d147f39ce05c33",
+      "arms": [
+        {
+          "id": "rules",
+          "status": "executed",
+          "role": "deterministic",
+          "predictions_sha256": "a6c2fa8889d7dd714f2c15a10abf6e5969a92ade6f3f8b87392b7dd5a37cc870",
+          "metrics": {
+            "tp": 16,
+            "fp": 0,
+            "fn": 4,
+            "exact": 72,
+            "abstained": 28,
+            "total": 100,
+            "scored": 72,
+            "errors": 0,
+            "f1": 0.8888888888888888,
+            "coverage": 0.72,
+            "accuracy": 0.72,
+            "selective_accuracy": 1
+          }
+        },
+        {
+          "id": "learned",
+          "status": "executed",
+          "role": "classical",
+          "predictions_sha256": "b6450398643dc44b4f99d784056db33a1ebc360e9594842bcb7f6a99dd898c06",
+          "metrics": {
+            "tp": 16,
+            "fp": 4,
+            "fn": 4,
+            "exact": 92,
+            "abstained": 0,
+            "total": 100,
+            "scored": 100,
+            "errors": 8,
+            "f1": 0.8,
+            "coverage": 1,
+            "accuracy": 0.92,
+            "selective_accuracy": 0.92
+          },
+          "model": {
+            "id": "task-specific-laplace-nb",
+            "licence": "MIT",
+            "revision": "fc2d308a6055b1e689cb031ba3732256fe342690",
+            "training_cases": 60,
+            "training_split": "development",
+            "weights_sha256": "759e8cbb95236af32458d83510228b799b19feb342bcddfe32aceb77f8d99f26"
+          }
+        },
+        {
+          "id": "naive",
+          "status": "executed",
+          "role": "deterministic",
+          "predictions_sha256": "a840990b486044b5312dc861558a97481e1bd1dddf13b708467c6ab94c8f740b",
+          "metrics": {
+            "tp": 20,
+            "fp": 80,
+            "fn": 0,
+            "exact": 20,
+            "abstained": 0,
+            "total": 100,
+            "scored": 100,
+            "errors": 80,
+            "f1": 0.3333333333333333,
+            "coverage": 1,
+            "accuracy": 0.2,
+            "selective_accuracy": 0.2
+          }
+        }
+      ],
+      "paired_f1": {
+        "difference": -0.0888888888888888,
+        "lower": -0.23076923076923073,
+        "upper": 0,
+        "clusters": 5,
+        "seed": 17,
+        "draws": 200,
+        "valid_draws": 200
+      },
+      "safety": {
+        "learned": {
+          "active_cases_referred": 0,
+          "false_positive_tuples": 4
+        },
+        "naive": {
+          "active_cases_referred": 0,
+          "false_positive_tuples": 80
+        },
+        "rules": {
+          "active_cases_referred": 4,
+          "false_positive_tuples": 0
+        }
+      }
+    },
+    "E07": {
+      "task": "T03.004",
+      "partition_counts": {
+        "development": 60,
+        "calibration": 40,
+        "test": 100
+      },
+      "dataset_sha256": "7cec7aedd02f1c8d2af23b9b6d14dc5f47db50ad83d53ed4aeb18c77feb33242",
+      "reference_sha256": "39ac8dbe1791ff007367f4650b78129da32b32cfc8aefe373ba8715bec6888ff",
+      "config_sha256": "4a45f4f0f97e9d01c28872f5f8bfe1aeab9697a33d27fad70e82d221b806b33d",
+      "manifest_sha256": "d058ed09555982813a05a60efc0b975a444fdb6767838f564f4074ef12ce53a1",
+      "arms": [
+        {
+          "id": "rules",
+          "status": "executed",
+          "role": "deterministic",
+          "predictions_sha256": "e7f835cba7628de9e8053e3ecbc5b3660da7e6f011a5c67ff451f7a486dae616",
+          "metrics": {
+            "tp": 100,
+            "fp": 0,
+            "fn": 0,
+            "exact": 100,
+            "abstained": 0,
+            "total": 100,
+            "scored": 100,
+            "errors": 0,
+            "f1": 1,
+            "coverage": 1,
+            "accuracy": 1,
+            "selective_accuracy": 1
+          }
+        },
+        {
+          "id": "learned",
+          "status": "executed",
+          "role": "classical",
+          "predictions_sha256": "9ceb71568536cd31402cc142772fb5723a353b621eb27d3190ad9fdab16779e6",
+          "metrics": {
+            "tp": 99,
+            "fp": 1,
+            "fn": 1,
+            "exact": 99,
+            "abstained": 0,
+            "total": 100,
+            "scored": 100,
+            "errors": 1,
+            "f1": 0.99,
+            "coverage": 1,
+            "accuracy": 0.99,
+            "selective_accuracy": 0.99
+          },
+          "model": {
+            "id": "task-specific-laplace-nb",
+            "licence": "MIT",
+            "revision": "fc2d308a6055b1e689cb031ba3732256fe342690",
+            "training_cases": 60,
+            "training_split": "development",
+            "weights_sha256": "04fc8210b94292b2ee70bfb96b59edc98e91f85e561fdf284aa44603347a0cd0"
+          }
+        }
+      ],
+      "paired_f1": {
+        "difference": -0.010000000000000009,
+        "lower": -0.030000000000000027,
+        "upper": 0,
+        "clusters": 5,
+        "seed": 17,
+        "draws": 200,
+        "valid_draws": 200
+      },
+      "safety": {}
+    },
+    "E11": {
+      "task": "T04.008",
+      "partition_counts": {
+        "development": 60,
+        "calibration": 40,
+        "test": 100
+      },
+      "dataset_sha256": "f35153116e2817b3d26e7e502bfe371ae537e2393ecc4cd4e849c284fa894fde",
+      "reference_sha256": "bfedfd21f4a37c0713166b66356117de9c769f09922478db9fdb568fba10b6cd",
+      "config_sha256": "5273fb37ba30287176b353bbdf01d1714f512879a09f2fa52825c90d19659d5f",
+      "manifest_sha256": "f4ea1d285f6820eb0785fd3f7f82e1ba3b95dca6dc2a02e8e70d401bab9feb09",
+      "arms": [
+        {
+          "id": "rules",
+          "status": "executed",
+          "role": "deterministic",
+          "predictions_sha256": "5c1cd454c1242388c27394a6b7e9e95dc0feb5d8d264f47b0ddc3ccc57b7ce13",
+          "metrics": {
+            "tp": 100,
+            "fp": 0,
+            "fn": 0,
+            "exact": 100,
+            "abstained": 0,
+            "total": 100,
+            "scored": 100,
+            "errors": 0,
+            "f1": 1,
+            "coverage": 1,
+            "accuracy": 1,
+            "selective_accuracy": 1
+          }
+        },
+        {
+          "id": "learned",
+          "status": "executed",
+          "role": "classical",
+          "predictions_sha256": "26702cdbb104670b836899674714d8fcfdbe79e8c16d571a684ec775c75b8acd",
+          "metrics": {
+            "tp": 89,
+            "fp": 11,
+            "fn": 11,
+            "exact": 89,
+            "abstained": 0,
+            "total": 100,
+            "scored": 100,
+            "errors": 11,
+            "f1": 0.89,
+            "coverage": 1,
+            "accuracy": 0.89,
+            "selective_accuracy": 0.89
+          },
+          "model": {
+            "id": "task-specific-laplace-nb",
+            "licence": "MIT",
+            "revision": "fc2d308a6055b1e689cb031ba3732256fe342690",
+            "training_cases": 60,
+            "training_split": "development",
+            "weights_sha256": "14f793e659188a8d84b2204f66321a6ecfaae59f8044059a8af3b27c4a019cd6"
+          }
+        }
+      ],
+      "paired_f1": {
+        "difference": -0.10999999999999999,
+        "lower": -0.17000000000000004,
+        "upper": -0.030000000000000027,
+        "clusters": 5,
+        "seed": 17,
+        "draws": 200,
+        "valid_draws": 200
+      },
+      "safety": {}
+    },
+    "E13": {
+      "task": "T05.004",
+      "partition_counts": {
+        "development": 60,
+        "calibration": 40,
+        "test": 100
+      },
+      "dataset_sha256": "9c6a85724f9ef419d6256b335ebf8bc81441eb03462922ebcd940f874d5f15fc",
+      "reference_sha256": "adc83b7d111ac4a901a18a2cd2d82f8f7a8f55d8f261edd7e863a9755f0fb940",
+      "config_sha256": "e0e457bb7df0256ca7d770595d0d70574bddab3a02038b8364958e21249d74d4",
+      "manifest_sha256": "9820fbb29a16b87a7483f046ee19d23dc296efcb9aa276f2f3a93d2fc560229d",
+      "arms": [
+        {
+          "id": "rules",
+          "status": "executed",
+          "role": "deterministic",
+          "predictions_sha256": "309ce7628757e64d60bfb444e0f2a78cf4da7a9b089a9c39a99b0095fdf882e2",
+          "metrics": {
+            "tp": 100,
+            "fp": 0,
+            "fn": 0,
+            "exact": 100,
+            "abstained": 0,
+            "total": 100,
+            "scored": 100,
+            "errors": 0,
+            "f1": 1,
+            "coverage": 1,
+            "accuracy": 1,
+            "selective_accuracy": 1
+          }
+        },
+        {
+          "id": "learned",
+          "status": "executed",
+          "role": "classical",
+          "predictions_sha256": "309ce7628757e64d60bfb444e0f2a78cf4da7a9b089a9c39a99b0095fdf882e2",
+          "metrics": {
+            "tp": 100,
+            "fp": 0,
+            "fn": 0,
+            "exact": 100,
+            "abstained": 0,
+            "total": 100,
+            "scored": 100,
+            "errors": 0,
+            "f1": 1,
+            "coverage": 1,
+            "accuracy": 1,
+            "selective_accuracy": 1
+          },
+          "model": {
+            "id": "task-specific-laplace-nb",
+            "licence": "MIT",
+            "revision": "fc2d308a6055b1e689cb031ba3732256fe342690",
+            "training_cases": 60,
+            "training_split": "development",
+            "weights_sha256": "707cdff75c4f08592b7f7f562c66ed54cfd634855ab52caa4ca9cae799e17ff2"
+          }
+        }
+      ],
+      "paired_f1": {
+        "difference": 0,
+        "lower": 0,
+        "upper": 0,
+        "clusters": 5,
+        "seed": 17,
+        "draws": 200,
+        "valid_draws": 200
+      },
+      "safety": {}
+    },
+    "E17": {
+      "task": "T06.008",
+      "partition_counts": {
+        "development": 60,
+        "calibration": 40,
+        "test": 100
+      },
+      "dataset_sha256": "33c8c11f7cf5573b952d4abac0ce8d81dc12581592f8ab067f4f619b13f1d01c",
+      "reference_sha256": "d46b69b5a0a6bebd2d8410aaaabd1bb634b2f8bd0fe36a4ea07333be6b504eac",
+      "config_sha256": "548ea94d5faf74eae6973ff1d117e8c9ac4ebfd419a4f3d6bcc43bfc69bba5cd",
+      "manifest_sha256": "88e48d06db20b45e055bb97ee3cbf13920099f540b8c9b121a3d20b0d47556a0",
+      "arms": [
+        {
+          "id": "rules",
+          "status": "executed",
+          "role": "deterministic",
+          "predictions_sha256": "c45465f7ac509f1e77c60058924e8c9caf2213dba633bc572c0a4c1080e916b9",
+          "metrics": {
+            "tp": 86,
+            "fp": 14,
+            "fn": 14,
+            "exact": 86,
+            "abstained": 0,
+            "total": 100,
+            "scored": 100,
+            "errors": 14,
+            "f1": 0.86,
+            "coverage": 1,
+            "accuracy": 0.86,
+            "selective_accuracy": 0.86
+          }
+        },
+        {
+          "id": "learned",
+          "status": "executed",
+          "role": "classical",
+          "predictions_sha256": "cf3f1fd45c32294b4e976b8644e9e6ee35e75445687627b546cc36987f5c6682",
+          "metrics": {
+            "tp": 74,
+            "fp": 12,
+            "fn": 26,
+            "exact": 74,
+            "abstained": 14,
+            "total": 100,
+            "scored": 86,
+            "errors": 12,
+            "f1": 0.7956989247311828,
+            "coverage": 0.86,
+            "accuracy": 0.74,
+            "selective_accuracy": 0.8604651162790697
+          },
+          "model": {
+            "id": "task-specific-laplace-nb",
+            "licence": "MIT",
+            "revision": "fc2d308a6055b1e689cb031ba3732256fe342690",
+            "training_cases": 60,
+            "training_split": "development",
+            "weights_sha256": "16734dfca081282c518380cbf47e45be6094af6e8af364964a7f7ce6f376eab0"
+          }
+        }
+      ],
+      "paired_f1": {
+        "difference": -0.06430107526881723,
+        "lower": -0.12994350282485878,
+        "upper": 0.017938144329896932,
+        "clusters": 5,
+        "seed": 17,
+        "draws": 200,
+        "valid_draws": 200
+      },
+      "safety": {}
+    },
+    "E20": {
+      "task": "T07.008",
+      "partition_counts": {
+        "development": 60,
+        "calibration": 40,
+        "test": 100
+      },
+      "dataset_sha256": "db2b929545b507c3d004ac5d89d28c4aa6911de228d10f361f369acf0361db69",
+      "reference_sha256": "07028c9f44ca2f6e50aec9861a15a41951d5cb67bcac48269a2750cb7515cb51",
+      "config_sha256": "7368c7da0528075a287a03424c2bcaa8b7bc961b3288d11badcdc77312fa7a2f",
+      "manifest_sha256": "42db45d1bc26ba9231fd01b7d90e22e3bf491fb5109cee5f4db1250bd4bcacc8",
+      "arms": [
+        {
+          "id": "rules",
+          "status": "executed",
+          "role": "deterministic",
+          "predictions_sha256": "40a1f9dc7582046fd5fc83e63bfee8effd5bd833fe56ad267514c01d8b39b15f",
+          "metrics": {
+            "tp": 100,
+            "fp": 0,
+            "fn": 0,
+            "exact": 100,
+            "abstained": 0,
+            "total": 100,
+            "scored": 100,
+            "errors": 0,
+            "f1": 1,
+            "coverage": 1,
+            "accuracy": 1,
+            "selective_accuracy": 1
+          }
+        },
+        {
+          "id": "learned",
+          "status": "executed",
+          "role": "classical",
+          "predictions_sha256": "fceff512a50e2a1dc7fd2738ad0c9dfba39677cb325ad8e7e1fa163116b1f6fc",
+          "metrics": {
+            "tp": 96,
+            "fp": 4,
+            "fn": 4,
+            "exact": 96,
+            "abstained": 0,
+            "total": 100,
+            "scored": 100,
+            "errors": 4,
+            "f1": 0.96,
+            "coverage": 1,
+            "accuracy": 0.96,
+            "selective_accuracy": 0.96
+          },
+          "model": {
+            "id": "task-specific-laplace-nb",
+            "licence": "MIT",
+            "revision": "fc2d308a6055b1e689cb031ba3732256fe342690",
+            "training_cases": 60,
+            "training_split": "development",
+            "weights_sha256": "ddb47a6fef6c7bde7d9a42d1db743e9ac68ac53edb36a4b36fa7c2c8987073c8"
+          }
+        }
+      ],
+      "paired_f1": {
+        "difference": -0.040000000000000036,
+        "lower": -0.07999999999999996,
+        "upper": -0.010000000000000009,
+        "clusters": 5,
+        "seed": 17,
+        "draws": 200,
+        "valid_draws": 200
+      },
+      "safety": {}
+    },
+    "E22": {
+      "task": "T08.004",
+      "partition_counts": {
+        "development": 45,
+        "calibration": 30,
+        "test": 75
+      },
+      "dataset_sha256": "5c6db17b95d1f070569e66af65d4c9d8110fb9a62cfc498cd3f4c6ec9f15fd25",
+      "reference_sha256": "d7966199e258c218fd379f35fd9f75dc07ac36e5f4cdd30364286e165ca0146d",
+      "config_sha256": "132dec72ff47c5c94828661351dd7e749ba63cdea301c44a717e7f67e7a94ff2",
+      "manifest_sha256": "b999fb2a76771927d1f080be2725fc4518d8cb136509a38eeabbbe48c5149bf6",
+      "arms": [
+        {
+          "id": "rules",
+          "status": "executed",
+          "role": "deterministic",
+          "predictions_sha256": "0d65ad37bee692e120ba2e311b91aa4d97bb01ed5b98e5f37c2488ee63b30c6a",
+          "metrics": {
+            "tp": 69,
+            "fp": 6,
+            "fn": 6,
+            "exact": 69,
+            "abstained": 0,
+            "total": 75,
+            "scored": 75,
+            "errors": 6,
+            "f1": 0.92,
+            "coverage": 1,
+            "accuracy": 0.92,
+            "selective_accuracy": 0.92
+          }
+        },
+        {
+          "id": "learned",
+          "status": "executed",
+          "role": "classical",
+          "predictions_sha256": "0d65ad37bee692e120ba2e311b91aa4d97bb01ed5b98e5f37c2488ee63b30c6a",
+          "metrics": {
+            "tp": 69,
+            "fp": 6,
+            "fn": 6,
+            "exact": 69,
+            "abstained": 0,
+            "total": 75,
+            "scored": 75,
+            "errors": 6,
+            "f1": 0.92,
+            "coverage": 1,
+            "accuracy": 0.92,
+            "selective_accuracy": 0.92
+          },
+          "model": {
+            "id": "task-specific-laplace-nb",
+            "licence": "MIT",
+            "revision": "fc2d308a6055b1e689cb031ba3732256fe342690",
+            "training_cases": 45,
+            "training_split": "development",
+            "weights_sha256": "1be3745bbebb5327d7e820b4adfcd4d147f93a89b518512eb249ecbc3348faea"
+          }
+        },
+        {
+          "id": "naive",
+          "status": "executed",
+          "role": "deterministic",
+          "predictions_sha256": "7f4948a8b602c396e22edb4442a4930e4304d6fc2f945f60ded2b7a4da3f6293",
+          "metrics": {
+            "tp": 15,
+            "fp": 60,
+            "fn": 60,
+            "exact": 15,
+            "abstained": 0,
+            "total": 75,
+            "scored": 75,
+            "errors": 60,
+            "f1": 0.2,
+            "coverage": 1,
+            "accuracy": 0.2,
+            "selective_accuracy": 0.2
+          }
+        }
+      ],
+      "paired_f1": {
+        "difference": 0,
+        "lower": 0,
+        "upper": 0,
+        "clusters": 5,
+        "seed": 17,
+        "draws": 200,
+        "valid_draws": 200
+      },
+      "safety": {
+        "learned": {
+          "false_timely": 0,
+          "found_missing": 15,
+          "missing": 15,
+          "non_timely": 60
+        },
+        "rules": {
+          "false_timely": 0,
+          "found_missing": 15,
+          "missing": 15,
+          "non_timely": 60
+        },
+        "naive": {
+          "false_timely": 60,
+          "found_missing": 0,
+          "missing": 15,
+          "non_timely": 60
+        }
+      }
+    }
+  }
+}

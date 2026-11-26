@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "track_id": "13",
+  "slug": "13-publication",
+  "title": "Publication and dissemination",
+  "status": "planned",
+  "implementation_state": "not_started",
+  "evidence_level": "contracted",
+  "dependencies": [
+    "00"
+  ],
+  "issue": 14,
+  "updated": "2026-11-26",
+  "evidence": []
+}

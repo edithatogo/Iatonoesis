@@ -1,0 +1,274 @@
+{
+  "schema_version": 1,
+  "study": "Iatonoesis comparative specialist-model study",
+  "coordination_issue": 15,
+  "scope": "Candidate-only register; B01–B16 do not renumber E01–E24. No acquisition, access or redistribution approval. All sources require independent current verification.",
+  "benchmarks": [
+    {
+      "id": "B01",
+      "track": "01",
+      "owner_issue": 2,
+      "dataset": "PubTables-1M",
+      "source": "https://github.com/microsoft/table-transformer",
+      "applications": [
+        "E02"
+      ],
+      "relationship": "methodological comparator or candidate extension; not equivalent clinical task",
+      "metric": "GriTS; qualifier binding",
+      "qualification": "template/table/document grouped holdout; verify image, text and annotation terms",
+      "status": "candidate_unqualified",
+      "rights": "unverified",
+      "revision": null
+    },
+    {
+      "id": "B02",
+      "track": "01",
+      "owner_issue": 2,
+      "dataset": "Synthea-derived documents",
+      "source": "https://github.com/synthetichealth/synthea",
+      "applications": [
+        "E01",
+        "E03"
+      ],
+      "relationship": "methodological comparator or candidate extension; not equivalent clinical task",
+      "metric": "critical page/unit/reference binding errors",
+      "qualification": "independent generator oracle, held-out rendering templates; synthetic only",
+      "status": "candidate_unqualified",
+      "rights": "unverified",
+      "revision": null
+    },
+    {
+      "id": "B03",
+      "track": "02",
+      "owner_issue": 3,
+      "dataset": "PhenoID corpus",
+      "source": "https://pubmed.ncbi.nlm.nih.gov/37904943/",
+      "applications": [
+        "E05"
+      ],
+      "relationship": "methodological comparator or candidate extension; not equivalent clinical task",
+      "metric": "exact phenotype span and normalization F1",
+      "qualification": "verify corpus availability, licence and label origins; grouped sources",
+      "status": "candidate_unqualified",
+      "rights": "unverified",
+      "revision": null
+    },
+    {
+      "id": "B04",
+      "track": "02",
+      "owner_issue": 3,
+      "dataset": "BC5CDR",
+      "source": "https://biocreative.bioinformatics.udel.edu/resources/corpora/biocreative-v-cdr-corpus/",
+      "applications": [
+        "E05"
+      ],
+      "relationship": "methodological comparator or candidate extension; not equivalent clinical task",
+      "metric": "entity span and relation F1",
+      "qualification": "PMID grouped split; text and annotations rights assessed separately",
+      "status": "candidate_unqualified",
+      "rights": "unverified",
+      "revision": null
+    },
+    {
+      "id": "B05",
+      "track": "03",
+      "owner_issue": 4,
+      "dataset": "PrimeKG",
+      "source": "https://doi.org/10.7910/DVN/IXA7BM",
+      "applications": [
+        "E08",
+        "E09"
+      ],
+      "relationship": "methodological comparator or candidate extension; not equivalent clinical task",
+      "metric": "relation-specific AUPRC",
+      "qualification": "source and temporal split; reciprocal/duplicate-edge leakage; no treatment efficacy claims",
+      "status": "candidate_unqualified",
+      "rights": "unverified",
+      "revision": null
+    },
+    {
+      "id": "B06",
+      "track": "03",
+      "owner_issue": 4,
+      "dataset": "Synthetic regional dependency graph; HPO candidate extension",
+      "source": "https://hpo.jax.org/",
+      "applications": [
+        "E07",
+        "E09"
+      ],
+      "relationship": "methodological comparator or candidate extension; not equivalent clinical task",
+      "metric": "critical dependency recall and simulated disruption",
+      "qualification": "independent service topology oracle, held-out graph families; HPO terms separately assessed",
+      "status": "candidate_unqualified",
+      "rights": "unverified",
+      "revision": null
+    },
+    {
+      "id": "B07",
+      "track": "04",
+      "owner_issue": 5,
+      "dataset": "UCI Diabetes 130-US Hospitals",
+      "source": "https://archive.ics.uci.edu/dataset/296/diabetes+130-us+hospitals+for+years+1999-2008",
+      "applications": [
+        "E10"
+      ],
+      "relationship": "methodological comparator or candidate extension; not equivalent clinical task",
+      "metric": "readmission calibration; decision-curve net benefit",
+      "qualification": "group patient IDs; observational historical data; no treatment-effect inference",
+      "status": "candidate_unqualified",
+      "rights": "unverified",
+      "revision": null
+    },
+    {
+      "id": "B08",
+      "track": "04",
+      "owner_issue": 5,
+      "dataset": "MedMCQA",
+      "source": "https://github.com/medmcqa/medmcqa",
+      "applications": [
+        "E11",
+        "E12"
+      ],
+      "relationship": "methodological comparator or candidate extension; not equivalent clinical task",
+      "metric": "bounded decision accuracy; selective risk",
+      "qualification": "deduplicate questions; assess training exposure; examination task not clinical competence",
+      "status": "candidate_unqualified",
+      "rights": "unverified",
+      "revision": null
+    },
+    {
+      "id": "B09",
+      "track": "05",
+      "owner_issue": 6,
+      "dataset": "TrialGPT / TREC Clinical Trials",
+      "source": "https://github.com/ncbi-nlp/TrialGPT",
+      "applications": [
+        "E14"
+      ],
+      "relationship": "methodological comparator or candidate extension; not equivalent clinical task",
+      "metric": "fixed-pool nDCG and eligible Recall@k",
+      "qualification": "group patient/trial; report initial candidate ceiling separately",
+      "status": "candidate_unqualified",
+      "rights": "unverified",
+      "revision": null
+    },
+    {
+      "id": "B10",
+      "track": "05",
+      "owner_issue": 6,
+      "dataset": "BioASQ",
+      "source": "https://bioasq.org/",
+      "applications": [
+        "E13",
+        "E15"
+      ],
+      "relationship": "methodological comparator or candidate extension; not equivalent clinical task",
+      "metric": "evidence ranking and Recall@k",
+      "qualification": "fixed candidate set; verify challenge terms and article rights",
+      "status": "candidate_unqualified",
+      "rights": "unverified",
+      "revision": null
+    },
+    {
+      "id": "B11",
+      "track": "06",
+      "owner_issue": 7,
+      "dataset": "MedMCQA",
+      "source": "https://github.com/medmcqa/medmcqa",
+      "applications": [
+        "E18"
+      ],
+      "relationship": "methodological comparator or candidate extension; not equivalent clinical task",
+      "metric": "model routing, risk–coverage and cost",
+      "qualification": "independent calibration; no clinical triage claim",
+      "status": "candidate_unqualified",
+      "rights": "unverified",
+      "revision": null
+    },
+    {
+      "id": "B12",
+      "track": "06",
+      "owner_issue": 7,
+      "dataset": "Synthetic regional referrals",
+      "source": "https://github.com/synthetichealth/synthea",
+      "applications": [
+        "E16",
+        "E17"
+      ],
+      "relationship": "methodological comparator or candidate extension; not equivalent clinical task",
+      "metric": "unsafe routing and destination accuracy",
+      "qualification": "independent capability oracle and deterministic urgent/privacy constraints",
+      "status": "candidate_unqualified",
+      "rights": "unverified",
+      "revision": null
+    },
+    {
+      "id": "B13",
+      "track": "07",
+      "owner_issue": 8,
+      "dataset": "SciFact; HealthVer as separate candidate",
+      "source": "https://github.com/allenai/scifact",
+      "applications": [
+        "E19",
+        "E20",
+        "E21"
+      ],
+      "relationship": "methodological comparator or candidate extension; not equivalent clinical task",
+      "metric": "claim support/contradiction/insufficiency macro F1",
+      "qualification": "claim/evidence disjoint; domain limits; not risk-of-bias labels",
+      "status": "candidate_unqualified",
+      "rights": "unverified",
+      "revision": null
+    },
+    {
+      "id": "B14",
+      "track": "07",
+      "owner_issue": 8,
+      "dataset": "TrialGPT criterion annotations",
+      "source": "https://huggingface.co/datasets/ncbi/TrialGPT-Criterion-Annotations",
+      "applications": [
+        "E14",
+        "E20"
+      ],
+      "relationship": "methodological comparator or candidate extension; not equivalent clinical task",
+      "metric": "eligibility criterion accuracy and evidence localization",
+      "qualification": "verify annotations, access and label provenance; not independent clinical gold",
+      "status": "candidate_unqualified",
+      "rights": "unverified",
+      "revision": null
+    },
+    {
+      "id": "B15",
+      "track": "08",
+      "owner_issue": 9,
+      "dataset": "Med-PRM",
+      "source": "https://med-prm.github.io/",
+      "applications": [
+        "E23"
+      ],
+      "relationship": "methodological comparator or candidate extension; not equivalent clinical task",
+      "metric": "first-error localisation and abstention",
+      "qualification": "verify independently labelled test cases; disjoint reasoning problems and generators",
+      "status": "candidate_unqualified",
+      "rights": "unverified",
+      "revision": null
+    },
+    {
+      "id": "B16",
+      "track": "08",
+      "owner_issue": 9,
+      "dataset": "Synthetic process logs; 4TU Sepsis Cases candidate",
+      "source": "https://doi.org/10.4121/uuid:915d2bfb-7e84-49ad-a286-dc35f063a460",
+      "applications": [
+        "E22",
+        "E24"
+      ],
+      "relationship": "methodological comparator or candidate extension; not equivalent clinical task",
+      "metric": "critical omission sensitivity and false closure",
+      "qualification": "event logs cannot identify appropriateness or counterfactual outcomes; independent synthetic exception oracle",
+      "status": "candidate_unqualified",
+      "rights": "unverified",
+      "revision": null
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+# T06 — Routers
+
+Issue [#7](https://github.com/edithatogo/Iatonoesis/issues/7). Stable task IDs; canonical [programme](../../../contracts/programme.v1.json). Cross-track prerequisites: T00 (#1), T11 (#12), T14 (#15). Downstream consumers: T09 (#10). [Roadmap](../../roadmap.md).
+
+- [ ] **T06.001** — Verify primary-source claims, rights and model candidates (#7)
+  - Depends on: T00.002.
+  - Accept: Record source links, capability/setting distinction, licence, exact revisions, no novelty claim.
+  - Evidence: pending; record exact revision, commands, fixtures and outcomes.
+- [ ] **T06.002** — E16: freeze protocol, dataset and reference (#7)
+  - Depends on: T06.001, T00.004, T14.002.
+  - Accept: 300 scenarios; label candidate destination, confidence and reasons; provenance, independent reference, frozen split and error taxonomy.
+  - Evidence: pending; record exact revision, commands, fixtures and outcomes.
+- [ ] **T06.003** — E16: implement and run conventional baseline (#7)
+  - Depends on: T06.002, T00.003, T00.005, T14.004.
+  - Accept: fixed specialty map; destination accuracy and unsafe routing; retain predictions, denominators, runtime and negative fixtures.
+  - Evidence: pending; record exact revision, commands, fixtures and outcomes.
+- [ ] **T06.004** — E16: qualify and run learned challenger (#7)
+  - Depends on: T06.003, T00.006.
+  - Accept: Exact-pinned task-specific model; same fixed test cases; report actual error or unavailable runtime; no prompted role mislabelled as trained model.
+  - Evidence: pending; record exact revision, commands, fixtures and outcomes.
+- [ ] **T06.005** — E16: evaluate incremental value and failure modes (#7)
+  - Depends on: T06.004, T11.001.
+  - Accept: service lacks capability; capability rule and clinician override; paired uncertainty, calibration/abstentions, redirects and time to acceptance; retain negative findings.
+  - Evidence: pending; record exact revision, commands, fixtures and outcomes.
+- [ ] **T06.006** — E17: freeze protocol, dataset and reference (#7)
+  - Depends on: T06.001, T00.004, T14.002.
+  - Accept: 200 requests; label owner, consultation and approval route; provenance, independent reference, frozen split and error taxonomy.
+  - Evidence: pending; record exact revision, commands, fixtures and outcomes.
+- [ ] **T06.007** — E17: implement and run conventional baseline (#7)
+  - Depends on: T06.006, T00.003, T00.005, T14.004.
+  - Accept: decision tree; owner accuracy and missed consultation; retain predictions, denominators, runtime and negative fixtures.
+  - Evidence: pending; record exact revision, commands, fixtures and outcomes.
+- [ ] **T06.008** — E17: qualify and run learned challenger (#7)
+  - Depends on: T06.007, T00.006.
+  - Accept: Exact-pinned task-specific model; same fixed test cases; report actual error or unavailable runtime; no prompted role mislabelled as trained model.
+  - Evidence: pending; record exact revision, commands, fixtures and outcomes.
+- [ ] **T06.009** — E17: evaluate incremental value and failure modes (#7)
+  - Depends on: T06.008, T11.001.
+  - Accept: wrong delegation; governance officer checks register; paired uncertainty, calibration/abstentions, touches and turnaround; retain negative findings.
+  - Evidence: pending; record exact revision, commands, fixtures and outcomes.
+- [ ] **T06.010** — E18: freeze protocol, dataset and reference (#7)
+  - Depends on: T06.001, T00.004, T14.002.
+  - Accept: 500 simulated tasks; label eligible destination or human escalation; provenance, independent reference, frozen split and error taxonomy.
+  - Evidence: pending; record exact revision, commands, fixtures and outcomes.
+- [ ] **T06.011** — E18: implement and run conventional baseline (#7)
+  - Depends on: T06.010, T00.003, T00.005, T14.004.
+  - Accept: static router and largest-model policy; unsafe routing and risk–coverage; retain predictions, denominators, runtime and negative fixtures.
+  - Evidence: pending; record exact revision, commands, fixtures and outcomes.
+- [ ] **T06.012** — E18: qualify and run learned challenger (#7)
+  - Depends on: T06.011, T00.006.
+  - Accept: Exact-pinned task-specific model; same fixed test cases; report actual error or unavailable runtime; no prompted role mislabelled as trained model.
+  - Evidence: pending; record exact revision, commands, fixtures and outcomes.
+- [ ] **T06.013** — E18: evaluate incremental value and failure modes (#7)
+  - Depends on: T06.012, T11.001.
+  - Accept: unsafe cheap route; hard constraint and human escalation; paired uncertainty, calibration/abstentions, latency, workload and compute cost; retain negative findings.
+  - Evidence: pending; record exact revision, commands, fixtures and outcomes.
