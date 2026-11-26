@@ -1,0 +1,86 @@
+{
+  "schema_version": "exploratory-0.1",
+  "status": "locally_executed_exploratory_simulation",
+  "claim_boundary": "synthetic_only",
+  "seed": 17,
+  "environment": "Python 3.13.5; isolated local module with identical canonical_sha256 helper; not full checkout or required Python 3.15.2",
+  "reproduction": "python -m iatonoesis.workflow_pilots --seed 17 --output workflow-pilots.json",
+  "full_output_sha256": "0747f2a129954e38092cf00cca089d65613a0efd0f9deda6d23ddec6527c0e14",
+  "source_blob_sha": "9f161c0835094d796a212bf2d99d784b4b29a9a9",
+  "test_blob_sha": "a02fef71fd575bc80f9fb87d2ccc88587149fe9e",
+  "test_outcome": "RED missing module; GREEN 9 passed in 0.12s",
+  "E04": {
+    "generated": 200,
+    "test": 100,
+    "dataset_sha256": "5112a80d72326f37d1abe5144c61423d8ca8578c0b809cf4d54bedb4a28811b5",
+    "arms": {
+      "naive": {
+        "tp": 20,
+        "fp": 80,
+        "fn": 0,
+        "f1": 0.3333333333333333,
+        "total": 100,
+        "scored": 100,
+        "abstained": 0,
+        "errors": 80,
+        "predictions_sha256": "d1f399de6303c6f1cf3e6f480ed0cd688f0557fed093714ee9909e08f8d6aada"
+      },
+      "context": {
+        "tp": 16,
+        "fp": 0,
+        "fn": 4,
+        "f1": 0.8888888888888888,
+        "total": 100,
+        "scored": 72,
+        "abstained": 28,
+        "errors": 0,
+        "predictions_sha256": "bbd9e3b829c25673536240bf20276b200f567d479615afbb923fd06f7c39749e"
+      }
+    }
+  },
+  "E22": {
+    "generated": 150,
+    "test": 75,
+    "dataset_sha256": "4ee692f4daf822ee4e8a4694721dc5a0f947f0ed81200dbbf266dc8af802a386",
+    "arms": {
+      "naive": {
+        "tp": 15,
+        "fp": 60,
+        "fn": 60,
+        "f1": 0.2,
+        "false_timely_completion": [
+          60,
+          60
+        ],
+        "missed_step_recall": [
+          0,
+          15
+        ],
+        "predictions_sha256": "268296b20c074145ad53b99a5268c30f66b5d894038e213c8e26e958edd6ebf7"
+      },
+      "explicit": {
+        "tp": 69,
+        "fp": 6,
+        "fn": 6,
+        "f1": 0.92,
+        "false_timely_completion": [
+          0,
+          60
+        ],
+        "missed_step_recall": [
+          15,
+          15
+        ],
+        "predictions_sha256": "01b15b34d62db0df421a88d591a7e04877d1760ffb94f0c2e02d1757a31b5221"
+      }
+    }
+  },
+  "limitations": [
+    "co-developed generator and rules; repetitive templates despite disjoint family IDs",
+    "E04 reference denotes known active commitments only; unclear status is not evidence of absence; no span offset evaluation",
+    "E22 abstract deadlines; no stroke-specific clinical guidance; unverifiable is a scored classification, not a model abstention",
+    "naive comparators intentionally weak; no learned or human comparator; no confidence intervals or external validity",
+    "no real patient/staff outcomes; no actual clinical safety claim",
+    "exploratory output does not meet all canonical run-contract requirements; full harness, provenance, budgets and independently frozen references pending"
+  ]
+}
