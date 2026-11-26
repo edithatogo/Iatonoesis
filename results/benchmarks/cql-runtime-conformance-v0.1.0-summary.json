@@ -1,0 +1,58 @@
+{
+  "status": "executed_bounded_conformance_not_full_specification_certification",
+  "pr": 51,
+  "run": 45811570696,
+  "artifact": 15113022787,
+  "execution_commit": "cce1bc60d4b72b32dc19a3314f75dc434f312426",
+  "merge": "698dfd1d42d6d8a02f5c56b1857bc53b516ab063",
+  "archive_sha256": "b20215c73b721d1bc0e3b1121985b49011b1072e9b2c694627d3c96a3ff4f1e0",
+  "result_sha256": "45658e9ef205e90756959f86979affd5186f950faf1557e08c0051d1b96872e9",
+  "runtime": "cql-execution 3.3.2",
+  "runtime_revision": "1991335e7ad490a8db88a05dd7f03dc3eecbda6d",
+  "translator": "org.cqframework:cql-to-elm-cli:4.2.0",
+  "node": "24.22.3",
+  "java": "17.0.21",
+  "total": 264,
+  "passed": 264,
+  "suites": [
+    {
+      "name": "logical",
+      "total": 39,
+      "passed": 39,
+      "elm_sha256": "4f65903b68d7ea26e300f6b629c461848e88e1e622247086e90b54cbbba3aae4"
+    },
+    {
+      "name": "conditional",
+      "total": 9,
+      "passed": 9,
+      "elm_sha256": "190b8804fa5f73792e9f7a3ae35f591b5cdc8023a06e23a178c3505e1a418f41"
+    },
+    {
+      "name": "authored_mutations",
+      "total": 216,
+      "passed": 216,
+      "elm_sha256": "dd547402af6720e7502076bcb522e239a14d3bfdc0d6e9cba1c48192e42b0ac8",
+      "reference_sha256": "8dd5e53de48b7a6967606ffdbdab02ddcf1717407c70f71e69a53fb2b68ff90b",
+      "families": [
+        {
+          "id": "logic",
+          "domain": 27,
+          "mutants": 3,
+          "equivalent": 0
+        },
+        {
+          "id": "conditional",
+          "domain": 27,
+          "mutants": 3,
+          "equivalent": 0
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "upstream labels exposed",
+    "authored oracle independent of compiler and executor but not independent human adjudication",
+    "Maven transitive hashes not fully locked",
+    "bounded scalar and Boolean families only; not FHIR/QDM/terminology or clinical validation"
+  ]
+}
