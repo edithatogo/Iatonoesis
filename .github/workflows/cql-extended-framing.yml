@@ -1,0 +1,95 @@
+name: Extended CQL and six-frame cross
+on:
+  pull_request:
+    paths:
+      - 'src/iatonoesis/cql_extended.py'
+      - 'tests/test_cql_extended.py'
+      - 'research/tools/cql-extended-runtime.cjs'
+      - 'research/protocols/cql-extended-six-framing-v0.1.0.md'
+      - '.github/workflows/cql-extended-framing.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  id-token: write
+jobs:
+  extended:
+    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
+    strategy:
+      fail-fast: false
+      matrix:
+        mode: [runtime, framing]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    env:
+      PYTHONPATH: src
+      HF_HUB_DISABLE_TELEMETRY: '1'
+      PYTHONHASHSEED: '0'
+      TOKENIZERS_PARALLELISM: 'false'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          repository: cqframework/cql-execution
+          ref: 1991335e7ad490a8db88a05dd7f03dc3eecbda6d
+          path: upstream-cql
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.13.5'
+      - name: Freeze external references before execution
+        run: |
+          set -euo pipefail
+          test "$(git -C upstream-cql rev-parse HEAD)" = 1991335e7ad490a8db88a05dd7f03dc3eecbda6d
+          python -m iatonoesis.cql_extended freeze upstream-cql/test/spec-tests/xml artifacts/extended
+          cp upstream-cql/LICENSE artifacts/extended/LICENSE-upstream
+          sha256sum artifacts/extended/freeze.json artifacts/extended/IatonoesisExtendedCases.cql > artifacts/extended/FROZEN-SHA256SUMS
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020
+        if: matrix.mode == 'runtime'
+        with:
+          node-version: '24'
+      - name: Compile and evaluate against frozen scalar references
+        if: matrix.mode == 'runtime'
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git hash-object upstream-cql/package-lock.json)" = aafe981ccaefddf7c4a32b727cd5bf7735ccd295
+          work="$RUNNER_TEMP/cql-extended"
+          mkdir -p "$work/spec-tests/cql"
+          cp artifacts/extended/IatonoesisExtendedCases.cql "$work/spec-tests/cql/"
+          cp -R upstream-cql/test/generator "$work/generator"
+          export JAVA_HOME="$JAVA_HOME_17_X64"
+          export PATH="$JAVA_HOME/bin:$PATH"
+          curl --fail --location --proto '=https' --max-time 180 https://services.gradle.org/distributions/gradle-9.3.0-bin.zip -o "$work/gradle.zip"
+          echo "0d585f69da091fc5b2beced877feab55a3064d43b8a1d46aeb07996b0915e0e0  $work/gradle.zip" | sha256sum -c -
+          unzip -q "$work/gradle.zip" -d "$work"
+          "$work/gradle-9.3.0/bin/gradle" -p "$work/generator" --no-daemon generateSpecTestData
+          (cd upstream-cql && npm ci --ignore-scripts && npm run build)
+          node research/tools/cql-extended-runtime.cjs "$GITHUB_WORKSPACE/upstream-cql" "$work/spec-tests/cql/IatonoesisExtendedCases.json" artifacts/extended/freeze.json artifacts/extended/runtime.json
+      - name: Execute pinned local compact model cross
+        if: matrix.mode == 'framing'
+        run: |
+          set -euo pipefail
+          python -m pip install --only-binary=:all: 'pytest==9.0.2' 'pytest-cov==7.0.0' 'transformers==4.57.1' 'huggingface-hub==0.36.0' 'safetensors==0.6.2'
+          python -m pip install --only-binary=:all: --index-url https://download.pytorch.org/whl/cpu 'torch==2.10.0+cpu'
+          python -m pip freeze > artifacts/extended/environment.txt
+          python -m pytest -q tests/test_cql_extended.py --cov=iatonoesis.cql_extended --cov-report=
+          python -m coverage run --append --source=iatonoesis.cql_extended -m iatonoesis.cql_extended freeze upstream-cql/test/spec-tests/xml artifacts/extended
+          python -m coverage run --append --source=iatonoesis.cql_extended -m iatonoesis.cql_extended frame artifacts/extended/freeze.json artifacts/extended/framing.json
+          python -m coverage xml -o artifacts/extended/coverage.xml
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        if: always()
+        with:
+          name: extended-${{ matrix.mode }}-${{ github.sha }}
+          path: artifacts/extended/
+          if-no-files-found: error
+          retention-days: 30
+      - uses: codecov/codecov-action@fb8b3582c8e4def4969c97caa2f19720cb33a72f
+        if: matrix.mode == 'framing' && success()
+        with:
+          files: artifacts/extended/coverage.xml
+          disable_search: true
+          flags: cql_extended
+          use_oidc: true
+          fail_ci_if_error: true
