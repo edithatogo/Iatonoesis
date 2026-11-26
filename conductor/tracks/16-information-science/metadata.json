@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "track_id": "16",
+  "slug": "16-information-science",
+  "title": "Information acquisition, adaptive experiments and scientific data value",
+  "status": "planned",
+  "implementation_state": "not_started",
+  "evidence_level": "contracted",
+  "dependencies": [
+    "00",
+    "14"
+  ],
+  "issue": 17,
+  "updated": "2026-11-26",
+  "evidence": []
+}

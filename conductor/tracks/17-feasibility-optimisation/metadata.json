@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "track_id": "17",
+  "slug": "17-feasibility-optimisation",
+  "title": "Affordance, constraint acquisition and learned optimisation",
+  "status": "planned",
+  "implementation_state": "not_started",
+  "evidence_level": "contracted",
+  "dependencies": [
+    "00",
+    "14"
+  ],
+  "issue": 18,
+  "updated": "2026-11-26",
+  "evidence": []
+}

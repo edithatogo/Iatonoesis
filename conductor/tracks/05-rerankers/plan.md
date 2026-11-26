@@ -1,56 +1,56 @@
 # T05 — Rerankers
 
-Issue [#6](https://github.com/edithatogo/Iatonoesis/issues/6). Stable task IDs; canonical machine-readable source is contracts/programme.v1.json. `python -m iatonoesis ready` lists dependency-ready work; individual experiments are not yet implemented. Acceptance commands and result paths must be added before marking implementation complete.
+Issue [#6](https://github.com/edithatogo/Iatonoesis/issues/6). Stable task IDs; canonical [programme](../../../contracts/programme.v1.json). Cross-track prerequisites: T00 (#1), T11 (#12), T14 (#15). Downstream consumers: T09 (#10). [Roadmap](../../roadmap.md).
 
 - [ ] **T05.001** — Verify primary-source claims, rights and model candidates (#6)
   - Depends on: T00.002.
   - Accept: Record source links, capability/setting distinction, licence, exact revisions, no novelty claim.
-  - Evidence: pending; record exact source commit, commands, fixtures and outcomes.
+  - Evidence: pending; record exact revision, commands, fixtures and outcomes.
 - [ ] **T05.002** — E13: freeze protocol, dataset and reference (#6)
-  - Depends on: T05.001, T00.004.
+  - Depends on: T05.001, T00.004, T14.002.
   - Accept: 150 questions; label reordered applicable passages; provenance, independent reference, frozen split and error taxonomy.
-  - Evidence: pending; record exact source commit, commands, fixtures and outcomes.
+  - Evidence: pending; record exact revision, commands, fixtures and outcomes.
 - [ ] **T05.003** — E13: implement and run conventional baseline (#6)
-  - Depends on: T05.002, T00.003, T00.005.
+  - Depends on: T05.002, T00.003, T00.005, T14.004.
   - Accept: lexical/dense initial ranking; nDCG@5 and applicable recall; retain predictions, denominators, runtime and negative fixtures.
-  - Evidence: pending; record exact source commit, commands, fixtures and outcomes.
+  - Evidence: pending; record exact revision, commands, fixtures and outcomes.
 - [ ] **T05.004** — E13: qualify and run learned challenger (#6)
   - Depends on: T05.003, T00.006.
   - Accept: Exact-pinned task-specific model; same fixed test cases; report actual error or unavailable runtime; no prompted role mislabelled as trained model.
-  - Evidence: pending; record exact source commit, commands, fixtures and outcomes.
+  - Evidence: pending; record exact revision, commands, fixtures and outcomes.
 - [ ] **T05.005** — E13: evaluate incremental value and failure modes (#6)
   - Depends on: T05.004, T11.001.
   - Accept: inapplicable high-ranked passage; clinician checks metadata; paired uncertainty, calibration/abstentions, time to correct source; retain negative findings.
-  - Evidence: pending; record exact source commit, commands, fixtures and outcomes.
+  - Evidence: pending; record exact revision, commands, fixtures and outcomes.
 - [ ] **T05.006** — E14: freeze protocol, dataset and reference (#6)
-  - Depends on: T05.001, T00.004.
+  - Depends on: T05.001, T00.004, T14.002.
   - Accept: 100 profiles; label ranked trials and unresolved criteria; provenance, independent reference, frozen split and error taxonomy.
-  - Evidence: pending; record exact source commit, commands, fixtures and outcomes.
+  - Evidence: pending; record exact revision, commands, fixtures and outcomes.
 - [ ] **T05.007** — E14: implement and run conventional baseline (#6)
-  - Depends on: T05.006, T00.003, T00.005.
+  - Depends on: T05.006, T00.003, T00.005, T14.004.
   - Accept: lexical/dense ranking; eligible recall@10 and nDCG; retain predictions, denominators, runtime and negative fixtures.
-  - Evidence: pending; record exact source commit, commands, fixtures and outcomes.
+  - Evidence: pending; record exact revision, commands, fixtures and outcomes.
 - [ ] **T05.008** — E14: qualify and run learned challenger (#6)
   - Depends on: T05.007, T00.006.
   - Accept: Exact-pinned task-specific model; same fixed test cases; report actual error or unavailable runtime; no prompted role mislabelled as trained model.
-  - Evidence: pending; record exact source commit, commands, fixtures and outcomes.
+  - Evidence: pending; record exact revision, commands, fixtures and outcomes.
 - [ ] **T05.009** — E14: evaluate incremental value and failure modes (#6)
   - Depends on: T05.008, T11.001.
   - Accept: missing value suppresses eligible trial; coordinator checks; paired uncertainty, calibration/abstentions, screening time and opportunity; retain negative findings.
-  - Evidence: pending; record exact source commit, commands, fixtures and outcomes.
+  - Evidence: pending; record exact revision, commands, fixtures and outcomes.
 - [ ] **T05.010** — E15: freeze protocol, dataset and reference (#6)
-  - Depends on: T05.001, T00.004.
+  - Depends on: T05.001, T00.004, T14.002.
   - Accept: 100 queries; label ranked mechanism analogues; provenance, independent reference, frozen split and error taxonomy.
-  - Evidence: pending; record exact source commit, commands, fixtures and outcomes.
+  - Evidence: pending; record exact revision, commands, fixtures and outcomes.
 - [ ] **T05.011** — E15: implement and run conventional baseline (#6)
-  - Depends on: T05.010, T00.003, T00.005.
+  - Depends on: T05.010, T00.003, T00.005, T14.004.
   - Accept: category and embedding ranking; precision@5 and nDCG; retain predictions, denominators, runtime and negative fixtures.
-  - Evidence: pending; record exact source commit, commands, fixtures and outcomes.
+  - Evidence: pending; record exact revision, commands, fixtures and outcomes.
 - [ ] **T05.012** — E15: qualify and run learned challenger (#6)
   - Depends on: T05.011, T00.006.
   - Accept: Exact-pinned task-specific model; same fixed test cases; report actual error or unavailable runtime; no prompted role mislabelled as trained model.
-  - Evidence: pending; record exact source commit, commands, fixtures and outcomes.
+  - Evidence: pending; record exact revision, commands, fixtures and outcomes.
 - [ ] **T05.013** — E15: evaluate incremental value and failure modes (#6)
   - Depends on: T05.012, T11.001.
   - Accept: surface similarity mistaken for mechanism; investigator checks; paired uncertainty, calibration/abstentions, controls rediscovered and investigation time; retain negative findings.
-  - Evidence: pending; record exact source commit, commands, fixtures and outcomes.
+  - Evidence: pending; record exact revision, commands, fixtures and outcomes.

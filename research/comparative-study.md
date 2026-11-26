@@ -4,7 +4,7 @@
 
 ## Ownership and integration
 
-Use the existing [programme](../contracts/programme.v1.json), [track index](../conductor/tracks.md) and [research protocol](protocol.md). Do not replace E01–E24, the separate emerging-role taxonomy or existing priority pilots E02/E04/E22. B01–B16 are methodological benchmarks, not a second set of application IDs. Some benchmark tasks are analogues rather than exact instantiations of an E application. T14 (#15) coordinates public data, split/reference qualification and comparative results; T01–T08 (#2–#9) own component implementations; T00 (#1) owns shared contracts, runner and evidence. T10 (#11) owns verified literature and taxonomy. T11 (#12) safety, uncertainty and equity; T12 (#13) economic/resource evaluation; T13 (#14) claim-bound dissemination. T15–T19 (#16–#20) are distinct emerging roles: dynamics, information acquisition, feasibility, assurance and commitment stewardship. Their canonical plans must be reconciled by the bootstrap lane before the supplement enters main.
+Use the existing [programme](../contracts/programme.v1.json), [track index](../conductor/tracks.md) and [research protocol](protocol.md). Do not replace E01–E24, the separate emerging-role taxonomy or existing priority pilots E02/E04/E22. B01–B16 are methodological benchmarks, not a second set of application IDs. Some benchmark tasks are analogues rather than exact instantiations of an E application. T14 (#15) coordinates public data, split/reference qualification and comparative results; T01–T08 (#2–#9) own component implementations; T00 (#1) owns shared contracts, runner and evidence. T10 (#11) owns verified literature and taxonomy. T11 (#12) safety, uncertainty and equity; T12 (#13) economic/resource evaluation; T13 (#14) claim-bound dissemination. T15–T19 (#16–#20) are distinct emerging roles: dynamics, information acquisition, feasibility, assurance and commitment stewardship. Their canonical plans now exist; the extended programme has 38 applications and 22 functional roles. Preserve E25–E38 and all stable IDs.
 
 - Candidate register: [B01–B16](../contracts/benchmark-candidates.v1.json). Extends rather than replaces [dataset register](../datasets/registry.md).
 - First shared public-data candidate: TrialGPT (B09/B14), subject to rights and label qualification; can support extracted eligibility, retrieval, reranking and evidence checks on the same cases.
@@ -67,7 +67,9 @@ Every run must identify source commit, experiment/track, exact dataset and model
 
 ## Integration acceptance
 
-- Bootstrap writer reconciles canonical T14–T19 plans, metadata and issue registry; validates acyclic dependencies and consistent task ownership.
+- Confirm bootstrap integration of canonical T14–T19 plans, metadata and issue registry; validate acyclic dependencies and consistent task ownership.
 - Verify B IDs are unique; precisely two per core family; references to valid E IDs; all entries unqualified until documented rights/version review.
 - Link supplement and candidate register from Conductor index, T14 plan, original family plans and T13, without duplicating task ownership.
 - Required checks on exact PR head; receiving-main verification after integration. Do not claim experiment completion without executed receipts.
+
+Initial TrialGPT metadata and rights assessment: [qualification receipt](../datasets/qualification/trialgpt.v0.1.0.md). Source review is partial, no ingestion or trial matching results.

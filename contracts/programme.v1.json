@@ -136,7 +136,8 @@
           "acceptance": "150 varied referrals; label source-linked fields, dates and missingness; provenance, independent reference, frozen split and error taxonomy.",
           "depends_on": [
             "T01.001",
-            "T00.004"
+            "T00.004",
+            "T14.002"
           ],
           "issue": 2,
           "status": "planned",
@@ -151,7 +152,8 @@
           "depends_on": [
             "T01.002",
             "T00.003",
-            "T00.005"
+            "T00.005",
+            "T14.004"
           ],
           "issue": 2,
           "status": "planned",
@@ -193,7 +195,8 @@
           "acceptance": "100 annotated pages; label hierarchy, rows, qualifiers and source boxes; provenance, independent reference, frozen split and error taxonomy.",
           "depends_on": [
             "T01.001",
-            "T00.004"
+            "T00.004",
+            "T14.002"
           ],
           "issue": 2,
           "status": "planned",
@@ -208,7 +211,8 @@
           "depends_on": [
             "T01.006",
             "T00.003",
-            "T00.005"
+            "T00.005",
+            "T14.004"
           ],
           "issue": 2,
           "status": "planned",
@@ -250,7 +254,8 @@
           "acceptance": "40 synthetic records; label time-linked observations and relationships; provenance, independent reference, frozen split and error taxonomy.",
           "depends_on": [
             "T01.001",
-            "T00.004"
+            "T00.004",
+            "T14.002"
           ],
           "issue": 2,
           "status": "planned",
@@ -265,7 +270,8 @@
           "depends_on": [
             "T01.010",
             "T00.003",
-            "T00.005"
+            "T00.005",
+            "T14.004"
           ],
           "issue": 2,
           "status": "planned",
@@ -334,7 +340,8 @@
           "acceptance": "200 synthetic summaries; label exact action-owner-deadline-condition spans; provenance, independent reference, frozen split and error taxonomy.",
           "depends_on": [
             "T02.001",
-            "T00.004"
+            "T00.004",
+            "T14.002"
           ],
           "issue": 3,
           "status": "planned",
@@ -349,7 +356,8 @@
           "depends_on": [
             "T02.002",
             "T00.003",
-            "T00.005"
+            "T00.005",
+            "T14.004"
           ],
           "issue": 3,
           "status": "planned",
@@ -391,7 +399,8 @@
           "acceptance": "150 synthetic records; label source spans, assertion, experiencer and temporality; provenance, independent reference, frozen split and error taxonomy.",
           "depends_on": [
             "T02.001",
-            "T00.004"
+            "T00.004",
+            "T14.002"
           ],
           "issue": 3,
           "status": "planned",
@@ -406,7 +415,8 @@
           "depends_on": [
             "T02.006",
             "T00.003",
-            "T00.005"
+            "T00.005",
+            "T14.004"
           ],
           "issue": 3,
           "status": "planned",
@@ -448,7 +458,8 @@
           "acceptance": "150 synthetic narratives; label context spans and reported/verified status; provenance, independent reference, frozen split and error taxonomy.",
           "depends_on": [
             "T02.001",
-            "T00.004"
+            "T00.004",
+            "T14.002"
           ],
           "issue": 3,
           "status": "planned",
@@ -463,7 +474,8 @@
           "depends_on": [
             "T02.010",
             "T00.003",
-            "T00.005"
+            "T00.005",
+            "T14.004"
           ],
           "issue": 3,
           "status": "planned",
@@ -532,7 +544,8 @@
           "acceptance": "five sites and 30 disruptions; label dependencies and cascade predictions; provenance, independent reference, frozen split and error taxonomy.",
           "depends_on": [
             "T03.001",
-            "T00.004"
+            "T00.004",
+            "T14.002"
           ],
           "issue": 4,
           "status": "planned",
@@ -547,7 +560,8 @@
           "depends_on": [
             "T03.002",
             "T00.003",
-            "T00.005"
+            "T00.005",
+            "T14.004"
           ],
           "issue": 4,
           "status": "planned",
@@ -589,7 +603,8 @@
           "acceptance": "temporal held-out associations; label ranked associations and supporting paths; provenance, independent reference, frozen split and error taxonomy.",
           "depends_on": [
             "T03.001",
-            "T00.004"
+            "T00.004",
+            "T14.002"
           ],
           "issue": 4,
           "status": "planned",
@@ -604,7 +619,8 @@
           "depends_on": [
             "T03.006",
             "T00.003",
-            "T00.005"
+            "T00.005",
+            "T14.004"
           ],
           "issue": 4,
           "status": "planned",
@@ -646,7 +662,8 @@
           "acceptance": "50–100 studies or synthetic analogues; label ranked cohort links and opportunities; provenance, independent reference, frozen split and error taxonomy.",
           "depends_on": [
             "T03.001",
-            "T00.004"
+            "T00.004",
+            "T14.002"
           ],
           "issue": 4,
           "status": "planned",
@@ -661,7 +678,8 @@
           "depends_on": [
             "T03.010",
             "T00.003",
-            "T00.005"
+            "T00.005",
+            "T14.004"
           ],
           "issue": 4,
           "status": "planned",
@@ -730,7 +748,8 @@
           "acceptance": "300 scenarios; label urgency, supporting criteria and abstention; provenance, independent reference, frozen split and error taxonomy.",
           "depends_on": [
             "T04.001",
-            "T00.004"
+            "T00.004",
+            "T14.002"
           ],
           "issue": 5,
           "status": "planned",
@@ -745,7 +764,8 @@
           "depends_on": [
             "T04.002",
             "T00.003",
-            "T00.005"
+            "T00.005",
+            "T14.004"
           ],
           "issue": 5,
           "status": "planned",
@@ -787,7 +807,8 @@
           "acceptance": "80 synthetic portfolios; label supported/unsupported/conditional/insufficient; provenance, independent reference, frozen split and error taxonomy.",
           "depends_on": [
             "T04.001",
-            "T00.004"
+            "T00.004",
+            "T14.002"
           ],
           "issue": 5,
           "status": "planned",
@@ -802,7 +823,8 @@
           "depends_on": [
             "T04.006",
             "T00.003",
-            "T00.005"
+            "T00.005",
+            "T14.004"
           ],
           "issue": 5,
           "status": "planned",
@@ -844,7 +866,8 @@
           "acceptance": "100 counterfactual pairs; label appropriate variation/potential deficiency/unresolved; provenance, independent reference, frozen split and error taxonomy.",
           "depends_on": [
             "T04.001",
-            "T00.004"
+            "T00.004",
+            "T14.002"
           ],
           "issue": 5,
           "status": "planned",
@@ -859,7 +882,8 @@
           "depends_on": [
             "T04.010",
             "T00.003",
-            "T00.005"
+            "T00.005",
+            "T14.004"
           ],
           "issue": 5,
           "status": "planned",
@@ -928,7 +952,8 @@
           "acceptance": "150 questions; label reordered applicable passages; provenance, independent reference, frozen split and error taxonomy.",
           "depends_on": [
             "T05.001",
-            "T00.004"
+            "T00.004",
+            "T14.002"
           ],
           "issue": 6,
           "status": "planned",
@@ -943,7 +968,8 @@
           "depends_on": [
             "T05.002",
             "T00.003",
-            "T00.005"
+            "T00.005",
+            "T14.004"
           ],
           "issue": 6,
           "status": "planned",
@@ -985,7 +1011,8 @@
           "acceptance": "100 profiles; label ranked trials and unresolved criteria; provenance, independent reference, frozen split and error taxonomy.",
           "depends_on": [
             "T05.001",
-            "T00.004"
+            "T00.004",
+            "T14.002"
           ],
           "issue": 6,
           "status": "planned",
@@ -1000,7 +1027,8 @@
           "depends_on": [
             "T05.006",
             "T00.003",
-            "T00.005"
+            "T00.005",
+            "T14.004"
           ],
           "issue": 6,
           "status": "planned",
@@ -1042,7 +1070,8 @@
           "acceptance": "100 queries; label ranked mechanism analogues; provenance, independent reference, frozen split and error taxonomy.",
           "depends_on": [
             "T05.001",
-            "T00.004"
+            "T00.004",
+            "T14.002"
           ],
           "issue": 6,
           "status": "planned",
@@ -1057,7 +1086,8 @@
           "depends_on": [
             "T05.010",
             "T00.003",
-            "T00.005"
+            "T00.005",
+            "T14.004"
           ],
           "issue": 6,
           "status": "planned",
@@ -1126,7 +1156,8 @@
           "acceptance": "300 scenarios; label candidate destination, confidence and reasons; provenance, independent reference, frozen split and error taxonomy.",
           "depends_on": [
             "T06.001",
-            "T00.004"
+            "T00.004",
+            "T14.002"
           ],
           "issue": 7,
           "status": "planned",
@@ -1141,7 +1172,8 @@
           "depends_on": [
             "T06.002",
             "T00.003",
-            "T00.005"
+            "T00.005",
+            "T14.004"
           ],
           "issue": 7,
           "status": "planned",
@@ -1183,7 +1215,8 @@
           "acceptance": "200 requests; label owner, consultation and approval route; provenance, independent reference, frozen split and error taxonomy.",
           "depends_on": [
             "T06.001",
-            "T00.004"
+            "T00.004",
+            "T14.002"
           ],
           "issue": 7,
           "status": "planned",
@@ -1198,7 +1231,8 @@
           "depends_on": [
             "T06.006",
             "T00.003",
-            "T00.005"
+            "T00.005",
+            "T14.004"
           ],
           "issue": 7,
           "status": "planned",
@@ -1240,7 +1274,8 @@
           "acceptance": "500 simulated tasks; label eligible destination or human escalation; provenance, independent reference, frozen split and error taxonomy.",
           "depends_on": [
             "T06.001",
-            "T00.004"
+            "T00.004",
+            "T14.002"
           ],
           "issue": 7,
           "status": "planned",
@@ -1255,7 +1290,8 @@
           "depends_on": [
             "T06.010",
             "T00.003",
-            "T00.005"
+            "T00.005",
+            "T14.004"
           ],
           "issue": 7,
           "status": "planned",
@@ -1324,7 +1360,8 @@
           "acceptance": "80 examples; label domain appraisal, supporting span and uncertainty; provenance, independent reference, frozen split and error taxonomy.",
           "depends_on": [
             "T07.001",
-            "T00.004"
+            "T00.004",
+            "T14.002"
           ],
           "issue": 8,
           "status": "planned",
@@ -1339,7 +1376,8 @@
           "depends_on": [
             "T07.002",
             "T00.003",
-            "T00.005"
+            "T00.005",
+            "T14.004"
           ],
           "issue": 8,
           "status": "planned",
@@ -1381,7 +1419,8 @@
           "acceptance": "40 synthetic proposals; label indirectness, missing capability and unresolved risks; provenance, independent reference, frozen split and error taxonomy.",
           "depends_on": [
             "T07.001",
-            "T00.004"
+            "T00.004",
+            "T14.002"
           ],
           "issue": 8,
           "status": "planned",
@@ -1396,7 +1435,8 @@
           "depends_on": [
             "T07.006",
             "T00.003",
-            "T00.005"
+            "T00.005",
+            "T14.004"
           ],
           "issue": 8,
           "status": "planned",
@@ -1438,7 +1478,8 @@
           "acceptance": "100 simulated evaluations; label claim appraisal and missing assumptions; provenance, independent reference, frozen split and error taxonomy.",
           "depends_on": [
             "T07.001",
-            "T00.004"
+            "T00.004",
+            "T14.002"
           ],
           "issue": 8,
           "status": "planned",
@@ -1453,7 +1494,8 @@
           "depends_on": [
             "T07.010",
             "T00.003",
-            "T00.005"
+            "T00.005",
+            "T14.004"
           ],
           "issue": 8,
           "status": "planned",
@@ -1522,7 +1564,8 @@
           "acceptance": "150 simulated episodes; label completed/late/missing/inapplicable/unverifiable; provenance, independent reference, frozen split and error taxonomy.",
           "depends_on": [
             "T08.001",
-            "T00.004"
+            "T00.004",
+            "T14.002"
           ],
           "issue": 9,
           "status": "planned",
@@ -1537,7 +1580,8 @@
           "depends_on": [
             "T08.002",
             "T00.003",
-            "T00.005"
+            "T00.005",
+            "T14.004"
           ],
           "issue": 9,
           "status": "planned",
@@ -1579,7 +1623,8 @@
           "acceptance": "100 injected defects; label step-level failures with evidence; provenance, independent reference, frozen split and error taxonomy.",
           "depends_on": [
             "T08.001",
-            "T00.004"
+            "T00.004",
+            "T14.002"
           ],
           "issue": 9,
           "status": "planned",
@@ -1594,7 +1639,8 @@
           "depends_on": [
             "T08.006",
             "T00.003",
-            "T00.005"
+            "T00.005",
+            "T14.004"
           ],
           "issue": 9,
           "status": "planned",
@@ -1636,7 +1682,8 @@
           "acceptance": "100 transfers; label obligation verification and provenance; provenance, independent reference, frozen split and error taxonomy.",
           "depends_on": [
             "T08.001",
-            "T00.004"
+            "T00.004",
+            "T14.002"
           ],
           "issue": 9,
           "status": "planned",
@@ -1651,7 +1698,8 @@
           "depends_on": [
             "T08.010",
             "T00.003",
-            "T00.005"
+            "T00.005",
+            "T14.004"
           ],
           "issue": 9,
           "status": "planned",
@@ -1785,6 +1833,25 @@
           "status": "planned",
           "application": null,
           "evidence": []
+        },
+        {
+          "id": "T09.007",
+          "key": "extension",
+          "title": "Compare extended specialist compositions",
+          "acceptance": "State, affordance, recoverability, commitment, counterexamples and attribution substitutions; component ablations and simulated workflow outcomes.",
+          "depends_on": [
+            "T09.004",
+            "T15.001",
+            "T15.003",
+            "T17.001",
+            "T18.002",
+            "T18.003",
+            "T19.002"
+          ],
+          "issue": 10,
+          "status": "planned",
+          "application": null,
+          "evidence": []
         }
       ]
     },
@@ -1859,6 +1926,19 @@
           "acceptance": "Primary-source claim links, contradictory and negative results, missing coverage.",
           "depends_on": [
             "T10.004"
+          ],
+          "issue": 11,
+          "status": "planned",
+          "application": null,
+          "evidence": []
+        },
+        {
+          "id": "T10.006",
+          "key": "taxonomy",
+          "title": "Qualify 22-role taxonomy and primary precedents",
+          "acceptance": "Verify citations and author proposals, learned prototypes, prompted/deterministic implementations; role boundaries and no first-ever claim.",
+          "depends_on": [
+            "T10.003"
           ],
           "issue": 11,
           "status": "planned",
@@ -1956,6 +2036,22 @@
           "status": "planned",
           "application": null,
           "evidence": []
+        },
+        {
+          "id": "T11.007",
+          "key": "extension",
+          "title": "Cross-role assurance and transportability",
+          "acceptance": "Compare false feasibility, false closure, uncertainty, missingness and site shift; abstention and equity.",
+          "depends_on": [
+            "T11.004",
+            "T18.004",
+            "T17.001",
+            "T19.002"
+          ],
+          "issue": 12,
+          "status": "planned",
+          "application": null,
+          "evidence": []
         }
       ]
     },
@@ -2017,6 +2113,22 @@
           "acceptance": "Define perspective, horizon, equity, workflow acceptance and external governance gates.",
           "depends_on": [
             "T12.003"
+          ],
+          "issue": 13,
+          "status": "planned",
+          "application": null,
+          "evidence": []
+        },
+        {
+          "id": "T12.005",
+          "key": "extension",
+          "title": "Cross-role resource and decision utility synthesis",
+          "acceptance": "Matched-budget acquisition, feasibility and optimisation; separate proxy outcomes from clinical outcomes.",
+          "depends_on": [
+            "T12.003",
+            "T16.001",
+            "T17.001",
+            "T17.003"
           ],
           "issue": 13,
           "status": "planned",
@@ -2113,6 +2225,409 @@
           "issue": 14,
           "status": "planned",
           "application": null,
+          "evidence": []
+        },
+        {
+          "id": "T13.007",
+          "key": "extension",
+          "title": "Extended benchmark and functional-specialisation paper",
+          "acceptance": "38 applications; claim registry, negative/unavailable arms, exact revision, primary sources and rights.",
+          "depends_on": [
+            "T13.003",
+            "T10.006",
+            "T14.004",
+            "T09.007",
+            "T11.007",
+            "T12.005"
+          ],
+          "issue": 14,
+          "status": "planned",
+          "application": null,
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "14",
+      "slug": "14-benchmark-data",
+      "title": "Public data, reference standards and comparative benchmark",
+      "depends_on": [
+        "00",
+        "10",
+        "12"
+      ],
+      "issue": 15,
+      "status": "planned",
+      "implementation_state": "not_started",
+      "evidence_level": "contracted",
+      "tasks": [
+        {
+          "id": "T14.001",
+          "key": "inventory",
+          "title": "Dataset inventory and acquisition qualification",
+          "acceptance": "Source version, rights, access, schema, grain, missingness, provenance and SHA-256; no restricted redistribution.",
+          "depends_on": [
+            "T00.002",
+            "T10.001"
+          ],
+          "issue": 15,
+          "status": "planned",
+          "application": null,
+          "evidence": []
+        },
+        {
+          "id": "T14.002",
+          "key": "splits",
+          "title": "Task, reference and grouped split contracts",
+          "acceptance": "Freeze independent reference and grouped holdouts; audit patient, site, time, document and rule-family leakage.",
+          "depends_on": [
+            "T14.001",
+            "T00.004"
+          ],
+          "issue": 15,
+          "status": "planned",
+          "application": null,
+          "evidence": []
+        },
+        {
+          "id": "T14.003",
+          "key": "arms",
+          "title": "Matched-resource comparison",
+          "acceptance": "Human reference only if approved, deterministic/statistical, prompted generalist, dedicated learned, hybrid; matched inputs, budgets, paired effects.",
+          "depends_on": [
+            "T14.002",
+            "T00.005",
+            "T12.001"
+          ],
+          "issue": 15,
+          "status": "planned",
+          "application": null,
+          "evidence": []
+        },
+        {
+          "id": "T14.004",
+          "key": "results",
+          "title": "Run and release contracts",
+          "acceptance": "Record exact revision, dataset/model hashes, configuration, seeds, costs, raw outputs, failed/unavailable arms and claim boundary.",
+          "depends_on": [
+            "T14.003",
+            "T00.003"
+          ],
+          "issue": 15,
+          "status": "planned",
+          "application": null,
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "15",
+      "slug": "15-dynamics",
+      "title": "State reconstruction, world models, recoverability and ascertainment",
+      "depends_on": [
+        "00",
+        "14"
+      ],
+      "issue": 16,
+      "status": "planned",
+      "implementation_state": "not_started",
+      "evidence_level": "contracted",
+      "tasks": [
+        {
+          "id": "T15.001",
+          "key": "state",
+          "title": "State reconstruction",
+          "acceptance": "PhysioNet masked observations vs last value, imputation and trained temporal model; held-out measurement error and calibration, not undocumented truth.",
+          "depends_on": [
+            "T14.004",
+            "T00.006",
+            "T11.001"
+          ],
+          "issue": 16,
+          "status": "planned",
+          "application": "E25",
+          "evidence": []
+        },
+        {
+          "id": "T15.002",
+          "key": "world",
+          "title": "Operational world modelling",
+          "acceptance": "NHS passive forecasting vs seasonal/DES baselines; intervention effects only in qualified simulation; trajectory error and calibration.",
+          "depends_on": [
+            "T14.004",
+            "T00.006",
+            "T11.001"
+          ],
+          "issue": 16,
+          "status": "planned",
+          "application": "E26",
+          "evidence": []
+        },
+        {
+          "id": "T15.003",
+          "key": "recovery",
+          "title": "Recoverability horizon",
+          "acceptance": "4TU traces plus known synthetic intervention effects; fixed deadlines/early warning vs learned horizon; missed rescue windows and false reassurance.",
+          "depends_on": [
+            "T14.004",
+            "T00.006",
+            "T11.001"
+          ],
+          "issue": 16,
+          "status": "planned",
+          "application": "E29",
+          "evidence": []
+        },
+        {
+          "id": "T15.004",
+          "key": "ascertainment",
+          "title": "Ascertainment and observation process",
+          "acceptance": "FluSight and simulated reporting delays; compare conventional nowcast; independent anchors for incidence; estimate uncertainty.",
+          "depends_on": [
+            "T14.004",
+            "T00.006",
+            "T11.001"
+          ],
+          "issue": 16,
+          "status": "planned",
+          "application": "E31",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "16",
+      "slug": "16-information-science",
+      "title": "Information acquisition, adaptive experiments and scientific data value",
+      "depends_on": [
+        "00",
+        "14"
+      ],
+      "issue": 17,
+      "status": "planned",
+      "implementation_state": "not_started",
+      "evidence_level": "contracted",
+      "tasks": [
+        {
+          "id": "T16.001",
+          "key": "voi",
+          "title": "Value of information",
+          "acceptance": "PhysioNet sequential masked observations; fixed panels and greedy uncertainty vs learned acquisition at matched cost; no causal care-delay claims.",
+          "depends_on": [
+            "T15.001",
+            "T14.004",
+            "T00.006"
+          ],
+          "issue": 17,
+          "status": "planned",
+          "application": "E27",
+          "evidence": []
+        },
+        {
+          "id": "T16.002",
+          "key": "design",
+          "title": "Adaptive experimental design",
+          "acceptance": "Known simulated mechanisms, GEO context; compare fixed and Bayesian design on information gain and cost.",
+          "depends_on": [
+            "T14.004",
+            "T00.006"
+          ],
+          "issue": 17,
+          "status": "planned",
+          "application": "E30",
+          "evidence": []
+        },
+        {
+          "id": "T16.003",
+          "key": "valuation",
+          "title": "Scientific data valuation",
+          "acceptance": "GEO/public cohorts; group overlapping participants; compare size/power/Shapley with learned marginal replication/precision utility.",
+          "depends_on": [
+            "T14.004",
+            "T00.006"
+          ],
+          "issue": 17,
+          "status": "planned",
+          "application": "E38",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "17",
+      "slug": "17-feasibility-optimisation",
+      "title": "Affordance, constraint acquisition and learned optimisation",
+      "depends_on": [
+        "00",
+        "14"
+      ],
+      "issue": 18,
+      "status": "planned",
+      "implementation_state": "not_started",
+      "evidence_level": "contracted",
+      "tasks": [
+        {
+          "id": "T17.001",
+          "key": "affordance",
+          "title": "Clinical affordance",
+          "acceptance": "AIHW/CMS facility attributes and synthetic resources; compare rules and learned estimates; false-feasible rate; directories not actual availability.",
+          "depends_on": [
+            "T14.004",
+            "T00.006",
+            "T11.001"
+          ],
+          "issue": 18,
+          "status": "planned",
+          "application": "E28",
+          "evidence": []
+        },
+        {
+          "id": "T17.002",
+          "key": "constraints",
+          "title": "Constraint acquisition",
+          "acceptance": "Withheld synthetic roster constraints; compare manual/rules and learned proposals; human ratification; historical preferences not hard rules.",
+          "depends_on": [
+            "T14.004",
+            "T00.006",
+            "T11.001"
+          ],
+          "issue": 18,
+          "status": "planned",
+          "application": "E33",
+          "evidence": []
+        },
+        {
+          "id": "T17.003",
+          "key": "optimiser",
+          "title": "Learned optimisation assistant",
+          "acceptance": "Synthetic rosters; exact solver vs learned warm start/branching at equal budget; solver enforces constraints; optimality gap and time.",
+          "depends_on": [
+            "T14.004",
+            "T00.006",
+            "T11.001"
+          ],
+          "issue": 18,
+          "status": "planned",
+          "application": "E32",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "18",
+      "slug": "18-system-assurance",
+      "title": "Counterexamples, failure attribution and transportability",
+      "depends_on": [
+        "00",
+        "14"
+      ],
+      "issue": 19,
+      "status": "planned",
+      "implementation_state": "not_started",
+      "evidence_level": "contracted",
+      "tasks": [
+        {
+          "id": "T18.001",
+          "key": "pilot",
+          "title": "Finite-domain counterexample pilot",
+          "acceptance": "Toy executable rules, exhaustive oracle, non-equivalent mutants, random/boundary/learned candidate selection at matched budget; exploratory not clinical evidence.",
+          "depends_on": [
+            "T00.002",
+            "T00.003",
+            "T11.001"
+          ],
+          "issue": 19,
+          "status": "planned",
+          "application": null,
+          "evidence": []
+        },
+        {
+          "id": "T18.002",
+          "key": "counterexamples",
+          "title": "Clinical-rule counterexample benchmark",
+          "acceptance": "Rights-qualified CQL and synthetic cases; held-out rule/mutation families; independent oracle; distinct defects per budget and invalid cases.",
+          "depends_on": [
+            "T18.001",
+            "T14.004",
+            "T00.006"
+          ],
+          "issue": 19,
+          "status": "planned",
+          "application": "E35",
+          "evidence": []
+        },
+        {
+          "id": "T18.003",
+          "key": "attribution",
+          "title": "System failure attribution",
+          "acceptance": "Synthetic known mechanisms then qualified public reports; compare timelines and process mining; unsupported causal attribution; no culpability inference.",
+          "depends_on": [
+            "T14.004",
+            "T00.006",
+            "T11.001"
+          ],
+          "issue": 19,
+          "status": "planned",
+          "application": "E34",
+          "evidence": []
+        },
+        {
+          "id": "T18.004",
+          "key": "transport",
+          "title": "Transportability assessor",
+          "acceptance": "Hold out environments, use PhysioNet only if site metadata verified; WILDS/FluSight alternative; estimate target performance vs statistical baseline.",
+          "depends_on": [
+            "T14.004",
+            "T00.006",
+            "T11.001"
+          ],
+          "issue": 19,
+          "status": "planned",
+          "application": "E36",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "19",
+      "slug": "19-commitment-memory",
+      "title": "Clinical commitment stewardship",
+      "depends_on": [
+        "00",
+        "14"
+      ],
+      "issue": 20,
+      "status": "planned",
+      "implementation_state": "not_started",
+      "evidence_level": "contracted",
+      "tasks": [
+        {
+          "id": "T19.001",
+          "key": "events",
+          "title": "Commitment event contract",
+          "acceptance": "Synthetic FHIR Task history with provenance, ownership, supersession, cancellation and completion; independently verified lifecycle oracle.",
+          "depends_on": [
+            "T14.002",
+            "T11.001"
+          ],
+          "issue": 20,
+          "status": "planned",
+          "application": null,
+          "evidence": []
+        },
+        {
+          "id": "T19.002",
+          "key": "steward",
+          "title": "Compare commitment stewardship",
+          "acceptance": "State machine vs prompted and learned proposals on held-out event templates; false closure, missed and duplicate obligations; human-authorised closure.",
+          "depends_on": [
+            "T19.001",
+            "T14.004",
+            "T00.006"
+          ],
+          "issue": 20,
+          "status": "planned",
+          "application": "E37",
           "evidence": []
         }
       ]
@@ -2526,12 +3041,256 @@
       "workflow_outcome": "unresolved obligations and workload",
       "status": "planned",
       "source_gate": "Primary sources for documented capabilities must be independently retrieved and claim-matched before publication; hypotheses are not novelty claims."
+    },
+    {
+      "id": "E25",
+      "track": "15",
+      "title": "state reconstructor",
+      "classification": "adaptation",
+      "setting": "rural transfer",
+      "workflow": "Clinician reconciles observations at cutoff",
+      "input": "PhysioNet masked observations and synthetic timelines",
+      "output": "state estimate with uncertainty",
+      "baseline": "last observation and imputation",
+      "failure_and_reviewer": "stale value treated as current; independent oracle",
+      "fixture": "held-out patients",
+      "model_metric": "reconstruction error and calibration",
+      "workflow_outcome": "handover omission and workload",
+      "status": "planned",
+      "source_gate": "Nearest primary-source precedent and data rights require independent qualification; not a novelty claim."
+    },
+    {
+      "id": "E26",
+      "track": "15",
+      "title": "world model",
+      "classification": "adaptation",
+      "setting": "regional operations",
+      "workflow": "Planner forecasts hospital occupancy",
+      "input": "NHS aggregate situation reports; simulator separately",
+      "output": "distribution of future states",
+      "baseline": "seasonal naive and DES",
+      "failure_and_reviewer": "association mistaken for intervention effect; identification check",
+      "fixture": "held-out hospital-week trajectories",
+      "model_metric": "trajectory error and coverage",
+      "workflow_outcome": "simulated planning regret",
+      "status": "planned",
+      "source_gate": "Nearest primary-source precedent and data rights require independent qualification; not a novelty claim."
+    },
+    {
+      "id": "E27",
+      "track": "16",
+      "title": "value of information",
+      "classification": "adaptation",
+      "setting": "rural investigation",
+      "workflow": "Clinician selects informative next observation",
+      "input": "PhysioNet sequential masked measurements",
+      "output": "expected incremental value and cost",
+      "baseline": "fixed panels and greedy uncertainty",
+      "failure_and_reviewer": "delay ignored; enforce time constraint",
+      "fixture": "held-out patients",
+      "model_metric": "utility at matched cost",
+      "workflow_outcome": "investigation burden and escalation utility proxy",
+      "status": "planned",
+      "source_gate": "Nearest primary-source precedent and data rights require independent qualification; not a novelty claim."
+    },
+    {
+      "id": "E28",
+      "track": "17",
+      "title": "clinical affordance",
+      "classification": "hypothesis",
+      "setting": "rural capability",
+      "workflow": "Coordinator checks local feasibility",
+      "input": "AIHW/CMS attributes and synthetic dynamic resources",
+      "output": "feasibility, missing prerequisites and uncertainty",
+      "baseline": "static capability rules",
+      "failure_and_reviewer": "historic exceptional capability mistaken for availability; hard constraint checker",
+      "fixture": "held-out sites/resource scenarios",
+      "model_metric": "false-feasible rate",
+      "workflow_outcome": "referral rework and simulated delay",
+      "status": "planned",
+      "source_gate": "Nearest primary-source precedent and data rights require independent qualification; not a novelty claim."
+    },
+    {
+      "id": "E29",
+      "track": "15",
+      "title": "recoverability horizon",
+      "classification": "hypothesis",
+      "setting": "regional pathway safety",
+      "workflow": "Coordinator identifies narrowing recovery options",
+      "input": "4TU Sepsis and synthetic delay/intervention simulator",
+      "output": "time-dependent probability of successful recovery",
+      "baseline": "fixed deadlines and survival model",
+      "failure_and_reviewer": "false reassurance; independent oracle",
+      "fixture": "held-out process and delay scenarios",
+      "model_metric": "recovery calibration and missed opportunities",
+      "workflow_outcome": "warning lead time in simulation",
+      "status": "planned",
+      "source_gate": "Nearest primary-source precedent and data rights require independent qualification; not a novelty claim."
+    },
+    {
+      "id": "E30",
+      "track": "16",
+      "title": "adaptive experimental designer",
+      "classification": "adaptation",
+      "setting": "rare-disease research",
+      "workflow": "Scientist selects informative experiment",
+      "input": "known simulated mechanisms; GEO context",
+      "output": "next experimental design",
+      "baseline": "fixed and Bayesian experimental design",
+      "failure_and_reviewer": "correlated samples treated as independent; investigator checks design",
+      "fixture": "held-out mechanisms and assay budgets",
+      "model_metric": "posterior uncertainty reduction",
+      "workflow_outcome": "experimental cost",
+      "status": "planned",
+      "source_gate": "Nearest primary-source precedent and data rights require independent qualification; not a novelty claim."
+    },
+    {
+      "id": "E31",
+      "track": "15",
+      "title": "ascertainment model",
+      "classification": "hypothesis",
+      "setting": "rural public health",
+      "workflow": "Epidemiologist interprets incomplete notifications",
+      "input": "FluSight reporting vintages and simulated suppression",
+      "output": "detection/reporting process and uncertainty",
+      "baseline": "Bayesian nowcast",
+      "failure_and_reviewer": "detection mistaken for incidence; independent anchor",
+      "fixture": "held-out seasons",
+      "model_metric": "nowcast error and interval coverage",
+      "workflow_outcome": "outbreak detection lead time proxy",
+      "status": "planned",
+      "source_gate": "Nearest primary-source precedent and data rights require independent qualification; not a novelty claim."
+    },
+    {
+      "id": "E32",
+      "track": "17",
+      "title": "learned optimisation assistant",
+      "classification": "adaptation",
+      "setting": "medical rostering",
+      "workflow": "Scheduler delegates search heuristic",
+      "input": "synthetic constrained rosters",
+      "output": "branching/warm start proposal",
+      "baseline": "unmodified exact solver",
+      "failure_and_reviewer": "distribution shift or infeasible roster; exact solver",
+      "fixture": "held-out workforce/demand scenarios",
+      "model_metric": "optimality gap at matched budget",
+      "workflow_outcome": "time to feasible roster",
+      "status": "planned",
+      "source_gate": "Nearest primary-source precedent and data rights require independent qualification; not a novelty claim."
+    },
+    {
+      "id": "E33",
+      "track": "17",
+      "title": "constraint acquisition",
+      "classification": "adaptation",
+      "setting": "theatre and roster design",
+      "workflow": "Scheduler proposes constraints for ratification",
+      "input": "synthetic accepted and rejected schedules",
+      "output": "candidate constraints for ratification",
+      "baseline": "association rules and manual elicitation",
+      "failure_and_reviewer": "undesirable practice treated as mandatory; policy owner",
+      "fixture": "withheld known constraints",
+      "model_metric": "constraint precision and recall",
+      "workflow_outcome": "elicitation time and rejected schedules",
+      "status": "planned",
+      "source_gate": "Nearest primary-source precedent and data rights require independent qualification; not a novelty claim."
+    },
+    {
+      "id": "E34",
+      "track": "18",
+      "title": "system failure attribution",
+      "classification": "hypothesis",
+      "setting": "clinical governance",
+      "workflow": "Review team inspects contributory mechanisms",
+      "input": "synthetic incident traces; qualified HSSIB/OHO findings",
+      "output": "candidate contributory pathways",
+      "baseline": "timeline and process mining",
+      "failure_and_reviewer": "last actor blamed; multidisciplinary review",
+      "fixture": "known synthetic causes; independently reviewed public findings",
+      "model_metric": "factor recall and unsupported causal attribution",
+      "workflow_outcome": "review burden and actionability",
+      "status": "planned",
+      "source_gate": "Nearest primary-source precedent and data rights require independent qualification; not a novelty claim."
+    },
+    {
+      "id": "E35",
+      "track": "18",
+      "title": "counterexample generator",
+      "classification": "hypothesis",
+      "setting": "clinical assurance",
+      "workflow": "Policy owner tests executable rules",
+      "input": "synthetic cases and qualified CQL",
+      "output": "valid inputs exposing defects",
+      "baseline": "random, boundary and property-based testing",
+      "failure_and_reviewer": "invalid or duplicate cases; executable oracle",
+      "fixture": "held-out rule/mutation families",
+      "model_metric": "distinct non-equivalent defects per budget",
+      "workflow_outcome": "review burden proxy",
+      "status": "planned",
+      "source_gate": "Nearest primary-source precedent and data rights require independent qualification; not a novelty claim."
+    },
+    {
+      "id": "E36",
+      "track": "18",
+      "title": "transportability assessor",
+      "classification": "hypothesis",
+      "setting": "regional model governance",
+      "workflow": "Analyst estimates target site reliability",
+      "input": "qualified PhysioNet, WILDS or FluSight",
+      "output": "target performance estimate and abstention",
+      "baseline": "confidence threshold and statistical estimator",
+      "failure_and_reviewer": "unmeasured shift; external validation",
+      "fixture": "held-out complete environments",
+      "model_metric": "target performance error and interval coverage",
+      "workflow_outcome": "validation prioritisation utility",
+      "status": "planned",
+      "source_gate": "Nearest primary-source precedent and data rights require independent qualification; not a novelty claim."
+    },
+    {
+      "id": "E37",
+      "track": "19",
+      "title": "commitment steward",
+      "classification": "hypothesis",
+      "setting": "rural continuity",
+      "workflow": "Coordinator reconciles task lifecycle",
+      "input": "Synthea and synthetic FHIR Task events",
+      "output": "proposed update/closure with provenance",
+      "baseline": "finite-state machine and deadlines",
+      "failure_and_reviewer": "false closure; authorised clinician",
+      "fixture": "held-out event templates",
+      "model_metric": "false closure and unresolved action recall",
+      "workflow_outcome": "missed follow-up and duplicate work proxy",
+      "status": "planned",
+      "source_gate": "Nearest primary-source precedent and data rights require independent qualification; not a novelty claim."
+    },
+    {
+      "id": "E38",
+      "track": "16",
+      "title": "scientific data value estimator",
+      "classification": "adaptation",
+      "setting": "registry research",
+      "workflow": "Scientist prioritises complementary datasets",
+      "input": "GEO and qualified public cohort data",
+      "output": "marginal scientific value",
+      "baseline": "sample size, power and Shapley",
+      "failure_and_reviewer": "small cohorts undervalued; research reviewer",
+      "fixture": "held-out cohort additions and estimands",
+      "model_metric": "marginal precision and replication utility",
+      "workflow_outcome": "cost per incremental contribution",
+      "status": "planned",
+      "source_gate": "Nearest primary-source precedent and data rights require independent qualification; not a novelty claim."
     }
   ],
   "priorities": [
     "E02",
     "E04",
-    "E22"
+    "E22",
+    "E35",
+    "E25",
+    "E27",
+    "E28",
+    "E37",
+    "E26"
   ],
   "evidence_states": [
     "contracted",

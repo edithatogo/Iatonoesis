@@ -24,3 +24,7 @@ Public accessibility does not equal redistribution rights or ethical exemption. 
 | Synthetic executable rules, rosters, event logs and causal simulator | repository-generated | R10 R12–R19 R21 | Define generator, seed, oracle, equivalence checks and held-out families |
 
 For original eight tasks use rights-cleared synthetic document/graph/decision/evidence/verification fixtures first; identify independent public task datasets in T01–T08 and qualify through T14. No dataset accepted by listing alone.
+
+## Core comparative candidates
+
+See [machine-readable B01–B16](../contracts/benchmark-candidates.v1.json), [study design](../research/comparative-study.md), and [TrialGPT qualification receipt](qualification/trialgpt.v0.1.0.md). TrialGPT source and schema reviewed, but byte hash, row integrity, rights for underlying source components and frozen split remain open; the candidate is not qualified for ingestion or redistribution.
