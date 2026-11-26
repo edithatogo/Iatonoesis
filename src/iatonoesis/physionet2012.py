@@ -28,7 +28,7 @@ def digest(obj): return sha(json.dumps(obj,sort_keys=True,separators=(',',':'),a
 def parse(raw,identifier):
     lines=csv.reader(io.StringIO(raw.decode('utf-8-sig')))
     if next(lines,None)!=['Time','Parameter','Value']: raise ValueError('invalid header')
-    hr=[];other=Counter();icu='unknown';ids=[];content=[];previous=0;out_of_order=0
+    hr=[];other=Counter();marks={k:[] for k in ('HR',*AUX)};icu='unknown';ids=[];content=[];previous=0;out_of_order=0
     for row in lines:
         if len(row)!=3 or not re.fullmatch(r'\d{2}:\d{2}',row[0]): raise ValueError('invalid row/time')
         h,m=map(int,row[0].split(':'));t=h*60+m
@@ -45,6 +45,7 @@ def parse(raw,identifier):
             v=float(row[2])
             if not math.isfinite(v) or (v<0 and v!=-1): raise ValueError('invalid observed value')
             if v==-1: continue
+            if t<360: marks[name].append(t)
             if name=='HR': hr.append((t,v))
             elif t<360: other[name]+=1
     if ids!=[identifier]: raise ValueError('record identity mismatch')
@@ -58,7 +59,9 @@ def parse(raw,identifier):
         if values and any(v is not None for v in history): targets[str(h)]=values[0]
     return dict(history=history,count=sum(x is not None for x in history),aux_counts=[other[k] for k in AUX],
                 targets=targets,observed=int(any(360<=t<540 for t,_ in hr)),icu=icu,
-                content_sha256=digest(content),out_of_order=out_of_order)
+                content_sha256=digest(content),out_of_order=out_of_order,
+                mark_minutes=[sorted(marks[k]) for k in ('HR',*AUX)],
+                first_hr_minute=next((t-360 for t,_ in hr if 360<=t<540),None))
 
 
 def unpack(blob,cohort,expected=4000):

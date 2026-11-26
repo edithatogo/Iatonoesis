@@ -4,6 +4,9 @@ on:
     paths:
       - 'src/iatonoesis/physionet2012.py'
       - 'tests/test_physionet2012.py'
+      - 'tests/test_physionet2012_grouped.py'
+      - 'src/iatonoesis/physionet2012_grouped.py'
+      - 'research/protocols/physionet2012-grouped-v0.2.0.md'
       - 'research/protocols/physionet2012-observation-process-v0.1.0.md'
       - '.github/workflows/physionet2012-observation.yml'
   workflow_dispatch:
@@ -30,7 +33,7 @@ jobs:
           mkdir -p artifacts/p12
           python --version > artifacts/p12/environment.txt
           git rev-parse HEAD >> artifacts/p12/environment.txt
-          python -m iatonoesis.physionet2012 --revision "$(git rev-parse HEAD)" --output artifacts/p12/aggregate.json
+          python -m iatonoesis.physionet2012_grouped --revision "$(git rev-parse HEAD)" --output artifacts/p12/aggregate.json
           sha256sum artifacts/p12/aggregate.json > artifacts/p12/SHA256SUMS
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         if: always()
