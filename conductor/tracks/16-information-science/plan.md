@@ -14,3 +14,7 @@ Issue [#17](https://github.com/edithatogo/Iatonoesis/issues/17). Stable task IDs
   - Depends on: T14.004, T00.006.
   - Accept: GEO/public cohorts; group overlapping participants; compare size/power/Shapley with learned marginal replication/precision utility.
   - Evidence: pending; record exact revision, commands, fixtures and outcomes.
+
+## Exploratory evidence — T16.001
+
+[Shared T15/T16 protocol](../../../research/protocols/T15.001-T16.001-synthetic-state-information.v0.1.0.md), [result receipt](../../../research/results/T15.001-T16.001-exploratory-v0.1.0.md), [summary](../../../results/exploratory/T15.001-T16.001-summary.v0.1.0.json). Same frozen state estimator and subjects; 5,760 development-only OOF gain labels; context learned MSE .47232 vs fixed .47624 at one acquisition, descriptive paired interval spans zero; no clear incremental advantage. No real costs or clinical claims. T15.001, T14.004, T00.006 and actual data/reference qualification remain prerequisites.

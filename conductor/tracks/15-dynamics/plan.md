@@ -18,3 +18,7 @@ Issue [#16](https://github.com/edithatogo/Iatonoesis/issues/16). Stable task IDs
   - Depends on: T14.004, T00.006, T11.001.
   - Accept: FluSight and simulated reporting delays; compare conventional nowcast; independent anchors for incidence; estimate uncertainty.
   - Evidence: pending; record exact revision, commands, fixtures and outcomes.
+
+## Exploratory evidence — T15.001
+
+[Shared T15/T16 synthetic protocol](../../../research/protocols/T15.001-T16.001-synthetic-state-information.v0.1.0.md), [result receipt](../../../research/results/T15.001-T16.001-exploratory-v0.1.0.md), [summary](../../../results/exploratory/T15.001-T16.001-summary.v0.1.0.json). Ridge MAE .74643 vs last .83842; interval coverage fell from 93.33% matched to 70% shifted. 240 synthetic test subjects; no real PhysioNet, clinical claim or acceptance. T16.001 reuses same splits. Qualify public bytes, temporal/reference integrity, calibration and runtime before confirmatory run.
