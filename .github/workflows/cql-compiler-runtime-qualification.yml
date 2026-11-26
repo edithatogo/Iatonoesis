@@ -1,0 +1,74 @@
+name: Bounded CQL compiler runtime qualification
+on:
+  pull_request:
+    paths:
+      - 'research/tools/cql-runtime*'
+      - 'research/protocols/cql-compiler-runtime-qualification-v0.1.0.md'
+      - '.github/workflows/cql-compiler-runtime-qualification.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  conformance:
+    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          repository: cqframework/cql-execution
+          ref: 1991335e7ad490a8db88a05dd7f03dc3eecbda6d
+          path: upstream-cql
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020
+        with:
+          node-version: "24"
+      - name: Verify source and freeze mutation reference
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts/cql
+          work="$RUNNER_TEMP/cql-qualification"
+          mkdir -p "$work/spec-tests/cql"
+          test "$(git -C upstream-cql rev-parse HEAD)" = 1991335e7ad490a8db88a05dd7f03dc3eecbda6d
+          test "$(git hash-object upstream-cql/package-lock.json)" = aafe981ccaefddf7c4a32b727cd5bf7735ccd295
+          fixtures=datasets/fixtures/cql-external-holdout-v0.1.0
+          test "$(git hash-object "$fixtures/CqlLogicalOperatorsTest.cql")" = d67d11d5a0acc65420dae233cb2580f87aed1651
+          test "$(git hash-object "$fixtures/CqlConditionalOperatorsTest.cql")" = 277a1d8e53e44c82626c74495d24d71d14b9ef8b
+          cmp "$fixtures/CqlLogicalOperatorsTest.cql" upstream-cql/test/spec-tests/cql/CqlLogicalOperatorsTest.cql
+          cmp "$fixtures/CqlConditionalOperatorsTest.cql" upstream-cql/test/spec-tests/cql/CqlConditionalOperatorsTest.cql
+          cp "$fixtures/CqlLogicalOperatorsTest.cql" "$fixtures/CqlConditionalOperatorsTest.cql" "$work/spec-tests/cql/"
+          cp -R upstream-cql/test/generator "$work/generator"
+          node --test research/tools/cql-runtime.test.cjs
+          node research/tools/cql-runtime.cjs generate "$work/spec-tests/cql/IatonoesisMutationCases.cql" "$work/mutation-reference.json"
+          echo "5d04fc3e0a5a82409263214db3aa61c23b8729e72cde5826db2aa2febd735a0d  $work/spec-tests/cql/IatonoesisMutationCases.cql" | sha256sum -c -
+          echo "8dd5e53de48b7a6967606ffdbdab02ddcf1717407c70f71e69a53fb2b68ff90b  $work/mutation-reference.json" | sha256sum -c -
+          { git rev-parse HEAD; node --version; npm --version; } > artifacts/cql/environment.txt
+          sha256sum upstream-cql/package-lock.json >> artifacts/cql/environment.txt
+      - name: Build pinned runtime and translate bounded cases
+        shell: bash
+        run: |
+          set -euo pipefail
+          work="$RUNNER_TEMP/cql-qualification"
+          export JAVA_HOME="$JAVA_HOME_17_X64"
+          export PATH="$JAVA_HOME/bin:$PATH"
+          java -version 2>> artifacts/cql/environment.txt
+          curl --fail --location --proto '=https' --max-time 180 https://services.gradle.org/distributions/gradle-9.3.0-bin.zip -o "$work/gradle.zip"
+          echo "0d585f69da091fc5b2beced877feab55a3064d43b8a1d46aeb07996b0915e0e0  $work/gradle.zip" | sha256sum -c -
+          unzip -q "$work/gradle.zip" -d "$work"
+          gradle="$work/gradle-9.3.0/bin/gradle"
+          "$gradle" -p "$work/generator" --no-daemon dependencies --configuration runtimeClasspath > artifacts/cql/compiler-dependencies.txt
+          "$gradle" -p "$work/generator" --no-daemon generateSpecTestData
+          (cd upstream-cql && npm ci --ignore-scripts && npm run build)
+          node research/tools/cql-runtime.cjs replay "$GITHUB_WORKSPACE/upstream-cql" "$work/spec-tests/cql" "$GITHUB_WORKSPACE/datasets/fixtures/cql-external-holdout-v0.1.0" "$work/mutation-reference.json" artifacts/cql/result.json
+          sha256sum artifacts/cql/result.json > artifacts/cql/SHA256SUMS
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        if: always()
+        with:
+          name: cql-runtime-conformance-${{ github.sha }}
+          path: artifacts/cql/
+          if-no-files-found: error
+          retention-days: 30
