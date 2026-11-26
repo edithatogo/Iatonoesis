@@ -12,3 +12,5 @@ Contracted, implemented, executed, scientifically validated and externally autho
 - 20 owning issues, 38 applications. Original T00–T13 and E01–E24 retained. T14 shared data/benchmark; T15–T19 extensions. No scientific execution claimed.
 
 - [Comparative benchmark protocol](../research/comparative-study.md), [B01–B16 candidate registry](../contracts/benchmark-candidates.v1.json), [TrialGPT initial qualification](../datasets/qualification/trialgpt.v0.1.0.md). T14/#15 coordinates; T01–T08 own component experiments.
+
+- [26 November research evidence and independent-admission gates](research-evidence-20261126.md) — T00, T01–T09, T11, T14; actual merge/experiment receipts, non-acceptance and next steps.
