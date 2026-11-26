@@ -66,9 +66,28 @@ def test_acquisition_and_independent_failure_receipts(monkeypatch,tmp_path):
         raise ValueError('private content')
     monkeypatch.setattr(b,'get',fetch);monkeypatch.setattr(b,'verify_blob',lambda *_:None)
     monkeypatch.setattr(b,'pubmedqa',lambda *_:dict(expert_rows=1000,evaluation_admitted=False))
+    monkeypatch.setattr(b,'audit_biored',lambda *_:dict(documents=600))
     r=b.run();assert r['pubmedqa']['expert_rows']==1000 and r['biored']['files']==2 and r['ebm_nlp']['files']==2
-    assert r['nhs_occupied']['rows']==1 and r['nhs_available']=={'status':'failed','error_type':'ValueError'}
+    assert r['nhs_occupied']['rows']==1 and r['nhs_available']=={'status':'failed','error_type':'ValueError','reason':'unclassified'}
     path=tmp_path/'audit.json';monkeypatch.setattr(sys,'argv',['audit','--revision','a'*40,'--output',str(path)])
     with pytest.raises(SystemExit):b.main()
     assert json.loads(path.read_text())['sources']==r
     assert 'private content' not in path.read_text()
+
+
+def test_biored_pubtator_document_and_relation_audit():
+    raw=b'1|t|Gene\n1|a|Disease\n1\t0\t4\tGene\tGeneOrGeneProduct\t1\n1\t5\t12\tDisease\tDiseaseOrPhenotypicFeature\tD1\n1\tAssociation\t1\tD1\tNovel\n\n'
+    f=io.BytesIO()
+    with zipfile.ZipFile(f,'w') as z:
+        for split,i in [('train',b'1'),('dev',b'2'),('test',b'3')]:
+            z.writestr(split+'.pubtator',raw if i==b'1' else raw.replace(b'1|',i+b'|').replace(b'\n1\t',b'\n'+i+b'\t').replace(b'Gene\n',i+b'Gene\n'))
+    out=b.audit_biored(f.getvalue(),expected=3)
+    assert out['documents']==3 and out['split_documents']=={'train':1,'dev':1,'test':1}
+    assert out['relations']==3 and out['unresolved_relation_endpoints']==0
+    assert out['evaluation_admitted'] is False
+    with pytest.raises(ValueError):b.audit_biored(zipbytes(['a.txt']),expected=3)
+
+
+def test_allowlisted_failure_does_not_leak_values():
+    assert b.reason(ValueError('invalid archive member'))=='invalid archive member'
+    assert b.reason(ValueError('secret member x'))=='unclassified'

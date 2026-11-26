@@ -75,6 +75,44 @@ def inventory(raw,mode):
     return dict(files=len(seen),extensions=dict(ext),split_marked_files=dict(splits),expanded_bytes=expanded,member_manifest_sha256=sha('\n'.join(sorted(seen)).encode()),evaluation_admitted=False)
 
 
+def audit_biored(raw,expected=600):
+    inventory(raw,'zip')
+    docs={};groups=defaultdict(set);counts=Counter();relations=entities=unresolved=offset_mismatches=0
+    with zipfile.ZipFile(io.BytesIO(raw)) as z:
+        for name in z.namelist():
+            if not name.lower().endswith('.pubtator'):continue
+            parts=re.split(r'[/_.-]',name.lower());split=next((k for k in ('train','dev','test') if k in parts),None)
+            if split is None:raise ValueError('unknown BioRED split')
+            local={}
+            for line in z.read(name).decode('utf-8-sig').splitlines():
+                if not line.strip():continue
+                if re.match(r'^\d+\|[ta]\|',line):
+                    pmid,tag,value=line.split('|',2);d=local.setdefault(pmid,dict(text={},entities=[],relations=[]))
+                    if tag in d['text']:raise ValueError('duplicate BioRED text field')
+                    d['text'][tag]=value;continue
+                fields=line.split('\t')
+                if len(fields)<4 or fields[0] not in local:raise ValueError('invalid BioRED annotation row')
+                d=local[fields[0]]
+                if len(fields)>=6 and fields[1].isdigit() and fields[2].isdigit():d['entities'].append(fields[1:6])
+                else:d['relations'].append(fields[1:])
+            for key,d in local.items():
+                if key in docs or set(d['text'])!={'t','a'}:raise ValueError('BioRED document membership mismatch')
+                docs[key]=split;counts[split]+=1;context=d['text']['t']+' '+d['text']['a'];groups[sha(' '.join(context.casefold().split()).encode())].add(split)
+                ids=set()
+                for start,end,mention,typ,ident in d['entities']:
+                    entities+=1;offset_mismatches+=int(not 0<=int(start)<int(end)<=len(context) or context[int(start):int(end)]!=mention)
+                    ids.update(re.split(r'[;|]',ident))
+                for rel in d['relations']:
+                    relations+=1;unresolved+=sum(not(set(re.split(r'[;|]',end))&ids) for end in rel[1:3])
+    if len(docs)!=expected or set(counts)!={'train','dev','test'}:raise ValueError('BioRED document count mismatch')
+    return dict(documents=len(docs),split_documents=dict(counts),entities=entities,relations=relations,offset_mismatches=offset_mismatches,unresolved_relation_endpoints=unresolved,cross_partition_exact_context_groups=sum(len(v)>1 for v in groups.values()),evaluation_admitted=False)
+
+
+def reason(exc):
+    allowed={'source Git blob mismatch','invalid archive member','archive expansion limit','archive CRC failure','empty archive','source byte limit','invalid CSV header','invalid CSV row width','empty CSV','source membership mismatch','author test reference mismatch','invalid expert reference row','unknown BioRED split','duplicate BioRED text field','invalid BioRED annotation row','BioRED document membership mismatch','BioRED document count mismatch'}
+    return str(exc) if isinstance(exc,ValueError) and str(exc) in allowed else 'unclassified'
+
+
 def csv_inventory(raw):
     reader=csv.reader(io.StringIO(raw.decode('utf-8-sig')));header=next(reader,None)
     if not header or len(header)!=len(set(header)) or len(header)>100 or any(len(s)>120 for s in header):raise ValueError('invalid CSV header')
@@ -101,7 +139,9 @@ def run():
     def archive(url,mode,blob=None):
         raw=get(url,40_000_000)
         if blob:verify_blob(raw,blob)
-        return dict(status='archive_inventory_only',bytes=len(raw),sha256=sha(raw),**inventory(raw,mode))
+        result=dict(status='archive_inventory_only',bytes=len(raw),sha256=sha(raw),**inventory(raw,mode))
+        if url==BIORED:result['pubtator_audit']=audit_biored(raw)
+        return result
     def nhs(name):
         raw=get(NHS+name+'-Overnight-only.csv',40_000_000)
         return dict(status='csv_inventory_only',bytes=len(raw),sha256=sha(raw),**csv_inventory(raw))
@@ -109,7 +149,7 @@ def run():
     result={}
     for k,f in funcs.items():
         try:result[k]=f()
-        except Exception as e:result[k]=dict(status='failed',error_type=type(e).__name__)
+        except Exception as e:result[k]=dict(status='failed',error_type=type(e).__name__,reason=reason(e))
     return result
 
 
