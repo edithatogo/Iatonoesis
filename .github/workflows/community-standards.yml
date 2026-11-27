@@ -11,4 +11,9 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 10
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@aebdcf6156ab6691adf63218240e476564a1ed4c # v2.23.0
+        with:
+          egress-policy: audit
+
       - uses: edithatogo/repository-standards/.github/actions/community-standards@7e4dcadc02130c79aa974927fd672b52c34e3aeb
